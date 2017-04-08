@@ -1,2 +1,2 @@
 # quantum-groups
-This repository contains the LaTeX files of my disertation and two related papers.
+This repository contains the LaTeX files of my dissertation and two related papers.

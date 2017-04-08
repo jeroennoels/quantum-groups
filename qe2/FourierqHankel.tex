@@ -1,0 +1,1281 @@
+
+
+\section{$q$-Exponentials \&\ Hahn-Exton $q$-Bessel functions}
+\label{sec:qExp_and_qBessel}
+\begin{abs} \rm
+First we recall some basic notions from $q$-calculus, together with a
+well-known $q$-analogue of the exponential function.
+Hahn-Exton $q$-Bessel functions were introduced in
+\cite{KoornwSwartt,Swarttouw,VaksKor:QE2}\ and first related to the
+quantum $E(2)$ group in \cite{Koelink:QE2}\@. In
+\cite{KoornwSwartt}\ they were used as a kernel for $q$-analogues
+of Hankel transforms. In these papers, Hahn-Exton $q$-Bessel
+functions are defined in terms of $q$-hypergeometric series. For
+our purposes, we can rely entirely on a few elementary
+properties---summarized below---of these $q$-Bessel functions, and
+we shall never have to deal with their definition directly; for
+the sake of completeness however, we give an {\em ad hoc\/}
+definition below.
+\hfill $\star$
+\end{abs}
+
+
+\begin{defn} \label{def:shifted_factorial:qExp}
+Whenever $q\in\RR$ with $0<q<1$, $m\in \NN$ and $z\in \CC$,
+we define the {\em $q$-shifted factorial\/} $(z;q)_m$ by
+$$ (z;q)_m = \prod_{k=0}^{m-1} (1-q^k z) \hspace{20mm} (z;q)_0 =1.  $$
+The limit $m\rarr \infty$ is well defined and yields
+\begin{equation}\label{eq:shifted_factorial:infty}
+(z;q)_\infty \: = \:\lim_{m\rarr \infty} (z;q)_m \:= \:\prod_{k=0}^{\infty} (1-q^k z).
+\end{equation}
+Now the $q$-Exponential $E_q : \CC \rarr \CC$ is defined by
+$E_q(z)=(-z;q)_\infty$.
+\end{defn}
+
+\begin{remark} \rm
+According to the Weierstra\ss\ theory of entire functions and canonical
+products (\ref{eq:shifted_factorial:infty})
+defines an entire function in $z$, having simple zeros at the
+points $q^{-k}$ for $k\in \NN$, and no zeros elsewhere.
+To ensure convergence of (\ref{eq:shifted_factorial:infty}) it is
+essential that $0<q<1$. It should be noted that there exist
+other $q$-analogues of the exponential function as well, but the
+above one is the most suitable for our purposes.
+\hfill $\star$
+\end{remark}
+
+\begin{prop} \label{prop:def:qExp}
+The $q$-Exponential $E_q$ is entire and has the following power
+series at the origin:
+\begin{equation}\label{eq:qExp:powerseries}
+  E_q(z)\:=\; \sum_{n=0}^\infty \:\frac{q^{\frac{1}{2}n(n-1)}}{(q;q)_n} \, z^n
+\end{equation}
+for any $z\in \CC$. Furthermore $E_q(-q^{-k})=(q^{-k};q)_\infty=0$
+for all $k\in \NN$.
+\end{prop}
+\begin{proof}
+See above remark; also (\ref{eq:qExp:powerseries}) is a standard result in $q$-calculus.
+\end{proof}
+
+\begin{lemma} \label{lemma:def:qBessel}
+Whenever $n \in \ZZ$ and $q\in\RR$ with $0<q<1$, the power series
+\begin{equation}\label{eq:def:qBessel}
+  J_n(z;q) \:=\; \sum_{k=0}^{\infty} \:
+  \frac{(-1)^k\,q^{\frac{1}{2}k(k-1)}\,q^k\,(q^{k+n+1};q)_\infty}{(q;q)_\infty \,(q;q)_k}\:z^{2k+n}
+\end{equation}
+defines an entire function in $z$, having a zero of order $|n|$ at the origin.
+This function is said to be the {\em Hahn-Exton $q$-Bessel\/} function of order $n$.
+\end{lemma}
+\begin{proof}
+First notice that (\ref{eq:def:qBessel}) is indeed a {\em power\/}
+series---not a genuine Laurent series---when $n$ is negative,
+because $(q^{k+n+1};q)_\infty=0$ whenever $n < -k \leq 0$.
+So if $n<0$, the $(k=|n|)$-term will be the first non-zero term
+in the series.
+To prove that (\ref{eq:def:qBessel}) converges for all $z\in \CC$,
+we appeal to the ratio test: fix any $z\in \CC$ and let
+$a_k$ denote the $k$-term of the above series, then $a_k$
+is non-zero (provided $k\geq|n|$ when $n$ is negative) and
+$$ \left| \frac{a_{k+1}}{a_k} \right| \:=\:
+    q^{k+1}\: \frac{(q^{k+n+2};q)_\infty}{(q^{k+n+1};q)_\infty} \:
+              \frac{(q;q)_k}{(q;q)_{k+1}}\: |z|^2
+    \:=\: \frac{q^{k+1}\, |z|^2}{(1-q^{k+n+1})\, (1- q^{k+1})},  $$
+which tends to zero as $k\rarr\infty$, since $0<q<1$.
+\end{proof}
+
+\begin{remark} \rm
+Notice Hahn-Exton $q$-Bessel functions take real values on the real line,
+since all the coefficients in (\ref{eq:def:qBessel}) are real.
+It should be noted that it is also possible to consider Hahn-Exton
+$q$-Bessel functions of non-integer order. However, those
+of integer order have some interesting properties not shared
+by those of non-integer order.
+
+Furthermore, given $q$ we shall usually deal with $q^2$-Bessel functions
+henceforth---rather than with $q$-Bessel functions.
+\end{remark}
+
+\begin{prop} \label{prop:qbessel:properties}
+The Hahn-Exton $q^2$-Bessel functions satisfy the following
+recurrence and symmetry relations,
+for all $n,m \in \ZZ$ and $z\in\CC$,
+\begin{eqnarray}
+ z\,\J{n-1}{z} &=& \J{n}{z} - q^n\,\J{n}{qz} \vertXL
+     \label{eq:qBessel:recurrence1} \\
+ -q^{-n} z\, \J{n+1}{z} &=& \J{n}{q^{-1}z} - q^{-n} \J{n}{z} \vertXL
+    \label{eq:qBessel:recurrence2} \\
+ \J{n}{q^m} &=& \J{m}{q^n} \vertXL
+    \label{eq:qBessel:symmetry}\\
+ \J{-n}{z} &=& (-q)^n\, \J{n}{q^n z} \vertXL
+    \label{eq:qBessel:inversion}
+\end{eqnarray}
+and respectively Hansen-Lommel and $q$-Hankel orthogonality relations
+\begin{eqnarray}
+ \sum_{k\in \ZZ} \: q^{2k}\, \J{n+k}{z} \,\J{m+k}{z}
+  &=& \delta_{n,m} \,q^{-2n} \hspace{2em}  (|qz|<1)
+      \label{eq:qBessel:Hansen_Lommel} \\
+ \sum_{k\in \ZZ} \: q^{2k} \,\J{r}{q^{n+k}} \,\J{r}{q^{m+k}}
+  &=& \delta_{n,m} \,q^{-2n} \hspace{2em}  (r\in\ZZ)
+      \label{eq:qBessel:qHankel}
+\end{eqnarray}
+where the sums in (\ref{eq:qBessel:Hansen_Lommel}) and (\ref{eq:qBessel:qHankel})
+are absolutely convergent.
+\end{prop}
+\begin{proof}
+The recurrence relations (\ref{eq:qBessel:recurrence1}) and (\ref{eq:qBessel:recurrence2})
+are equivalent with formulas (4.8) and (4.6) in
+\cite{KoelinkSwart:qBessel:zeros}, the latter being in turn
+related to $q$-derivatives of Hahn-Exton $q$-Bessel functions.
+It is however not too hard to derive (\ref{eq:qBessel:recurrence1})
+directly from the power series expression given in
+\cite[proof of prop.\ 2.1]{KoornwSwartt}\@.
+The other relations can be found in
+\cite{Koelink:thesis,Koelink:QE2,KoornwSwartt,Swarttouw}\@.
+Be aware that (\ref{eq:qBessel:Hansen_Lommel}) is only valid when
+$|qz|<1$, and observe how (\ref{eq:qBessel:qHankel})
+follows from (\ref{eq:qBessel:Hansen_Lommel}) via
+(\ref{eq:qBessel:symmetry}) for $r\geq 0$, whereas proving the $r<0$ case of
+(\ref{eq:qBessel:qHankel}) moreover involves (\ref{eq:qBessel:inversion}).
+Also notice (\ref{eq:qBessel:inversion}) interchanges
+(\ref{eq:qBessel:recurrence1}) and (\ref{eq:qBessel:recurrence2}).
+\end{proof}
+
+
+\section{$q$-Hankel transformation}  \label{sec:qHankel}
+\begin{abs} \rm
+$q$-analogues of Hankel transforms with Hahn-Exton $q^2$-Bessel
+kernels first appeared explicitly in \cite{KoornwSwartt}, whereas
+in \cite{Vainerman}\ they were mentioned in relation to
+the quantum $E(2)$ group. The starting point for our theory will
+be the definition as proposed in \cite{KoornwSwartt}\@.
+We recall this definition below---slightly reformulated in
+an $L^2$-language. Then we shall study the possibility of
+transforming {\em entire\/} functions into {\em entire\/}
+functions, a feature which is
+crucial\footnote{in the sense that we want to stick to our semi-algebraic
+description\cite{Jeroen:QE2:haar}\ of the quantum $E(2)$ group,
+the {\em algebraic\/} nature of which depends heavily on the use of entire functions
+in constructing a functional calculus.}\ for our applications to the
+quantum $E(2)$ group.
+Furthermore we investigate how \mbox{$q$-Hankel}\ transforms behave
+w.r.t.\ $q$-differentiation and multiplication. Next we
+will search for eigenfunctions of these $q$-Hankel transforms;
+these will turn out to be functions of \mbox{$q^2$-exponential}\ type.
+Eventually we shall establish a link between \mbox{$q$-Hankel}\ transformation and
+\mbox{$q^2$-moments}, yielding positive answer to a particular \lq moment problem\rq.
+\hfill $\star$
+\end{abs}
+
+\paragraph{The $L^2$-theory}
+Let $\RR_q^+ \equiv (\RR_q^+,m_q)$ denote the discrete set $\{ q^k \mid k\in\ZZ \}$
+endowed with the measure $m_q$ which assigns weight $q^{2k}$ to the
+point $q^k$, for any $k\in\ZZ$. So integration w.r.t.\ $m_q$ yields
+$$ \int_{\RR_q^+} f\,dm_q \:=\: \sum_{k\in \ZZ} f(q^k)\,q^{2k} $$
+for $f\in L^1(\RR_q^+)$. Now the orthogonality relations (\ref{eq:qBessel:qHankel})
+can be reformulated in an $L^2$-language:
+
+\begin{prop}
+Fix any $m\in\ZZ$ and define functions $\basis{m}{k}$ on $\RR_q^+$ by
+$$  \basis{m}{k}(x) \: =\: q^k \,\J{m}{q^k x} \hspace{5em} (k\in \ZZ,\: x\in\RR_q^+). $$
+Then $(\basis{m}{k})_{k\in \ZZ}$ is an orthonormal basis ({\sc onb}) in
+the Hilbert space \Ltwoq\@.
+\end{prop}
+
+On the other hand, we also have a canonical {\sc onb} for \Ltwoq,
+say $(d_k)_{k\in \ZZ}$ with $d_k = q^{-k} \delta_{q^k}$. Here $\delta_{q^k}$
+denotes the characteristic function of the singleton $\{q^k\}$.
+
+\begin{defn} \label{def:qHankeltransform:unitary}
+Given $m\in\ZZ$, let $H_m$ be the unitary transformation of \Ltwoq\
+which maps the {\sc onb} $(\basis{m}{k})_{k\in \ZZ}$
+into the {\sc onb} $(d_k)_{k\in \ZZ}$, i.e.\
+$ H_m f \:=\:\sum_{k\in \ZZ} \:\scal{f}{\basis{m}{k}}\,d_k $,
+or equivalently,
+\begin{equation}\label{eq:qHankeltransform:def}
+  (H_m f)(q^k) \;=\; q^{-k} \scal{f}{\basis{m}{k}}
+          \;=\;\sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}} f(q^n)
+\end{equation}
+for $f\in \Ltwoq$ and $k\in\ZZ$.
+$H_m$ is said to be the {\em $q$-Hankel transform\/} of order $m$.
+\end{defn}
+
+\begin{prop} \label{prop:qHankelSquare_is_id}
+$\: H_m^2 = \id$ for all $m\in\ZZ$.
+\end{prop}
+\begin{proof}
+It suffices to show that $H_m d_j = \basis{m}{j}$ for all $j\in \ZZ$.
+For $k \in \ZZ$ we have
+$$ (H_m d_j)(q^k)  \:=\: \sum_{n\in \ZZ} q^{2n} \J{m}{q^{n+k}} d_j(q^n)
+     \:=\:  q^{2j} \J{m}{q^{j+k}} q^{-j} \:=\:  q^j \J{m}{q^j q^k}
+     \,=\,  \basis{m}{j}(q^k).  $$
+\end{proof}
+
+
+\paragraph{Holomorphic $q$-Hankel transformation}
+In the previous paragraph we considered functions living on a
+discrete space $\RR_q^+$. Now we shall try
+to \lq interpolate\rq\ these functions on $\RR_q^+$ by entire
+functions (whenever possible). But first we recall the \lq Schwartz-like\rq\ spaces
+of entire functions, as defined in \cite[example 3.4.1.2]{Jeroen:QE2:haar}.
+
+\begin{defn} \label{ex:Schwartz-like_space}
+Whenever $r$ is a real number with $r>0$, we define
+$$ {\mathcal S}_r(\RR^+;q)
+    \;=\: \left\{ f \in \HC \left|\vertL \right.
+          \mbox{for all $n \in \NN$, the set
+          $\left\{\,f(r q^k)\,q^{nk} \right\}_{_{\scriptstyle k \in \ZZ}}$
+          is bounded} \right\}.$$
+In case $r=1$, the subscript $r$ will be suppressed in our notation.
+\end{defn}
+
+Also recall (cf.\ \cite[\S 3.2]{Jeroen:QE2:haar}) the linear
+operators $\Omega$ and $\Psi$ from \HC\ into \HC\ defined by
+$(\Omega f)(z) = f(qz)$ and $(\Psi f)(z) = z f(z)$ for
+$f\in\HC$ and $z\in\CC$
+(notice $\Omega$ is invertible whereas $\Psi$ is not).
+We now moreover introduce the operator $K$ on \HC, defined by
+$(Kf)(z)=f(z^2)$. Observe that $K$ maps \Swqbis\ into \Swq\@.
+Also the commutation rules $\Omega K = K\Omega^2$ and
+$\Psi^2 K = K \Psi$ are easily verified.
+
+Furthermore, let $R_q$ denote the restriction map from \HC\ into
+the space of all functions on $\RR_q^+$. Since $\RR_q^+$ admits a
+point of accumulation, the identity theorem for holomorphic functions
+implies $R_q$ to be injective.
+Observe that $R_q$ maps \Swq\ into \Ltwoq\@. The proof of this involves
+the fact that entire functions are bounded on---let's say---the unit interval;
+also recall that $\RR_q^+ \equiv (\RR_q^+,m_q)$ was endowed with a particular
+measure---{\em not\/} the counting measure.
+
+
+
+\begin{abs} \label{abs:holomorphic_qHankel}\rm
+Our next aim is to find, for any $m\in\ZZ$, a sufficiently large subspace
+$\holS{m}$ of \Swqbis\ together with a linear mapping $\holH{m}$ from $\holS{m}$
+into $\holS{m}$, such that the following diagram commutes:
+\begin{equation}\label{eq:diagram:holomorphic_qHankel}
+\begin{CD}
+  \holS{m} @>\id>>
+  \Swqbis  @>{\textstyle K}>>
+  \Swq     @>{\textstyle \Psi^{|m|}}>>
+  \Swq     @>{\textstyle R_q}>>
+  \Ltwoq \\
+%%%%%%%%%%%%%%%
+  @V{\textstyle\holH{m}}VV @. @. @. @VV{\textstyle H_m}V  \\
+%%%%%%%%%%%%%%%
+  \holS{m} @>>\id>
+  \Swqbis  @>>{\textstyle K}>
+  \Swq     @>>{\textstyle \Psi^{|m|}}>
+  \Swq     @>>{\textstyle R_q}>
+  \Ltwoq
+\end{CD}
+\end{equation}
+The map $\holH{m}$ will then be called the {\em holomorphic\/} $q$-Hankel transform of order $m$,
+because it transforms entire functions into entire functions.
+However the above scheme involves more than merely the passage to entire functions:
+the operators $K$ and $\Psi^{|m|}$ appearing in the diagram will ensure
+the system $(\holH{m})_{m\in\ZZ}$ to have the proper behaviour w.r.t.\
+$q^2$-differentiation (cf.\ proposition \ref{prop:holqHankel:qdiff}).
+Iterating the above diagram immediately reveals that $\holH{m}^2=\id$
+(recall that $H_m^2=\id$, cf.\ proposition \ref{prop:qHankelSquare_is_id}).
+\hfill $\star$
+\end{abs}
+
+\begin{defn*} \label{def:Hmpair}
+For all $m\in\ZZ$ we define $\auxH{m} : \Swqbis \rarr \Ltwoq$
+by \mbox{$\auxH{m} = H_m R_q \Psi^{|m|} K$}\@. Now a pair $(f,g)$
+of entire functions is said to be an {\em \Hmpair\/} whenever
+\begin{enumerate}
+\item $f\in \Swqbis$ and $\auxH{m} f = R_q g$,
+\item $g$ is an even (resp.\ odd) function whenever $m$ is an even (resp.\ odd) number,
+\item $g$ has a zero at the origin of order at least $|m|$.
+\end{enumerate}
+Finally we define $\holS{m}$ to be the following subspace of \Swqbis:
+$$ \holS{m} \:= \: \left\{ f\in \Swqbis \:\left|\:
+                \begin{array}{l}
+                   \mbox{there exists an entire function $g$ such} \\
+                   \mbox{that $(f,g)$ is an \Hmpair}
+                \end{array}\!\right.\right\}$$
+\end{defn*}
+
+\begin{remark} \label{rem:not_constructive} \rm
+The maps $\auxH{m}$ and the notion of an \Hmpair\ shall have no
+role in the eventual picture; however they will turn out to be
+very convenient in formulating some intermediate results. Roughly
+speaking we want to consider entire functions whose $q$-Hankel
+transforms on $\RR_q^+$ admit interpolation by entire functions.
+The above approach may seem to be rather descriptive and certainly
+not very constructive at this moment, since it does not provide a
+criterion to determine whether a function $f$ belongs to
+$\holS{m}$ or not---at least not without computing $\auxH{m} f$
+first. In this way however, we want to avoid (or at least
+postpone) some technical questions which do not have too high
+priority from our perspective. Just to give a hint of the kind of
+trouble we run into when we actually try to {\em construct\/}
+such an \Hmpair\ $(f,g)$, let's write out in detail the equation
+$\auxH{m} f = R_q g$ appearing in the above definition:
+\begin{equation}\label{eq:remark:trouble:qpower}
+ g(q^k) \:=\: (H_m R_q \Psi^{|m|} K f)(q^k)
+        \:=\:  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\, q^{n|m|} f(q^{2n})
+\end{equation}
+for any $k\in\ZZ$. Formally replacing $q^k$ with $z\in\CC$ we obtain
+\begin{equation}\label{eq:remark:trouble:entire}
+   g(z)  \:=\;  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^n z}\, q^{n|m|} f(q^{2n})
+     \hspace{5em} \mbox{for any $z\in\CC$}.
+\end{equation}
+Now we want (\ref{eq:remark:trouble:entire}) to define an entire
+function---so we need the sum to converge uniformly on
+compact sets---and that's precisely the point where things become very tricky.
+Indeed there turns out to be a huge difference between
+(\ref{eq:remark:trouble:qpower}) and (\ref{eq:remark:trouble:entire})
+on the technical level. The fact is that our Hahn-Exton $q^2$-Bessel
+functions are behaving very well as far as we evaluate them in in $q$-powers only,
+whereas they are not quite so innocent in the rest of the complex plane.
+For instance, the orthogonality relation (\ref{eq:qBessel:qHankel})
+reveals that $\J{m}{q^{n+k}}$ tends to zero as $n \rarr -\infty$, but in general
+when $z\in \CC$ is not an integer power of $q$, $\J{m}{q^n z}$ will grow very
+rapidly as $n \rarr -\infty$.
+However the \lq interpolation\rq\ strategy we have chosen for will allow us to
+proceed quite far with only {\em partial\/} answers (like for instance lemma
+\ref{lemma:compactsupp_in_holS}) to the question of convergence mentioned above,
+and therefore avoiding a lot of trouble.
+Indeed precisely those results that {\em we\/} are looking for
+(i.e.\ those which are useful w.r.t.\ the quantum $E(2)$ group) will come
+almost for free in our approach, but of course we shall also pay a price:
+some properties one might expect to hold could be hard to prove within our setting
+(cf.\ remark \ref{rem:Q:strict_inclusions}).
+Let's conclude the present remark by stating that we {\em won't\/} give a full
+explicit description of the spaces $\holS{m}$, whereas we {\em will\/}
+show---constructively---that they contain plenty of elements.
+\hfill $\star$
+\end{remark}
+
+
+
+\paragraph{$q$-Hankel transforms and $q$-differentiation}
+Whenever $f \in H(\CC)$ the function
+\begin{equation}\label{eq:def:qderivative}
+  \CC_0 \rarr \CC : z \mapsto \frac{f(z)-f(qz)}{(1-q)z}
+\end{equation}
+is holomorphic and obviously has a removable singularity at the origin.
+Hence (\ref{eq:def:qderivative}) defines an {\em entire\/} function again,
+denoted $D_q f$. This yields a linear operator $D_q: \HC \rarr \HC$
+which is usually referred to as $q$-differentiation.
+In \cite[\S 3.3]{Jeroen:QE2:haar}\ we also considered the $q$-difference
+operators $\nabq{m}$ on \HC, defined by
+\begin{equation}\label{eq:def:nabq}
+ \nabq{m} \:=\;  \frac{1}{q-q^{-1}}
+        \,\left( q^m\, \Omega  - q^{-m}\, \Omega^{-1} \vertL\right)
+\end{equation}
+for $m\in\NN$.
+Notice \Swqbis\ is not \mbox{$\nabq{m}$-invariant};
+however $\nabq{m} \Omega$ does leave \Swqbis\ invariant.
+It's also possible to prove that \Swqbis\ is $D_{q^2}$-invariant,
+although definition \ref{ex:Schwartz-like_space}\ does not make
+any reference to $q^2$-derivatives at
+all\footnote{which is rather peculiar for a \lq Schwartz-like\rq\ space,
+isn't it? The fact $D_{q^2}$-invariance holds automatically here, is related to the
+discrete nature of $q^2$-differentiation.} (cf.\ \cite[\S 3.4]{Jeroen:QE2:haar}).
+Now the following makes sense:
+
+\begin{lemma} \label{lemma:auxH:qdiff}
+For all $f\in \Swqbis$ and $m,k\in \ZZ$ with $m\geq 1$ we have
+\begin{eqnarray}
+(\auxH{m} D_{q^2} f)(q^k)
+      &=& -\frac{q^{-1}}{q^{-1}-q} \; q^k (\auxH{m-1} \Omega^2 f)(q^k)
+       \label{eq:auxH:Dq2:pos}\\
+(\auxH{m-1} \nabq{m} \Omega f)(q^k)
+      &=& \frac{1}{q^{-1}-q} \; q^{-m}\, q^k (\auxH{m} f)(q^k)
+       \label{eq:auxH:nabq:pos} \\
+(\auxH{-m} D_{q^2} f)(q^k)
+      &=&  \frac{q^{-1}}{q^{-1}-q} \; q^k (\auxH{-m+1} f)(q^k)
+       \label{eq:auxH:Dq2:neg} \\
+(\auxH{-m+1} \nabq{m} \Omega f)(q^k)
+      &=& -\frac{1}{q^{-1}-q} \; q^m\: q^k (\auxH{-m} \Omega^2 f)(q^k)
+      \label{eq:auxH:nabq:neg}
+\end{eqnarray}
+\end{lemma}
+\begin{proof}
+Take any $f\in \Swqbis$. Assuming $m \geq 1$, we have for all $k\in \ZZ$
+\begin{eqnarray*}
+\lefteqn{(\auxH{m} D_{q^2} f)(q^k)
+  \hspace{1em} = \hspace{1em}
+      (H_m R_q \Psi^{|m|} K D_{q^2} f)(q^k)} \\
+  \vertXL
+  &=& \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\: (R_q \Psi^{|m|} K D_{q^2} f)(q^n)\\
+  &=& \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\: q^{nm}\,(D_{q^2} f)(q^{2n}) \\
+  &=& \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\: q^{nm}\,
+      \frac{f(q^{2n})-f(q^2 q^{2n})}{(1-q^2) q^{2n}} \\
+  &\stackrel{(\sharp)}{=}&
+   \frac{1}{1-q^2}\,  \sum_{n\in \ZZ} \: \J{m}{q^{n+k}}\: q^{nm} f(q^{2n})
+  \;-\;\frac{1}{1-q^2}\, \sum_{n\in \ZZ} \: \J{m}{q^{n+k}}\:
+              q^{nm} f\!\left(q^{2n+2}\right) \\
+  &\stackrel{(*)}{=}&
+      \frac{1}{1-q^2}\, \sum_{n\in \ZZ} \:
+           \left(q^m \J{m}{q^{n+1+k}} - \J{m}{q^{n+k}}\vertL\right)
+            q^{nm} f\!\left(q^{2n+2}\right)\\
+  &\stackrel{(\ref{eq:qBessel:recurrence1})}{=}&
+       -\frac{1}{1-q^2}\, \sum_{n\in \ZZ} \:
+         q^{n+k} \J{m-1}{q^{n+k}}\: q^{nm} \:(\Omega^2 f)(q^{2n}) \\
+  &=& -\frac{1}{1-q^2}\, q^k \sum_{n\in \ZZ} \:
+         q^{2n} \J{m-1}{q^{n+k}} \: q^{n(m-1)}\: (\Omega^2 f)(q^{2n}) \\
+  &=& -\frac{q^{-1}}{q^{-1}-q}\, q^k (\auxH{m-1} \Omega^2 f)(q^k).
+\end{eqnarray*}
+$(*)$ relies on replacing $n$ by $n+1$ in {\em only one\/} of the two summations
+in the {\sc rhs} of $(\sharp)$. In this respect it is
+crucial (!) that both sums in themselves converge
+absolutely\footnote{To appreciate this, do consider for a moment the
+$m=0$ case (which we are excluding in the text above). Indeed, if $m$ were zero, the
+sums in the {\sc rhs} of $(\sharp)$ would actually {\em diverge\/}
+(as $n \rarr +\infty$) unless $f(0)=0$, since $\J{0}{0}\neq 0$.
+Nevertheless the {\sc lhs} of $(\sharp)$ would still exist.}. To see this,
+consider the following observations: as far as $n \rarr +\infty$ is concerned,
+absolute summability follows from the fact that $f$ and $\J{m}{\cdot\,}$
+are bounded on a neighborhood of the origin, together with the
+assumption that $m\geq 1$. To deal with $n \rarr -\infty$, we have to use
+that $Kf$ is in the Schwartz-like space \Swq, which roughly means that
+$f(q^{2n})= (Kf)(q^n)$ tends to zero very rapidly when $n \rarr -\infty$.
+Furthermore we need some bound for $\J{m}{q^{n+k}}$ when $n \rarr -\infty$,
+which can easily be obtained from the orthogonality relations
+(\ref{eq:qBessel:qHankel}). We conclude that $(\sharp)$ indeed constitutes a
+valid operation. In the above computation we also used recurrence relation
+(\ref{eq:qBessel:recurrence1}) of proposition
+\ref{prop:qbessel:properties}\@. This proves (\ref{eq:auxH:Dq2:pos}).
+The proof of (\ref{eq:auxH:nabq:neg}) proceeds similarly:
+\begin{eqnarray*}
+\lefteqn{\left(\auxH{-m+1} \nabq{m} \Omega f\right)(q^k)
+    \hspace{1em} = \hspace{1em}
+     \left(H_{-m+1} R_q \Psi^{|-m+1|} K \nabq{m} \Omega f\right)(q^k)} \\
+   \vertXL
+    &=& \sum_{n\in \ZZ} \: q^{2n} \J{-m+1}{q^{n+k}}\:
+             q^{n(m-1)} \left(\nabq{m} \Omega f\right)(q^{2n}) \\
+    &=& \frac{1}{q-q^{-1}}\, \sum_{n\in \ZZ} \: q^{2n} \J{-m+1}{q^{n+k}}\: q^{n(m-1)}
+           \left( q^m f\left(q^2 q^{2n}\right) - \,q^{-m} f(q^{2n})\vertL \right) \\
+    &=& \frac{1}{q-q^{-1}}\, \sum_{n\in \ZZ} \: q^{2n} q^{n(m-1)} \!
+        \left(q^m \J{-m+1}{q^{n+k}}
+             - q \J{-m+1}{q^{n+1+k}}\vertL\right)\! f\!\left(q^{2n+2}\right)\\
+    &=& \frac{1}{q-q^{-1}} \sum_{n\in \ZZ} q^{2n} q^{n(m-1)}
+         q^m \left(\J{-m+1}{q^{n+k}} - q^{-m+1} \J{-m+1}{q^{n+1+k}}\vertL \right)
+               (\Omega^2 f)(q^{2n})\\
+    &\stackrel{(\ref{eq:qBessel:recurrence1})}{=}&
+       \frac{1}{q-q^{-1}} \, \sum_{n\in \ZZ} \: q^{2n} q^{n(m-1)}
+          q^m q^{n+k} \J{-m}{q^{n+k}} \: (\Omega^2 f)(q^{2n})\\
+    &=& -\frac{1}{q^{-1}-q}\, q^m \: q^k (\auxH{-m} \Omega^2 f)(q^k).
+\end{eqnarray*}
+Formulas (\ref{eq:auxH:nabq:pos}) and (\ref{eq:auxH:Dq2:neg}) are shown
+similarly, now relying on recurrence relation (\ref{eq:qBessel:recurrence2}).
+\end{proof}
+
+
+\paragraph{Construction and basic properties}
+Now we are about to construct the holomorphic $q$-Hankel transform
+announced in abstract \ref{abs:holomorphic_qHankel}\@.
+Furthermore we translate the intermediate results of lemma \ref{lemma:auxH:qdiff}\
+into there final form (proposition \ref{prop:holqHankel:qdiff})
+and prove some basic properties.
+
+\begin{lemma} \label{lemma:transform_in_schwartz_again}
+Let $m\in\ZZ$. If $(f,g)$ is an \Hmpair, then $g\in \Swq$.
+\end{lemma}
+\begin{proof}
+First consider the case $m\geq 0$.
+Let $(f,g)$ be an \Hmpair\ and take any $n\in \NN$.
+Iterating (\ref{eq:auxH:Dq2:pos}) $n$ times yields, for all $k\in \ZZ$,
+$$ \left(\auxH{m+n} \left(D_{q^2} \Omega^{-2}\right)^{\! n} \! f\right)(q^k)
+      = \left(-\frac{q^{-1}}{q^{-1}-q}\right)^n  q^{nk} \left(\auxH{m}f\right)(q^k) $$
+It follows that for all $n\in \NN$ and $k\in \ZZ$
+$$ q^{nk} g(q^k) = (q^2-1)^n \:\left(\auxH{m+n} f_n\right)(q^k) $$
+where $f_n=(D_{q^2} \Omega^{-2})^n \! f$.
+Now \Swqbis\ is $\{\Omega^{\pm 2}, D_{q^2} \}$-invariant,
+hence all the $f_n$ are still in \Swqbis\@. Since $\auxH{m+n}$
+maps \Swqbis\ into \Ltwoq, we get
+$\sum_{k\in\ZZ} |q^{nk}g(q^k)|^2 q^{2k} < \infty$ for any $n\in \NN$.
+From this one can easily derive that $g$ belongs to \Swq\@.
+In case $m$ is negative we proceed analogously, but now using (\ref{eq:auxH:Dq2:neg}).
+\end{proof}
+
+
+\begin{prop} \label{prop:exist:holomorphic_qHankel}
+For any $m\in\ZZ$ there exists a unique linear map
+$\holH{m}$ from $\holS{m}$ into $\holS{m}$,
+such that diagram (\ref{eq:diagram:holomorphic_qHankel})
+in abstract \ref{abs:holomorphic_qHankel}\ commutes.
+In particular, if $(f,g)$ is an \Hmpair, then $f\in\holS{m}$ and
+$\Psi^{|m|} K \holH{m}f =g$. Furthermore, $\holH{m}^2=\id$.
+\end{prop}
+\begin{proof}
+Uniqueness is obvious (recall $R_q$ is injective). To prove existence,
+take any $m\in\ZZ$ and $f \in\holS{m}$. By definition there exists
+an entire function $g$ such that $(f,g)$ is an \Hmpair\@.
+Now the function
+$$ \CC_0 \rarr \CC : z \mapsto \frac{1}{z^{|m|}}\, g(z)$$
+is holomorphic, and has a removable singularity at the origin because
+of (iii) in definition \ref{def:Hmpair}\@.
+Furthermore, this function will always be {\em even\/} because of (ii)
+in definition \ref{def:Hmpair}\@.
+Hence there exists an entire function, denoted $\holH{m}f$, such that
+$$ (\holH{m}f)(z^2)\: =\: \frac{1}{z^{|m|}}\, g(z) \hspace{5em} (z\in \CC_0) $$
+or equivalently, $\Psi^{|m|} K \holH{m}f = g$.
+From lemma \ref{lemma:transform_in_schwartz_again}\ we know that $g\in \Swq$,
+and it follows easily that $\holH{m}f$ belongs to \Swqbis\@.
+But we actually want $\holH{m}f\in \holS{m}$, and
+in this respect we claim that $(\holH{m}f, \Psi^{|m|} K f)$ is an \Hmpair\@.
+Indeed, items (ii-iii) of definition \ref{def:Hmpair}\ are
+obviously fulfilled; to complete (i), observe that
+$$ \auxH{m} \holH{m} f \:=\: H_m R_q \Psi^{|m|} K \holH{m} f  \:=\: H_m R_q g
+   \:=\: H_m \auxH{m} f \:=\: H_m^2 R_q \Psi^{|m|} K f  \:=\: R_q \Psi^{|m|} K f. $$
+Here we have used that $H_m^2=\id$ (proposition \ref{prop:qHankelSquare_is_id}).
+Thus we have constructed a linear map $\holH{m}$ from $\holS{m}$ into
+$\holS{m}$ satisfying all our requirements.
+\end{proof}
+
+
+\begin{prop} \label{prop:holS:Omega_invariant}
+For any $m\in \ZZ$, the space $\holS{m}$ is $\Omega^{\pm 2}$-invariant and
+\begin{equation}\label{eq:holS:Omega_invariant}
+  \holH{m} \Omega^2 \;=\; q^{-2(|m|+1)}\, \Omega^{-2} \holH{m}
+\end{equation}
+\end{prop}
+\begin{proof}
+Let $(f,g)$ be any \Hmpair\@; we claim
+$(\Omega^2 f,\, q^{-|m|-2}\Omega^{-1} g)$ is an \Hmpair\ as well.
+First observe \Swqbis\ is $\Omega^{\pm 2}$-invariant.
+Now from $\Psi^{|m|} K \Omega^2 = q^{-|m|} \Omega \Psi^{|m|} K$
+it follows that, for all $k\in \ZZ$,
+\begin{eqnarray*}
+(\auxH{m} \Omega^2 f)(q^k)
+  &=& (H_m R_q \Psi^{|m|} K \Omega^2 f)(q^k)
+  \hspace{1em} = \hspace{1em}
+      q^{-|m|}\,(H_m R_q \Omega \Psi^{|m|} K f)(q^k) \\
+  \vertXL
+  &=& q^{-|m|} \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\,(R_q \Omega \Psi^{|m|} K f)(q^n)\\
+  &\stackrel{(*)}{=}&
+      q^{-|m|} \sum_{n\in \ZZ} \: q^{2(n-1)} \J{m}{q^{n-1+k}}\,(\Psi^{|m|} K f)(q^{n-1} q)\\
+  &=& q^{-|m|-2} \,(\auxH{m} f)(q^{k-1})
+  \hspace{1em} = \hspace{1em}
+  q^{-|m|-2}\, (\Omega^{-1} g)(q^k)
+\end{eqnarray*}
+In (*) we replaced the summation index $n$ by $n-1$.
+This proves item (i) of definition \ref{def:Hmpair}, whereas items (ii-iii)
+are obvious here. Hence by proposition \ref{prop:exist:holomorphic_qHankel},
+$\Omega^2 f$ belongs to $\holS{m}$ and
+$$ \Psi^{|m|} K \holH{m} \Omega^2 f \:=\:  q^{-|m|-2}\Omega^{-1} g
+      \: =\:  q^{-|m|-2}\Omega^{-1} \Psi^{|m|} K \holH{m} f
+      \: =\:  q^{-|m|-2} q^{-|m|} \Psi^{|m|} K \Omega^{-2} \holH{m} f.  $$
+Here we used the commutation rules for $\Psi$, $K$, and $\Omega$.
+Canceling $\Psi^{|m|} K$ yields the result.
+\end{proof}
+
+\vspace{2ex}
+In \cite{Jeroen:QE2:haar}\ the space \HC\ of entire functions was
+endowed with a natural $^*$-operation, denoted by $\til$ and
+defined as $\tilde{f}(z) = \overline{f(\overline{z})}$. Now we study its
+behaviour w.r.t.\ $q$-Hankel transformation:
+
+\begin{prop} \label{prop:qHankel:tilde}
+Take any $m\in\ZZ$. The space $\holS{m}$ is $\til$-invariant and\/
+$\til\!$ commutes with $\holH{m}$.
+\end{prop}
+\begin{proof}
+Observe that $\til$ commutes with $\Psi$ and $K$.
+Furthermore $H_m$ obviously commutes with complex conjugation,
+since Hahn-Exton $q$-Bessel functions take real values on the real line.
+We also have $R_q \tilde{f} = \overline{R_q f}$ for any $f\in\HC$.
+It is clear that if $(f,g)$ is an \Hmpair, then so is $(\tilde{f},\tilde{g})$.
+The result now follows easily from proposition \ref{prop:exist:holomorphic_qHankel}.
+\end{proof}
+
+\begin{prop} \label{prop:qHankel:inverseorder}
+Take any $m\in\ZZ$. Then $\holS{-m} = \holS{m}$ and
+$\holH{-m} = (-q)^m q^{m|m|}\Omega^{2m}\holH{m}$.
+In this respect we also have two \lq auxiliary\rq\ results worth mentioning:
+\begin{equation}\label{eq:qHankel:inverseorder}
+   (H_{-m} f)(q^k) = (-q)^m (H_m f)(q^{k+m})
+      \hspace{4em}
+   (\auxH{-m} g)(q^k) = (-q)^m (\auxH{m} g)(q^{k+m})
+\end{equation}
+for all $f\in \Ltwoq$, $g\in \Swqbis$ and $k\in\ZZ$.
+\end{prop}
+\begin{proof}
+The first formula in (\ref{eq:qHankel:inverseorder}) follows
+easily from (\ref{eq:qBessel:inversion}), whereas the second is an
+immediate consequence of the first one.
+Now let $(f,g)$ be any \Hmpair\@; then it is easy to see that
+$(f, (-q)^m \Omega^m g)$ is a \mbox{$(-m;q)$-Hankel} pair.
+Hence according to proposition \ref{prop:exist:holomorphic_qHankel}\
+we have $f\in \holS{-m}$ and
+$$ \Psi^{|-m|} K \holH{-m}f \:=\: (-q)^m \Omega^m g
+      \:=\: (-q)^m \Omega^m \Psi^{|m|} K \holH{m}f
+      \:=\: (-q)^m q^{m|m|} \Psi^{|m|} K \Omega^{2m} \holH{m} f. $$
+Canceling $\Psi^{|m|} K$ yields the result.
+\end{proof}
+
+\vspace{1ex}
+The next proposition will play a key-role throughout the entire paper:
+
+\begin{prop} \label{prop:holqHankel:qdiff}
+Take any $m\in \NN$ with $m\geq 1$. Then
+$$\begin{array}{rclrcrlr}
+D_{q^2} \holS{m-1} & \!\! \subseteq&  \!\! \holS{m} &
+   \holH{m} D_{q^2} f &\!\! =&  \!\! \displaystyle -\frac{q^{-1}}{q^{-1}-q}&
+              \!\!\! \holH{m-1} \Omega^2 f & \;(f\in \holS{m-1}) \\
+\nabq{m} \Omega \, \holS{m}& \!\! \subseteq&  \!\! \holS{m-1} &
+   \holH{m-1} \nabq{m} \Omega f & \!\! =&  \!\!  \displaystyle
+          \frac{1}{q^{-1}-q} &  \!\!\! q^{-m}\: \Psi \holH{m}f & \;(f\in \holS{m}) \\
+D_{q^2} \holS{-m+1} & \!\! \subseteq& \!\! \holS{-m} &
+   \holH{-m} D_{q^2}f & \!\! =& \!\! \displaystyle  \frac{q^{-1}}{q^{-1}-q} &
+    \!\!\! \holH{-m+1}f & \;(f\in \holS{-m+1})  \\
+\nabq{m} \Omega^{-1}  \holS{-m} & \!\! \subseteq& \!\! \holS{-m+1} \;\; &
+   \holH{-m+1} \nabq{m} \Omega^{-1}f & \!\!=&  \!\!\displaystyle -\frac{1}{q^{-1}-q} &
+      \!\!\!   q^m\: \Psi \holH{-m} f & (f\in \holS{-m})
+\end{array}$$
+\end{prop}
+\begin{proof}
+Take any $f\in \holS{m-1}$. Then by proposition
+\ref{prop:holS:Omega_invariant}, also $\Omega^2 f$ belongs to $\holS{m-1}$.
+Let $(\Omega^2 f,g)$ be an \mbox{$(m-1;q)$-Hankel} pair.
+With (\ref{eq:auxH:Dq2:pos}) of lemma \ref{lemma:auxH:qdiff}\ it
+follows easily that
+$$ \left(D_{q^2}f,\:-\frac{q^{-1}}{q^{-1}-q} \,\Psi g \right) $$
+is an \Hmpair, and hence $D_{q^2}f$ belongs to $\holS{m}$.
+Furthermore, since $m$ and $m-1$ are positive, we have
+(cf.\ proposition \ref{prop:exist:holomorphic_qHankel})
+$$ \Psi^m K \holH{m} D_{q^2}f \;=\; -\frac{q^{-1}}{q^{-1}-q}\, \Psi g
+    \;=\; -\frac{q^{-1}}{q^{-1}-q}\, \Psi \Psi^{m-1} K \holH{m-1} \Omega^2 f $$
+Canceling $\Psi^m K$ yields the first formula. The other formulas
+are more or less analogous---let's also have a look at the last one:
+take any $f\in \holS{-m}$ and let $(f,g)$ be a \mbox{$(-m;q)$-Hankel} pair.
+From (\ref{eq:auxH:nabq:neg}) we obtain that
+$$ \left(\nabq{m} \Omega^{-1}f, \; -\frac{1}{q^{-1}-q} \, q^m\, \Psi g \right)$$
+is a \mbox{$(-m+1;q)$-Hankel} pair, hence $\nabq{m} \Omega^{-1}f \in \holS{-m+1}$ and
+$$ \Psi^{|-m+1|} K \holH{-m+1} \nabq{m} \Omega^{-1} f
+  \;=\;  -\frac{1}{q^{-1}-q} \, q^m\, \Psi g
+  \;=\;  -\frac{1}{q^{-1}-q} \, q^m\,
+  \underbrace{\Psi \Psi^{|-m|} K}_{\Psi^{m-1} K \Psi} \holH{-m} f $$
+Canceling $\Psi^{m-1} K$ yields the last formula.
+\end{proof}
+
+\begin{remark} \rm
+Notice proposition \ref{prop:qHankel:inverseorder}\ (accompanied
+by proposition \ref{prop:holS:Omega_invariant}) transforms the
+first two formulas of proposition \ref{prop:holqHankel:qdiff}\
+into the remaining ones and vice versa. In a similar way,
+(\ref{eq:qHankel:inverseorder}) interchanges
+(\ref{eq:auxH:Dq2:pos}-\ref{eq:auxH:Dq2:neg}) as well as
+(\ref{eq:auxH:nabq:pos}-\ref{eq:auxH:nabq:neg}).
+$\hfill \star$
+\end{remark}
+
+
+
+\paragraph{The spaces $\holS{m}$ do contain many functions}
+The above theory would collapse in case the spaces $\holS{m}$ would
+turn out to be trivial; fortunately we have the following
+
+\begin{lemma} \label{lemma:compactsupp_in_holS}
+Let $f$ be an entire function having the property that there
+exists an integer $n_0$ such that $f(q^{2n})=0$ for all integers $n<n_0$.
+Then $f \in \holS{m}$ for any $m\in \ZZ$.
+\end{lemma}
+\begin{proof}
+Observe that our assumptions imply $f$ to be in \Swqbis\ in the first place.
+Then fix any $m\in \ZZ$. We claim that the series
+\begin{equation}\label{eq:lemma:qqE:series}
+    g(z) = \frac{1}{z^{|m|}}\: \sum_{n\in\ZZ}
+          q^{2n}\, \J{m}{q^n z} \, q^{|m|n} \, f(q^{2n})
+\end{equation}
+converges\footnote{Notice that convergence in (\ref{eq:lemma:qqE:series})\
+is quite a different matter than for instance in (\ref{eq:qHankeltransform:def}).
+Indeed in (\ref{eq:lemma:qqE:series}) our $q$-Bessel functions are
+to be evaluated in any complex number, whereas (\ref{eq:qHankeltransform:def})
+only deals with powers of $q$.
+See also remark \ref{rem:not_constructive}}\ absolutely for all $z\in \CC_0$ and defines an
+{\em entire\/} function $g$ (the singularity at the origin being removable).
+Once this fact established, it will be easy to see that $(f, \Psi^{|m|} g)$
+is an \Hmpair, and hence $f \in \holS{m}$.
+So let's investigate the above series; according to lemma \ref{lemma:def:qBessel}\
+it is possible to define, for any integer $n$, an entire function $g_n$ such that
+$$ g_n (z) =  (q^n z)^{-|m|} \, \J{m}{q^n z} \,f(q^{2n}) $$
+for $z\in \CC_0$.
+The series (\ref{eq:lemma:qqE:series}) can now be rewritten as follows:
+\begin{equation}\label{eq:lemma:qqE:series:rewrite}
+  g = \sum_{n=n_0}^\infty q^{2n(|m|+1)}\,g_n
+\end{equation}
+Since every $g_n$ is entire, it suffices  to show the latter series
+converges uniformly on compact sets.
+Therefore, pick any number $r>0$ and let $D(r)$ denote the disk
+$\{z\in \CC \mid |z| \leq r\}$.
+Once again appealing to lemma \ref{lemma:def:qBessel}, it is clear that there exists
+a bound, say $M_r>0$, such that $|x^{-|m|}\J{m}{x}| \leq M_r$ whenever
+$0 < |x| \leq q^{n_0}r$. On the other hand also $f$ is entire, hence
+bounded on compact sets; so we can find a bound $N>0$ such that
+$|f(x)| \leq N$ for all $x$ in the interval $[0,q^{2n_0}]$.
+Since $0<q<1$, it follows that $|g_n(z)| \leq M_r N$ for any $n \geq n_0$
+and any $z\in D(r)$. In other words, the family $\{g_n\}_{n=n_0}^\infty$
+is uniformly bounded on $D(r)$.
+Since $\sum_{n=n_0}^\infty q^{2(|m|+1)n}$ is a convergent geometric series,
+(\ref{eq:lemma:qqE:series:rewrite}) yields an entire function $g$ which
+satisfies (\ref{eq:lemma:qqE:series}).
+Now we still have to show that $(f, \Psi^{|m|} g)$
+is indeed an \Hmpair\@. Only item (ii) of definition \ref{def:Hmpair}\
+requires some explanation; from the power series expansion (\ref{eq:def:qBessel})
+of the Hahn-Exton $q$-Bessel functions, it is clear that
+$\J{m}{\cdot\,}$ is even (resp.\ odd) whenever $m$ is even (resp.\ odd).
+It follows that $g_n$ is always even (for any $n$) and consequently
+also $g$ is even. Eventually, $\Psi^{|m|} g$ satisfies item (ii) of
+definition \ref{def:Hmpair}, whereas (i) is straight\-forward and (iii) is obvious.
+\end{proof}
+
+
+\begin{remark} \rm
+With a more thorough study using the proper estimates for the
+Hahn-Exton $q$-Bessel functions involved here, it should probably
+be possible to relax the conditions on  the function $f$ a little bit,
+yet still ensuring the proper convergence in (\ref{eq:lemma:qqE:series}).
+From the theory of entire functions and canonical products, it is nevertheless
+clear that there exist plenty of functions satisfying the conditions of the
+previous lemma. The $q$-version of the exponential function, as
+described in section \S\ref{sec:qExp_and_qBessel}, provides an important example:
+$\hfill \star$
+\end{remark}
+
+
+
+\begin{cor} \label{cor:qqE_in_holS}
+Let \qqE\ denote the entire function given by
+$\qqE(z) = E_{q^2}(-z) = (z;q^2)_\infty$.
+Then $\qqE \in \holS{m}$ for any $m\in \ZZ$.
+\end{cor}
+
+\paragraph{One single \lq core\rq\ susceptible to $q$-Hankel transforms of any order}
+The problem with the system $(\holS{m},\holH{m})_{m\in \ZZ}$
+is that we have to keep track of the order $m$ at any time.
+It would certainly be convenient to have some kind of order-independent
+domain on which all the $\holH{m}$ can act nicely;
+so let's try to find such a \lq core\rq.
+
+\begin{prop} \label{prop:qHankel:nesting}
+If $n,m\in \ZZ$ and $|n| \leq |m|$, then $\holS{n} \subseteq \holS{m}$.
+\end{prop}
+\begin{proof}
+Recalling proposition \ref{prop:qHankel:inverseorder},
+it suffices to prove that $\holS{m-1} \subseteq \holS{m}$ for all $m\geq 1$.
+So let's take any $m\in \NN$ with $m\geq 1$ and any $g\in \holS{m-1}$.
+Then $\Omega^{-2} \holH{m-1}g$ still belongs to $\holS{m-1}$,
+hence we can apply the first formula of proposition \ref{prop:holqHankel:qdiff}\
+with $f=\Omega^{-2} \holH{m-1}g$, yielding
+\begin{equation}\label{eq:qHankel:nesting:proof}
+     \holH{m} D_{q^2} \Omega^{-2} \holH{m-1} g
+      \;=\: -\frac{q^{-1}}{q^{-1}-q} \holH{m-1} \Omega^2 \Omega^{-2} \holH{m-1}g
+      \;=\: -\frac{q^{-1}}{q^{-1}-q} \, g.
+\end{equation}
+We conclude that $g$ belongs to $\holS{m}$.
+\end{proof}
+
+
+
+\begin{remark} \label{rem:Q:strict_inclusions} \rm
+At present we lack an example which shows the inclusions in
+proposition \ref{prop:qHankel:nesting} to be {\em strict\/} inclusions,
+and as a matter of fact the spaces $\holS{m}$ for various $m\in\ZZ$ are not unlikely
+to coincide. For instance from the second formula in proposition
+\ref{prop:holqHankel:qdiff}\ one can derive that
+$\Psi \holS{m} \subseteq \holS{m-1}$ for any $m\geq 1$, which yields an indication
+for the reversed inclusions. In our approach to holomorphic $q$-Hankel transformation
+however, it won't be easy to settle this question; but do we really
+care?\footnote{no, not really; it will become clear very soon that we can perfectly
+well proceed without knowing whether the $\holS{m}$ coincide or not. }
+$\hfill \star$
+\end{remark}
+
+
+
+\begin{defn*} \label{def:Hcore}
+We introduce two more subspaces of \HC\ as follows:
+\begin{eqnarray*}
+  \Hintersect &=& \bigcap_{m\in\ZZ} \holS{m}  \\
+  \Hcore      &=& \left\{ f \in \Hintersect \left| \vertL \right.
+                  \holH{m}f, \, D_{q^2}^m f \in \Hintersect
+                  \mbox{ for all } m\in \NN  \right\} \\
+\end{eqnarray*}
+\end{defn*}
+
+Observe that $\Hcore  \subseteq \Hintersect \subseteq \Swqbis$.
+Also notice the definition of \Hcore\ only refers to {\em positive\/}
+order $q$-Hankel transforms, which is justifiable in view of
+the propositions \ref{prop:qHankel:inverseorder}\ and \ref{prop:holS:Omega_invariant}\@.
+Of course $\Hintersect$ is nothing but $\holS{0}$ (cf.\ proposition \ref{prop:qHankel:nesting}).
+However we prefer to use this new symbol $\Hintersect$ (rather than $\holS{0}$)
+to emphasize that it will be considered in relation to $q$-Hankel transforms
+of {\em any\/} order---not just $\holH{0}$.
+Now the problem with $\Hintersect$ is that it might
+(cf.\ remark \ref{rem:Q:strict_inclusions})
+not be invariant under $\holH{m}$ when $m \neq 0$, and moreover it
+is not clear either whether $\Hintersect$ is invariant under $D_{q^2}$.
+That's of course exactly the reason why we have introduced the space \Hcore\@.
+Indeed we can prove the following
+
+\begin{prop} \label{prop:Hcore:invariance}
+\hspace{2pt} \Hcore\ is invariant under $\holH{m}$ for any $m\in \ZZ$.
+Furthermore, \Hcore\ is also invariant under $\til$, $\Omega^{\pm 2}$,
+$\Psi$ and  $D_{q^2}$.
+\end{prop}
+\begin{proof}
+Obviously $\Hintersect$ is $\Omega^{\pm 2}$-invariant
+(cf.\ proposition \ref{prop:holS:Omega_invariant}).
+From (\ref{eq:holS:Omega_invariant}) and the commutation rule
+$D_{q^2} \Omega^2 = q^2 \Omega^2 D_{q^2}$ it follows that \Hcore\ is
+invariant under $\Omega^{\pm 2}$.
+
+Next we will show $D_{q^2}$-invariance; take any $f\in\Hcore$ and put $g=D_{q^2}f$.
+Choose any $m\in \NN$ and first assume that $m\geq 1$.
+Since $f\in \Hintersect \subseteq \holS{m-1}$, it follows
+from the first formula in proposition \ref{prop:holqHankel:qdiff}\ that
+$\holH{m}g = ({\rm scalar})\, \holH{m-1} \Omega^2 f$.
+Now the latter belongs to $\Hintersect$ because $f\in\Hcore$.
+Now consider the $m=0$ case. Since $f\in\Hcore$, we have
+$g = D_{q^2}f \in \Hintersect = \holS{0}$, and hence
+$\holH{0} g \in \Hintersect$.
+So we have shown that $\holH{m}g \in \Hintersect$ for any $m\in\NN$,
+whereas clearly $D_{q^2}^m g = D_{q^2}^{m+1} f \in \Hintersect$
+for any $m\in\NN$. We conclude that $g\in\Hcore$.
+
+Now we will show by induction on $m\in\NN$ that \Hcore\ is invariant under
+$\holH{m}$. Notice it is sufficient to consider positive $m$ only,
+because of proposition \ref{prop:qHankel:inverseorder}\@.
+Let's first consider the $m=0$ case; take any $f\in\Hcore$, put $g=\holH{0}f$
+and observe that $g\in\holS{0}=\Hintersect$.
+We shall prove that $g$ belongs to \Hcore\ again;
+therefore, choose any $n\in \NN$ and consider $\holH{n} g$ and $D_{q^2}^n g$.
+When $n=0$, we obtain $\holH{0} g = \holH{0}^2 f = f \in \Hintersect$.
+To deal with $n\geq 1$, rewrite the first formula in proposition
+\ref{prop:holqHankel:qdiff}\ as
+\begin{equation}\label{eq:holqHankel:qdiff:rewritten}
+   \holH{n}  \:=\: ({\rm scalar})\, D_{q^2} \Omega^{-2} \holH{n-1}
+\end{equation}
+(see also: equation (\ref{eq:qHankel:nesting:proof}) above). Iterating this $n$ times yields
+\begin{equation} \label{eq:holqHankel:qdiff:iterated}
+   \holH{n}  \:=\: ({\rm scalar})\, (D_{q^2} \Omega^{-2})^n \holH{0}
+             \:=\: ({\rm scalar})\, \Omega^{-2n} D_{q^2}^n \holH{0}
+\end{equation}
+We used the commutation rule for $D_{q^2}$ and $\Omega^{-2}$.
+The exact value of the scalars involved here could be computed easily, though
+they are not relevant for our purposes (except for the fact they are all non-zero).
+Since $g$ belongs to $\holS{0}$ we may apply (\ref{eq:holqHankel:qdiff:iterated})
+to it, yielding
+$$ \holH{n} g \:=\: ({\rm scalar})\, \Omega^{-2n} D_{q^2}^n f. $$
+Now the latter is in $\Hintersect$ because $f\in\Hcore$.
+We have shown that $\holH{n} g \in \Hintersect$ for all $n\in \NN$.
+On the other hand, (\ref{eq:holqHankel:qdiff:iterated}) is also useful in
+the other direction:
+$$ D_{q^2}^n g \:=\: D_{q^2}^n \holH{0} f \:=\: ({\rm scalar})\, \Omega^{2n} \holH{n}f. $$
+It follows that $D_{q^2}^n g \in \Hintersect$ for all $n\in \NN$,
+which completes the $m=0$ case. Now we proceed by induction on $m$.
+Let's assume \Hcore\ to be invariant under $\holH{m-1}$ for some $m\geq 1$,
+and prove that this implies invariance under $\holH{m}$.
+Applying (\ref{eq:holqHankel:qdiff:rewritten}) to an arbitrarily chosen $f\in\Hcore$ yields
+$$  \holH{m} f \:=\: ({\rm scalar})\, D_{q^2} \Omega^{-2} \holH{m-1} f. $$
+By hypothesis $\holH{m-1} f$ belongs to \Hcore\ again, and since
+we have already shown that \Hcore\ is invariant under $\Omega^{-2}$ and
+$D_{q^2}$, the result follows.
+
+Invariance under $\til$ follows easily from proposition \ref{prop:qHankel:tilde}\
+and the fact that $\til$ commutes with $D_{q^2}$,
+so it only remains to prove that \Hcore\ is $\Psi$-invariant.
+Therefore consider the $m=1$ case of the second formula in
+proposition \ref{prop:holqHankel:qdiff}\@. Plugging in (\ref{eq:def:nabq}) and
+canceling some scalars, the formula can be rewritten as
+$$ \holH{0} (\id - q^2 \Omega^2) \holH{1} g \:=\: \Psi g $$
+for $g\in\holS{1}$ and a fortiori for $g\in\Hcore$.
+Since we have already established that \Hcore\ is invariant under
+$\holH{0}$, $\holH{1}$ and $\Omega^2$, the result follows.
+\end{proof}
+
+
+\begin{remark} \rm
+Again (cf.\ remark \ref{rem:not_constructive}) our approach here
+is far from being explicit: still we lack any criterion which
+describes the spaces \Hintersect\ and \Hcore\ in a direct way; we
+merely {\em define\/} \Hcore\ to be the largest space on which one
+can happily take iterated $q$-Hankel transforms of any order. It's
+very likely that one could do better than this, unraveling all the
+details of $q$-Hankel transformation: for instance---instead of
+restricting ourselves to this \lq core\rq\ \Hcore\ of functions
+susceptible to $q$-Hankel transformation of arbitrary order---one
+could maybe obtain a richer theory if one sticks to the original
+system $(\holS{m},\holH{m})_{m\in \ZZ}$, keeping track of the
+orders at any time\ldots Our main concern however, is to proceed
+into harmonic analysis on the quantum $E(2)$ group. Nevertheless
+we will show---constructively---that \Hcore\ still contains an
+important class of functions. $\hfill \star$
+\end{remark}
+
+
+\paragraph{An eigenfunction of $q$-Hankel transformation}
+Below we shall prove that the entire function $z \mapsto E_{q^2}(-q^2 z)$
+belongs to the space \Hcore\ constructed in the previous paragraph,
+and moreover, that it constitutes an eigenfunction of all positive
+order holomorphic $q$-Hankel transforms. This function of $q^2$-exponential
+type plays a role similar to the
+Gaussian\footnote{and as a matter of fact, this $q^2$-exponential does amount
+to a $q$-Gaussian if one takes into account the \lq{\em squaring\/} operator\rq\ $K$
+appearing in diagram (\ref{eq:diagram:holomorphic_qHankel}).}
+in ordinary Fourier analysis on the real line.
+
+\begin{lemma}
+Let \qE\ denote the entire function given by $\qE(z) = E_q(-z) = (z;q)_\infty$.
+Then
+$$ D_q \qE \:=\: -\frac{1}{1-q}\, \Omega \qE. $$
+\end{lemma}
+\begin{proof}
+We could easily derive this from the power series (\ref{eq:qExp:powerseries})
+but it is even more convenient to use the product representation:
+indeed (\ref{eq:shifted_factorial:infty}) implies
+$\qE(z) = (1-z)\qE(qz)$ for all $z\in \CC$, and
+$$ (D_q \qE)(z) \;=\;  \frac{\qE(z) - \qE(qz)}{(1-q)z}
+                \;=\; \frac{-z\,\qE(qz)}{(1-q)z}
+                \;=\; -\frac{1}{1-q} \, (\Omega \qE)(z). $$
+for $z\neq 0$. Extending the result to $z=0$ by continuity completes the proof.
+\end{proof}
+
+\begin{cor} \label{cor:qqderivative:qqE}
+Replacing $q$ by $q^2$ and (consequently!) $\Omega$ by $\Omega^2$, we get
+$$  D_{q^2} \qqE \:=\: -\frac{1}{1-q^2}\, \Omega^2 \qqE. $$
+\end{cor}
+
+\begin{prop} \label{prop:qdifferential_equation:qexp}
+The function $\Omega^2 \qqE = (\,\cdot\,q^2 ;q^2)_\infty$ satisfies the
+$q^2$-differential equation
+\begin{equation}\label{eq:qdifferential_equation:qexp}
+   D_{q^2} f \;=\; -\frac{q^2}{1-q^2}\, \Omega^2 f
+     \hspace{4em} \mbox{($f$ entire).}
+\end{equation}
+Moreover the solution of this $q^2$-differential equation is
+essentially unique, in the sense that any entire function $f$
+satisfying (\ref{eq:qdifferential_equation:qexp}) must be a scalar
+multiple of\/ $\Omega^2 \qqE$.
+\end{prop}
+\begin{proof}
+Combining corollary \ref{cor:qqderivative:qqE}\ with the obvious
+commutation rule for $D_{q^2}$ and $\Omega^2$ yields
+$$ D_{q^2} \Omega^2 \qqE \:=\: q^2 \Omega^2 D_{q^2} \qqE
+             \:=\: -\frac{q^2}{1-q^2}\, \Omega^2 \Omega^2 \qqE. $$
+To prove the uniqueness statement, let's evaluate (\ref{eq:qdifferential_equation:qexp})
+in $q^{2n}$ for any $n\in\NN$. We get
+$$ \frac{f(q^{2n})-f(q^2 q^{2n})}{(1-q^2) q^{2n}}
+            \;=\;  -\frac{q^2}{1-q^2}\, f(q^2 q^{2n}) $$
+Putting $x_n = f(q^{2n})$ for $n\in\NN$, we obtain a sequence $(x_n)_{n=0}^\infty$
+of complex numbers satisfying the following recurrence relation:
+$$ x_n \,=\: (1-q^{2n} q^2)\, x_{n+1}. $$
+Iterating this relation yields
+\begin{equation}\label{eq:uniqueness:recurrence_relation}
+   x_0 \:=\: (1-q^2)(1-q^2 q^2) \ldots (1-q^{2(n-1)} q^2) \, x_n
+       \:=\: (q^2;q^2)_n \, x_n.
+\end{equation}
+It follows that the sequence $(x_n)_n$ is completely determined by
+the value of $x_0$. In other words, (\ref{eq:qdifferential_equation:qexp}) and
+$f(1)$ determine the value of $f$ at the points $q^{2n}$ ($n\in\NN$).
+Since $q^{2n} \rarr 0$ as $n\rarr\infty$, we may invoke the identity theorem
+for holomorphic functions and draw the conclusion (notice that $f(1)=0$ implies $f=0$,
+and observe that (\ref{eq:qdifferential_equation:qexp}) is {\em linear\/} in $f$).
+\end{proof}
+
+It is also instructive to observe (\ref{eq:shifted_factorial:infty}) implies that
+$x_n = (q^{2n} q^2; q^2)_\infty = (\Omega^2 \qqE)(q^{2n})$ indeed satisfies the
+above recurrence relation (\ref{eq:uniqueness:recurrence_relation}).
+
+\begin{lemma}
+Let $m$ be any non-negative integer. If $f$ is a solution of (\ref{eq:qdifferential_equation:qexp})
+then so is $\holH{m}f$ (notice $f\in \Hintersect$ because of proposition
+\ref{prop:qdifferential_equation:qexp}\ and corollary \ref{cor:qqE_in_holS},
+so the statement makes sense).
+\end{lemma}
+\begin{proof}
+With the commutation rule $D_{q^2} \Omega^2 = q^2 \Omega^2 D_{q^2}$
+the first formula in proposition \ref{prop:holqHankel:qdiff}\ can be
+rewritten in the form
+\begin{equation}\label{eq:holqHankel:qdiff:rewritten:bis}
+    D_{q^2} \holH{m-1} = -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m}
+\end{equation}
+for $m\geq 1$. Replacing $m$ with $m+1$ and applying this to a solution $f$ of
+(\ref{eq:qdifferential_equation:qexp}) yields
+$$  D_{q^2} \holH{m} f
+     \;=\; -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m+1} f
+     \;\stackrel{(\ref{eq:qdifferential_equation:qexp})}{=}\;
+             \Omega^2 \holH{m+1} \Omega^{-2} D_{q^2} f
+     \;=\; q^2 \Omega^2 \holH{m+1} D_{q^2} \Omega^{-2} f $$
+for any $m\geq 0$. Once again applying the first formula in
+proposition \ref{prop:holqHankel:qdiff}\ yields
+\begin{equation}\label{eq:HolHmf:solution}
+   D_{q^2} \holH{m} f  =  -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m} f
+\end{equation}
+which means that $\holH{m}f$ is a solution to (\ref{eq:qdifferential_equation:qexp}).
+\end{proof}
+
+\begin{remark} \rm
+The above lemma does not extend to negative $m$. To see this,
+apply proposition \ref{prop:qHankel:inverseorder}\ to (\ref{eq:HolHmf:solution}).
+The reason for this remarkable lack of symmetry is not so clear at the moment.
+$\hfill \star$
+\end{remark}
+
+\begin{prop} \label{prop:qqE:eigenfunction_qHankel}
+$\;\Omega^2 \qqE$ is an eigenfunction of all $\holH{m}$ with $m\geq 0$.
+\end{prop}
+\begin{proof}
+Combine the above lemma with proposition \ref{prop:qdifferential_equation:qexp}\@.
+\end{proof}
+
+\vspace{2ex}
+It is probably not too hard to compute the corresponding eigenvalues.
+Furthermore it's likely possible to construct the other eigenfunctions as
+well, and one might expect them to be of the form (\ref{eq:many_functions_in_Hcore}) below.
+These eigenfunctions should then play a role quite similar to Hermite
+functions in classical Fourier analysis.
+However from our interest, the main issue here is that it finally becomes clear that
+our \lq core\rq\ \Hcore\ is non-trivial; indeed it does contain an important class of
+functions:
+
+\begin{cor} \label{cor:qExp_in_Hcore}
+For any polynomial $P$ and any integer $k$, the entire function
+\begin{equation}\label{eq:many_functions_in_Hcore}
+  \CC \rarr \CC : \: z \,\mapsto \, P(z)\, E_{q^2}(-q^{2k} z)
+\end{equation}
+belongs to the space \Hcore\ of definition \ref{def:Hcore}.
+\end{cor}
+\begin{proof}
+We already established that $\Omega^2 \qqE$ belongs to $\Hintersect$
+(cf.\ corollary \ref{cor:qqE_in_holS}) and from
+proposition \ref{prop:qqE:eigenfunction_qHankel}\
+it is clear that $\holH{m} \Omega^2 \qqE$ is in $\Hintersect$ as well,
+for any $m\in \NN$. Furthermore, the condition of lemma
+\ref{lemma:compactsupp_in_holS}\ is obviously invariant under $q^2$-differentiation,
+hence $D_{q^2}^m \Omega^2 \qqE$ still belongs to $\Hintersect$, for all $m\in \NN$.
+We conclude that $\Omega^2 \qqE$ is contained in \Hcore\@.
+Eventually, the invariance properties of \Hcore\
+(cf.\ proposition \ref{prop:Hcore:invariance}) yield the result.
+\end{proof}
+
+
+
+
+\paragraph{The $q$-moment problem for the space $\Hintersect$}
+will play a key-role in establishing {\em uniqueness\/} of Fourier transforms
+for quantum E(2). Moreover, one of the intermediate results in
+the present paragraph shall also be crucial for the {\em construction\/} of
+these Fourier transforms.
+In classical moment problems the typical question reads as follows:
+suppose a function of some particular class has vanishing moments;
+may we then conclude that the function itself vanishes everywhere?
+In this paragraph however we shall consider \mbox{$q$-moments},
+i.e.\ moments computed w.r.t.\ a well-known $q$-analogue of the integral.
+Restricting to functions in the space $\Hintersect$ of definition \ref{def:Hcore},
+our $q$-moment problem has positive answer---although the proof will turn out
+to be quite tricky.
+
+\begin{defn}
+Let $f$ be any complex valued function defined on some subset of
+$\CC$ containing the points $q^{n}$ with $n\in \ZZ$.
+The $q$-integral (or {\em Jackson\/} integral) of $f$ is then defined by
+$$ \int_0^\infty f(x)\, d_q x  \;=\;  (1-q) \sum_{n\in \ZZ} \: f(q^{n}) \, q^{n} $$
+provided the summation in the {\sc rhs} converges absolutely.
+\end{defn}
+
+Notice this is different from integration on $\RR_q^+ \equiv (\RR_q^+,m_q)$
+as introduced at the beginning of section \S \ref{sec:qHankel}\@.
+Furthermore we shall actually be dealing with $q^2$-integration rather
+than with $q$-integration. First we establish a link between
+$q^2$-moments and $q$-Hankel transformation:
+
+\begin{prop} \label{prop:moment:link_with_Hankel}
+Take any $m\in \NN$ and $f\in\holS{m}$. Then
+$$ (1-q^2)\:(q^2;q^2)_m \, (\holH{m}f)(0) \;=\, \int_0^\infty x^m f(x)\, d_{q^2}x.  $$
+Observe that the $q^2$-integral in the {\sc rhs} is well-defined
+since $f$ belongs to $\Swqbis$.
+\end{prop}
+\begin{proof}
+Let $(f,g)$ be an \Hmpair\@. According to proposition
+\ref{prop:exist:holomorphic_qHankel}\ (see proof)
+we have $(\holH{m}f)(z^2) = z^{-m} g(z)$ for all $z\in \CC_0$, and in particular
+we obtain for $k \in \ZZ$ that
+\begin{eqnarray}
+(\holH{m}f)(q^{2k}) &=& q^{-mk} g(q^k)
+   \hspace{1em}=\hspace{1em}
+      q^{-mk} (H_m R_q \Psi^m K f)(q^k)  \\
+   &\stackrel{(\ref{eq:qHankeltransform:def})}{=}&
+     \sum_{n\in \ZZ} \: q^{-m(n+k)} \J{m}{q^{n+k}}\, q^{2(m+1)n}  f(q^{2n}) \\
+   &=&
+     \sum_{n\in \ZZ} \: \varJ{m}(q^{n+k}) \, q^{2(m+1)n}  f(q^{2n})
+     \label{eq:momentq:full_series}
+\end{eqnarray}
+where $\varJ{m}$ is the {\em entire\/} function satisfying
+$\varJ{m}(z)= z^{-m} \J{m}{z}$ for $z\in \CC_0$
+(the singularity at the origin being removable, cf.\ lemma \ref{lemma:def:qBessel}).
+For any $k,n \in \ZZ$, let $t_{n,k}$ denote the number
+$$ t_{n,k}  \:=\; \varJ{m}(q^{n+k}) \, q^{2(m+1)n}  f(q^{2n}). $$
+Since $\holH{m}f$ is entire, it is a fortiori continuous at the origin,
+and therefore
+\begin{equation}\label{eq:moment:holHmf_at zero:limit:full_summ}
+   (\holH{m}f)(0) \:=\; \lim_{k \rarr +\infty} (\holH{m}f)(q^{2k})
+        \:=\; \lim_{k \rarr +\infty}
+               \left(\vertL \textstyle \sum_{n\in \ZZ} \, t_{n,k}\right)
+\end{equation}
+Now comes the tricky part: we have to compute the above limit,
+which roughly speaking amounts to interchanging the limit and the summation.
+Therefore the summation shall be split into two parts, the splitting being
+$k$-dependent in a quite peculiar way, as follows: for any $k\in\NN$ we define
+\begin{equation}\label{eq:moment:series:splitting}
+   a_k = \sum_{n=-\infty}^{n_k-1}   t_{n,k}
+                      \andspace{5em}
+   b_k = \sum_{n=n_k}^{+\infty}     t_{n,k}
+\end{equation}
+where $n_k$ denotes the integer such that
+\begin{equation}\label{eq:moment:defn:smallest_int:nk}
+  n_k -1   \:\leq\:  \frac{-k}{4(m+1)}   \: < \:  n_k.
+\end{equation}
+Both series in (\ref{eq:moment:series:splitting}) should converge because
+together they constitute the series (\ref{eq:momentq:full_series}),
+the latter being absolutely convergent since it arose from a well-defined
+$q$-Hankel transform (cf.\ the $L^2$-theory). It is however instructive
+to investigate convergence of the summations in (\ref{eq:moment:series:splitting})
+directly: the one that defines $a_k$ converges, because $f$ belongs to $\Swqbis$
+and because $\varJ{m}(q^{n+k})$ tends to zero as $n \rarr -\infty$. The
+series defining $b_k$ converges since $f$ and $\varJ{m}$ are
+bounded in the neighborhood of the origin.
+Now (\ref{eq:moment:holHmf_at zero:limit:full_summ}) can be rewritten as
+\begin{equation}\label{eq:moment:lim:ak+bk}
+   (\holH{m}f)(0) \:=\; \lim_{k \rarr +\infty} (a_k + b_k)
+\end{equation}
+and we claim the limits of $a_k$ and $b_k$ to exist {\em separately}.
+
+To compute $\lim_{k \rarr +\infty} b_k$ we introduce one more
+sequence $(c_k)_{k=0}^\infty$ of numbers, as follows
+$$   c_k = \sum_{n=n_k}^{+\infty}  \varJ{m}(0) \, q^{2(m+1)n}\, f(q^{2n}). $$
+Observe the definitions of $b_k$ and $c_k$ are quite similar,
+and the sums defining them converge absolutely for quite the same reasons.
+Now contrary to the sequence $(b_k)_{k=0}^\infty$,
+the limit of $(c_k)_{k=0}^\infty$ is easily computed; indeed as $k \rarr +\infty$,
+then $n_k \rarr -\infty$, and hence
+\begin{equation}\label{eq:moment:limit:ck}
+ \lim_{k \rarr +\infty} c_k
+     \:= \:  \varJ{m}(0)  \lim_{j \rarr -\infty}
+             \left(\, \sum_{n=j}^{+\infty} \, q^{2mn}\, f(q^{2n}) \, q^{2n}\right)
+     \:= \:  \frac{\varJ{m}(0)}{1-q^2} \: \int_0^\infty x^m f(x)\, d_{q^2}x.
+\end{equation}
+Our next goal is to prove that
+\begin{equation}\label{eq:moment:lim:bk-ck:zero}
+  \lim_{k \rarr +\infty} (b_k - c_k) \, = 0.
+\end{equation}
+Since $\varJ{m}$ is entire, we can find a bound $N_1>0$ such that
+\begin{equation}\label{eq:moment:estimate:varJ}
+  |\varJ{m}(z) - \varJ{m}(0)| \; \leq  \; N_1 |z|  \hspace{4em}  \mbox{for all $|z| \leq 1$.}
+\end{equation}
+On the other hand $f$ belongs to $\Swqbis$, so we also have a bound,
+say $N_2>0$, such that $|f(q^{2n})| \leq N_2$ for all $n\in \ZZ$.
+Observe the condition $n\geq n_k$ together with $k\geq 0$ and (\ref{eq:moment:defn:smallest_int:nk})
+implies $n+k$ to be positive, and hence the estimate (\ref{eq:moment:estimate:varJ})
+to be valid for $z=q^{n+k}$. Consequently
+\begin{eqnarray*}
+   |b_k - c_k| & \leq &  \sum_{n=n_k}^{+\infty}
+         \left| \vertM \varJ{m}(q^{n+k}) - \varJ{m}(0)  \right|
+         \, q^{2(m+1)n} \, |f(q^{2n})|   \\
+      & \leq &  N_1 N_2  \sum_{n=n_k}^{+\infty}  q^{n+k} q^{2(m+1)n} \\
+      & \leq &  N_1 N_2 \: q^{\frac{1}{2}k}  \sum_{n=n_k}^{+\infty}  q^n
+                \underbrace{q^{2(m+1)n + \frac{1}{2}k}}_{\leq \,1}
+\end{eqnarray*}
+Now the summation range and (\ref{eq:moment:defn:smallest_int:nk}) imply
+$2(m+1)n + \frac{1}{2}k$ to be positive, and therefore
+$$ |b_k - c_k|  \;\leq\;   N_1 N_2 \: q^{\frac{1}{2}k} \sum_{n=n_k}^{+\infty} q^n
+                \;=\;      N_1 N_2 \: q^{\frac{1}{2}k} q^{n_k} \sum_{n=0}^{+\infty} q^n
+                \;=\;      \frac{N_1 N_2}{1-q} \, q^{\frac{1}{2}k + n_k} $$
+for all $k\in\NN$. Now
+$$ \frac{1}{2}k + n_k   \;>\;  \frac{1}{2}k + \frac{-k}{4(m+1)}
+     \;=\;  \frac{2m+1}{4(m+1)} \, k,  $$
+hence we found some non-zero positive numbers, say
+$$ C= \frac{N_1 N_2}{1-q} \andspace{4em} \gamma = \frac{2m+1}{4(m+1)} $$
+only depending on $q$, $m$ and $f$, such that $|b_k - c_k| \leq C q^{\gamma k}$
+for all $k\geq 0$. This proves (\ref{eq:moment:lim:bk-ck:zero}).
+
+
+Now we still have to deal with the $a_k$ in (\ref{eq:moment:lim:ak+bk}).
+Observe $\varJ{m}$ is bounded in the neighborhood of the origin, whereas
+$\varJ{m}(q^r)$ tends to zero as $r \rarr -\infty$. It follows
+that there exists a bound $M_1>0$ such that $|\varJ{m}(q^r)| \leq M_1$
+for all $r \in \ZZ$. On the other hand, since $f$ belongs to $\Swqbis$
+we can find a number $M_2>0$ such that
+$$ |q^{4(m+1)n} f(q^{2n})| \; \leq \: M_2
+         \hspace{3em} \mbox{and hence} \hspace{3em}
+   q^{2(m+1)n} \, |f(q^{2n})| \; \leq \: M_2 \, q^{-2(m+1)n}    $$
+for all $n\in \ZZ$.
+It follows that $|t_{n,k}| \leq M_1 M_2\, q^{-2(m+1)n}$ for all $k,n\in \ZZ$,
+and hence
+$$ |a_k| \: \leq \sum_{n=-\infty}^{n_k-1} |t_{n,k}|
+         \; \leq \; M_1 M_2 \sum_{n=-\infty}^{n_k-1} q^{-2(m+1)n} $$
+for all $k\in \NN$.
+Substituting the summation index by $n=n_k-1-j$ we obtain
+$$ |a_k| \: \leq \; M_1 M_2 \sum_{j=0}^{+\infty}  q^{-2(m+1)(n_k-1-j)}
+  \:=\;  M_1 M_2\: q^{-2(m+1)(n_k-1)} \sum_{j=0}^{+\infty}  q^{2(m+1)j} $$
+If we define $u=q^{2(m+1)}$, then $0<u<1$, and
+$$ |a_k| \: \leq \;  M_1 M_2\: u^{-n_k} \,u  \sum_{j=0}^{+\infty} u^j
+           \:=\;  M_1 M_2\, \frac{u}{1-u} \, u^{-n_k} $$
+where $M_1$, $M_2$ and $u$ only depend on $q$, $m$ and $f$.
+Recalling that $n_k \rarr -\infty$ when $k \rarr +\infty$,
+it follows that $\lim_{k \rarr +\infty} a_k = 0$.
+Putting all the pieces together, we obtain
+$$ (\holH{m}f)(0) \;=\: \lim_{k \rarr +\infty} (a_k + b_k)
+      \;=\: \underbrace{\lim_{k \rarr +\infty} a_k}_{=\,0}
+       \: + \underbrace{\lim_{k \rarr +\infty} (b_k - c_k)}_{=\,0}
+       \: + \underbrace{\lim_{k \rarr +\infty} c_k}_{(\ref{eq:moment:limit:ck})}.$$
+Now it only remains to compute the number $\varJ{m}(0)$ appearing
+inside equation (\ref{eq:moment:limit:ck}). It is clear however
+that $\varJ{m}(0)$ is nothing but the $(k=0)$-coefficient in the
+power series (\ref{eq:def:qBessel}; $q$ replaced with $q^2$) that
+defines the Hahn-Exton $q^2$-Bessel functions, yielding
+$$ \varJ{m}(0) \:=\:  \frac{(q^{2(m+1)};q^2)_\infty}{(q^2;q^2)_\infty}
+               \:=\:  \frac{1}{(q^2;q^2)_m} $$
+This completes the proof.
+\end{proof}
+
+\begin{lemma} \label{lemma:moment:all_qderivs_zero}
+If $f$ is an entire function such that $(D_q^m f)(0) = 0$ for all $m\in \NN$,
+then $f=0$.
+\end{lemma}
+\begin{proof}
+Let's first introduce the following notion of $q$-factorials: for $n\in \NN$, put
+$$ \varqfac{n}  \:=\: \frac{1-q^n}{1-q}
+         \hspace{5em}
+   \varqfac{0}! \:=\, 1 \hspace{5em}
+   \varqfac{n}! \:=\: \varqfac{1} \varqfac{2} \ldots \varqfac{n}.  $$
+Now let $f(z) = \sum_{k=0}^\infty a_k\, z^k$ be the power series expansion of $f$
+around the origin. Then
+$$ (D_q f)(z)
+       \;=\; \frac{1}{(1-q)z} \left(\:
+             \sum_{k=0}^\infty a_k\, z^k  - \sum_{k=0}^\infty a_k\, (q z)^k  \right)
+       \;=\; \sum_{k=1}^\infty \: \varqfac{k} \, a_k \, z^{k-1} $$
+for all $z\in \CC_0$ (and hence also for $z=0$).
+Iterating this $m\in \NN$ times and then evaluating at the origin, we obtain
+$(D_q^m f)(0) = \varqfac{m}! \, a_m$. The result follows.
+\end{proof}
+
+
+\begin{lemma}
+If $f\in\Hintersect$ such that $(\holH{m}f)(0) = 0$ for all $m\in \NN$,
+then $f=0$.
+\end{lemma}
+\begin{proof}
+Recall the formula (\ref{eq:holqHankel:qdiff:iterated}) which was
+derived from proposition \ref{prop:holqHankel:qdiff}, and apply it to $f$:
+$$  \holH{m} f \:=\: ({\rm scalar})\, \Omega^{-2m} D_{q^2}^m \holH{0} f $$
+for any $m\in\NN$. With our assumptions it follows that
+$(D_{q^2}^m \holH{0} f)(0) = 0$ for all $m\in \NN$.
+Since $\holH{0} f$ is entire, we may draw our conclusions from lemma
+\ref{lemma:moment:all_qderivs_zero}\ ($q$ replaced with $q^2$).
+\end{proof}
+
+\vspace{2ex}
+Combining this lemma with proposition \ref{prop:moment:link_with_Hankel}, we get
+
+\begin{thm} \label{thm:qmoment}
+If $f\in\Hintersect$ has vanishing $q^2$-moments, i.e.\
+$\int_0^\infty x^m f(x)\, d_{q^2}x \,= 0$ for all $m\in\NN$, then $f=0$.
+\end{thm}

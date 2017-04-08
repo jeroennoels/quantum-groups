@@ -1,0 +1,220 @@
+\section{Inversion formulas}
+\label{sect:inversion}
+
+
+\begin{defn}
+Let $\delta_0$ be the function $\delta_0: \theta \ZZ \rarr \CC$
+given by $\delta_0(k\theta)=\delta_{k,0}$ for $k\in\ZZ$.
+Clearly $\delta_0$ belongs to \KZeven\@. Next let $T_0$ denote the map
+from \HC\ into $\FZ \tens \HC$ given by tensoring with $\delta_0$ on the
+left, i.e.\ $T_0(g)=\delta_0 \tens g$.
+Finally, for any $k\in\ZZ$, let $P_k$ denote the map
+$P_k : \FZ \rarr \FZ$ given by  $(P_k f)(l\theta)=\delta_{k,l} f(l\theta)$
+for $l\in\ZZ$ and $f\in\FZ$.
+\end{defn}
+
+The following lemma is trivial but important; similarly to
+lemma \ref{lemma:slice_map:parity}, it follows from (\ref{eq:def:Hcore:parity}).
+
+\begin{lemma}
+The  mapping $T_0$ maps $\Hcore_\tau$ into $\calL(\Hcore_\tau)$.
+\end{lemma}
+
+\begin{defn}
+First recall definition \ref{def:YaH}\@.
+Now for any $m,k\in\ZZ$, we define a linear mapping $\Htil{m}{k}$
+from $\Hcore_\nu$ into $\calL(\Hcore_\tau)$ as follows:
+$$ \Htil{m}{k} \;=\;
+   \kq(m,k)^{-1} \: (\Gamma^{-1} \tens \Omega)^{-k}\,
+            T_0\, \Lambda_\tau \, \holH{m} \, \Lambda_\nu^{-1}. $$
+Observe that because of the previous lemma, $\Htil{m}{k}$ indeed ends up in
+$\calL(\Hcore_\tau)$.
+\end{defn}
+
+
+\begin{lemma}
+Take $m,k,l\in\ZZ$. Then $\YaH{m}{k} \,\Htil{m}{l} = \delta_{k,l} \,\id$ and\/
+$\Htil{m}{k} \,\YaH{m}{k} = P_k \tens \id$ and hence
+$$ \sum_{k\in\ZZ}\: \Htil{m}{k}\, \YaH{m}{k} X  \:=\: X $$
+for any $X\in \calL(\Hcore_\tau)$.
+Notice that the last formula makes sense because of lemma \ref{lemma:finite_support}\@.
+\end{lemma}
+{\em proof.}
+Recall $\holH{m}^{2} = \id$ and observe that
+$$ T_0 (\evzero \tens \id) = P_0 \tens \id
+             \andspace{4em}
+(\evzero \tens \id) (\Gamma^{-1} \tens \Omega)^{k-l}T_0 = \delta_{k,l} \, \id.$$
+
+
+
+\begin{prop}  \label{prop:Eq2:Fourier:bijections}
+The Fourier transforms $F_R$ and $F_L$
+(cf.\ definition \ref{def:Eq2:Fourier_transforms}) are bijections from
+$\Uq\!\left(\calL(\Hcore_\tau)\right)$ onto $\Aq(\Hcore_\nu)$.
+Their inverses are given by
+$$\begin{array}{lcr}
+F_R^{-1} \left(  \alpha^l \gamma^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+\Upsilon \left(\Htil{m}{l-m}\,g \right) b^m   \vertXL
+\\
+F_R^{-1} \left(  \alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+\Upsilon \left(\Htil{-m}{l+m}\,g \right) c^m  \vertXL
+\\
+F_L^{-1} \left(  \alpha^l \gamma^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+q^{-2l} \: \Upsilon \left(\Htil{m}{l-m}\,g \right) b^m  \vertXL
+\\
+F_L^{-1} \left(  \alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+q^{-2l} \: \Upsilon \left(\Htil{-m}{l+m}\,g \right) c^m  \vertXL
+\end{array} $$
+\end{prop}
+
+
+\begin{lemma} \label{lemma:Eq2:lambdaiszeta}
+We have $\pair{1_{\Uq}}{F_{L}(x)} = \varphi(x)$
+for any $x\in \Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$.
+\end{lemma}
+\begin{proof}
+Using proposition \ref{prop:moment:link_with_Hankel}\ we get for
+all $X\in \calL(\Hcore_\tau)$ and $m\in \NN$ that
+\begin{eqnarray*}
+\lefteqn{ \left\langle 1_{\Uq} ,\: F_L\left(\vertM\Upsilon(X)\, b^m\right)
+          \right\rangle}\\
+&=&
+\sum_{k\in\ZZ} \;  \left\langle 1_{\Uq} ,\: (q^2 \alpha)^{k+m}\, \gamma^m
+               \left(\YaH{m}{k}\,X\right)(\gamma^*\gamma) \right\rangle \\
+&=&
+\sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k} \left(\YaH{0}{k}\,X\right)(0) \\
+&=&
+\sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k} \left(\holH{0} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k X \vertL\right)(0) \\
+&=&
+\sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}  \frac{1}{1-q^2} \int_0^\infty
+     \! \left(\Lambda_\tau^{-1}\, (\evzero \tens \id)\,
+           (\Gamma^{-1} \tens \Omega)^k X \vertL\right)(x) \: d_{q^2}x  \\
+&=&
+\sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}  \frac{1}{1-q^2} \int_0^\infty
+      X(k\theta,\, \tau q^k x) \: d_{q^2}x  \\
+&=&
+\sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}
+        \sum_{n\in\ZZ}   X(k\theta,\, \tau q^k q^{2n}) \, q^{2n}  \\
+&=&
+\delta_{m,0} \!\! \sum_{(k,l)\, \in \,\mathfrak{S}}
+         X(k\theta,\, \tau q^l) \, q^{k+l}  \\
+&=& \varphi\left(\vertM\Upsilon(X)\, b^m\right).
+\end{eqnarray*}
+At the last but one equality we rearranged the sums according to the rule $k+2n=l$.
+Similarly we can treat $\Upsilon(X)\, c^m$.
+\end{proof}
+\vspace{2ex}
+
+The previous lemma provides the condition in
+\mbox{\cite[proposition 2.4.2]{Jeroen:QE2:haar}}, yielding
+
+\begin{prop} \label{prop:Eq2:Fourier:inverse}
+$\;G_{LR}=S F_{L}^{-1}$ is an {\sc lr} Fourier transform from
+$\Aq(\Hcore_\nu)$ to $\Uq\!\left(\calL(\Hcore_\tau)\right)$.
+\end{prop}
+
+From the general observations in \mbox{\cite{Jeroen:QE2:haar}}\
+we also obtain all the other Fourier transforms from $\Aq(\Hcore_\nu)$ to
+$\Uq\!\left(\calL(\Hcore_\tau)\right)$, as well as the appropriate Plancherel
+identities for $G_{LR}$ and $G_{RL}$ (observe however that $G_{LL}$ and $G_{RR}$
+do {\em not\/} obey a Plancherel formula).
+
+
+\section{Conclusions}
+
+\begin{thm}
+Take $0<q<1$ and define $\tau = q^{-1}$ and $\nu = (q^{-1}-q)^{-2}$.
+Then the system
+$$\left( \Uq\!\left(\calL(\Hcore_\tau)\vertM\right) \: \subseteq\:
+         \Uq\!\left(\calL({\mathcal S}_\tau(\RR^+;q^2)) \vertM \right),
+                \varphi, \psi;\;    \Uq,\,\Aq;\;
+                \Aq(\Hcore_\nu)\: \subseteq\:
+         \Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\vertM \right),
+          \omega \vertL \right)$$
+is a Plancherel context (see \cite{Jeroen:QE2:haar}).
+\end{thm}
+\begin{proof}
+Let's show conditions (i-iv) of \cite[definition 2.5.5]{Jeroen:QE2:haar}\@.
+(i) follows from propositions
+\ref{prop:Eq2:Fourier_transforms},
+\ref{prop:Eq2:Fourier:bijections}\ and \ref{prop:Eq2:Fourier:inverse}\@.
+(ii) follows from theorem \ref{thm:Eq2:Plancherel}\ together with some results in
+\cite{Jeroen:QE2:haar}\@. (iii) was shown in lemma \ref{lemma:Eq2:lambdaiszeta}\@.
+Also (iv) is not so hard to prove.
+\end{proof}
+
+
+\paragraph{Further investigation}
+From \cite[lemmas 2.3.1 and 2.6.1]{Jeroen:QE2:haar}\ we now know that
+there is a natural duality between
+$\Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$ and $\Aq(\Hcore_\nu)$,
+for instance given by $\pair{x}{y} = \omega(F_L(x)\,y) $
+for $x \in \Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$ and $y \in \Aq(\Hcore_\nu)$.
+This formula for the pairing can be made very explicit simply by
+plugging in definitions \ref{def:Eq2:Fourier_transforms},
+\ref{def:YaH}, \ref{def:Hmpair}\ and \ref{def:qHankeltransform:unitary},
+together with proposition \ref{prop:exist:holomorphic_qHankel}\
+and the definition of the Haar functional $\omega$.
+This should yield some very concrete expressions for the pairing, e.g.
+\begin{eqnarray}
+  \lefteqn{  \left\langle \vertL\Upsilon(X)\, b^m, \;
+     \alpha^l (\gamma^*)^n \,g(\gamma^*\gamma)  \right\rangle
+     \hspace{1em}=\hspace{1em}
+     \delta_{m,n} \: \kq(m,-m-l)\: \nu^m \, q^{ml} \ldots } \\
+  &\ldots & \sum_{r,k\in \ZZ}   q^{(m+2)(k+r)} \: \J{m}{q^{k+r}} \;   g(\nu\, q^{2r+2l}) \;
+       X\!\left(-m\theta-l\theta, \: \tau\, q^{2k-m-l} \vertM
+           \right) \hspace{1em} \label{eq:Eq2:induced_pairing}
+\end{eqnarray}
+for any and $l\in \ZZ$, $m,n\in \NN$, $g \in \Hcore_\nu$ and $X\in \calL(\Hcore_\tau)$.
+The interesting point about this formula is that it no longer
+depends on the use of {\em entire\/} functions, i.e.\ $X$ and $g$
+may be any functions living on the appropriate (discrete!) sets,
+provided they satisfy some elementary summability criterion.
+So it may be possible to take (\ref{eq:Eq2:induced_pairing}) as the
+{\em point to start\/} the construction of the quantum $E(2)$
+group, i.e.\ making (\ref{eq:Eq2:induced_pairing}) into a {\em definition\/}
+for the pairing\ldots
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{lemma}
+%For any $m,k\in\ZZ$ we have
+%$$\begin{array}{lclcl}
+%(\Gamma \tens \Omega^{-1}) \, \Htil{m}{k}
+%&\vertXL =&
+%q^{\frac{1}{2}|m|}\:  \Htil{m}{k+1}
+%\\
+%(\Phi \tens \id) \, \Htil{m}{k}
+%&\vertXL =&
+%q^{-\frac{1}{2}k}\:  \Htil{m}{k}
+%\\
+%(\id \tens \Omega^2) \, \Htil{m}{k}
+%&\vertXL =&
+%q^{-2|m|-2}\: \Htil{m}{k} \Omega^{-2}
+%\\
+%\Htil{m+1}{k}\, D_{q^2}
+%&\vertXL =&
+%q^{\frac{1}{2} -\frac{1}{2}k}\:  \Htil{m}{k}\, \Omega^2
+%\\
+%\Htil{m-1}{k} \, \Omega \nabq{m}
+%&\vertXL =&
+%-q^{-\frac{1}{2} -\frac{1}{2}k -m}\: (\id \tens \Psi)\, \Htil{m}{k}
+%\\
+%\Htil{-m+1}{k} \, \Omega^{-1} \nabq{m}
+%&\vertXL =&
+%q^{\frac{3}{2} -\frac{1}{2}k +m}\: (\id \tens \Psi)\, \Htil{-m}{k}
+%\\
+%\Htil{-m-1}{k}\, D_{q^2}
+%&\vertXL =&
+%- q^{-\frac{3}{2} -\frac{1}{2}k}\:  \Htil{-m}{k}
+%\end{array}$$
+%\end{lemma}
+%%%%%%%%%%%%%%%%%%%%%%%%%

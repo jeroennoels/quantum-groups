@@ -1,0 +1,527 @@
+\section{Constructing Fourier transforms for quantum $E(2)$}
+
+\begin{abs} \rm
+We introduce a Fourier context for the quantum $E(2)$ group
+and explicitly construct its Fourier transforms by means of
+holomorphic $q$-Hankel transformation.
+\hfill $\star$
+\end{abs}
+
+\paragraph{A Fourier context for the quantum $E(2)$ group}
+Throughout the rest of the paper, the positive numbers $\tau$ and
+$\nu$ will be defined as follows:
+\begin{equation}\label{eq:tau_nu:value}
+   \tau = q^{-1}  \andspace{4em}  \nu = (q^{-1}-q)^{-2}.
+\end{equation}
+We shall need some dilation operators on \HC\ similar to $\Omega$,
+though for an entirely different purpose: for any $r>0$, let
+$\Lambda_r$ be the linear mapping on \HC\ given by
+$(\Lambda_r g)(z) = g(r^{-1} z)$.
+We are mainly interested in the cases $r=\tau$ and $r=\nu$, and
+in particular we have $\Lambda_\tau = \Omega$.
+Also observe the commutation rule $\Lambda_r \Psi = r^{-1} \Psi \Lambda_r$.
+Accordingly, we shall need dilated versions of the space \Hcore\ in
+definition \ref{def:Hcore}\@. Therefore define $\Hcore_r = \Lambda_r \Hcore$,
+for any $r>0$. Notice that $\Hcore_r$ is contained in ${\mathcal S}_r(\RR^+;q^2)$.
+Furthermore $\Hcore_r$ is non-trivial since $\Hcore$ is non-trivial
+(cf.\ corollary \ref{cor:qExp_in_Hcore}).
+
+We are about to invoke \cite[theorem 3.6.1]{Jeroen:QE2:haar}, which will
+provide a setting for doing harmonic analysis on the quantum $E(2)$ group.
+From the above observations together with proposition \ref{prop:Hcore:invariance},
+it follows that ${\mathcal G}_r' \equiv \Hcore_r$ satisfies
+\mbox{\cite[assumptions 3.4.1.1]{Jeroen:QE2:haar}}, for any $r>0$ and
+in particular for $r=\tau,\nu$.
+Furthermore, we already know from \mbox{\cite[example 3.4.1.2]{Jeroen:QE2:haar}}\ that
+${\mathcal G}_r \equiv {\mathcal S}_r(\RR^+;q^2)$ is a sub{\em algebra\/} of \HC\
+satisfying \mbox{\cite[assumptions 3.4.1.1]{Jeroen:QE2:haar}}\@.
+Eventually theorem \ref{thm:qmoment}\ yields that $\Hcore_\tau$ and $\Hcore_\nu$
+obey condition (iii) of \mbox{\cite[theorem 3.6.1]{Jeroen:QE2:haar}}\@. We conclude:
+
+\begin{thm} \label{thm:Fourier_context}
+The system
+$$\left( \Uq\!\left(\calL(\Hcore_\tau)\vertM\right) \: \subseteq\:
+         \Uq\!\left(\calL({\mathcal S}_\tau(\RR^+;q^2)) \vertM \right),
+                \varphi, \psi;\;    \Uq,\,\Aq;\;
+                \Aq(\Hcore_\nu)\: \subseteq\:
+         \Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\vertM \right),
+          \omega \vertL \right)$$
+is a Fourier context (see \cite{Jeroen:QE2:haar}).
+\end{thm}
+
+
+
+\paragraph{Parity structure: an important slice map}
+Let $\evzero$ be the linear functional on \FZ\ defined by $\evzero(f)=f(0)$.
+Now we consider the slice map $\evzero \tens \id$ from $\FZ \tens \HC$ into \HC\@.
+Although trivial, the following lemma is essential for the construction of
+Fourier transforms and crucial in understanding the \lq parity\rq\ structure
+(cf.\ \mbox{\cite[remark 3.4.1.9]{Jeroen:QE2:haar}})
+that entered the construction of the Haar functionals $\varphi$ and $\psi$.
+Recall $\calL(\Hcore_\tau)$ is defined as
+\begin{equation} \label{eq:def:Hcore:parity}
+\calL(\Hcore_\tau) \;=\;  \left(\KZeven \tens \Hcore_\tau^\scripteven \vertL\right) \:\oplus\:
+                          \left(\KZodd  \tens \Hcore_\tau^\scriptodd \vertL\right).
+\end{equation}
+
+
+\begin{lemma} \label{lemma:slice_map:parity}
+The slice map $\evzero \tens \id$ maps $\calL(\Hcore_\tau)$ into $\Hcore_\tau$.
+\end{lemma}
+\begin{proof}
+Clearly $\evzero$ annihilates $\KZodd$ and therefore only the \lq even\rq\ component of
+(\ref{eq:def:Hcore:parity}) is able to survive $\evzero \tens \id$.
+Since by definition $\Hcore_\tau^\scripteven = \Hcore_\tau$, the result follows.
+\end{proof}
+
+
+\begin{remark} \rm
+We claim that (\ref{eq:def:Hcore:parity}) offers the most natural way towards the above result.
+To appreciate this a little more, let's try to come up with an alternative:
+let's suppose for instance, that we would replace
+$\calL({\mathcal S}_\tau(\RR^+;q^2))$ by the (smaller!) space
+$\KZ \tens {\mathcal S}_\tau (\RR^+;q)$
+as suggested in \mbox{\cite[remark 3.4.1.3.iii]{Jeroen:QE2:haar}}\@.
+In view of \mbox{\cite[equation (27)]{Jeroen:QE2:haar}},
+the corresponding alternative for $\calL(\Hcore_\tau)$ would be
+$\KZ \tens \left(\Hcore_\tau^\scripteven \cap \,\Hcore_\tau^\scriptodd \vertM \right)$.
+Also with these choices it should be possible to produce a Fourier context
+similar to the one of theorem \ref{thm:Fourier_context}\ above,
+and moreover the latter choice would qualify w.r.t.\ lemma \ref{lemma:slice_map:parity}\@.
+However we run into trouble by taking the {\em intersection\/} of
+$\Hcore_\tau^\scripteven$ and $\Hcore_\tau^\scriptodd$.
+The point is that in this operation we probably loose all the interesting
+functions supplied by corollary \ref{cor:qExp_in_Hcore}, and in fact
+$\Hcore_\tau^\scripteven \cap \, \Hcore_\tau^\scriptodd $ might as well be
+trivial---the question is still open. Anyway it should be clear by
+now that (\ref{eq:def:Hcore:parity}) is much more natural.
+
+One more try: could we take $\calL(\Hcore_\tau)$ to be the even
+component in (\ref{eq:def:Hcore:parity}) only? Again the answer is
+negative, since then $\calL(\Hcore_\tau)$ would no longer be invariant under
+$\Gamma \tens \Omega^{\pm 1}$ or $\Gamma^{-1} \tens \Omega^{\pm 1}$,
+which was essential in \mbox{\cite[proposition 3.3.1.1]{Jeroen:QE2:haar}}\@.
+So there seems to be no valuable alternative for (\ref{eq:def:Hcore:parity}) and
+moreover, our choice shall be manifestly confirmed by further results
+(cf.\ \S\ref{sect:plancherel}, \S\ref{sect:inversion}).
+\hfill $\star$
+\end{remark}
+
+
+
+
+\paragraph{Yet another \lq H\rq}
+In this paragraph we introduce and study a family $\YaH{m}{k}$ (with $m,k\in\ZZ$)
+of linear transforms from $\calL(\Hcore_\tau)$ into $\Hcore_\nu$,
+making diagram (\ref{eq:diagram:YaH}) below commute. Basically these
+$\YaH{m}{k}$ can still be thought of as some kind of $q$-Hankel transform.
+
+\begin{defn} \label{def:YaH}
+Whenever $m,k\in\ZZ$, let $\kq(m,k)$ denote the scalar
+$$  \kq(m,k) \;=\; (-1)^m q^{-m} q^{\frac{1}{2}|m|(k-1)} (q^{-1}-q)^{|m|}. $$
+Furthermore let $\YaH{m}{k}$ be the following linear map from
+$\calL(\Hcore_\tau)$ into $\Hcore_\nu$:
+$$ \YaH{m}{k}  \;=\;   \kq(m,k) \: \Lambda_\nu \, \holH{m} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)_{|\calL(\Hcore_\tau)}^k $$
+That this definition makes sense can be seen from the following diagram:
+\begin{equation}\label{eq:diagram:YaH}
+\begin{CD}
+ \calL(\Hcore_\tau)   @>{\textstyle \hspace{1em}(\Gamma^{-1} \tens \Omega)^k\hspace{1em}}>>
+ \calL(\Hcore_\tau)   @>{\textstyle\;\hspace{1em} \evzero \tens \id\hspace{1em}\;}>>
+ \Hcore_\tau          @>{\textstyle\hspace{2em}\Lambda_\tau^{-1}\hspace{2em}}>>
+ \Hcore  \\
+ @V{\textstyle\YaH{m}{k}}VV     @. @.
+                      @VV{\textstyle \holH{m}}V \\
+ \Hcore_\nu   @<<\hspace{7em}<  \Hcore_\nu
+              @<<{\textstyle\;\hspace{1em} \kq(m,k) \hspace{1em}\; }<
+ \Hcore_\nu   @<<{\textstyle  \hspace{2em} \Lambda_\nu\hspace{2em}}<
+       \Hcore
+\end{CD}
+\end{equation}
+Observe this diagram in itself does make several statements:
+clearly lemma \ref{lemma:slice_map:parity}\ is involved, as well as
+proposition \ref{prop:Hcore:invariance}, stating that $\Hcore$ is invariant
+under all $\holH{m}$. Furthermore we need $\calL(\Hcore_\tau)$ to be invariant
+under $\Gamma^{\pm 1} \tens \Omega^{\mp 1}$, which is an immediate consequence of
+(\ref{eq:def:Hcore:parity}). In this respect, notice how
+$\Gamma^{\pm 1} \tens \Omega^{\mp 1}$
+interchanges\footnote{which is just one of the reasons why {\em both\/}
+components should be present.} the even and
+odd components in (\ref{eq:def:Hcore:parity}).
+\end{defn}
+
+
+\begin{remark} \rm
+How to think about these maps? Juxtaposition of the diagrams
+(\ref{eq:diagram:holomorphic_qHankel}) and (\ref{eq:diagram:YaH})
+reveals that, apart from a lot of \lq cosmetics\rq\ on the horizontal
+lines, the maps $\YaH{m}{k}$ basically still amount to $q$-Hankel transformation
+as defined in (\ref{eq:qHankeltransform:def}).
+\hfill $\star$
+\end{remark}
+
+
+\begin{lemma} \label{lemma:kq:formulas}
+For any $m,k\in\ZZ$ we have
+\begin{eqnarray}
+\kq(m,k)                 &=&        q^{\frac{1}{2}|m|} \: \kq(m,k-1)
+       \label{eq:kq:formula1} \\
+(q^{-1}-q)\, \kq(m-1,k)  &\vertXL=& -q^{\frac{3}{2} -\frac{1}{2}k}\: \kq(m,k)
+                       \hspace{3em}\;   {\rm if}\;\; m\geq 1
+       \label{eq:kq:formula2}\\
+(q^{-1}-q)\, \kq(-m+1,k) &\vertXL=& -q^{-\frac{1}{2} -\frac{1}{2}k}\: \kq(-m,k)
+                       \hspace{2em}     {\rm if}\;\; m\geq 1
+       \label{eq:kq:formula3}
+\end{eqnarray}
+\end{lemma}
+
+The proof is straightforward.
+In \mbox{\cite{Jeroen:QE2:haar}}\ we stated that a space like
+$\calL(\Hcore_\tau)$ satisfies the conditions of
+\mbox{\cite[proposition 3.3.1.1]{Jeroen:QE2:haar}}\@.
+In particular, $\calL(\Hcore_\tau)$ is invariant under
+$$\Gamma^{\pm 1} \tens \Omega^{\mp 1},   \hspace{2em}
+\id \tens \Omega^{\pm 2},                \hspace{2em}
+\Phi^{\pm 1} \tens \id,                  \hspace{2em}
+\id \tens \Omega^{\pm 1} \nabq{m},       \hspace{2em}
+\id \tens D_{q^2}. $$
+So the question arises how the $\YaH{m}{k}$ behave under these operations:
+
+\begin{lemma} \label{lemma:YaH:properties}
+For any $m,k\in\ZZ$ we have
+$$\begin{array}{lclcl}
+\YaH{m}{k} (\Gamma \tens \Omega^{-1})
+          &\vertXL =&   q^{\frac{1}{2}|m|}\; \YaH{m}{k-1}  \\
+\YaH{m}{k} (\Phi \tens \id)
+          &\vertXL =&   q^{-\frac{1}{2}k}\; \YaH{m}{k}     \\
+\YaH{m}{k} (\id \tens \Omega^2)
+          &\vertXL =&   q^{-2|m|-2}\; \Omega^{-2} \, \YaH{m}{k}     \\
+\YaH{m-1}{k} (\id \tens \Omega \nabq{m})
+          &\vertXXL =&  -q^{\frac{3}{2} -\frac{1}{2}k -m} \; \Psi \,\YaH{m}{k}
+          &  \hspace{1em} &  {\rm if}\;\; m\geq 1     \\
+\YaH{-m+1}{k} (\id \tens \Omega^{-1} \nabq{m})
+          &\vertXL =&   q^{-\frac{1}{2} -\frac{1}{2}k + m} \; \Psi \, \YaH{-m}{k}
+          &  \hspace{1em} &  {\rm if}\;\; m\geq 1     \\
+\YaH{m+1}{k} (\id \tens D_{q^2})
+          &\vertXXL =&  q^{-\frac{3}{2} -\frac{1}{2}k} \;
+          \YaH{m}{k} (\id \tens \Omega^2)
+          &  \hspace{1em} &  {\rm if}\;\; m\geq 0     \\
+\YaH{-m-1}{k} (\id \tens D_{q^2})
+          &\vertXL =&  -q^{\frac{1}{2} -\frac{1}{2}k} \; \YaH{-m}{k}
+          &  \hspace{1em} &  {\rm if}\;\; m\geq 0.
+\end{array}$$
+\end{lemma}
+\begin{proof}
+The first formula is an immediate consequence of (\ref{eq:kq:formula1})
+whereas the second one follows from $\evzero \Phi = \evzero$
+together with the commutation rule
+$\Gamma^{-k}\Phi = q^{-\frac{1}{2}k}\,\Phi\Gamma^{-k}$.
+The third formula corresponds to (\ref{eq:holS:Omega_invariant}).
+
+The remaining formulas are all consequences of
+proposition \ref{prop:holqHankel:qdiff}\ and lemma \ref{lemma:kq:formulas}\@.
+Let's for instance check the last but one; using commutation rules like
+$\Omega^k D_{q^2} = q^{-k}\, D_{q^2} \Omega^k$, we get
+\begin{eqnarray*}
+\YaH{m+1}{k} (\id \tens D_{q^2})
+&=&
+\kq(m+1,k) \; \Lambda_\nu \, \holH{m+1} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k (\id \tens D_{q^2})
+\\ &=&
+q^{-k} \, \tau^{-1} \, \kq(m+1,k) \; \Lambda_\nu \, \holH{m+1} \,D_{q^2}\, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k
+\\ &\stackrel{(*)}{=}&
+-q^{-k} q\, \frac{q^{-1}}{q^{-1}-q}\, \kq(m+1,k)
+     \; \Lambda_\nu \, \holH{m} \Omega^2  \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k
+\\ &\stackrel{(\ref{eq:kq:formula2})}{=}&
+q^{-k}\,q^{-\frac{3}{2} +\frac{1}{2}k}\: \kq(m,k)
+     \; \Lambda_\nu \, \holH{m} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k  (\id \tens \Omega^2)
+\\ &=&
+q^{-\frac{3}{2} - \frac{1}{2}k}\:  \YaH{m}{k}\, (\id \tens \Omega^2)
+\end{eqnarray*}
+for $m\geq 0$.
+In $(*)$ we used the first formula of proposition \ref{prop:holqHankel:qdiff}\@.
+Also notice that the value of $\tau$ was involved in the computation.
+In order to appreciate the particular choice (\ref{eq:tau_nu:value}) we made for $\nu$,
+we shall also have a closer look at for instance the fifth formula in the list:
+for any $m\geq 1$ we have
+\begin{eqnarray*}
+\lefteqn{ \YaH{-m+1}{k} (\id \tens \Omega^{-1} \nabq{m})} \\
+&\hspace{3em}=&
+         \kq(-m+1,k) \; \Lambda_\nu \, \holH{-m+1} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k
+         (\id \tens \Omega^{-1} \nabq{m})   \\
+&\hspace{3em}=& \kq(-m+1,k) \; \Lambda_\nu \, \holH{-m+1} \, \nabq{m} \Omega^{-1} \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k  \\
+&\hspace{3em}\stackrel{(\sharp)}{=}&
+       -\frac{1}{q^{-1}-q} \,q^m\: \kq(-m+1,k) \;
+       \Lambda_\nu \, \Psi \holH{-m} \Lambda_\tau^{-1}\,
+       (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k.
+\end{eqnarray*}
+In $(\sharp)$ we used the last formula of proposition
+\ref{prop:holqHankel:qdiff}\@. Now the parameter $\nu$ gets
+involved, since we need to use the commutation rule
+$\Lambda_\nu \Psi = \nu^{-1} \Psi \Lambda_\nu = (q^{-1}-q)^2 \Psi \Lambda_\nu$,
+yielding
+\begin{eqnarray*}
+&\hspace{2em}=\vertXL&
+      -q^m \,(q^{-1}-q) \kq(-m+1,k) \; \Psi \Lambda_\nu \holH{-m} \Lambda_\tau^{-1}\,
+      (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k  \\
+&\hspace{2em}\stackrel{(\ref{eq:kq:formula3})}{=}&
+      q^m \: q^{-\frac{1}{2} -\frac{1}{2}k}\: \kq(-m,k) \;
+      \Psi \Lambda_\nu \holH{-m} \Lambda_\tau^{-1}\,
+      (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k  \\
+&\hspace{2em}=&   q^{-\frac{1}{2} -\frac{1}{2}k + m} \; \Psi \, \YaH{-m}{k}.
+\end{eqnarray*}
+The other cases are similar.
+\end{proof}
+
+\begin{remark} \rm
+Observe that it's really essential to take $\nu=(q^{-1}-q)^{-2}$
+in order to get rid of all the $(q^{-1}-q)$ factors involved in
+the last computation. Indeed merely adjusting\footnote{for
+instance, $\kq(m,k)=\ldots (q^{-1}-q)^{-|m|}$ instead of $\ldots
+(q^{-1}-q)^{|m|}$}\ the definition of the scalars $\kq$ wouldn't
+yield the proper effect, since then these $(q^{-1}-q)$ factors
+would simply emerge somewhere else (more precisely, in the last
+two formulas of lemma \ref{lemma:YaH:properties}). Soon it will
+become clear {\em why\/} we actually want these $(q^{-1}-q)$
+factors to cancel (cf.\ proof of proposition
+\ref{prop:Eq2:Fourier_transforms}). \hfill $\star$
+\end{remark}
+
+
+\begin{lemma} \label{lemma:finite_support}
+Take $X\in \calL(\Hcore_\tau)$ and $m\in \ZZ$.
+Then $\YaH{m}{k} X = 0$ except for finitely many $k\in\ZZ$.
+\end{lemma}
+\begin{proof}
+By definition $\calL(\Hcore_\tau) \subseteq \KZ \tens \HC$.
+Writing $X=\sum_i f_i \tens g_i$ with $f_i \in \KZ$ and $g_i\in \HC$, we get
+$$ (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k X
+       \;=\; \textstyle \sum_i\:  f_i(k\theta) \, \Omega^k  g_i.   $$
+Since all the $f_i$ have finite support, the result follows.
+\end{proof}
+
+\begin{defn} \label{def:Eq2:Fourier_transforms}
+Define linear mappings $F_R$ and $F_L$ from
+$\Uq\!\left(\calL(\Hcore_\tau)\right)$ into $\Aq(\Hcore_\nu)$ by
+\begin{eqnarray*}
+ F_R\left(\vertM\Upsilon(X)\, b^m\right)
+    &=& \sum_{k\in\ZZ} \; \alpha^{k+m} \: \gamma^m
+    \left(\YaH{m}{k}\,X\right)(\gamma^*\gamma) \\
+ F_R\left(\vertM\Upsilon(X)\, c^m\right)
+    &=& \sum_{k\in\ZZ} \; \alpha^{k-m} \: (\gamma^*)^m
+    \left(\YaH{-m}{k}\,X\right)(\gamma^*\gamma) \\
+    \vertXL
+ F_L\left(\vertM\Upsilon(X)\, b^m\right)
+    &=& \sum_{k\in\ZZ}  \; (q^2 \alpha)^{k+m}\: \gamma^m
+    \left(\YaH{m}{k}\,X\right)(\gamma^*\gamma) \\
+ F_L\left(\vertM\Upsilon(X)\, c^m\right)
+    &=& \sum_{k\in\ZZ}  \; (q^2 \alpha)^{k-m}\: (\gamma^*)^m
+    \left(\YaH{-m}{k}\,X\right)(\gamma^*\gamma)
+\end{eqnarray*}
+for any $X\in \calL(\Hcore_\tau)$ and $m\in \NN$.
+Observe the summations over $k\in\ZZ$ are in fact {\em finite\/} sums
+because of lemma \ref{lemma:finite_support}. Also notice the
+formulae are in agreement when $m=0$.
+\end{defn}
+
+
+\begin{prop} \label{prop:Eq2:Fourier_transforms}
+The maps $F_R$ and $F_L$ are Fourier transforms w.r.t.\ the
+Fourier context of theorem \ref{thm:Fourier_context}\
+above; more precisely $F_R$ is an {\sc rl} and {\sc rr} transform,
+whereas $F_L$ is {\sc lr} and {\sc ll}.
+In particular this means that $F_R$ and $F_L$ are respectively left and right
+$\Aq$-module morphisms, and $\omega F_R = \pair{\,\cdot\,}{1} = \omega F_L$
+(see \mbox{\cite[2.2.2]{Jeroen:QE2:haar}}).
+
+Furthermore, these Fourier transforms are {\em unique\/}
+(within the setting of theorem \ref{thm:Fourier_context}).
+
+\rm  Here $\omega$ is the (left {\em and\/} right) Haar functional on
+$\Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\right)$ as constructed in
+\cite{Jeroen:QE2:haar}\@.
+\end{prop}
+\begin{proof}
+{\em Uniqueness\/} of Fourier transforms is a general property of
+any Fourier context (cf.\ \mbox{\cite[lemma 2.2.5]{Jeroen:QE2:haar}}).
+Nevertheless it is instructive to observe how in this particular case
+uniqueness of Fourier transforms eventually amounts to the $q$-moment
+problem for the space $\Hintersect$ as treated in \S\ref{sec:qHankel}\@.
+
+Now let's prove $\omega F_R = \pair{\,\cdot\,}{1}$.
+Observe that, for any $X\in \calL(\Hcore_\tau)$ and $m\in \NN$, we have
+\begin{eqnarray*}
+    \omega\left(\vertL F_R \left(\vertM\Upsilon(X)\, b^m\right) \right)
+&=& \omega\left(\: \sum_{k\in\ZZ} \; \alpha^{k+m} \: \gamma^m
+    \left(\YaH{m}{k}\,X\right)(\gamma^*\gamma) \right)  \\
+&=& \delta_{m,0} \; \, \omega \left[
+            \left(\YaH{0}{0}\,X\right)(\gamma^*\gamma) \right]
+\;\;=\;\;
+     \delta_{m,0}\: \sum_{n \in\ZZ} \left(\YaH{0}{0} X \right) (\nu q^{2n})\: q^{2n}  \\
+&=& \delta_{m,0}\: \sum_{n\in\ZZ} \: \kq(0,0) \: \left( \Lambda_\nu \, \holH{0}
+          \, \Lambda_\tau^{-1}\,(\evzero \tens \id) X \right) (\nu q^{2n})\: q^{2n} \\
+&=& \delta_{m,0}\: \frac{1}{1-q^2} \int_0^\infty  \left(\holH{0} \, \Lambda_\tau^{-1}
+                 (\evzero \tens \id) X \right)(x) \: d_{q^2}x  \\
+&=& \vertXL \delta_{m,0}\: (q^2;q^2)_0  \left(\holH{0}\holH{0} \, \Lambda_\tau^{-1}
+                 (\evzero \tens \id) X\right)(0)  \\
+&=& \vertXL \delta_{m,0}\: X(0,0)
+\;\;=\;\; \pair{\Upsilon(X)\, b^m}{1}
+\end{eqnarray*}
+In the above computation we used the definitions of $F_R$,
+$\omega$, $\YaH{0}{0}$, $\kq$ and $q^2$-integration. Next we invoked
+proposition \ref{prop:moment:link_with_Hankel}\ and $\holH{0}^2 = \id$.
+The last equality is clear from \cite[definition 3.2.3.1 and lemma 3.3.1.4]{Jeroen:QE2:haar}\@.
+Similarly we deal with $\Upsilon(X) c^m$ and with $F_L$.
+
+To verify the {\em module\/} properties, it suffices to check the action
+of the generators $\alpha,\beta$ and $\gamma$, both on elements of
+type $\Upsilon(X)\, b^m$ and of type $\Upsilon(X)\, c^m$, and both
+for $F_R$ and $F_L$. All together, this yields 12 cases to check;
+we shall have a closer look on only 4 of them. However the
+remaining 8 cases are more or less analogous: they are all
+consequences of \mbox{\cite[proposition 3.3.2.2]{Jeroen:QE2:haar}}\
+and lemma \ref{lemma:YaH:properties}\ above---the latter in turn depending
+on the properties of $q$-Hankel transformation.
+In what follows, $X$ is an arbitrary element in $\calL(\Hcore_\tau)$ and $m\in \NN$.
+Now consider for instance the following case:
+\begin{eqnarray*}
+F_R\left(\vertM  \alpha \, \lact \, \Upsilon(X)\, b^m\right)
+&\stackrel{\rm (A)}{=}&
+    q^{-\frac{1}{2}m} \, F_R\left(\vertL
+        \Upsilon\left(\vertM(\Gamma \tens \Omega^{-1})X\right)\, b^m\right) \\
+&\stackrel{\rm (F)}{=}& \vertXL
+    \sum_{k\in\ZZ} \: q^{-\frac{1}{2}m} \: \alpha^{k+m}\: \gamma^m
+    \left(\YaH{m}{k}\,(\Gamma \tens \Omega^{-1}) X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+    \sum_{k\in\ZZ} \: q^{-\frac{1}{2}m} q^{\frac{1}{2}|m|} \: \alpha^{k+m}\: \gamma^m
+    \left(\YaH{m}{k-1} X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (S)}{=}&
+    \sum_{k\in\ZZ} \; \alpha^{k+1+m}\: \gamma^m
+    \left(\YaH{m}{k} X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (F)}{=}&
+    \alpha\: F_R \left(\vertM\Upsilon(X)\, b^m\right).
+\end{eqnarray*}
+Let's explain the labeling:
+({\sc a}) refers to the formulas for the $\Aq$-{\sc a}ctions
+as computed in \mbox{\cite[proposition 3.3.2.2]{Jeroen:QE2:haar}}\@.
+({\sc f}) refers to the definition of our Fourier transforms,
+i.e.\ definition \ref{def:Eq2:Fourier_transforms}\@.
+({\sc h}) links to the properties of the maps $\YaH{m}{k}$
+as given in lemma \ref{lemma:YaH:properties}, and
+eventually ({\sc s}) means that the summation variable $k$ is {\sc s}ubstituted
+with $k+1$. In what follows, ({\sc c}) will indicate that we use some
+{\sc c}ommutation rule involving the generators, for instance
+$\alpha\beta = q\,\beta\alpha$.
+\begin{eqnarray*}
+\lefteqn{ F_R\left(\vertM \,\beta \,\lact \, \Upsilon(X)\, c^m \right)} \\
+&\stackrel{\rm (A)}{=}&
+      q^{\frac{1}{2}(m+1)}\, F_R\left(\vertL \Upsilon
+      \left(\vertM(\Phi \tens \id)(\Gamma \tens \Omega^{-1}) (\id \tens D_{q^2})X
+      \right)c^{m+1} \right) \\
+&\stackrel{\rm (F)}{=}&
+      \sum_{k\in\ZZ} \: q^{\frac{1}{2}(m+1)}\:
+      \alpha^{k-m-1}\: (\gamma^*)^{m+1} \left(\YaH{-m-1}{k}
+      (\Phi \tens \id)(\Gamma \tens \Omega^{-1}) (\id \tens D_{q^2})X
+      \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+      \sum_{k\in\ZZ} \: q^{\frac{1}{2}(m+1)}\: q^{-\frac{1}{2}k}\:
+      \alpha^{k-m-1}\: (\gamma^*)^{m+1} \left(\YaH{-m-1}{k}
+      (\Gamma \tens \Omega^{-1}) (\id \tens D_{q^2})X
+      \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+      \sum_{k\in\ZZ} \:  q^{\frac{1}{2}(m+1-k)}\:q^{\frac{1}{2}|-m-1|}\;
+      \alpha^{k-m-1}\: (\gamma^*)^{m+1} \left(\YaH{-m-1}{k-1}
+      \left( \vertM \,\id \tens D_{q^2} \right) X \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+      \sum_{k\in\ZZ} \:  q^{\frac{1}{2}(m+1-k)}\:q^{\frac{1}{2}(m+1)}\:
+      (-1)\, q^{\frac{1}{2} -\frac{1}{2}(k-1)} \:
+      \alpha^{k-m-1}\: (\gamma^*)^{m+1} \left(\YaH{-m}{k-1} X
+      \right)(\gamma^*\gamma)  \\
+&=&   \sum_{k\in\ZZ} \: (-1)\, q^{m-k+2}
+      \alpha^{k-m-1}\,(-q^{-1} \beta)\: (\gamma^*)^m
+      \left(\YaH{-m}{k-1} X \right)(\gamma^*\gamma)  \\
+&\stackrel{\rm (C)}{=}&
+      \sum_{k\in\ZZ} \:   \beta \: \alpha^{k-m-1} \:
+      (\gamma^*)^m \left(\YaH{-m}{k-1} X \right)(\gamma^*\gamma)      \\
+&\stackrel{\rm (S)}{=}&
+      \beta \:  F_R\left(\vertM \Upsilon(X)\, c^m \right).
+\end{eqnarray*}
+Our next case deals with right actions and is a little more involved:
+\begin{eqnarray*}
+\lefteqn{F_L\left(\vertM \Upsilon(X)\, c^m \, \ract \,\alpha \right) } \\
+&\stackrel{\rm (A)}{=}&
+      q^{\frac{1}{2}m}\: F_L\left(\vertL
+        \Upsilon\left(\vertM(\Gamma \tens \Omega)X\right) c^m \right) \\
+&\stackrel{\rm (F)}{=}&
+      \sum_{k\in\ZZ} \: q^{\frac{1}{2}m}\: q^{2(k-m)} \;
+      \alpha^{k-m}\: (\gamma^*)^m \left(\YaH{-m}{k}(\Gamma \tens \Omega^{-1})
+      (\id \tens \Omega^2) X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+      \sum_{k\in\ZZ} \: q^{\frac{1}{2}m}\: q^{2(k-m)} \: q^{\frac{1}{2}|-m|} \;
+      \alpha^{k-m}\: (\gamma^*)^m \left(\YaH{-m}{k-1}
+      (\id \tens \Omega^2) X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+      \sum_{k\in\ZZ} \: q^{2(k-m)} \: q^m \: q^{-2|-m|-2} \;
+      \alpha^{k-m}\: (\gamma^*)^m
+      \left(\Omega^{-2} \YaH{-m}{k-1} X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (S)}{=}&
+      \sum_{k\in\ZZ} \: q^{2(k+1-m)} \: q^{-m-2} \;
+      \alpha^{k+1-m}\: (\gamma^*)^m
+      \left(\Omega^{-2} \YaH{-m}{k} X\right)(\gamma^*\gamma) \\
+&=&   \sum_{k\in\ZZ} \: q^{2(k-m)} \: q^{-m} \;
+      \alpha^{k-m}\:  \alpha \: (\gamma^*)^m
+      \left(\Omega^{-2} \YaH{-m}{k} X\right)(\gamma^*\gamma) \\
+&\stackrel{\rm (C)}{=}&
+      \sum_{k\in\ZZ} \: q^{2(k-m)} \; \alpha^{k-m}\:  (\gamma^*)^m
+      \left(\YaH{-m}{k} X\right)(\gamma^*\gamma) \: \alpha \\
+&\stackrel{\rm (F)}{=}&
+      F_L\left(\vertM \Upsilon(X)\, c^m \right) \alpha.
+\end{eqnarray*}
+In the above computation, besides $\alpha\beta = q\,\beta\alpha$,
+the label ({\sc c}) also refers to the commutation rule in
+\mbox{\cite[lemma 3.5.1.2]{Jeroen:QE2:haar}}\@.
+Let's consider one more example: assuming $m\geq 1$,
+\begin{eqnarray*}
+\lefteqn{F_L\left(\vertM \Upsilon(X)\, b^m \, \ract \,\beta \right) } \\
+&\stackrel{\rm (A)}{=}&
+       q^{\frac{1}{2}(m-1)}\: F_L\left(\vertL
+       \Upsilon\left(\vertM(\Phi^{-1} \tens \id)(\Gamma \tens \Omega^{-1})
+       (\id \tens \Omega \nabq{m})X \right)
+       b^{m-1} \right) \\
+&\stackrel{\rm (F)}{=}&
+       \sum_{k\in\ZZ} \: q^{\frac{1}{2}(m-1)} \: (q^2 \alpha)^{k+m-1} \, \gamma^{m-1}
+       \left(\YaH{m-1}{k} (\Phi^{-1} \tens \id)(\Gamma \tens \Omega^{-1})
+       (\id \tens \Omega \nabq{m})X  \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+       \sum_{k\in\ZZ} \; q^{\frac{1}{2}(m-1)}\: q^{2(k+m-1)} \: q^{\frac{1}{2}k}
+       \: q^{\frac{1}{2}|m-1|} \; \alpha^{k+m-1}\: \gamma^{m-1}
+       \left(\YaH{m-1}{k-1} \left(\vertM \, \id \tens \Omega \nabq{m}\right)X
+       \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (H)}{=}&
+       \sum_{k\in\ZZ} \; q^{m-1}\: q^{2(k+m-1)} \: q^{\frac{1}{2}k}
+       \: (-1)\, q^{\frac{3}{2} -\frac{1}{2}(k-1) - m}
+       \; \alpha^{k+m-1}\: \gamma^{m-1} \;
+       \left(\Psi \,\YaH{m}{k-1}X \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (M)}{=}&
+       \sum_{k\in\ZZ} \;  (-1)\,q^{-1}\: q^{2(k+m)}
+       \; \alpha^{k+m-1}\: \gamma^{m-1} \;
+       (\gamma^*\gamma) \left(\YaH{m}{k-1}X \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (C)}{=}&
+       \sum_{k\in\ZZ} \;  (-1)\, q^{-1}\: q^{2(k+m)}
+       \; \alpha^{k+m-1}\: \gamma^m \;
+       (-q^{-1} \beta) \left(\YaH{m}{k-1}X \right)(\gamma^*\gamma) \\
+&\stackrel{\rm (C)}{=}&
+       \sum_{k\in\ZZ} \; q^{-2} \: q^{2(k+m)}  \; \alpha^{k+m-1}\: \gamma^m \;
+       \left(\YaH{m}{k-1}X \right)(\gamma^*\gamma)  \: \beta \\
+&\stackrel{\rm (S)}{=}&
+       F_L\left(\vertM \Upsilon(X)\, b^m \right) \beta.
+\end{eqnarray*}
+Here ({\sc m}) refers to an obvious property of our functional calculus,
+involving the {\sc m}ultiplication operator $\Psi$
+(cf.\ \mbox{\cite[lemma 3.5.1.2]{Jeroen:QE2:haar}}).
+\end{proof}

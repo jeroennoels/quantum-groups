@@ -1,0 +1,133 @@
+\documentclass[10pt]{article}
+\usepackage{amssymb,amscd}
+
+\textwidth=142mm
+\parindent=0mm
+%\parskip=2mm
+%\reversemarginpar
+%\marginparwidth=10mm
+\renewcommand{\theenumi}{\roman{enumi}}
+
+\newcommand{\andspace}[1]{\hspace{#1} {\rm and} \hspace{#1}}
+\newcommand{\itandspace}[1]{\hspace{#1} \mbox{\textit{and}} \hspace{#1}}
+\newcommand{\qed}{\hfill \rule{4pt}{4pt}}
+\newcommand{\kk}{\ensuremath{\mathbb{C}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\HH}{\ensuremath{\mathbb{H}}}
+\newcommand{\tens}{\otimes}
+\newcommand{\lact}{\triangleright}
+\newcommand{\ract}{\triangleleft}
+\newcommand{\rarr}{\rightarrow}
+\newcommand{\pairing}{\ensuremath{\langle\cdot,\cdot\rangle}}
+\newcommand{\pair}[2]{\ensuremath{\langle #1,#2 \rangle}}
+\newcommand{\scal}[2]{\ensuremath{\langle #1 \,|\, #2 \rangle}}
+\newcommand{\skalphi}[3]{\ensuremath{\langle #1 \,|\,#2 \rangle_\varphi^{(#3)}}}
+\newcommand{\id}{\mbox{\rm id}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Hs}{\ensuremath{\mathcal H}}
+
+\newcommand{\vertM}{\rule{0pt}{2ex}}
+\newcommand{\vertL}{\rule{0pt}{2.5ex}}
+\newcommand{\vertXL}{\rule{0pt}{3.5ex}}
+\newcommand{\vertXXL}{\rule{0pt}{4ex}}
+
+\newcommand{\qfac}[1]{[#1]_q!}
+\newcommand{\Aq}{\ensuremath{{\mathcal A}_q}}
+\newcommand{\Uq}{\ensuremath{{\mathcal U}_q}}
+\newcommand{\UqAq}{\ensuremath{\pair{\Uq}{\Aq}}}
+\newcommand{\Uqext}{\ensuremath{\Uq^{\rm ext}\!}}
+\newcommand{\Aqext}{\ensuremath{\Aq^{\rm ext}\!}}
+\newcommand{\UqextAq}{\ensuremath{\pair{\Uqext}{\Aq}}}
+\newcommand{\KZ}{\ensuremath{K(\theta \ZZ)}}
+\newcommand{\FZ}{\ensuremath{F(\theta \ZZ)}}
+\newcommand{\HC}{\ensuremath{H(\CC)}}
+\newcommand{\nabq}[1]{\nabla_q^{\scriptscriptstyle (#1)}}
+\newcommand{\calF}{\ensuremath{\mathcal F}}
+\newcommand{\calG}{\ensuremath{\mathcal G}}
+\newcommand{\calL}{\ensuremath{\mathfrak{L}}}
+\newcommand{\UqT}{\ensuremath{\Uq\!\left(\calL\right)}}
+\newcommand{\TG}{\ensuremath{\calL(\Gtau)}}
+\newcommand{\UqTG}{\ensuremath{\Uq\!\left(\TG\vertM\right)}}
+\newcommand{\AqG}{\ensuremath{\Aq(\calG)}}
+\newcommand{\lameven}{\lambda_{\rm \scriptscriptstyle even}}
+\newcommand{\lamodd}{\lambda_{\rm \scriptscriptstyle odd}}
+\newcommand{\rhoeven}{\rho_{\rm \scriptscriptstyle even}}
+\newcommand{\rhoodd}{\rho_{\rm \scriptscriptstyle odd}}
+\newcommand{\chieven}{\chi_{\rm \scriptscriptstyle even}}
+\newcommand{\chiodd}{\chi_{\rm \scriptscriptstyle odd}}
+\newcommand{\ZZeven}{\ZZ_{\rm \scriptscriptstyle even}}
+\newcommand{\ZZodd}{\ZZ_{\rm \scriptscriptstyle odd}}
+\newcommand{\KZeven}{\ensuremath{K^{\rm \scriptscriptstyle even}(\theta \ZZ)}}
+\newcommand{\KZodd}{\ensuremath{K^{\rm \scriptscriptstyle odd}(\theta \ZZ)}}
+\newcommand{\evenodd}{{\stackrel{\scriptscriptstyle
+          \rm even}{\scriptscriptstyle \! \rm odd}}}
+\newcommand{\scripteven}{{\rm \scriptscriptstyle even}}
+\newcommand{\scriptodd}{{\rm \scriptscriptstyle odd}}
+\newcommand{\Gtau}{\ensuremath{\calG_\tau}}
+\newcommand{\Geven}{\ensuremath{\Gtau^{\rm \scriptscriptstyle even}}}
+\newcommand{\Godd}{\ensuremath{\Gtau^{\rm \scriptscriptstyle odd}}}
+
+\newcommand{\J}[2]{J_{#1}(#2; q^2)}
+\newcommand{\basis}[2]{e_{#2}^{\scriptscriptstyle (#1)}}
+\newcommand{\Swq}{\ensuremath{{\mathcal S}(\RR^+;q)}}
+\newcommand{\Swqbis}{\ensuremath{{\mathcal S}(\RR^+;q^2)}}
+\newcommand{\Ltwoq}{\ensuremath{L^2(\RR_q^+)}}
+\newcommand{\holS}[1]{{\mathcal R}_{#1}}
+\newcommand{\holH}[1]{\mathfrak{H}_{#1}}
+\newcommand{\auxH}[1]{{\mathcal H}_{#1}}
+\newcommand{\Hmpair}{\mbox{$(m;q)$-Hankel} pair}
+\newcommand{\Hintersect}{\ensuremath{\mathcal R}}
+\newcommand{\Hcore}{\ensuremath{\mathcal E}}
+\newcommand{\qqE}{\ensuremath{E_{q^2}^\bullet}}
+\newcommand{\qE}{\ensuremath{E_q^\bullet}}
+\newcommand{\til}{\tilde{\:}}
+
+\newcommand{\varJ}[1]{\mathfrak{J}_{#1}}
+\newcommand{\varqfac}[1]{[\![ #1 ]\!]_q}
+\newcommand{\varqqfac}[1]{[\![ #1 ]\!]_{q^2}}
+
+\newcommand{\evzero}{\phi_0}
+\newcommand{\kq}{\kappa_q}
+\newcommand{\YaH}[2]{\mathbb{H}_{\,#1}^{\,(#2)}}
+
+\newcommand{\Htil}[2]{\tilde{\mathbb{H}}_{\,#1}^{\,(#2)}}
+
+
+
+%%%%%%%%%%%%%%%% Environments %%%%%%%%%%%%%%%
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assume}[definition]{Assumptions}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{prop}[definition]{Proposition}
+\newtheorem{thm}[definition]{Theorem}
+\newtheorem{cor}[definition]{Corollary}
+\newtheorem{summary}[definition]{Survey}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{rems}[definition]{Remarks}
+\newtheorem{ex}[definition]{Example}
+\newtheorem{exs}[definition]{Examples}
+\newtheorem{abs}[definition]{Abstract}
+
+\newenvironment{acks}{{\bf Acknowledgements }}{}
+\newenvironment{defn}{\begin{definition} \rm}{\hfill $\bullet$ \end{definition}}
+\newenvironment{defn*}{\begin{definition} \rm}{\end{definition}}
+\newenvironment{proof}{{\em Proof\@.}}{\qed}
+\newenvironment{remarks}{\begin{rems} \rm \begin{enumerate}}{\end{enumerate}\end{rems}}
+\newenvironment{examples}{\begin{exs} \rm \begin{enumerate}}{\end{enumerate}\end{exs}}
+
+
+%\includeonly{FourierInversion}
+
+\begin{document}
+\input{FourierTitle}
+\input{FourierqHankel}
+\input{FourierConstruction}
+\input{FourierPlancherel}
+\input{FourierInversion}
+\input{FourierBib}
+\end{document}

@@ -1,0 +1,371 @@
+\section{Plancherel formulas}
+\label{sect:plancherel}
+
+\begin{abs} \rm
+We prove Plancherel formulas for the Fourier transforms that were
+constructed in the previous section, relating the Haar functional
+on the quantum $E(2)$ group with the ones on its Pontryagin dual.
+At the heart of the proof we encounter---not quite surprisingly---the
+orthogonality relations (\ref{eq:qBessel:qHankel}) for the
+Hahn-Exton $q$-Bessel functions.
+\hfill $\star$
+\end{abs}
+
+The following lemma is of the same nature as
+\mbox{\cite[lemma 3.4.2.1]{Jeroen:QE2:haar}}.
+\begin{lemma}
+Take any $X,Y\in\calL(\Hcore_\tau)$ and $r, s \in \NN$. Put $m=\min\{r,s\}$.
+Then we have
+\begin{eqnarray*}
+\lefteqn{F_R\!\left(\Upsilon(Y)\, b^r \vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, b^s \vertM\right) } \\
+&=&
+    \sum_{k,l\in\ZZ}  \: (q^{-r} \alpha)^{l-k+s-r} \,
+    (\gamma^*)^{r-m} \, \gamma^{s-m}  \left\{ \! \Psi^m
+    \left[ \left(\Omega^{-2(l-k+s-r)}\, \YaH{r}{k}Y\right)^{\!\!\sim} \!\!
+           \left(\YaH{s}{l}X\right)
+    \right] \vertXL \! \right\} (\gamma^*\gamma)
+\\
+\lefteqn{F_R\!\left(\Upsilon(Y)\, b^r \vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, c^s \vertM\right) } \\
+&=&
+    \sum_{k,l\in\ZZ}  (q^{-r} \alpha)^{l-k-s-r} \,
+    (\gamma^*)^{r+s}
+    \left[ \left(\Omega^{-2(l-k-s-r)}\, \YaH{r}{k}Y\right)^{\!\!\sim} \!\!
+           \left(\YaH{-s}{l}X\right)
+    \right]   \!(\gamma^*\gamma)
+\end{eqnarray*}
+and similar formulas for $$ F_R\!\left(\Upsilon(Y)\, c^r
+\vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, b^s \vertM\right)
+   \itandspace{4em}
+   F_R\!\left(\Upsilon(Y)\, c^r \vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, c^s \vertM\right). $$
+\rm Notice that the summations over $k,l\in \ZZ$ are in fact {\em finite\/} sums
+   (cf.\ lemma \ref{lemma:finite_support}).
+\end{lemma}
+
+\begin{proof}
+Using the commutation rules $\alpha\beta = q\,\beta\alpha$ and
+\mbox{\cite[lemma 3.5.1.2]{Jeroen:QE2:haar}}, we obtain
+\begin{eqnarray*}
+\lefteqn{F_R\!\left(\Upsilon(Y)\, b^r \vertM\right)^*
+         F_R\!\left(\Upsilon(X)\,b^s \vertM\right) }  \\
+&=&
+    \left(\sum_{\;\:k\in\ZZ} \: \alpha^{k+r} \: \gamma^r
+          \left(\YaH{r}{k}Y\right)\!(\gamma^*\gamma)
+    \right)^{\!\!*}
+    \left(\sum_{\;\:l\in\ZZ} \: \alpha^{l+s} \: \gamma^s
+          \left(\YaH{s}{l}X\right)\!(\gamma^*\gamma) \right)  \\
+&=&
+    \sum_{k,l\in\ZZ} \:
+    \left(\YaH{r}{k}Y\right)^{\!\!\sim} \!\!\!(\gamma^*\gamma) \;
+    (\gamma^*)^r \, \alpha^{-k-r} \, \alpha^{l+s} \, \gamma^s
+          \left(\YaH{s}{l}X\right)\!(\gamma^*\gamma) \\
+&=&
+    \sum_{k,l\in\ZZ} \: q^{-r(l-k+s-r)} \: \alpha^{l-k+s-r} \,
+    (\gamma^*)^r  \, \gamma^s
+    \left[ \left(\Omega^{-2(l-k+s-r)}\, \YaH{r}{k}Y\right)^{\!\!\sim} \!\!
+           \left(\YaH{s}{l}X\right)
+    \right]   \!(\gamma^*\gamma)
+\end{eqnarray*}
+With \mbox{\cite[lemma 3.5.1.2]{Jeroen:QE2:haar}}\ the first formula follows.
+The other ones are similar.
+\end{proof}
+
+\vspace{1ex}
+For our \lq left\rq\ Fourier transform $F_L$, the situation is significantly
+different---although the proof is based on the same techniques:
+\begin{lemma} \label{lemma:pre_plancherel:left}
+Take any $X,Y\in\calL(\Hcore_\tau)$ and $r, s \in \NN$. Put $m=\min\{r,s\}$.
+Then we have
+\begin{eqnarray*}
+\lefteqn{F_L\! \left(\Upsilon(X)\, b^r \vertM\right) \:
+         F_L\! \left(\Upsilon(Y)\, b^s \vertM\right)^*
+\;=\;
+               \sum_{k,l\in\ZZ}  \; q^{2(k+l+r+s)} \: q^{(r+s)(l+s)}   }\\
+& \hspace{5em} &
+    \alpha^{k-l+r-s} \, \gamma^{r-m} \, (\gamma^*)^{s-m}  \left\{ \! \Psi^m \, \Omega^{2(l+s)}
+    \left[ \left(\YaH{r}{k}X\right) \! \left(\YaH{s}{l}Y\right)^{\!\!\sim}\,
+    \right] \vertXL \! \right\} (\gamma^*\gamma).
+\end{eqnarray*}
+and similar formulas for
+$$ \begin{array}{l}
+   F_L\! \left(\Upsilon(X)\, b^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, c^s \vertM\right)^*
+\\ \vertXL
+   F_L\! \left(\Upsilon(X)\, c^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, b^s \vertM\right)^*
+\\ \vertXL
+   F_L\! \left(\Upsilon(X)\, c^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, c^s \vertM\right)^*
+\end{array} $$
+\end{lemma}
+
+
+\vspace{1ex}
+The essence of our Plancherel formula lies within the proof of the next lemma.
+Recall that we had fixed a Haar functional $\omega$ on
+$\Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\right)$ and observe the following makes sense
+because ${\mathcal S}_\nu(\RR^+;q^2)$ and
+$\Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\vertM \right)$
+are $^*$-algebras, containing respectively $\Hcore_\nu$ and $\Aq(\Hcore_\nu)$.
+
+
+\begin{lemma}
+Take any $X,Y\in\calL(\Hcore_\tau)$ and $r, s \in \NN$. Then $\omega$ vanishes on
+\begin{eqnarray*}
+   F_R\!\left(\Upsilon(Y)\, b^r \vertM\right)^*
+   F_R\!\left(\Upsilon(X)\, c^s \vertM\right)
+& \hspace{2em}  &
+   F_R\!\left(\Upsilon(Y)\, c^r \vertM\right)^*
+   F_R\!\left(\Upsilon(X)\, b^s \vertM\right)
+\\
+   F_L\! \left(\Upsilon(X)\, b^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, c^s \vertM\right)^*
+& &
+   F_L\! \left(\Upsilon(X)\, c^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, b^s \vertM\right)^*
+\end{eqnarray*}
+unless both $r$ and $s$ are zero. Moreover $\omega$ also vanishes on
+\begin{eqnarray*}
+   F_R\!\left(\Upsilon(Y)\, b^r \vertM\right)^*
+   F_R\!\left(\Upsilon(X)\, b^s \vertM\right)
+& \hspace{2em}  &
+   F_R\!\left(\Upsilon(Y)\, c^r \vertM\right)^*
+   F_R\!\left(\Upsilon(X)\, c^s \vertM\right)
+\\
+   F_L\! \left(\Upsilon(X)\, b^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, b^s \vertM\right)^*
+& &
+   F_L\! \left(\Upsilon(X)\, c^r \vertM\right) \:
+   F_L\! \left(\Upsilon(Y)\, c^s \vertM\right)^*
+\end{eqnarray*}
+except when $r=s=m$. In the latter case we actually have
+\begin{eqnarray}
+   \omega \left(\vertL  F_R\!\left(\Upsilon(Y)\, b^m \vertM\right)^*
+                        F_R\!\left(\Upsilon(X)\, b^m \vertM\right)   \right)
+&=&
+   q^{-2m} \: \psi \! \left(\Upsilon\left(\,\id \tens \Psi^m \right)(Y^* X) \vertL\right)
+\label{eq:pre_plancherel:essence:Rb} \\
+   \omega \left(\vertL  F_R\!\left(\Upsilon(Y)\, c^m \vertM\right)^*
+                        F_R\!\left(\Upsilon(X)\, c^m \vertM\right)   \right)
+&=&
+   q^{2m} \: \psi \! \left(\Upsilon\left(\,\id \tens \Psi^m \right)(Y^* X) \vertL\right)
+\label{eq:pre_plancherel:essence:Rc} \\
+   \omega \left(\vertL   F_L\! \left(\Upsilon(X)\, b^m \vertM\right) \:
+                         F_L\! \left(\Upsilon(Y)\, b^m \vertM\right)^*   \right)
+&=&
+    \varphi \left(\Upsilon\left(\,\id \tens \Psi^m \right)(X \, Y^*) \vertL\right)
+\label{eq:pre_plancherel:essence:Lb} \\
+   \omega \left(\vertL   F_L\! \left(\Upsilon(X)\, c^m \vertM\right) \:
+                         F_L\! \left(\Upsilon(Y)\, c^m \vertM\right)^*   \right)
+&=&
+    \varphi \left(\Upsilon\left(\,\id \tens \Psi^m \right)(X \, Y^*)  \vertL\right).
+\label{eq:pre_plancherel:essence:Lc}
+\end{eqnarray}
+\end{lemma}
+
+
+\begin{proof}
+All statements follow from the definition of $\omega$ and the previous lemmas.
+Only the last set of formulas is not immediately clear. Therefore, observe that
+for all $m\in\NN$
+\begin{eqnarray*}
+\lefteqn{\omega \left(\vertL  F_R\!\left(\Upsilon(Y)\, b^m
+\vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, b^m \vertM\right) \right)}  \\
+&=&
+    \omega \left(\sum_{\;\:k\in\ZZ} \left\{ \Psi^m
+    \left[ \left(\YaH{m}{k}Y\right)^{\!\!\sim} \!\!
+           \left(\YaH{m}{k}X\right)
+    \right] \vertXL \! \right\}  (\gamma^*\gamma) \right) \\
+&=&
+    \sum_{k\in\ZZ}\: \sum_{n\in\ZZ} \; (\nu q^{2n})^m
+    \left[ \left(\YaH{m}{k}Y\right)^{\!\!\sim} \!\! \left(\YaH{m}{k}X\right)
+    \right] \! (\nu q^{2n})\: q^{2n}   \\
+&=&
+    \sum_{k\in\ZZ}\: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ}\; q^{2n} \: (\nu q^{2n})^m \;
+    (\Lambda_\nu \holH{m} \,g_k)^\sim (\nu q^{2n}) \;\,
+    (\Lambda_\nu \holH{m} \, f_k)(\nu q^{2n})
+\end{eqnarray*}
+Here $f_k, g_k \in \Hcore$ are given by (cf.\ definition \ref{def:YaH})
+$$ f_k = \Lambda_\tau^{-1}\, (\evzero \tens \id)\, (\Gamma^{-1} \tens \Omega)^k X
+                     \andspace{3em}
+   g_k = \Lambda_\tau^{-1}\, (\evzero \tens \id)\, (\Gamma^{-1} \tens \Omega)^k Y  $$
+for any $k\in \ZZ$.
+Below $\scal{\cdot}{\cdot}$ will denote the scalar product on
+$L^2(\RR_q^+,m_q)$ as introduced at the beginning of \S\ref{sec:qHankel}\@.
+Recall that $H_m$ was a
+unitary\footnote{Notice that unitarity of $H_m$ amounts to the orthogonality relations
+(\ref{eq:qBessel:qHankel}).}\
+operator on this Hilbert space (cf.\ definition \ref{def:qHankeltransform:unitary}).
+Now let's proceed with our computation:
+\begin{eqnarray*}
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \; q^{2n} \;
+    \overline{(R_q \Psi^m K \holH{m} \, g_k)(q^n)} \;
+              (R_q \Psi^m K \holH{m} \, f_k)(q^n)   \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \: q^{2n} \; \overline{(\auxH{m} g_k)(q^n)}\; (\auxH{m} f_k)(q^n) \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \; \scal{\auxH{m} f_k}{\auxH{m} g_k} \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \;
+      \left\langle H_m R_q \Psi^m K f_k  \,\left|\vertM\right.
+                                            H_m R_q \Psi^m K g_k \right\rangle \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \;
+      \left\langle R_q \Psi^m K f_k  \,\left|\vertM\right.
+                                            R_q \Psi^m K g_k \right\rangle \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \: q^{2n} \; \overline{(\Psi^m K g_k)(q^n)}\; (\Psi^m K f_k)(q^n) \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \: q^{2n} \: q^{2nm} \; \overline{g_k(q^{2n})}\; f_k(q^{2n}) \\
+&=& \sum_{k\in\ZZ} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \: q^{2n} \: q^{2nm} \;
+             \overline{Y(k\theta, \tau q^{2n+k})} \; X(k\theta, \tau q^{2n+k})    \\
+&=& \sum_{k,n\in\ZZ} \:  \nu^m \: \kq(m,k)^2 \:  q^{2n} \: q^{2nm} \;
+       (Y^*X)(k\theta, \tau q^{2n+k})    \\
+&=& \sum_{(k,l)\in\mathfrak{S}} \:  \nu^m \: \kq(m,k)^2 \:  q^{l-k} \: q^{(l-k)m} \;
+       (Y^*X)(k\theta, \tau q^l)    \\
+\end{eqnarray*}
+with
+\begin{equation}\label{eq:spectral:summ_range}
+   \mathfrak{S}=(\ZZeven \times \ZZeven) \cup (\ZZodd \times \ZZodd).
+\end{equation}
+So in the last step we performed a rearrangement of our summation
+variables, according to $l=2n+k$.
+Furthermore $X$ and $Y$ were interpreted as functions in two
+variables---in the obvious way.
+Before we proceed with the computation, let's have a closer look at
+some of the scalars involved here:
+\begin{eqnarray*}
+\nu^m \: \kq(m,k)^2 \: q^{(l-k)m}
+&=& (q^{-1}-q)^{-2m} \left(\vertL(-1)^m q^{-m} q^{\frac{1}{2}|m|(k-1)}
+                    (q^{-1}-q)^{|m|} \right)^2  q^{(l-k)m} \\
+&=& q^{-3m} \: q^{lm} \hspace{1em}=\hspace{1em} q^{-2m} \: (\tau q^l)^m.
+\end{eqnarray*}
+Notice that we used our particular choices for $\tau$ and $\nu$.
+Eventually we obtain
+\begin{eqnarray*}
+\omega \left(\vertL  F_R\!\left(\Upsilon(Y)\, b^m \vertM\right)^*
+         F_R\! \left(\Upsilon(X)\, b^m \vertM\right) \right) &=& q^{-2m}
+\!\! \sum_{\;\;(k,l)\in\mathfrak{S}} \: (\tau q^l)^m \;
+            (Y^*X)(k\theta, \tau q^l)  \; q^{-k+l}   \\
+&=& q^{-2m} \;\, \psi \! \left(\Upsilon\left(\,\id \tens \Psi^m \right)(Y^* X) \vertL\right)
+\end{eqnarray*}
+Here we used the $\psi$-analogon of \mbox{\cite[equation (31)]{Jeroen:QE2:haar}}\@.
+This proves (\ref{eq:pre_plancherel:essence:Rb}).
+Equation (\ref{eq:pre_plancherel:essence:Rc}) is shown similarly,
+though one should be careful with the signs,
+since here {\em negative\/} order $q$-Hankel transforms are involved:
+$$  \omega \left(\vertL  F_R\!\left(\Upsilon(Y)\, c^m \vertM\right)^* F_R\!
+                \left(\Upsilon(X)\, c^m \vertM\right)   \right)
+\;=\;
+    \omega \left(\sum_{\;\:k\in\ZZ} \left\{ \Psi^m
+    \left[ \left(\YaH{-m}{k}Y\right)^{\!\!\sim} \!\!
+           \left(\YaH{-m}{k}X\right)
+    \right] \vertXL \! \right\}  (\gamma^*\gamma) \right)
+\;=\;  \ldots $$
+So now we have to use $\kq(-m,k)$ instead of $\kq(m,k)$.
+For (\ref{eq:pre_plancherel:essence:Lb}) we start from
+lemma \ref{lemma:pre_plancherel:left}\@.
+\begin{eqnarray*}
+\lefteqn{ \omega \left(\vertL
+     F_L\! \left(\Upsilon(X)\, b^m \vertM\right) \:
+     F_L\! \left(\Upsilon(Y)\, b^m \vertM\right)^*   \right)  }\\
+&=&
+    \omega \left( \sum_{\:k \in\ZZ}  \; q^{4(k+m)} \: q^{2m(k+m)}
+    \left\{ \! \Psi^m \, \Omega^{2(k+m)}
+    \left[ \left(\YaH{m}{k}X\right) \! \left(\YaH{m}{k}Y\right)^{\!\!\sim}\,
+    \right] \vertXL \! \right\} (\gamma^*\gamma) \right)
+\\ &=&
+    \sum_{k \in\ZZ}  \; q^{4(k+m)} \: q^{2m(k+m)}
+    \: \sum_{n\in\ZZ} \: q^{2n} \: (\nu q^{2n})^m
+    \left[ \left(\YaH{m}{k}X\right) \! \left(\YaH{m}{k}Y\right)^{\!\!\sim}\,
+    \right] \left(\nu q^{2(n+k+m)}\right)
+\\ &\stackrel{(*)}{=}&
+    \sum_{k\in\ZZ}  \; q^{4(k+m)} \: q^{2m(k+m)} \:
+    \sum_{n\in\ZZ} \: q^{2(n-k-m)} \: \nu^m \: q^{2(n-k-m)m}
+    \left[ \left(\YaH{m}{k}X\right) \! \left(\YaH{m}{k}Y\right)^{\!\!\sim}\,
+    \right] (\nu q^{2n})
+\\ &=&
+    \sum_{k \in\ZZ}  \; q^{2(k+m)} \:
+    \sum_{n\in\ZZ} \: q^{2n} \: (\nu q^{2n})^m
+    \left[ \left(\YaH{m}{k}X\right) \! \left(\YaH{m}{k}Y\right)^{\!\!\sim}\,
+    \right] (\nu q^{2n})
+\\ &\stackrel{(\sharp)}{=}&
+    \sum_{k\in\ZZ} \; q^{2(k+m)} \: \nu^m \: \kq(m,k)^2 \:
+    \sum_{n\in\ZZ} \:  q^{2n} \: q^{2nm} \;  (X Y^*)(k\theta, \tau q^{2n+k})
+\\ &=&
+    \!\!  \sum_{(k,l)\in\mathfrak{S}} q^{2(k+m)} \:  q^{-2m} \: (\tau q^l)^m \;
+    (X Y^*)(k\theta, \tau q^l) \; q^{-k+l}
+\\ &=&
+    \!\! \sum_{(k,l)\in\mathfrak{S}} (\tau q^l)^m \;
+          (X Y^*)(k\theta, \tau q^l) \; q^{k+l}
+\\ &=&
+    \varphi \left(\Upsilon\left(\,\id \tens \Psi^m \right)(X \, Y^*) \vertL\right).
+\end{eqnarray*}
+In $(*)$ we substituted $n$ with $n-k-m$. From $(\sharp)$ on, the computation
+proceeds completely analogous to the one made above in proving
+(\ref{eq:pre_plancherel:essence:Rb}).
+Thus we have shown (\ref{eq:pre_plancherel:essence:Lb}).
+Equation (\ref{eq:pre_plancherel:essence:Lc}) is analogous.
+\end{proof}
+
+
+
+\begin{remark} \rm
+Observe how the so-called \lq spectral conditions\rq\
+(cf.\ \mbox{\cite[remark 3.4.1.9]{Jeroen:QE2:haar}}\ and \cite{Wor:QE2,Wor:Affiliated})
+incorporated by (\ref{eq:spectral:summ_range}) emerge very naturally in the above
+computation, although here it has nothing to do with any operator theoretic
+considerations whatsoever; this is quite remarkable.
+Also notice that---once again---the particular values for the
+\lq dilation\rq\ parameters $\tau$ and $\nu$ chosen in (\ref{eq:tau_nu:value}) seem
+to be quite indispensable in our computations.
+\hfill $\star$
+\end{remark}
+
+
+\begin{thm} \label{thm:Eq2:Plancherel}
+Our Fourier transforms $F_R$ and $F_L$ satisfy the following Plancherel formulas:
+$$  \psi(y^* x)    \; = \; \omega\left(\vertM F_R(y)^* F_R(x) \right)
+                \andspace{3em}
+    \varphi(x y^*) \; = \; \omega\left(\vertM F_L(x) \, F_L(y)^* \right) $$
+for any $x,y\in \Uq\!\left(\calL(\Hcore_\tau)\right)$.
+\end{thm}
+\begin{proof}
+Any $x,y\in \Uq\!\left(\calL(\Hcore_\tau)\right)$ can be written as
+$$  x =\, \sum_{m=0}^\infty \Upsilon(X_m)\, b^m \:+\,
+          \sum_{m=1}^\infty \Upsilon(X_{-m})\, c^m
+                    \andspace{2em}
+    y =\, \sum_{m=0}^\infty \Upsilon(Y_m)\, b^m \:+\,
+          \sum_{m=1}^\infty \Upsilon(Y_{-m})\, c^m        $$
+with only {\em finitely many\/} non-zero $X_n, Y_n \in \calL(\Hcore_\tau)\:$ (with $n\in \ZZ$).
+Applying consecutively the $\psi$-analogon of \mbox{\cite[corollary 3.4.2.2]{Jeroen:QE2:haar}}\
+and the previous lemma, we obtain
+$$ \psi(y^* x) \;=\; \sum_{n\in\ZZ}  q^{-2n} \: \psi \!
+          \left(\Upsilon(\,\id \tens \Psi^{|n|})(Y_n^* X_n) \vertL\right)   \\
+\;=\; \omega\left(\vertM F_R(y)^* F_R(x) \right).  $$
+Notice how the $n\geq 0$ and $n<0$ cases have been conveniently merged into a
+single summation over all $n\in\ZZ$.
+
+The second Plancherel formula is analogous; however, instead of
+\mbox{\cite[lemma 3.4.2.1]{Jeroen:QE2:haar}}\ we need formulas like for instance
+$$\left(\Upsilon(X)\, b^m  \vertM\right)
+          \left(\Upsilon(Y)\, b^m  \vertM\right)^*
+    \;=\; \Upsilon\left(\id \tens \Psi^m \right)(X Y^*)
+    \;=\; \left(\Upsilon(X)\, c^m  \vertM\right)
+          \left(\Upsilon(Y)\, c^m  \vertM\right)^*  $$
+analogous to \mbox{\cite[lemma 3.4.2.1 \&\ corollary 3.4.2.2]{Jeroen:QE2:haar}}\
+and equally easy to prove.
+\end{proof}
+
+
+\begin{remark}  \rm
+Notice that in dealing with $F_R$ we have used expressions of type
+$y^*x$ whereas concerning $F_L$ we considered expressions of type
+$x y^*$. It is an instructive exercise to see what goes wrong
+when e.g.\ one tries to use $y^*x$ in dealing with $F_L$.
+\hfill $\star$
+\end{remark}
