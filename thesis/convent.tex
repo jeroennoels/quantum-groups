@@ -1,0 +1,72 @@
+
+\section{Conventions}
+\label{sec:conventions}
+
+The reader should notice that assumptions are often fixed and kept in force
+throughout a whole chapter, section or paragraph.
+
+\paragraph{Linear spaces, duality}
+Linear always means $\kk\,$-linear. We use $\tens$ to denote the algebraic
+tensor product of linear spaces over \kk\@. Whenever $V$ and $W$ are linear
+spaces, the flip map from $V \tens W$ onto $W \tens V$ shall be denoted by
+$\flip$, hence $\flip(v\tens w) = w\tens v$. We always identify $V\tens\kk$ and
+$\kk \tens V$ with $V$. The space of all linear functionals on $V$ is denoted
+by $V'$, the canonical pairing by \pairing\@. In fact most pairings will be
+denoted this way. We sometimes speak about a \lq vector space duality\rq\
+instead of a \lq pairing\rq\@. We will almost exclusively deal with {\em
+non-degenerate\/} pairings. Furthermore we shall not be rigorous concerning the
+{\em order\/} in which to write a pairing \pairing\ between two spaces $V$ and
+$W$, in the sense that the pairing of an element $v\in V$ with an element $w\in
+W$ may be denoted by $\pair{v}{w}$ or $\pair{w}{v}$ interchangeably. A triplet
+$(V,W,\pairing)$ will often be written in shorthand form as $\pair{V}{W}$. We
+use the \mbox{superscript $\algtp$}\ to denote the (algebraic) transpose of a
+linear map.
+
+
+\paragraph{Algebras}
+By an algebra we mean an associative algebra over \kk, not necessarily having
+an identity. Multiplication in an algebra $E$ will often be considered as a
+linear map $m\equiv \mult{E} : E \tens E \rarr E : x \tens y \mapsto xy$. The
+product in $E$ is said to be {\em non-degenerate\/} whenever $$ xE=\{0\}
+\mbox{ implies } x=0     \andspace{2em}
+   Ex=\{0\}  \mbox{ implies } x=0
+   \hspace{2em} (x\in E).  $$
+The {\em opposite\/} product on $E$ is defined as $m\op = m\flip$. The
+resulting algebra will be denoted by $E\op$.
+
+\paragraph{Modules}
+Let $E$ be any algebra. A linear space $\Om$ is a left $E$-module when it is
+endowed with a linear map $\mu: E \tens \Om \rarr \Om$ satisfying $\mu (m \tens
+\id) = \mu (\id \tens \mu)$. We denote $\mu(x \tens \om)$ by $x \lact \om$ or
+sometimes $x\om$. Right $E$-modules are defined similarly. If $\Om$ is both a
+left and right $E$-module such that $x\lact (\om \ract y) = (x\lact \om) \ract
+y$ for all $x,y\in E$ and $\om \in \Om$, then $\Om$ is said to be an \Ebimod\@.
+
+\paragraph{Unital modules, reduction}
+A left $E$-module $\Om$ is said to be {\em unital\/} if its structure map $\mu$
+is surjective. This replaces the usual condition $1\lact\om=\om$ for left
+modules over algebras which do have a unit. We shall write $E \lact \Om$ to
+denote the range of $\mu$. An \Ebimod\ $\Om$ is called unital if $E \lact \Om =
+\Om = \Om \ract E$.
+
+Given any \Ebimod\ $\Om$, one can pass to the subspace $\Om_0 = E \lact \Om
+\ract E$, which is obviously a sub-\Ebimod\ of $\Om$. We say that $\Om_0$ is
+the {\em reduction\/} of $\Om$ as an \Ebimod\@. Notice that if $\mult{E}$ is
+surjective, i.e.\ $E^2=E$, then $\Om_0$ is unital. On the other hand, $\Om$
+itself is unital if and only if $\Om=\Om_0$.
+
+\paragraph{Locally convex spaces}
+We are mainly dealing with weak and inductive topologies
+\cite{Jarchow,Kothe,Schaefer,Treves}\@. We use the symbol $\sigma$ when
+referring to some weak topology. The prefix \lq locally convex\rq\ will be
+abbreviated by {\sc lc}\@.
+
+
+\paragraph{Entire functions}
+Let \HC\ denote the $^*$-algebra of entire functions, with pointwise
+multiplication and $^*$-operation $\tilde{}$ defined by $\tilde{g}(z) =
+\overline{g(\overline{z})}$. We shall use $\mu_n(g)$ to denote the $n$-th
+coefficient of the Taylor series expansion of an entire function $g$ at the
+origin. So whenever $g \in \HC$ we have \mbox{$g(z) = \sum_{n=0}^\infty
+\mu_n(g)\,z^n$} for all $z\in \CC$. This yields, for every $n\in \NN$, a linear
+functional $\mu_n$ on \HC\@.

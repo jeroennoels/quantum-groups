@@ -1,0 +1,303 @@
+\section{Multiplicativity}
+\label{par:multiplicativity}
+
+
+\begin{abs_chp}
+Given any \dpa, it would be natural to impose some compatibility condition
+on the algebra structures involved, i.e.\ an interaction between the
+products in both algebras.
+In the Hopf algebra setting this is usually done by requiring comultiplications
+to be homomorphisms.
+However we shall also express this condition of \lq multiplicativity\rq\ in a
+way that does not involve comultiplications.
+This yields the notion of a {\em Hopf system}, which is the main subject
+in the present chapter.
+Eventually we obtain several so-called {\em twist\/} maps which can be used later,
+e.g.\ to construct a quantum double or to show that the antipodes are
+anti-multiplicative.
+\end{abs_chp}
+
+
+
+Let \pairAB\ be any \idpa\@.
+Sometimes it is convenient to write $\pair{B \tens A}{A \tens B}$
+as a pairing of $A \tens B$ with $A \tens B$ itself.
+To avoid confusion, the latter will be denoted by
+$\pairflip{\,\cdot}{\cdot\,}$, i.e.\ for any $x,y \in A \tens B$
+we define $\pairflip{x}{y} = \pair{\flip(x)}{y}$.
+Here $\flip$ denotes the flip $A \tens B \rarr B \tens A$.
+We shall use the same symbol $\flip$ to denote the flip $B \tens A \rarr A \tens B$,
+confusion being unlikely.
+
+
+
+\begin{defn_sec}   \label{def:muliplicative_actor}
+Let \pairAB\ be any \idpa\@.
+An actor $R\equiv(\lam,\rho)$ for \BBAA\ is said to be {\em multiplicative\/} if
+\begin{equation}\label{eq:muliplicative_actor}
+\pair{R}{xy}  \:=\: \pairflipM{\rho(x)}{\lam(y)}
+\end{equation}
+for all $x,y \in A \tens B$. Notice that if $R$ belongs to $\Env(\BBAA)$ then
+(\ref{eq:muliplicative_actor}) reads
+$\pair{R}{xy} \:=\: \pairflip{x \ract R\,}{R \lact y}$.
+In particular the pairing $P$ will be multiplicative if
+\begin{equation} \label{eq:muliplicative_pairing}
+  \pairM{ac}{bd} \:=\: \pairflipM{\rp(a \tens b)}{\lp(c\tens d)}
+\end{equation}
+for all $a,c\in A$ and $b,d\in B$.
+\end{defn_sec}
+
+
+\begin{remark_sec} \rm
+We claim that equation (\ref{eq:muliplicative_pairing}) indeed amounts to the fact that
+the comultiplications on $A$ and $B$ are homomorphisms.
+Although a rigorous proof shall be given below, it may also be instructive to
+appreciate the meaning of (\ref{eq:muliplicative_pairing}) in terms of Sweedler notation:
+\begin{eqnarray*}
+\pairflipM{\rp(a \tens b)}{\lp(c\tens d)}
+&=&
+\pairflipM{\pair{\sweed{a}{1}}{\sweed{b}{1}} \: \sweed{a}{2} \tens  \sweed{b}{2}}{
+           \pair{\sweed{c}{2}}{\sweed{d}{2}} \: \sweed{c}{1} \tens \sweed{d}{1}}
+\\&=&
+\pair{\sweed{a}{1}}{\sweed{b}{1}}
+\pair{\sweed{a}{2}}{\sweed{d}{1}}
+\pair{\sweed{c}{1}}{\sweed{b}{2}}
+\pair{\sweed{c}{2}}{\sweed{d}{2}}
+\\&=&
+\pair{a}{\sweed{b}{1} \sweed{d}{1}}
+\pair{c}{\sweed{b}{2} \sweed{d}{2}}
+\\&=&
+\pair{ac}{bd}.
+\end{eqnarray*}
+\end{remark_sec}
+
+
+\begin{prop_sec}  \label{prop:multiplicative:comultiplications}
+Let\/ \pairAB\ be any \idpa\@.
+Then the following assertions are equivalent:
+\begin{enumerate}
+  \item $P$ is multiplicative in the sense of the above definition
+  \item $\DeltaA : A \rarr \Env(\AAAA)$ is an algebra homomorphism
+  \item $\DeltaB : B \rarr \Env(\BBBB)$ is an algebra homomorphism
+\end{enumerate}
+\end{prop_sec}
+
+\begin{proof}
+Take any $a,c\in A$ and $b,d\in B$ and write
+$\rp(a \tens b) = \sum_i \,p_i \tens q_i$ with $p_i \in A$ and $q_i \in B$.
+Recall that $P_{13}$, $P_{23}$ and $P_{13} P_{23}$ are actors for
+$\BBBB \tens \Aa$, whereas $\DeltaB(d) \tens 1_\Aa$ belongs to $\Env(\BBBB \tens \Aa)$.
+Also recall remark \ref{rem:module_notation_for_Env}\@.
+
+Now observe the following \lq circle\rq\ of equalities:
+\begin{eqnarray*}
+      \pairM{\DeltaB(bd)}{a \tens c}
+&\stackrel{\rm (iii)}{=}&
+      \pairM{\DeltaB(b) \, \DeltaB(d)}{a \tens c}
+\\&=&
+      \pairM{\DeltaB(b)}{\DeltaB(d) \lact (a \tens c)}
+\\&=&
+      \pairM{(\id\, \slice f_b)(P_{13} P_{23})}{\DeltaB(d) \lact (a \tens c)}
+\\&=&
+      \pairM{P_{13} P_{23}}{\left( \vertM \DeltaB(d) \lact (a \tens c)\right) \tens b}
+\\&=&
+      \pairM{P_{13} P_{23} \! \left( \vertM \DeltaB(d) \tens 1_\Aa \right)}{a \tens c \tens b}
+\\&=&
+      \pairM{P_{23} \! \left( \vertM \DeltaB(d) \tens 1_\Aa
+                   \right)}{ (\rp)_{13}(a \tens c \tens b)}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{P_{23} \left( \vertM \DeltaB(d) \tens 1_\Aa
+                   \right)}{p_i \tens c \tens q_i}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{P_{23}}{\left( \vertM \DeltaB(d) \lact (p_i \tens c)\right) \tens q_i}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{1_\BB \tens q_i}{ \DeltaB(d) \lact (p_i \tens c)}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{(1_\BB \tens q_i) \DeltaB(d)}{p_i \tens c}
+\\&=&
+      \textstyle \sum_i \,  \pairM{\DeltaB(d)}{p_i \tens (c \ract q_i)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i(c \ract q_i)}{d}
+\\&=&
+      \textstyle \sum_i \,  \pairM{c \ract q_i}{d \ract p_i}
+\\&=&
+      \textstyle \sum_i \,  \pairM{q_i \tens p_i}{\lp(c \tens d)}
+\\&=&
+      \pairflipM{\rp(a \tens b)}{\lp(c \tens d)}
+\\&\stackrel{\rm (i)}{=}&
+      \pairM{ac}{bd}
+\\&=&
+      \pairM{\DeltaB(bd)}{a \tens c}
+\end{eqnarray*}
+This proves (i) $\Leftrightarrow$ (iii). Similarly we prove (i) $\Leftrightarrow$ (ii).
+\end{proof}
+
+
+
+\begin{defn_sec}   \label{def:Hopf_system}
+An \idpa\ is called a {\em Hopf system\/} whenever its pairing is multiplicative
+in the sense of definition \ref{def:muliplicative_actor}.
+\end{defn_sec}
+
+
+\begin{prop_sec}  \label{prop:counits_homomorphism}
+If\/ \pairAB\ is a Hopf system, then its counits\/ $\epsA$ and\/ $\epsB$
+are algebra homomorphisms into\/ \kk.
+\end{prop_sec}
+
+\begin{proof}
+Take any $a,c\in A$ and $b,d\in B$. Since \rp\ is surjective, we can write
+$a \tens b = \sum_i \,\rp(p_i \tens q_i)$ with $p_i \in A$ and $q_i \in B$.
+Then
+\begin{eqnarray*}
+      \pairM{a(c \ract b)}{d}
+&=&
+      \pairM{c \ract b}{d \ract a}
+\\&=&
+      \pairM{b \tens a}{\lp(c \tens d)}
+\\&=&
+      \textstyle \sum_i \,  \pairflipM{\rp(p_i \tens q_i)}{\lp(c \tens d)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i c}{q_i d}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i c \ract q_i}{d}
+\end{eqnarray*}
+and hence $a(c \ract b) = \textstyle \sum_i \,  p_i c \ract q_i$. It follows that
+\begin{eqnarray*}
+      \pairM{1_\BB}{a(c \ract b)}
+&=&
+      \textstyle \sum_i \,  \pairM{1_\BB}{p_i c \ract q_i}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i c}{q_i}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i}{c \lact q_i}
+\\&=&
+      \textstyle \sum_i \,  \pairM{P}{p_i \tens (c \lact q_i)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{P(1_\BB \tens c)}{p_i \tens q_i}
+\\&=&
+      \pairM{1_\BB \tens c}{a \tens b}
+\\&=&
+      \pairM{1_\BB}{a} \pairM{1_\BB}{c \ract b}.
+\end{eqnarray*}
+Since $A \ract B =A$, the above proves that $\epsA \simeq 1_\BB$ is a homomorphism.
+\end{proof}
+
+
+
+\begin{defn_sec*}   \label{def:braiding}
+Consider two algebras $(A,\mult{A})$ and $(B,\mult{B})$.
+A linear map $T : B \tens A \rarr  A \tens B$ is said to be an
+$(A,B)$-{\em twisting\/} if
+\begin{eqnarray*}
+   T(\mult{B} \tens \id)  &=&  (\id \tens \mult{B}) (T \tens \id) (\id \tens T)  \\
+   T(\id \tens \mult{A})  &=&  (\mult{A} \tens \id) (\id \tens T) (T \tens \id).
+\end{eqnarray*}
+\end{defn_sec*}
+
+The following result can be found in almost every textbook or paper \cite{Schmudgen,FonsSabine}\
+covering topics like the quantum double or the quantum Yang-Baxter equation:
+
+\begin{prop_sec} \label{prop:twisted_tensorproduct}
+If\/ $T : B \tens A \rarr  A \tens B$ is an\/ $(A,B)$-twisting between two
+algebras\/ $A$ and\/ $B$, then the vector space\/ $A\tens B$ can be made into an
+algebra with product\/ $(\mult{A} \tens \mult{B})(\id \tens T \tens \id)$.
+\rm This algebra will be denoted by $A\ttens{T} B$.
+\end{prop_sec}
+
+
+\begin{lemma_sec}   \label{lem:twisting}
+Consider two algebras $A$ and\/ $B$, and let\/ $R: A \tens B \rarr A \tens B$
+be a linear map. Then\/ $R\flip$ is an $(A,B)$-twisting if and only if
+\begin{eqnarray}
+   R(\id \tens \mult{B}) &=& (\id \tens \mult{B}) R_{12} R_{13}  \label{eq:lemmma:twisting1}  \\
+   R(\mult{A} \tens \id) &=& (\mult{A} \tens \id) R_{23} R_{13}. \label{eq:lemmma:twisting2}
+\end{eqnarray}
+Furthermore, if\/ $R$ is a bijection and if\/ $R\flip$ is an $(A,B)$-twisting,
+then\/ $R^{-1}\flip$ is an $(A\op,B\op)$-twisting.
+\end{lemma_sec}
+
+
+\begin{lemma_sec}   \label{lem:compose_twistings}
+Consider two algebras $A$ and\/ $B$, and let\/ $R, Q: A \tens B \rarr A \tens B$
+be linear maps such that\/ $R\flip$ and\/ $Q\flip$ are  $(A,B)$-twistings.
+If\/ $R_{13}Q_{12} = Q_{12}R_{13}$ and\/ $R_{13}Q_{23} = Q_{23}R_{13}$,
+then\/ $RQ\flip$ is again an $(A,B)$-twisting.
+\end{lemma_sec}
+
+
+\begin{prop_sec} \label{prop:twistings:lprp}
+Let\/ \pairAB\ be any Hopf system. Then\/
+\begin{enumerate}
+  \item $\lp\flip$ is an\/ $(A\op,B)$-twisting
+  \item $\rp\flip$ is an\/ $(A,B\op)$-twisting.
+\end{enumerate}
+\end{prop_sec}
+
+\begin{proof}
+Take any $a,x\in A$ and $b,d,y\in B$ and write
+$\lp(a \tens d) = \sum_i \, p_i \tens q_i$ and $x \tens y = \sum_k \, \rp(v_k \tens w_k)$
+with $p_i, v_k \in A$ and $q_i, w_k \in B$. Also observe that
+$(q_i \lact x) \tens y = \sum_k \, \rp\!\left((q_i \lact v_k) \tens w_k\vertM\right)$
+because of lemma \ref{lem:action_of_xtens1}\@. Now we have
+\begin{eqnarray*}
+\lefteqn{
+  \pairM{y \tens x}{(\id \tens \mult{B}) (\lp)_{12} (\lp)_{13} (a \tens b \tens d)}} \\
+&=&
+      \textstyle \sum_i \,
+      \pairM{y \tens x}{(\id \tens \mult{B}) \left( \lp(p_i \tens b) \tens q_i \vertM\right)}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{y \tens (q_i \lact x)}{\lp(p_i \tens b)}
+\\&=&
+      \textstyle \sum_{i,k} \,
+      \pairflipM{\rp\!\left((q_i \lact v_k) \tens w_k\vertM\right)}{\lp(p_i \tens b)}
+\\&=&
+      \textstyle \sum_{i,k} \, \pairM{(q_i \lact v_k) p_i}{w_k b}
+\\&=&
+      \textstyle \sum_{i,k} \, \pairM{q_i \lact v_k}{p_i \lact w_k b}
+\\&=&
+      \textstyle \sum_{i,k} \, \pairM{\rp(v_k \tens w_k b)}{q_i \tens p_i}
+\\&=&
+      \textstyle \sum_{k} \, \pairflipM{\rp(v_k \tens w_k b)}{\lp(a \tens d)}
+\\&=&
+      \textstyle \sum_{k} \, \pairM{v_k a}{w_k b d}
+\\&=&
+      \textstyle \sum_{k} \, \pairflipM{\rp(v_k \tens w_k)}{\lp(a \tens b d)}
+\\&=&
+      \pairM{y \tens x}{\lp(\id \tens \mult{B})(a \tens b \tens d)}
+\end{eqnarray*}
+which proves (\ref{eq:lemmma:twisting1}) for $R=\lp$. The other cases are similar.
+\end{proof}
+
+
+\begin{cor_sec} \label{cor:twist_map_QD} \hspace{0.5em}
+$\rp\lp^{-1}\flip$ is an\/ $(A,B\op)$-twisting.
+\end{cor_sec}
+\begin{proof}
+Both $\rp\flip$ and $\lp^{-1}\flip$ are $(A,B\op)$-twistings.
+Analogous to the proof of lemma \ref{lem:P13P23actor}\ we obtain
+that $(\rp)_{13}$ commutes with $(\lp)_{12}$ and hence with $(\lp^{-1})_{12}$.
+Similarly $(\rp)_{13}$ commutes with $(\lp^{-1})_{23}$.
+Now invoke lemma \ref{lem:compose_twistings}.
+\end{proof}
+
+
+\begin{remark_sec} \label{rem:multipl:preview:QD} \rm
+Recall that the pairing $P$ is an actor for the weakly unital \context\ $\BBAA$.
+Now if $P$ enjoys one of the equivalent conditions (i-iv) in
+lemma \ref{lem:wu:commutation:invertibility}, e.g.\ if $\lp$ and $\rp$ commute,
+then the map $\rp\lp^{-1}$ appearing in the previous corollary is
+actually {\em dual\/} to the \lq inner\rq\ homomorphism
+$$ \piP : B \tens A \rarr \Act(\BBAA): y \mapsto P y P^{-1} $$
+in the sense that $\pair{\piP(y)}{x} = \pair{y}{\rp\lp^{-1}(x)}$
+for all $y \in B \tens A$ and $x \in A \tens B$.
+In fact the twist map $\rp\lp^{-1}\flip$ is the one that will be used
+later (see  \S \ref{quantum_double}) to construct a {\em quantum double\/}
+for the pair $\pair{A}{B\op}$.
+\hfill $\star$
+\end{remark_sec}

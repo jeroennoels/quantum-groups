@@ -1,0 +1,219 @@
+
+\chapter{Weak Fubini tensor products}   \label{app:fubini}
+
+Let $\pair{E_i}{\Om_i}$ ($i=1,\ldots\, n$) be a finite number of
+vector space dualities, i.e.\ for every index $i$ we consider two
+linear spaces $E_i$ and $\Om_i$ and a non-degenerate pairing
+$\pairing : E_i \times \Om_i \rarr \kk$\@.
+Endow $E_i$ and $\Om_i$ with the weak topologies induced by the duality.
+We have canonical embeddings
+$\Om_i \hookrightarrow E_i'\equiv\, \overline{\Om_i\!}\,$
+and
+$$ \Om_1 \tens \ldots\, \Om_n \:\hookrightarrow\:
+   E_1'\tens \ldots\, E_n' \:\hookrightarrow\: (E_1\tens \ldots\, E_n)'
+   \:\equiv\:  \overline{\Om_1 \tens \ldots\, \Om_n\!}\, $$
+and analogously
+$E_1\tens \ldots\, E_n  \hookrightarrow  (\Om_1 \tens \ldots\, \Om_n)'$.
+The obvious pairing between $E_1\tens \ldots\, E_n$ and $\Om_1 \tens \ldots\, \Om_n$
+is still non-degenerate.
+Now $(E_1\tens \ldots\, E_n)'$ identifies with the space of all multilinear forms on
+$E_1 \times \ldots\, E_n$, e.g.\ a simple tensor
+$\om_1 \tens \ldots\, \om_n \,\in\, \Om_1 \tens \ldots\, \Om_n$
+corresponds to the form
+$$ E_1 \times \ldots\, E_n \rarr \kk \,: \:
+   (x_1, \ldots\, x_n) \:\mapsto\: \pair{x_1}{\om_1} \ldots\, \pair{x_n}{\om_n}. $$
+Observe that all multilinear forms which arise from elements in the algebraic
+tensor product $\Om_1 \tens \ldots\, \Om_n$ are {\em jointly\/} continuous
+w.r.t.\ the weak topologies on $E_1, \ldots\, E_n$\@. Moreover, in the $n=2$ case,
+a standard result
+(see \cite[\S 42.4]{Treves}, \cite[\S II.41.3.10]{Kothe}, or \cite[\S 15.3.6]{Jarchow})
+states that $\Om_1 \tens \Om_2$ is actually linearly isomorphic to the space of all
+jointly continuous bilinear forms on $E_1 \times E_2$\@.
+Weakening the condition of {\em joint\/} continuity leads us to the following:
+
+\begin{defn_chp} \label{def:weak_fubini_tensor}
+  Consider $\pair{E_i}{\Om_i}$ as above ($i=1,\ldots\, n$).
+  The linear space of all {\em separately\/} continuous multilinear forms on
+  $E_1 \times \ldots\, E_n$ will be denoted by $\Om_1 \fubtens \ldots\, \Om_n$,
+  and referred to as the {\em weak Fubini\/} tensor product of the spaces
+  $\Om_i$ w.r.t.\ the dualities $\pair{E_i}{\Om_i}$.
+\end{defn_chp}
+
+\begin{remarks_chp} \label{rem:weak_fubtens}
+%\item
+%  Up to identification we get
+%  $$ \Om_1 \tens \ldots\, \Om_n               \: \subseteq \:
+%     \Om_1 \fubtens \ldots\, \Om_n   \: \subseteq \:
+%     \overline{\Om_1 \tens \ldots\, \Om_n}    \: \equiv \:
+%     (E_1\tens \ldots\, E_n)' $$
+%  so we have a non-degenerate pairing between $E_1\tens \ldots\, E_n$
+%  and $\Om_1 \fubtens \ldots\, \Om_n$\@.
+\item
+  It's easy to see that $\fubtens$ is associative, i.e.
+  $$   (\Om_1 \fubtens \Om_2) \fubtens \Om_3
+     \:\simeq\: \Om_1 \fubtens \Om_2 \fubtens \Om_3
+     \:\simeq\: \Om_1 \fubtens (\Om_2 \fubtens \Om_3) $$
+  though we have to take some care with the interpretation:
+  besides $\pair{E_i}{\Om_i}$ ($i=1,2,3$) we also need to consider the
+  dualities \mbox{$\pair{E_1 \tens E_2}{\Om_1 \fubtens \Om_2}$}\ and
+  $\pair{E_2 \tens E_3}{\Om_2 \fubtens \Om_3}$ in order to deal with
+  the iterated $\fubtens$-products.
+\item
+  A weak Fubini tensor product can also be thought of as a space of
+  {\em weakly continuous\/} linear operators. In fact we have
+  $$ L(E_1,\Om_2) \,\simeq\, \Om_1 \fubtens \Om_2 \,\simeq\, L(E_2,\Om_1),$$
+  the identification of any $\om \in \Om_1 \fubtens \Om_2$ with
+  operators $S_\om \in L(E_1,\Om_2)$ and $T_\om \in L(E_2,\Om_1)$
+  being given by
+  $$ \pair{x_2}{S_\om x_1}
+               \,=\, \pair{x_1 \tens x_2}{\om} \,=\, \om(x_1,x_2)
+                           \,=\, \pair{x_1}{T_\om x_2} $$
+  for all $x_1 \in E_1$ and $x_2 \in E_2$\@. Notice $S_\om$ and
+  $T_\om$ are each others transpose.
+  Within these identifications, the elements of the {\em algebraic\/}
+  tensor product $\Om_1\tens\Om_2$ are in 1-1-correspondence
+  with the {\em finite rank\/} operators\@; simple tensors
+  correspond to rank one operators.
+\item
+  One should always be aware of the fact that weak Fubini tensor products
+  are related to the vector space dualities involved.
+\end{remarks_chp}
+
+
+A nice feature of weak Fubini tensor products is the fact they admit
+extension of {\em slice maps,\/} as we will see below;
+first we have a closer look at a special case:
+
+
+\paragraph{Slicing with continuous functionals}
+Let $\pair{E}{\Om}$ and $\pair{F}{\Gamma}$ be two vector space dualities
+and consider an $x \in E$. Since $E$ identifies with the space $\Om^*$ of
+weakly continuous functionals on $\Om$, the element $x$ corresponds to a
+functional $\pairdot{x} \equiv f_x \in \Om^*$\@.
+When $\phi \in \Om \fubtens \Gamma$ is a separately continuous bilinear
+form on $E \times F$, then $\phi(x,\cdot)$ is by assumption a
+weakly continuous functional on $F$. Hence $\phi(x,\cdot)$ identifies
+with a unique element in $\Gamma$, which will be denoted by $(f_x \fubtens \id)(\phi)$.
+Thus we obtain a linear map $f_x \fubtens \id : \Om \fubtens \Gamma \rarr \Gamma$
+determined by
+\begin{equation} \label{eq:fub_slice_functional}
+  \pairM{y}{(f_x \fubtens \id)(\phi)} \:=\: \phi(x,y) \:=\:  \pairM{x \tens y}{\phi}
+\end{equation}
+for $y\in F$ and $\phi \in \Om \fubtens \Gamma$\@. This map obviously
+extends the ordinary algebraic slice map $f_x \tens \id$, and of course
+one could also consider slicing \lq from the right\rq\@.
+%%% Furthermore it's clear from (\ref{eq:fub_slice_functional})
+%%% the obvious Fubini-type property will hold.
+
+
+\paragraph{General slice maps}
+Consider vector space dualities $\pair{E_i}{\Om_i}$ and $\pair{F_i}{\Gamma_i}$,
+and linear maps $\Lambda_i: \Om_i \rarr \overline{\Gamma_i\!}\,$ ($i=1,2$).
+Assume $\Lambda_2$ to be weakly continuous, i.e.\ having transpose
+$\Lambda_2^* : F_2 \rarr E_2$\@.
+Notice that the $\Lambda_i$ are allowed to take values in
+the weak completions $\overline{\Gamma_i\!}\, \equiv F_i'$ and moreover, that
+$\Lambda_1$ is not assumed to be continuous. Now it is easy to see that $$
+\Lambda_1 \tens \Lambda_2: \,
+      \Om_1 \tens \Om_2 \,\rarr\, \overline{\Gamma_1\!}\, \tens \overline{\Gamma_2\!}\,
+      \equiv F_1' \tens F_2' $$
+has a canonical extension to the weak Fubini tensor product, say
+\begin{equation}
+   \label{eq:def_Lam1_fubtens_Lam2}
+   \overline{\Lambda_1 \tens}\, \Lambda_2: \, \Om_1 \fubtens \Om_2 \rarr \,
+          \overline{\Gamma_1 \tens \Gamma_2\!}\, \equiv(F_1 \tens F_2)',
+\end{equation}
+such that
+$$ \pairM{y_1 \tens y_2}{(\overline{\Lambda_1 \tens}\, \Lambda_2)(\phi)}
+     \:=\: \pairM{y_1}{\Lambda_1(\id \fubtens f_x)(\phi)} $$
+for $\phi \in \Om_1 \fubtens \Om_2$, $y_1\in F_1$, $y_2\in F_2$,
+and $x\equiv\Lambda_2^*(y_2)\in E_2$\@.
+
+
+\begin{remarks_chp}  \label{rem:fubtens_of_maps}
+\item
+  Notice we preferred to write
+  $\overline{\Lambda_1 \tens}\, \Lambda_2$ rather than
+  $\Lambda_1 \fubtens \Lambda_2$. The former notation is intended to
+  remind to the fact that $\Lambda_1$ is not assumed to be continuous,
+  while the latter is reserved for a \lq proper\rq\ weak Fubini
+  tensor product of {\em two\/} continuous linear maps (cf.\ remark iv).
+\item
+  Of course the roles of $\Lambda_1$ and $\Lambda_2$ can be
+  switched---what matters is that at least {\em one\/} of the two maps
+  involved is weakly continuous.
+\item
+  In particular we can take $\pair{E_2}{\Om_2} \equiv \pair{F_2}{\Gamma_2}$ and
+  $\Lambda_2\equiv\id$, thus obtaining a slice map
+  $ \overline{\Lambda_1 \tens}\, \id :
+     \Om_1 \fubtens \Om_2 \rarr \, \overline{\Gamma_1 \tens \Om_2\!}\,$,
+  obeying
+  \begin{equation}  \label{eq:def_Lam1_fubtens_id}
+     \pairM{x \tens y}{(\overline{\Lambda_1 \tens}\, \id)(\phi)}
+      \:=\:  \pairM{x}{\Lambda_1(\id \fubtens f_y)(\phi)}
+  \end{equation}
+  for $\phi \in \Om_1 \fubtens \Om_2$, $x\in F_1$ and $y\in E_2$\@.
+  In the special case that $\Lambda_1$ is just a linear {\em functional}
+  (i.e.\ if $\Gamma_1 = \CC = F_1$),
+  say $\Lambda_1 \equiv g : \Om_1 \rarr \CC$,
+  then we obtain a slice map
+  $\overline{g \, \tens}\, \id : \Om_1 \fubtens \Om_2 \rarr \overline{\Om_2\!}\,$,
+  determined by
+  \begin{equation}\label{eq:def:functional_fubtens_id}
+    \pairM{y}{(\overline{g \,\tens}\, \id)(\phi)}  \:=\:  g(\id \fubtens f_y)(\phi).
+  \end{equation}
+\item
+  When $\Lambda_1$ and $\Lambda_2$ are actually {\em both\/} weakly
+  continuous mappings from $\Om_i$ into $\overline{\Gamma_i\!}\,$
+  ($i=1,2$ resp.) then we have a priori two extensions
+  $\overline{\Lambda_1 \tens}\, \Lambda_2$ and
+  $\Lambda_1 \overline{\tens \,\Lambda_2\!}\,$
+  which are in fact equal, since they are both restrictions of
+  $$ \overline{\Lambda_1 \tens \Lambda_2\!}\,
+     \equiv (\Lambda_1^* \tens \Lambda_2^*)\algtp : \:
+     \overline{\Om_1\tens\Om_2\!}\, \,\rarr\, \overline{\Gamma_1 \tens \Gamma_2\!}\,.$$
+  If moreover $\Lambda_i(\Om_i) \subseteq \Gamma_i$ ($i=1,2$),
+  then also the transposed mappings $\Lambda_i^*: F_i \rarr E_i$ are weakly
+  continuous. Only in this case we have a true $\fubtens$ of
+  continuous linear maps, being a weakly continuous mapping
+  \begin{equation} \label{eq:proper_fubtens}
+    \Lambda_1 \fubtens \Lambda_2:\,
+         \Om_1 \fubtens \Om_2 \rarr \Gamma_1 \fubtens \Gamma_2 :\,
+         \phi \,\mapsto\, \phi\left(\Lambda_1^*(\cdot), \Lambda_2^*(\cdot)\vertM\right)
+  \end{equation}
+  between the $\fubtens$-products of the spaces involved.
+\item
+  In view of remark \ref{rem:weak_fubtens}.ii, the action of the map in
+  (\ref{eq:proper_fubtens}) can be interpreted in terms of
+  {\em composition\/} of continuous linear operators:
+  let $\Lambda_i: \Om_i \rarr \Gamma_i$ ($i=1,2$) be weakly continuous,
+  hence having transposes $\Lambda_i^*: F_i \rarr E_i$,
+  and take any $\om \in \Om_1 \fubtens \Om_2$\@.
+  Identifying $\Om_1 \fubtens \Om_2$ and $\Gamma_1 \fubtens \Gamma_2$
+  with spaces of continuous operators, we get
+  $$ \Lambda_2 S_\om \Lambda_1^*
+         \,\simeq\, (\Lambda_1 \fubtens \Lambda_2)(\om)
+         \,\simeq\, \Lambda_1 T_\om \Lambda_2^*.         $$
+\item
+  If $\Lambda_1$ and $\Lambda_2$ are as in (\ref{eq:def_Lam1_fubtens_Lam2}),
+  i.e.\ with $\Lambda_2$ being continuous, but now moreover
+  $\Lambda_2(\Om_2) \subseteq \Gamma_2$, then it's easy to show
+  the following Fubini property:
+  $$      (\overline{\Lambda_1 \tens} \,\id)\,(\id \fubtens \Lambda_2)
+    \:=\: \overline{\Lambda_1 \tens} \, \Lambda_2
+    \:=\: (\overline{\id \tens \Lambda_2\!}\,) \,(\overline{\Lambda_1 \tens}\,\id)$$
+\item
+  We conclude with a little warning:
+  consider linear maps $\Lambda_i: \Om_i \rarr \Gamma_i$ ($i=1,2$),
+  {\em none\/} of them weakly continuous. Then according to the
+  above it is still possible to construct slice maps on weak
+  Fubini tensor products and, though not true in general, it might
+  accidentally happen that
+  $$ (\overline{\Lambda_1 \tens} \,\id)(\Om_1 \fubtens \Om_2)
+            \,\subseteq\, \Gamma_1 \fubtens \Om_2
+  \andspace{2em}
+     (\id \,\overline{\tens \,\Lambda_2\!}\,)(\Om_1 \fubtens \Om_2)
+            \,\subseteq\, \Om_1 \fubtens \Gamma_2, $$
+  which would allow us to {\em formulate\/} a Fubini-type property for these maps.
+  It does however not imply that such a property actually {\em holds.}
+\end{remarks_chp}

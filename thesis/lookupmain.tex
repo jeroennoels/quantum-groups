@@ -1,0 +1,102 @@
+\documentclass[landscape]{book}
+\usepackage{amssymb,amscd,fancyheadings}
+
+\input{head}
+\input{preamble}
+\input{e2preamb}
+
+\includeonly{}
+
+\begin{document}
+\tableofcontents
+
+\chapter{Introduction}
+\include{intro}
+\include{convent}
+
+\chapter{Enveloping algebras}
+\label{chapter:Enveloping_algebras}
+\include{envalg}
+\include{actmult}
+\include{actfunc}
+\include{weakunit}
+\include{envcont}
+\include{tensor}
+\include{opposite}
+\include{starac}
+\include{special}
+
+\chapter{Hopf Systems}
+\label{chapter:Hopf_systems}
+\include{hsbasics}
+\include{multipl}
+\include{antipode}
+\include{regular}
+\include{hopfstar}
+\include{haarint}
+\include{examples}
+\include{mplierhs}
+
+\section{The quantum double of a Hopf system}
+\label{quantum_double}
+\include{balance}
+\include{qdouble}
+\include{qdmulti}
+\include{qdhs}
+
+\chapter{Algebraic harmonic analysis}
+\label{chapter:algebraic_harmonic_analysis}
+\include{fcontext}
+\include{duality}
+\include{pcontext}
+
+\chapter{A Fourier context for quantum $E(2)$}
+\label{chapter:Fourier_context_for_quantumE2}
+\include{e2intro}
+\include{e2extalg}
+\include{e2fcalc}
+\include{e2haar}
+\include{e2koel}
+\include{e2prevw}
+
+
+\chapter{Harmonic analysis on quantum $E(2)$}
+\label{chapter:Harmonic_analysis_on_quantumE2}
+
+
+\section{Hahn-Exton {\protect\qfragile}-Bessel functions}
+\label{sec:qExp_and_qBessel}
+\include{qbessel}
+
+
+\section{Holomorphic {\protect\qfragile}-Hankel transformation}
+\label{sec:qHankel}
+\include{qhankl2}
+\include{qhholom}
+\include{qhcore}
+\include{qheigen}
+\section{The {\protect\qfragile}-moment problem for the space $\Hintersect$}
+\include{qhmoment}
+\section{Fourier transforms for quantum $E(2)$}
+\include{frconstr}
+\section{Plancherel formulas}
+\label{sect:plancherel}
+\include{frplanch}
+\section{Inversion formulas}
+\label{sect:inversion}
+\include{frinvers}
+\section{Conclusions}
+\include{frconcl}
+
+
+\appendix
+\include{fubini}
+\include{technic}
+\include{qcalc}
+\chapter{Inheritance schemes \&\ Lookup tables}
+\label{app:inheritance}
+\include{inherit}
+\input{lookup}
+
+\include{biblio}
+\end{document}

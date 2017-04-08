@@ -1,0 +1,167 @@
+\section{The duality between actors and multipliers}
+\label{sec:multipliers}
+
+
+\begin{abs_chp}
+We investigate the relation between actors and multipliers.
+It turns out that every multiplier yields an actor,
+and thus the multiplier algebra can and will be embedded in the enveloping algebra
+that was introduced in the previous section.
+However the latter will usually be much larger than the multiplier algebra.
+\end{abs_chp}
+
+
+
+\begin{defn_sec} \label{def:MEE}
+  If\/ $\EE \equiv \EOP$ is a non-degenerate \context, we write
+  $$ M(\EE) \, \equiv \,    {\rm Env}(\EE\, ;E)
+            \,=\,  \left\{x\in \PreE  \,\left| \vertM \right. \,
+                          xE \subseteq E \supseteq Ex  \right\}. $$
+  Recall that $E$ is identified with its image $j(E)$ in \PreE.
+\end{defn_sec}
+
+Our goal is to prove that $M(\EE)$ is actually---as one expects---isomorphic to the
+multiplier\footnote{For the theory of multipliers we refer to \cite{Fons:MHA}.}\
+algebra $M(E)$ of $E$\@. To do so, we need an extra assumption: we will
+require $\Om$ to be unital as an \Ebimod, i.e.\ $E \lact \Om = \Om = \Om \ract E$.
+Notice that by lemma \ref{lem:nondeg_context}\ this condition implies
+non-degeneracy of the product in $E$, so we can indeed consider the multiplier
+algebra of $E$. Although our actual approach will be different,
+it's worth noticing that half of the assertion is already known:
+
+\begin{remark_sec}
+  Let\/ $\EE \equiv \EOP$ be an \context\ and let $\Om$ be unital.
+  Then $M(\EE)$ is a unital algebra containing $E$ as an essential two-sided ideal.
+\end{remark_sec}
+\begin{proof}
+  Apply proposition \ref{prop:Env_is_an_algebra}\ with $A=j(E)$\@.
+  Clearly $E$ is a two-sided ideal in $M(\EE)$,
+  so let's complete this proof showing that it is an {\em essential\/} ideal:
+  take e.g.\ a pre-actor $a\equiv (\lam,\rho) \in M(\EE)$ such that $ax=0$,
+  i.e.\ $(\lam\lam_x,\rho_x\rho)=0$, for all $x\in E$\@.
+  Then for all $x,y \in E$ and $\om \in \Om$ we have
+  $\lam(x\lact \om) = \lam(\lam_x(\om)) = 0$ and
+  \mbox{$\pair{x}{\rho(y\lact \om)} = \pair{x}{y\lact \rho(\om)}
+         = \pair{xy}{\rho(\om)} = \pair{y}{\rho_x(\rho(\om))} = 0$}\@.
+  Using $E\lact \Om = \Om$ we conclude that both $\lam$ and $\rho$ are zero,
+  hence $a=0$\@.
+\end{proof}
+\vspace{2ex}
+
+The other half of our assertion would be the statement that $M(\EE)$
+is in fact the {\em largest\/} algebra having this property.
+Our actual approach however, will be more explicit:
+we simply construct a natural isomorphism from $M(E)$ onto $M(\EE)$.
+
+\begin{lemma_sec}  \label{embedding_of_M(E)}
+  Let\/ $\EE \equiv \EOP$ be an \context\ such that $\Om$
+  is unital as an \Ebimod\@.
+  Then the embedding $j: E \rarr \PreE$ extends uniquely to a map
+  $$ \jhat : M(E)\rarr \PreE : z \mapsto \jhat(z)\equiv\lamrho{z} $$
+  such that the following holds for all $y\in E$, $z\in M(E)$ and $\om\in\Om$:
+  \begin{equation}  \label{eq:def_of_jhat}
+     \pairM{y}{\lam_z(\om)} \:=\: \pair{yz}{\om}    \itandspace{3em}
+     \pairM{y}{\rho_z(\om)} \:=\: \pair{zy}{\om}.
+  \end{equation}
+  Moreover \jhat\ is still an injective algebra morphism.
+\end{lemma_sec}
+\begin{proof}
+   Let $z\equiv (L,R)$ be a multiplier of $E$. Here $L$ and $R$ are linear maps
+   from $E$ into $E$, having (algebraic) transpositions $L\algtp,R\algtp : E' \rarr E'$.
+   Now take any $y\in E$ and $\om\in\Om$.
+   Identifying $\Om$ with its image in $E'$, we get for all $x\in E$ that
+   \begin{equation} \label{eq:mod_prop_mult}
+      \pairM{x}{L\algtp(\om\ract y)}
+         = \pairM{L(x)}{\om \ract y}
+         = \pairM{y(zx)}{\om}
+         = \pairM{(yz)x}{\om}
+         = \pairM{x}{\om \ract yz}
+   \end{equation}
+   hence $L\algtp(\om\ract y) = \om \ract yz \in \Om$\@.
+   It follows that $L\algtp(\Om) = L\algtp(\Om \ract E) \subseteq \Om$, and
+   analogously $R\algtp(\Om) \subseteq \Om$. So we can define linear maps
+   $\lam_z$ and $\rho_z$ from $\Om$ into $\Om$ by
+   $\lam_z(\om) = R\algtp(\om)$ and $\rho_z(\om) = L\algtp(\om)$,
+   clearly satisfying (\ref{eq:def_of_jhat}).
+   When $z$ happens to be in $E$ itself, this notation is of course
+   compatible with the one we introduced in lemma \ref{lem:embedding_of_E}.
+   Now we claim that $\lam_z$ is a right $E$-module morphism; indeed, using
+   (\ref{eq:def_of_jhat}) we get for all $\om \in \Om$ and $x,y \in E$ that
+   $$ \pairM{x}{\lam_z(\om \ract y)}
+            = \pairM{xz}{\om \ract y}
+            = \pairM{yxz}{\om}
+            = \pairM{yx}{\lam_z(\om)}
+            = \pairM{x}{\lam_z(\om) \ract y}.   $$
+   Similarly $\rho_z$ is a left $E$-module morphism. Hence for every $z\in M(E)$
+   we have a pre-actor $\jhat(z) \equiv \lamrho{z} \in \PreE$
+   obeying (\ref{eq:def_of_jhat}).
+   The assertion that \jhat\ is an algebra morphism is an easy consequence of
+   (\ref{eq:def_of_jhat}) and associativity in $M(E)$.
+   Injectivity and uniqueness of \jhat\ are obvious.
+\end{proof}
+
+
+
+\begin{prop_sec}  \label{prop:ME=MEE}
+  Let\/ $\EE \equiv \EOP$ be an \context,
+  $\Om$ unital as an \Ebimod, and \jhat\ as above.
+  Then $M(\EE) = \jhat(M(E)) \subseteq \EnvE \subseteq \ActE$.
+\end{prop_sec}
+\begin{proof}
+%   The previous lemma would allow us to identify $M(E)$ with its image under \jhat\@.
+%   Nevertheless we will postpone this identification for a while,
+%   since we are about to consider elements in $M(E)$ both as an
+%   actor and a multiplier at the same time. So for the moment
+%   we prefer to write \jhat\ explicitly in order to avoid ambiguity.
+%%%%%%%%%%%%%%
+   We first show that \ActE\ is a sub-$M(E)$-bimodule of \PreE, which is quite similar
+    to lemma \ref{lem:Act_is_submodule}, but now considering $M(E)$ instead of $E$\@.
+   So let us take any $z\in M(E)$ and $a\equiv (\lam,\rho) \in \ActE$
+   and prove that $\jhat(z)a$ and $a\jhat(z)$ are in \ActE\ again.
+   The pair $(\lam_z\lam,\rho\rho_z)=\jhat(z)a$ indeed satisfies (\ref{eq:bi-actor}), since
+   $$   \pairM{x}{\rho(\rho_z(\om \ract y))}
+          \stackrel{(\ref{eq:mod_prop_mult})}{=}
+                    \pairM{x}{\rho(\om\ract yz)}
+          \stackrel{(\ref{eq:bi-actor})}{=}
+                    \pairM{yz}{\lam(x\lact\om)}
+          \stackrel{(\ref{eq:def_of_jhat})}{=}
+                    \pairM{y}{\lam_z(\lam(x\lact\om))}      $$
+  for all $x,y \in E$ and $\om \in \Om$.
+  Here we used $\rho_z(\om \ract y) = \om \ract yz$ obtained in (\ref{eq:mod_prop_mult}).
+  Similarly for $a\jhat(z)$.  We conclude that $\jhat(M(E)) \subseteq \EnvE$.
+
+  Now we show $M(\EE) = \jhat(M(E))$\@. First take any $a \in M(\EE)$,
+  i.e.\ let $a\equiv (\lam,\rho)$ be a pre-actor with $a j(E) \subseteq j(E) \supseteq j(E)a$.
+  Then one can construct linear maps $L,R: E \rarr E$ such that
+  $j(L(x))= a j(x)$ and $j(R(x))=j(x)a$ for any $x\in E$,
+  hence $\lam_{L(x)}=\lam \lam_x$ etc.
+  Now $z\equiv (L,R)$ is a multiplier \mbox{of $E$}, and
+  for all $x\in E$ we get $\lam_z\lam_x = \lam_{zx} = \lam_{L(x)} = \lam\lam_x$,
+  hence $\lam_z$ equals $\lam$ on $E \lact \Om = \Om$. Similarly also $\rho_z =\rho$.
+  We conclude that $a = \jhat(z)$.
+  The other inclusion is obvious.
+\end{proof}
+
+
+
+\begin{remarks_sec} \rm
+\item
+The above allows us to identify $M(E)$ with a subalgebra $M(\EE)$ of \EnvE\
+provided that $\Om$ is unital as an \Ebimod\@. Moreover (\ref{eq:def_of_jhat})
+exhibits a duality between actors and multipliers in the sense that every
+multiplier can be \lq dualized\rq\ into an actor;
+however not every actor for \EE\ need to arise in this way,
+so \EnvE\ is usually larger than $M(E)$\@.
+Also notice that \EnvE\ depends on the actor implementation,
+whereas $M(E)$ is completely determined by the algebra $E$ itself.
+Furthermore we loose a substantial amount of \lq affiliation\rq\ with $E$,
+as shown by example A.
+\item
+A one-line summary of our results thus far:
+$$ E \subseteq M(E) \simeq M(\EE) \equiv {\rm Env}(\EE\vssp;E)
+   \subseteq \EnvE \equiv {\rm Env}(\EE\vssp;\ActE)
+   \subseteq \ActE. $$
+\item
+A priori $M(\EE)$ was merely a set of {\em pre\/}-actors satisfying some invariance
+condition; then it {\em turned out\/} to be really a space of {\em actors}.
+\end{remarks_sec}

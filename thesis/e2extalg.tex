@@ -1,0 +1,168 @@
+
+
+\section{The full extended algebra \protect\Uqext}
+
+
+\begin{abs_chp*}
+  In order to host \lq functions\rq\ of the generators of \Uq, we shall
+  replace \Uq\ by a larger $^*$-algebra \Uqext\ and then
+  accordingly extend the pairing with \Aq\@.
+  On the other hand, we recall that $\Aq'$ is a $^*$-algebra as well,
+  being the algebraic dual of a Hopf $^*$-algebra.
+  The $^*$-algebra \Uqext\ then turns out to be isomorphic to $\Aq'$.
+  We also compute the antipode and the canonical actions of \Aq\ on \Uqext\
+  induced by the duality.
+\end{abs_chp*}
+
+
+\subsection{Construction}
+\begin{defn}
+Let \Uqext\ be the linear space of all functions from $\NN \times \NN$ into \FZ\@.
+Hence an element
+$$  f : \NN \times \NN \rarr \FZ : (r,s) \mapsto f(r,s) \equiv f_{r,s}  $$
+of \Uqext\ can be considered as an indexed family $(f_{r,s})_{r,s \in \NN}$
+of functions on $\Zt$.
+\end{defn}
+
+
+\begin{prop} \hspace{3pt}
+\Uqext\ becomes a $^*$-algebra under the following operations:
+\begin{equation}\label{eq:Uqext:def:product}
+ \begin{array}{l} \displaystyle
+  (fg)_{k,l}\, = \: \sum_{r=0}^k \sum_{s=0}^l
+                       \, f_{r,s} \,\Gamma^{2(s-r)} g_{k-r,l-s}  \\
+    \vertXXL
+  (f^*)_{k,l}\, = \,\Gamma^{2(l-k)} \overline{f_{l,k}}
+ \end{array}
+\end{equation}
+where\/ $f,g \in\Uqext$ and\/ $k,l \in \NN$.
+\end{prop}
+\begin{proof}
+Straightforward.
+\end{proof}
+
+
+\begin{remark} \label{rem:formal_power_series} \rm
+  In a {\em strictly formal\/} sense, an element $f\in\Uqext$ could be thought
+  of as a formal power series
+  $$ \sum_{r=0}^{\infty} \sum_{s=0}^{\infty} f_{r,s}(\ln a)\, b^r c^s $$
+  where $a,b,c$ satisfy the relations (\ref{eq:relations:Uq}).
+  Formal multiplication and conjugation of such series and applying the commutation rules
+  then yields (\ref{eq:Uqext:def:product}).
+  \hfill $\star$
+\end{remark}
+
+
+Define for every $p\in \ZZ$ a function $e_p \in \FZ$ by
+$e_p(x)=e^{px}$ for $x\in\Zt$. Next, define a linear map $j$
+from \Uq\ into \Uqext\ by
+$j(a^p b^m c^n)_{r,s} = \delta_{r,m}\, \delta_{s,n}\, e_p$
+for $p \in \ZZ$ and $m,n,r,s \in \NN$.
+Then it is straightforward to show
+
+\begin{lemma}  \label{lemma:embedding:Uq}
+  The map\/ $j$ is a $^*$-algebra embedding of\/ \Uq\ in\/ \Uqext.
+\end{lemma}
+
+
+
+\subsection{Extending the pairing}
+Above we have embedded \Uq\ into a larger $^*$-algebra.
+Now we shall accordingly extend the pairing with \Aq.
+
+\begin{defn} \label{def:pairing:Uqext:Aq}
+Let $\pairing : \Uqext \times \Aq \rarr \kk$ be the unique bilinear form such that
+ \begin{equation} \label{eq:pairing:Uqext:Aq}
+   \pairM{f}{\alpha^l \beta^m \gamma^n}
+       \:=\:
+   (\Gamma^{l+m-n} f_{m,n})(0) \: q^{\frac{1}{2}l(m+n)} \,\qfac{m}\, \qfac{n}
+ \end{equation}
+for all $f \in \Uqext$, $l \in \ZZ$ and $m,n \in \NN$.
+\end{defn}
+
+
+
+\begin{prop} \label{prop:pairing:Uqext:Aq}
+  The pairing\/ \UqextAq\ defined above is non-degenerate, and
+  in view of the embedding\/  $\Uq \stackrel{j}{\hookrightarrow} \Uqext$,
+  it is compatible with the pairing\/ \UqAq\ defined in (\ref{eq:fullpairing}).
+  Furthermore
+  \begin{equation}\label{eq:hopf:duality:Uqext:Aq}
+     \pair{fg}{\xi}  = \pair{f \tens g}{\Delta(\xi)}  \itandspace{3em}
+     \pair{f^*}{\xi} = \overline{\pair{f}{S(\xi)^*}}  \hspace{1.5em}
+  \end{equation}
+for all\/ $f,g \in\Uqext$ and\/ $\xi \in \Aq$.
+\end{prop}
+
+\begin{proof}
+The first two statements are easily verified.
+The proof of (\ref{eq:hopf:duality:Uqext:Aq}) involves the
+$q$-binomial theorem and techniques similar to those
+used in \cite{Koelink:thesis,Koelink:QE2}\ to compute the pairing.
+\end{proof}
+\vspace{2ex}
+
+
+Since we now have a non-degenerate pairing \UqextAq, we can consider
+\Uqext\ as a linear subspace of the algebraic dual $\Aq'$ of \Aq\@.
+Since \Aq\ is a Hopf $^*$-algebra, also $\Aq'$ carries a
+$^*$-algebra structure. In fact we have the following:
+
+\begin{prop} \label{prop:Uqext:iso:Aqprime}
+  \hspace{3pt} \Uqext\ and\/ $\Aq'$ are isomorphic $^*$-algebras.
+\end{prop}
+\begin{proof}
+  In view of (\ref{eq:hopf:duality:Uqext:Aq}) it suffices
+  to show the canonical embedding of \Uqext\ in $\Aq'$ is
+  surjective. So let's take any $\omega\in \Aq'$ and define $f\in \Uqext$ by
+  $$ f_{m,n}(k\theta) \:=\: \frac{q^{\frac{1}{2}(k+m-n)(m+n)}}{\qfac{m}\, \qfac{n}}
+                       \, \pairM{\omega}{\alpha^{-k-m+n} \beta^m \gamma^n} $$
+  for $k\in \ZZ$ and $m,n \in \NN$.
+  Then $f$ corresponds canonically to $\omega$.
+\end{proof}
+
+
+
+\subsection{Actions \&\ antipode}
+
+In (\ref{eq:def:canonical_actions}) we defined the actions of an algebra on its dual.
+Together with proposition \ref{prop:Uqext:iso:Aqprime}\ this yields
+actions of \Aq\ on \Uqext, making \Uqext\ into an \Aq-bimodule.
+It suffices to compute the actions of the generators $\alpha, \beta$ and $\gamma$.
+
+
+\begin{prop} \label{prop:actions_on_Uqext}
+For all\/ $f \in \Uqext$ and\/ $r,s \in \NN$ we have
+\begin{eqnarray*}
+  (\alpha \lact f)_{r,s} &=& q^{-\frac{1}{2}(r+s)} \: \Gamma f_{r,s}
+\\
+  (f \ract \alpha)_{r,s} &=& q^{\frac{1}{2}(r+s)}  \: \Gamma f_{r,s}
+\\
+  (\beta \lact f)_{r,s}  &=& q^{-\frac{1}{2}(r-s)} \,[r+1]_q \: \Phi\Gamma f_{r+1,s}
+\\
+  (f \ract \beta)_{r,s}  &=& q^{\frac{1}{2}(r-s)}  \,[r+1]_q \: \Phi^{-1}\Gamma f_{r+1,s}
+\\
+  (\gamma \lact f)_{r,s} &=& q^{-\frac{1}{2}(r-s)} \,[s+1]_q \: \Phi\Gamma^{-1} f_{r,s+1}
+\\
+  (f \ract \gamma)_{r,s} &=& q^{\frac{1}{2}(r-s)}  \,[s+1]_q \: \Phi^{-1}\Gamma^{-1} f_{r,s+1}
+\end{eqnarray*}
+\end{prop}
+
+\begin{proof}
+  Straightforward calculation based on formula (\ref{eq:pairing:Uqext:Aq}) for the pairing.
+\end{proof}
+\vspace{2ex}
+
+
+
+For any $h \in \FZ$ we define $h^\bullet \in \FZ$ by
+$h^\bullet(x) = h(-x)$ for $x \in \Zt$. Once again, it is
+straightforward to prove the following:
+
+\begin{prop} \label{prop:Uqext:antipode}
+  Define a linear map\/ $S : \Uqext \rarr \Uqext $ by
+  $$ S(f)_{r,s} \:=\: (-q)^{s-r} \,\Gamma^{2(s-r)}(f_{r,s}^\bullet)
+               \hspace{5em}
+     (f \in \Uqext\,;\;r,s \in \NN). $$
+  Then\/ $\pair{S(f)}{\xi} = \pair{f}{S(\xi)}$ for all\/ $f \in \Uqext$ and\/ $\xi \in \Aq$.
+\end{prop}

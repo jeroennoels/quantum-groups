@@ -1,0 +1,43 @@
+\section{Opposite \contexts}
+\label{par:opposite}
+
+The statements in the present paragraph are completely trivial.
+However we believe that dealing with opposite products may be quite tricky
+notationally, and therefore we shall be rather explicit in this matter.
+Opposite \contexts\ will be an important tool to investigate
+{\em regularity\/} of a Hopf system (cf.\ \S \ref{par:regularity}).
+\vspace{2ex}
+
+
+Let $\EE \equiv \EOP$ be any \context\@.
+Then obviously $\EEop \equiv (E\op; \Om, \pairing)$ is again an \context,
+referred to as the {\em opposite\/} \context\@.
+When \EE\ is non-degenerate, the trivial anti-isomorphism
+$\id\op : E \rarr E\op : x \mapsto x$
+extends naturally to an anti-isomorphism
+$$ \id\op : \PreE \rarr \Pre(\EEop) : (\lam,\rho) \mapsto (\rho,\lam)  $$
+mapping \ActE\ onto $\Act(\EEop)$ and \EnvE\ onto $\Env(\EEop)$.
+It follows that $\Env(\EEop) \simeq \EnvE\op$.
+Since confusion is likely, we shall use $\lactop$ and $\ractop$
+to denote the actions associated with $\EEop$.
+So for $x\in E$ and $\om \in \Om$ we have for instance $x \lactop \om = \om \ract x$
+(observe we have suppressed $\id\op$ in the notation---as we shall usually
+do henceforth).
+Of course most properties discussed in the preceding paragraphs
+are preserved when we pass to the opposite \context:
+\begin{itemize}
+\item
+   \EE\ is weakly unital if and only if $\EEop$ is weakly unital.
+\item
+   \EE\ and $\EEop$ induce the same \strictw, \strictm\ and \stricta\
+   topologies on $\Om$.
+\item
+   A functional on $\Om$ is \EEdash invertible if and only if
+   it is $\EEop$-invertible.
+\item
+   If $\EEone$ and $\EEtwo$ are \contexts, then
+   $\EEone\op \tens \EEtwo\op = (\EEone \tens \EEtwo)\op$.
+\end{itemize}
+In the weakly unital case, \EE\ and $\EEop$ share the counit $\eps:\Om\rarr\kk$.
+Furthermore the pairings $\pair{\ActE}{\Om}$ and $\pair{\Act(\EEop)}{\Om}$
+agree through $\id\op$.

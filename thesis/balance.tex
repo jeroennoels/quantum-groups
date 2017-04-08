@@ -1,0 +1,193 @@
+
+\begin{abs_chp}
+Given any regular Hopf system we shall construct a quantum double, provided
+an extra condition is fulfilled; this extra assumption is called
+balancedness and will be investigated in the first paragraph.
+Then we show that our quantum double is again a regular Hopf system.
+In particular the construction applies to \mhs s,
+and in that case the quantum double turns out to be again a \mhs\@.
+Thus we obtain an alternative for the approach in \cite{FonsDra:QD}\@.
+\end{abs_chp}
+
+
+
+\subsection{Balanced Hopf systems}
+
+Let \pairAB\ be any Hopf system, and recall the mappings $\GamL$ and $\GamR$
+introduced in definition \ref{def:GammaLGammaR}\@.
+Now it is not hard to see that $\GamL$ and $\GamR$ actually take values in the
+weak\footnote{w.r.t.\
+the duality \pairAB, of course. See appendix \ref{app:fubini} for details.}\
+Fubini tensorproduct $B \fubtens A$. On the other
+hand\footnote{cf.\ remark \ref{rem:weak_fubtens}.ii in appendix \ref{app:fubini}\@.}\
+$B \fubtens A$ identifies naturally with the spaces $L(A)$ and $L(B)$
+of weakly continuous linear operators on $A$ and $B$ respectively.
+Explicitly, for any $a,p\in A$ and $b,q\in B$ we have
+$$ \pairM{\GamL(a \tens b)}{p \tens q}  \:=\:  \pair{ap}{bq}  \:=\:  \pair{p}{bq \ract a}, $$
+hence $\GamL(a \tens b)$ identifies with the operator $(b\,\cdot) \ract a$ on $B$.
+Analogously:
+\begin{center}
+\begin{tabular}{cc|cccc}
+&&& $L(A)$   &\hspace{1em}&   $L(B)$
+\\ \hline
+$\GamL(a \tens b)$  &&&  $(a\,\cdot) \ract b$  && $(b\,\cdot) \ract a$
+\vertL\\
+$\GamR(a \tens b)$  &&&  $b \lact (\cdot\,a)$ && $a \lact (\cdot\,b)$
+\vertL
+\end{tabular}
+\end{center}
+So the range of $\GamL$ identifies with the subspace of $L(B)$ spanned by the operators
+$(b\,\cdot) \ract a$ with $a\in A$ and $b\in B$.
+We shall denote this subspace of $L(B)$ by $\CL(B)$.
+Similarly we define $\CR(B)$, $\CL(A)$ and
+$\CR(A)$.\footnote{These spaces are comparable to the algebra $\mathcal{C}(V)$
+associated to a multiplicative \mbox{unitary $V$}\ in the sense of \cite{BS}.}
+
+
+Combining lemma \ref{lem:twisting}\ and proposition \ref{prop:twistings:lprp},
+we obtain that $\TL=\rp^{-1}\flip$ is an $(A\op,B)$-twisting, whereas
+$\TR=\lp^{-1}\flip$ is an $(A,B\op)$-twisting.
+Hence according to proposition \ref{prop:twisted_tensorproduct}\
+we have twisted tensorproducts $A\op\tens_{\TL}\! B$ and $A\tens_{\TR}\! B\op$.
+Furthermore $L(A)$ and $L(B)$ are algebras under composition of operators,
+so the following makes sense:
+
+
+\begin{prop}
+Let\/ \pairAB\ be any Hopf system. Then the mappings
+$$ \GamL :  A\op\tens_{\TL}\! B  \rarr  L(B)\simeq L(A)\op
+   \itandspace{1em}
+   \GamR :  A\tens_{\TR}\! B\op  \rarr  L(B)\simeq L(A)\op $$
+are algebra homomorphisms.
+It follows that\/ $\CL(B)$ and\/ $\CR(B)$ are subalgebras of\/ $L(B)$.
+Similarly\/ $\CL(A)$ and\/ $\CR(A)$ are subalgebras of\/ $L(A)$.
+\end{prop}
+\begin{proof}
+Take any $a,c,p\in A$ and $b,d,q\in B$ and observe that
+\begin{eqnarray*}
+\pairM{p}{\left( \GamL(a \tens b) \circ \GamL(c \tens d) \vertM\right)(q)}
+&=&
+\pairM{p}{\left( \GamL(a \tens b) \vertM\right)(dq \ract c)}
+\\&=&
+\pairM{p}{b(dq \ract c) \ract a}
+\\&=&
+\pairM{ap \ract b}{dq \ract c}
+\\&=&
+\pairM{b\tens c}{\lp(ap \tens dq)}
+\\&=&
+\pairflipM{\rp\! \left(\rp^{-1}(c \tens b) \vertM\right)}{\lp(ap \tens dq)}
+\\&\stackrel{(\ref{eq:muliplicative_actor})}{=}&
+\pairM{P}{\rp^{-1}(c \tens b) \, (ap \tens dq)}
+\\&=&
+\pairM{P}{\left(\TL(b \tens c) \, (a \tens d) \vertM\right) (p \tens q)}
+\\&\stackrel{(\ref{eq:def:Gammas})}{=}&
+\pairM{\GamL\! \left((a \tens b) \rtimes (c \tens d) \vertM\right)}{p \tens q}
+\end{eqnarray*}
+where $\rtimes$ denotes the product in $A\op\tens_{\TL}\! B$.
+The other cases are similar.
+\end{proof}
+\vspace{2ex}
+
+
+Let us consider a second approach to these $\mathcal{C}$-algebras:
+from (\ref{eq:Gammas:construction}) it is clear that the range of $\GamL$ is
+also equal to $\lp\algtp(B\tens A)=(B\tens A)P$.
+Now observe that
+$$ \pairM{(b\tens a)P}{p\tens q}
+   \:=\: \pairM{b\tens a}{\lp(p\tens q)}
+   \:=\: \pairM{p \ract b}{q \ract a}
+   \:=\: \pairM{p}{b(q \ract a)}   $$
+for all $a,p\in A$ and $b,q\in B$.
+It follows that $\CL(B)$ is also spanned by the operators
+$b(\,\cdot\, \ract a)$ with $a\in A$ and $b\in B$.
+Defining operators $\eta(a)$ and $\pi(b)$ \mbox{on $B$}\ by
+$\eta(a)q=q \ract a$ and $\pi(b)q = bq$, our results can be summarized as follows:
+$$ \Ran(\GamL)  \:\simeq\:  \CL(B)  \:=\: \eta(A)\,\pi(B)  \:=\: \pi(B)\,\eta(A)
+          \:\subseteq\:  L(B).$$
+Similar results hold for the other $\mathcal{C}$-algebras.
+Another interesting observation is that when
+$F(B)$ denotes the ideal of all {\em finite rank\/} operators in $L(B)$,
+then lemma \ref{mhs:Gammas:bijective}\ can easily be reformulated as follows:
+\begin{lemma}
+A Hopf system\/ \pairAB\ is a \mhs\ if and only if\/
+$\CL(B) = F(B) = \CR(B)$.
+\end{lemma}
+
+
+
+Whenever \pairAB\ is a Hopf system, we have an algebra homomorphism
+$$ \piP : B \tens A \rarr \Pre(\BBAA): y \mapsto P y P^{-1} $$
+(cf.\ remark \ref{rem:multipl:preview:QD}\ and
+lemma \ref{lem:wu:commutation:invertibility}).
+In order to construct a quantum double, however, we shall need $\piP$
+to be actually an {\em auto\/}morphism of $B\tens A$:
+
+
+\begin{lemma} \label{lem:QD:conditions}
+Let\/ \pairAB\ be any Hopf system. The following are equivalent:
+\begin{enumerate}
+\item $\piP$ is an automorphism of\/ $B\tens A$
+\item $(B\tens A)P = P(B\tens A)$
+\item $\Ran(\GamL) = \Ran(\GamR)$
+\item $\CL(B) = \CR(B)$.
+\end{enumerate}
+If\/ \pairAB\ is regular, then the above assertions are moreover equivalent with:
+\begin{enumerate}
+\item[v.]  The range of\/ $\GamL$ is invariant under\/ $\SB \fubtens \SA^{-1}$
+           and\/ $\SB^{-1} \fubtens \SA$.
+\item[vi.] $\SB \CL(B) \SB^{-1} \,=\, \CL(B)$.
+\end{enumerate}
+\rm Observe that (v) and (vi) make sense because $\SA$ and $\SB$ are invertible
+elements in $L(A)$ and $L(B)$ respectively.
+\end{lemma}
+\begin{proof}
+(i $\Leftrightarrow$ ii) is obvious.
+(ii $\Leftrightarrow$ iii) follows from (\ref{eq:Gammas:construction}).
+(iii $\Leftrightarrow$ iv) holds by definition.
+Now assume \pairAB\ to be regular. We claim that
+$$(\SB \fubtens \SA^{-1})\, \GamL (\SA \tens \SB^{-1}) \:=\: \GamR.$$
+Indeed, for all $a,p\in A$ and $b,q\in B$ we have
+\begin{eqnarray*}
+\lefteqn{\pairM{(\SB \fubtens \SA^{-1})\,\GamL (\SA \tens \SB^{-1})(a \tens b)}{p \tens q}}
+\\&=&
+\pairM{\GamL \! \left( \SA(a) \tens \SB^{-1}(b)  \vertM\right)}{\SA(p) \tens  \SB^{-1}(q)}
+\\&=&
+\pairM{\SA(a) \, \SA(p)}{\SB^{-1}(b) \, \SB^{-1}(q)}
+\\&=&
+\pairM{pa}{qb}
+\\&=&
+\pairM{\GamR(a \tens b)}{p \tens q}
+\end{eqnarray*}
+It follows that the range of $\GamR$ equals the range of $(\SB \fubtens \SA^{-1}) \GamL$.
+This proves (\mbox{iii $\Leftrightarrow$ v}).
+Remark \ref{rem:fubtens_of_maps}.v in appendix \ref{app:fubini}\ yields (v $\Leftrightarrow$ vi).
+\end{proof}
+
+
+
+\begin{defn} \label{def:balanced_Hopf_system}
+A Hopf system\/ \pairAB\ is said to be {\em balanced\/} whenever
+it enjoys the equivalent conditions (i-iv) in lemma \ref{lem:QD:conditions}\@.
+\end{defn}
+
+Observe that e.g.\ every \mhs\ is balanced.
+Also notice that if \pairAB\ is a balanced Hopf system,
+then $P\in \Act(\BBAA)$ enjoys condition (iv) in
+lemma \ref{lem:wu:commutation:invertibility}\@.
+In particular it follows that $\lp$ and $\rp$ commute.
+
+\begin{remark} \rm
+The notion of balancedness is similar to S.\ Montgomery's \mbox{{\sc rl}-condition}
+emerging in the duality theory for smash products \cite[\S 9.4]{Montgomery}\@.
+When \pairAB\ is a dual pair of Hopf algebras, then $A$ is said to satisfy the
+{\sc rl}-condition with respect to $B$ if the right action $(\cdot) \ract a$
+of any $a\in A$ on $B$ can be expressed as a linear combination of operators
+$b(c \lact \cdot\,)$ with $c\in A$ and $b\in B$.
+So the {\sc rl}-condition roughly means that left actions can be expressed
+in terms of right actions.
+Our condition of balancedness seems to be more symmetric, but unfortunately also
+more restrictive.
+On the other hand, balancedness will appear to be a very obvious requirement in our
+quantum double construction below.
+\hfill $\star$
+\end{remark}

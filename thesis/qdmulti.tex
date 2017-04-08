@@ -1,0 +1,173 @@
+
+\subsection{Multiplicativity}
+
+Again adopt setting \ref{setting:qdouble}\ and recall \S \ref{par:multiplicativity}\@.
+By now we know that $\pair{X}{Y}$ is an \idpa, but of course we want it to be a Hopf system.
+The shortest way towards multiplicativity is to show that the comultiplication
+$$ \DeltaY: \, Y = B\tens A \:\rarr\: \Env(\YY \tens \YY)
+                 = \Env(\BBAA \tens \BBAA) $$
+is an algebra homomorphism and then invoke proposition \ref{prop:multiplicative:comultiplications}\@.
+Since $\DeltaY$ is dual to
+$\mult{X} = (\mult{A} \! \tens  \mult{B}\op)(\id \tens T \tens \id)$, we have
+$\DeltaY  = \Lambda \Phi (\DeltaB \tens \flip\DeltaA)$
+where
+$$ \DeltaA : A \rarr \Env(\AAAA)     \andspace{3em}
+   \DeltaB : B \rarr \Env(\BBBB) $$
+are the comultiplications (cf.\ proposition \ref{prop:comultiplications_in_Env}) on $A$ and $B$,
+$$ \Phi :\, \Env(\BBBB) \,\tens\, \Env(\AAAA)  \,\rarr\,  \Env(\BBBB \tens \AAAA) $$
+is the embedding established in proposition \ref{prop:tensor_embedding_Env}, and
+$$ \Lambda :\, \Pre(\BBBB \tens \AAAA)  \,\rarr\,  \Pre(\BBAA \tens \BBAA) $$
+is given by
+$\Lambda = \flipsub{23}(P_{23} \,\cdot\, P^{-1}_{23})$.
+Of course the flip map involved here should be extended properly
+to the pre-actor algebra, but this does not present a problem.
+On the other hand we do have to be careful with $\Lambda$, since we need
+\begin{equation}\label{eq:extended_dual_of_twist}
+  \pairM{(\id \tens T \tens \id)(u)}{v}  \:=\:  \pairM{u}{\Lambda(v)}
+\end{equation}
+to hold for any $u \in A \tens B \tens A \tens B$ and $v \in \Env(\BBBB \tens \AAAA)$.
+For the right hand side of (\ref{eq:extended_dual_of_twist}) to make
+sense, however, $\Lambda$ should map $\Env(\BBBB \tens \AAAA)$ into $\Act(\BBAA \tens \BBAA)$.
+Fortunately $P_{23} \in \Act(\BBBB \tens \AAAA)$ enjoys (iv) of
+\mbox{lemma \ref{lem:wu:commutation:invertibility}},
+and statement (iii) of this lemma will ensure (\ref{eq:extended_dual_of_twist}).
+
+Now $\DeltaA$, $\DeltaB$, $\Phi$ and $\Lambda$ are all algebra homomorphisms,
+hence so is $\DeltaY$.
+\vspace{2ex}
+
+The above argument, however, is not very loyal to our duality approach;
+indeed it would be nice if we could show multiplicativity
+(in the sense of \mbox{definition \ref{def:muliplicative_actor}}) {\em directly\/} from
+the formulas (\ref{eq:QD:alpha}) and (\ref{eq:QD:beta}) for $\lQ$ and $\rQ$
+(cf.\ notation \ref{not:QD:pairing:Q})
+i.e.\ without the intervention of comultiplications. In this respect we have:
+
+\begin{prop}  \label{prop:qdouble:multiplicative}
+Adopt setting \ref{setting:qdouble}\ and notation \ref{not:QD:pairing:Q}\@. Then
+$$ \pairflipM{\rQ(x_1 \tens y_1)}{\lQ(x_2 \tens y_2)}
+        \:=\:  \pairM{x_1 \!\star x_2}{y_1 y_2} $$
+for all\/ $x_1,x_2 \in X$ and\/ $y_1,y_2 \in Y$.
+\end{prop}
+\begin{proof}
+Take any $x_1,x_2 \in X$ and\/ $y_1,y_2 \in Y$, and denote
+$$ \xi \:=\: \pairflipM{\rQ(x_1 \tens y_1)}{\lQ(x_2 \tens y_2)}. $$
+Before we start, let us agree that the leg-numbering notation always refers to the
+lowest level, i.e.\ the legs are always in $A$ or in $B$ (rather than in $X$ or $Y$).
+From time to time we shall use the fact that $\piP : Y \rarr Y$ is multiplicative,
+which will be indicated with an asterisk ($*$).
+Observe that for any $x\in X$ and $y\in Y$
+\begin{eqnarray*}
+\lefteqn{\pairflipM{\rQ(x_1 \tens y_1)}{(\idX \tens \piP^{-1})(x \tens y)}}
+\\&=&
+\pairM{\rQ(x_1 \tens y_1)}{\piP^{-1}(y) \tens x}
+\\&=&
+\pairM{\piP^{-1}(y) \lact x_1}{x \ltact y_1}
+\\&=&
+\pairM{x_1}{\mult{Y} \! \left((x \ltact y_1) \tens \piP^{-1}(y) \vertM\right)}
+\\&\stackrel{(\ref{eq:QD:left_twisted_action})}{=}&
+\pairM{x_1}{\mult{Y} (\epsX \tens \idY \tens \idY)
+             (\lQ \tens \idY)\left(x \tens y_1 \tens \piP^{-1}(y) \vertM\right)}
+\\&=&
+\pairM{x_1}{(\epsX \tens \mult{Y}\!)
+                (\lQ \tens \piP^{-1})(x \tens y_1 \tens y)}
+\\&\stackrel{(\ref{eq:QD:alpha})}{=}&
+\left\langle x_1,\: (\epsX \tens \mult{Y}\!)
+      (\idX \tens \piP^{-1} \tens \piP^{-1})
+\right. \\&& \hspace{5em}\left.
+   (\lp)_{13} (\idX \tens \piP \tens \idY)
+      (\lpop)_{42} (x \tens y_1 \tens y)  \right \rangle
+\\&\stackrel{(*)}{=}&
+\pairM{x_1}{\piP^{-1} (\epsX \tens  \mult{Y}\!) (\lp)_{13}
+       (\idX \tens \piP \tens \idY)  (\lpop)_{42} (x \tens y_1 \tens y)}
+\\&=&
+\pairM{R^{-1}(x_1)}{(\epsX \tens  \mult{Y}\!) (\lp)_{13}
+       (\piP)_{34}  (\lpop)_{42} \flipsub{35} \flipsub{46} (x \tens y \tens y_1)}.
+\end{eqnarray*}
+Now we replace $x\tens y$ with $(\lp)_{13}  (\idX \tens \piP)  (\lpop)_{42}(x_2 \tens y_2)$
+and obtain:
+\begin{eqnarray*}
+\xi &\!\!\!=\!\!\!&\!
+      \left\langle R^{-1}(x_1),
+      (\epsX \tens  \mult{Y}\!) (\lp)_{13}  (\piP)_{34}  (\lpop)_{42}  (\lp)_{15}
+      (\piP)_{56}  (\lpop)_{62} (x_2 \tens y_1 \tens y_2)\right \rangle
+\\&\!\!\!=\!\!\!&\!
+      \left\langle R^{-1}(x_1),
+      (\epsX \tens  \mult{Y}\!) (\lp)_{13} (\lp)_{15}
+      (\piP)_{34}  (\piP)_{56}  (\lpop)_{42}
+      (\lpop)_{62} (x_2 \tens y_1 \tens y_2)\right \rangle
+\end{eqnarray*}
+Recall that $\lp\flip$ is an\/ $(A\op,B)$-twisting (proposition \ref{prop:twistings:lprp}).
+Using (\ref{eq:lemmma:twisting1})
+we get\footnote{The presence of $\mult{A}$ in (\ref{eq:QD:multipl:direct:twisting:lp})
+is irrelevant and does not interfere with the use of (\ref{eq:lemmma:twisting1}).}
+\begin{equation}\label{eq:QD:multipl:direct:twisting:lp}
+    (\idX \tens  \mult{B \tens A}) (\lp)_{13}  (\lp)_{15}
+          \:=\:  (\lp)_{13} (\idX \tens  \mult{B \tens A})
+\end{equation}
+and our computation proceeds as follows:
+\begin{eqnarray*}
+\xi &=& \left\langle R^{-1}(x_1),\:
+      (\epsX \tens \idY) (\lp)_{13} (\idX \tens  \mult{Y}\!) \right.
+\\&& \hspace{7em}\left.
+       (\piP)_{34}   (\piP)_{56}  (\lpop)_{42}
+      (\lpop)_{62} (x_2 \tens y_1 \tens y_2)\right \rangle
+\\&\stackrel{(*)}{=}&
+\pairM{R^{-1}(x_1)}{(\muL\tens \idA)(\idA \tens \epsB \tens  \piP \mult{Y}\!)
+          (\lpop)_{42}  (\lpop)_{62} (x_2 \tens y_1 \tens y_2)}.
+\end{eqnarray*}
+We used the fact that $(\epsA \tens \id)\lp = \muL : A \tens B \rarr B$
+is the left action $\lact$ of $A$ on $B$.
+For mere notational convenience we shall assume \mbox{$x_1,\, x_2,\, y_1$}\ and $y_2$
+to be simple tensors, say $x_i = a_i\tens b_i$ and $y_i = d_i\tens c_i\,$ ($i=1,2$).
+Furthermore we write $\lpop(c_2 \tens b_2) = \sum_k \, p_{k} \tens q_{k}$
+and proceed:
+\begin{eqnarray*}
+\xi &=& \textstyle \sum_k \:
+\left\langle R^{-1}(x_1),\:
+(\muL\tens \idA)(\idA \tens \epsB \tens  \piP \mult{Y}\!) \right.
+\\&& \hspace{8em}\left.
+          (\lpop)_{42} (a_2 \tens q_k \tens d_1 \tens c_1 \tens d_2 \tens p_k)\right  \rangle.
+\end{eqnarray*}
+An easy computation shows that $(\id \tens \epsB)\lpop(c_1 \tens q_k) = c_1 \ract q_k$,
+hence
+\begin{eqnarray*}
+\xi &=& \textstyle \sum_k \,
+    \pairM{R^{-1}(a_1 \tens b_1)}{(\muL\tens \idA)
+             \left[ a_2 \tens \piP \!
+                     \left(d_1 d_2 \tens (c_1 \ract q_k)p_k\vertM\right)
+                  \right]}
+\\ &=& \textstyle \sum_k \,
+    \pairM{(\mult{A}\op \tens \idB)R^{-1}_{23}(a_2 \tens a_1 \tens b_1)}{
+               \piP \! \left(d_1 d_2 \tens (c_1 \ract q_k)p_k\vertM\right)}
+\\&\stackrel{(\ref{eq:lemmma:twisting2})}{=}& \textstyle \sum_k \,
+  \pairM{R^{-1}(\mult{A}\op \tens \idB)R_{13}(a_2 \tens a_1 \tens b_1)}{
+               \piP \! \left(d_1 d_2 \tens (c_1 \ract q_k)p_k\vertM\right)}
+\\ &=& \textstyle \sum_k \,
+  \pairM{(\mult{A}\op \tens \idB)R_{13}(a_2 \tens a_1 \tens b_1)}{
+               d_1 d_2 \tens (c_1 \ract q_k)p_k}.
+\end{eqnarray*}
+Now observe that for any $b\in B$ we have
+\begin{eqnarray*}
+\textstyle \sum_k \,\pairM{(c_1 \ract q_k)p_k}{b}
+&=&
+\textstyle \sum_k \,\pairM{c_1 \ract q_k}{p_k \lact b}
+\\&=&
+\textstyle \sum_k \,\pairM{\rpop(c_1 \tens b)}{q_{k} \tens p_{k}}
+\\&=&
+\pairflipM{\rpop(c_1 \tens b)}{\lpop(c_2 \tens b_2)}
+\\&=&
+\pairM{c_1 c_2}{b_2 b}
+\end{eqnarray*}
+and hence $\sum_k \,(c_1 \ract q_k)p_k = c_1 c_2 \ract b_2$. We proceed:
+\begin{eqnarray*}
+\xi &=&
+\pairM{(\mult{A}\op \tens \idB)R_{13}(a_2 \tens a_1 \tens b_1)}{
+               d_1 d_2 \tens c_1 c_2 \ract b_2}
+\\&=&
+\pairM{(a_1 \tens b_2) R(a_2 \tens b_1)}{d_1 d_2 \tens c_1 c_2}
+\\&=&
+\pairM{x_1 \! \star x_2}{y_1 y_2}.
+\end{eqnarray*}
+This completes the proof.
+\end{proof}

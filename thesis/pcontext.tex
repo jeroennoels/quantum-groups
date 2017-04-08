@@ -1,0 +1,300 @@
+
+\section{Plancherel contexts}
+
+
+\begin{abs_chp}
+We shall make no attempt to prove Plancherel formulas in general;
+in the quantum $E(2)$ example, Plancherel formulas will be obtained
+directly from the orthogonality relations for Hahn-Exton \mbox{$q$-Bessel}\ functions
+(cf.\ chapter \ref{chapter:Harmonic_analysis_on_quantumE2}).
+Nevertheless it is worth the effort to make some general observations.
+\end{abs_chp}
+
+
+
+\begin{lemma_sec}  \label{lemma:Plancherel}
+Let $\FourierBABA$ be a \mbox{Fourier context}\@.
+Assume we have {\scriptsize LL}, {\scriptsize LR}, {\scriptsize RL}\ and {\scriptsize RR}\
+Fourier transforms from\/ $A_0$ to\/ $B_0$, say\/ $\FLL, \FLR$, etc\@.
+Consider the following Plancherel identities:
+\begin{enumerate}
+\item[\scriptsize LL.]
+    $\;\phiA(x y^*) \:=\: \phiB \!\left(\FLL(x)\: \FLL(y)^* \vertM \right)$
+    for all\/ $x, y \in A_0$
+\item[\scriptsize LR.]
+    $\;\phiA(x y^*) \:=\: \psiB \!\left(\FLR(x)\: \FLR(y)^* \vertM  \right)$
+    for all\/ $x, y \in A_0$
+\item[\scriptsize RL.]
+    $\;\psiA(y^* x) \:=\: \phiB \!\left(\FRL(y)^* \:\FRL(x) \vertM   \right)$
+    for all\/ $x, y \in A_0$
+\item[\scriptsize RR.]
+    $\;\psiA(y^* x) \:=\: \psiB \!\left(\FRR(y)^* \: \FRR(x) \vertM  \right)$
+    for all\/ $x, y \in A_0$
+\end{enumerate}
+{\rm To avoid confusion: we do not {\em assume\/} these identities to hold---we merely
+intend to study their {\em mutual\/} relationship:}
+\vspace{1ex}
+
+If\/ $\zetaA=\zetaB$, then ({\scriptsize LR}) is equivalent with ({\scriptsize RL}).
+Conversely, if both ({\scriptsize LR}) and ({\scriptsize RL}) are satisfied simultaneously,
+then\/ $\zetaA=\zetaB$. A similar statement holds for the pair
+({\scriptsize LL}-{\scriptsize RR}).
+\vspace{1ex}
+
+If both ({\scriptsize RR}) and ({\scriptsize RL}) are satisfied simultaneously,
+then we are dealing with the rather special situation where\/ $\zetaB=1$
+and\/ $\sigma_{\psiA}(x)= S^{-2}(x)$ for all $x \in A_0$.
+\end{lemma_sec}
+\begin{proof}
+Take any $x, y \in A_0$ and observe the following \lq circle\rq\ of identities:
+\begin{eqnarray*}
+\psiA(y^* x)
+&=&
+\zetaA \: \phiA \! \left(S^{-1}(x) \, S(y)^* \vertM \right)  \\
+&\stackrel{(\mbox{\scriptsize LR})}{=}&
+\zetaA \: \psiB \!\left(\FLR(S^{-1}(x))\, \FLR(S(y))^* \vertM \right)\\
+&=&
+\zetaA\zetaB \: \phiB \! \left(\vertM \right. \!
+          (\,\underbrace{\! S \FLR S\!}_{\textstyle \zetaB \, \FRL}\,)(y)^*
+       \, (\,\underbrace{\!S^{-1}\FLR S^{-1}\!}_{\textstyle \zetaB^{-1} \FRL}\,)(x)
+                   \! \left. \vertM  \right)  \\
+&=&
+\zetaA\zetaB \, \overline{\zetaB} \, \zetaB^{-1}
+    \: \phiB \! \left(\FRL(y)^* \, \FRL(x) \vertM \right) \\
+&\stackrel{(\mbox{\scriptsize RL})}{=}&
+\zetaA \zetaB^{-1}  \:\psiA(y^* x)  \\
+&\stackrel{(\sharp)}{=}&
+\psiA(y^* x)
+\end{eqnarray*}
+here $(\sharp)$ stands for $\zetaA=\zetaB$.
+To show the last statement, consider
+\begin{eqnarray*}
+\psiA(y^* x)
+&\stackrel{(\mbox{\scriptsize RR})}{=}&
+\psiB \! \left(\FRR(y)^* \: \FRR(x) \vertM  \right)  \\
+&\stackrel{\rm (\ref{eq:Fourier:stars})}{=}&
+\psiB \! \left((\zetaB *S \FRL*)(y)^* \,  (\zetaB *S \FRL*)(x) \vertM  \right)  \\
+&=&
+\psiB \! \left(\overline{\zetaB}\,(S \FRL)(y^*) \, \zetaB (S \FRL)(x^*)^* \vertM  \right)  \\
+&=&
+\psiB S \left(S^{-1}((S \FRL)(x^*)^*)  \, \FRL(y^*) \vertM  \right)  \\
+&=&
+\zetaB \: \phiB \! \left((S^2 \FRL)(x^*)^* \, \FRL(y^*) \vertM  \right)  \\
+&=&
+\zetaB \: \phiB \! \left((\zetaB^2 \, \FRL S^{-2})(x^*)^*
+                            \, \FRL(y^*) \vertM  \right)  \\
+&=&
+\zetaB \, \overline{\zetaB^2} \:
+       \phiB \! \left(\FRL(S^{-2}(x^*))^* \, \FRL(y^*) \vertM  \right)  \\
+&\stackrel{(\mbox{\scriptsize RL})}{=}&
+\zetaB^{-1} \: \psiA \! \left(S^{-2}(x^*)^* \, y^* \vertM  \right)  \\
+&=&
+\zetaB^{-1} \: \psiA \! \left(S^{2}(x) \,y^* \vertM  \right)  \\
+&=&
+\zetaB^{-1} \: \psiA \! \left(y^* \, \sigma_{\psiA}(S^{2}(x)) \vertM  \right).  \\
+\end{eqnarray*}
+So if both ({\scriptsize RR}) and ({\scriptsize RL}) hold simultaneously,
+then $\sigma_{\psiA} (S^{2}(x)) = \zetaB \, x$ for any $x\in A_0$.
+Since $\sigma_{\psiA}$ and $S^{2}$ are algebra automorphisms of $A$,
+we may expect that $\zetaB=1$. However at the moment we do not know whether
+$\sigma_{\psiA} S^{2} = \zetaB$ holds on {\em all\/} of $A$.
+Therefore, we need a little trick:
+using proposition \ref{prop:KMS}\ (or invoking {\sc kms} twice)
+we obtain for any $x,y \in A_0$ that
+$$  \psiA \! \left( \sigma_{\psiA}(S^{2}(x)) \, \sigma_{\psiA}(S^{2}(y))\vertM \right)
+   \:=\: \psiA \! \left(S^{2}(x)\, S^{2}(y) \vertM \right)
+   \:=\: \psiA \! \left(S^{2}(xy) \vertM \right)
+   \:=\: \zetaA^2 \, \psiA(xy).  $$
+On the other hand we have
+$$ \psiA \!\left( \sigma_{\psiA}(S^{2}(x))  \, \sigma_{\psiA}(S^{2}(y))\vertM \right)
+   \:=\: \psiA\left( (\zetaB\, x) \, (\zetaB\,y) \vertM \right)
+   \:=\: \zetaB^2 \, \psiA(xy) $$
+and since $\psiA$ is faithful and $A_0$ is non-trivial, it follows that $\zetaA^2=\zetaB^2$.
+Similarly we can show that $\zetaA^2 \, \psiA(xyz) = \zetaB^3 \, \psiA(xyz)$
+for any triple $x,y,z \in A_0$, hence $\zetaA^2=\zetaB^3$,
+and eventually $\zetaB=1$.
+\end{proof}
+
+
+
+\begin{remark_sec} \rm
+The above lemma shows the various Plancherel formulas are not
+independent, which isn't very surprising.
+The lemma however also indicates that in general we may not expect
+{\em all\/} Fourier transforms to obey a Plancherel identity.
+It turns out\footnote{e.g.\ in our quantum $E(2)$ example,
+or in the theory of algebraic quantum groups \cite{Fons:AFGD}.}\
+that we should focus mainly on the ({\scriptsize LR}-{\scriptsize RL}) pair.
+\hfill $\star$
+\end{remark_sec}
+
+
+\begin{lemma_sec} \label{lemma:Plancherel:inverse}
+Adopt the setting of proposition \ref{prop:inverse_Fourier_transform}\@.
+Then proposition \ref{prop:relations_between_Ftransforms}\
+(and analogue for inverse transforms)
+will provide all the Fourier transforms from\/ $A_0$ to\/ $B_0$ and vice versa.
+Assume that\/ $|\lambda| = 1$.
+Now if\/ $\FRL$ satisfies its Plancherel formula, then so does\/ $\GLR$.
+\end{lemma_sec}
+\begin{proof}
+Using $S \FRR S = \zetaB \FLL$ and (\ref{eq:Fourier:stars}) we get
+$$ S \FLL^{-1}
+     \:=\:  S \, \zetaB\, S^{-1} \FRR^{-1} S^{-1}
+     \:=\:  \zetaB\, \FRR^{-1} S^{-1}
+     \:=\:  *\,\FRL^{-1} S^{-1}* S^{-1}
+     \:=\:  *\,\FRL^{-1}*  $$
+and hence, from proposition \ref{prop:inverse_Fourier_transform},
+\begin{equation}\label{eq:GLRandFRL}
+  \GLR \:=\: \lambda \zetaA^{-1} \, S \FLL^{-1}
+         \:=\: \lambda \zetaA^{-1} \, * \FRL^{-1}*
+\end{equation}
+Using the Plancherel formula for $\FRL$ (cf.\ lemma \ref{lemma:Plancherel})
+we get for all $x,y \in B_0$
+$$ \psiA \! \left(\GLR(x)\, \GLR(y)^* \vertM  \right)
+    \:=\; \left|\lambda \zetaA^{-1}\right|^2 \:
+          \psiA\left(\FRL^{-1}(x^*)^* \, \FRL^{-1}(y^*) \vertM \right)
+    \:=\: \phiB(x y^*) $$
+which is exactly the Plancherel formula for $\GLR$.
+\end{proof}
+
+
+
+\begin{defn_sec}
+Let $\omega$ be a positive linear functional on a $^*$-algebra $A$.
+Then a {\sc gns} pair $(\Hs,\Lambda)$ for $(A,\omega)$ is a Hilbert space
+\Hs\ together with a linear map $\Lambda: A \rarr \Hs$ such that
+$\Lambda(A)$ is dense in \Hs\ and
+$\omega(y^*x) = \scal{\Lambda(x)}{\Lambda(y)}$ for all $x,y\in A$.
+Here $\scal{\cdot}{\cdot}$ denotes the scalar product on \Hs\@.
+It is clear that such a {\sc gns} pair for $(A,\omega)$ exists and
+that it is unique up to unitary equivalence.
+Also observe that $\Lambda$ is injective if and only if $\omega$ is faithful.
+\end{defn_sec}
+
+\begin{defn_sec}  \label{def:Plancherel_context}
+Let $\mathfrak{F}\equiv\FourierBABA$ be a Fourier context. Assume there {\em exist\/}
+{\scriptsize LL}, {\scriptsize LR}, {\scriptsize RL}\ and {\scriptsize RR}\
+Fourier transforms from $A_0$ to $B_0$ and vice versa.
+Recall they are uniquely determined by $\mathfrak{F}$
+(lemma \ref{lemma:Fourier_transform}). Assume moreover:
+\begin{enumerate}
+\item
+All these Fourier transforms are {\em bijections\/} between $A_0$ and $B_0$.
+\item
+The ({\scriptsize LR}) and ({\scriptsize RL}) Fourier transforms (from $A_0$ to $B_0$ {\em and\/}
+vice versa) satisfy their respective Plancherel formulas;
+see lemmas \ref{lemma:Plancherel}\ and \ref{lemma:Plancherel:inverse}\ for details.
+In particular the scaling constants $\zetaA$ and $\zetaB$ are equal.
+Therefore, let's abbreviate $\zetaA=\zetaB\equiv\zeta$.
+\item For any $a\in A_0$ the following
+(equivalent---see proposition \ref{prop:relations_between_Ftransforms})
+conditions hold:
+\begin{equation}\label{eq:def:plancherelcontext}
+\begin{array}{ccc}
+   \pair{1_{\frakA}}{\FLR(a)} = \phiA(a) & \hspace{2em}&
+   \pair{1_{\frakA}}{\FLL(a)} = \zeta \,\phiA(a)
+\\ \vertL
+   \pair{1_{\frakA}}{\FRL(a)} = \psiA(a)  &   &
+   \pair{1_{\frakA}}{\FRR(a)} = \zeta \,\psiA(a)
+\end{array}
+\end{equation}
+and similar formulas for the inverse transforms. This amounts to the condition in
+proposition \ref{prop:inverse_Fourier_transform}\ with $\lambda=\zeta$.
+\item
+If $(\Hs,\Lambda)$ is a {\sc gns} pair for $(A,\phiA)$ or $(A,\psiA)$
+then $\Lambda(A_0)$ is dense in $\Hs$.
+Similarly, if $(\Hs,\Lambda)$ is a {\sc gns} pair for $(B,\phiB)$
+or $(B,\psiB)$ then $\Lambda(B_0)$ is dense.
+\end{enumerate}
+Under these circumstances, $\mathfrak{F}$ is said to be a {\em Plancherel context}.
+\end{defn_sec}
+
+Of course the above set of axioms is again very far from minimal;
+however the dependencies between these assumptions should be clear from
+propositions
+\ref{prop:relations_between_Ftransforms}\ and
+\ref{prop:inverse_Fourier_transform}\
+and lemmas
+\ref{lemma:Plancherel}\ and \ref{lemma:Plancherel:inverse}\@.
+For instance the analogue of (\ref{eq:def:plancherelcontext}) for
+the inverse transforms (i.e.\ from $B_0$ to $A_0$) will hold
+automatically: from  (\ref{eq:def:plancherelcontext}) and
+proposition \ref{prop:inverse_Fourier_transform}\ we get
+$\GLR = S \FLL^{-1}$ and together with
+$\phiB \FLL = \pair{\,\cdot\,}{1_{\frakB}}$
+we obtain that $\pair{\GLR(b)}{1_{\frakB}} = \phiB(b)$ for any $b\in B_0$.
+The latter formula is indeed the \lq inverse transform\rq\
+analogue of (\ref{eq:def:plancherelcontext}).
+
+
+
+\begin{remark_sec} \label{rem:Plancherel_context} \rm
+In an operator-theoretic approach to quantum groups \cite{KV}, one usually
+prefers to work on a single Hilbert space; this would mean we need
+to identify the {\sc gns} objects for $A$ and $B$ with one another.
+Here Plancherel contexts could enter the picture, yielding a gateway
+from the purely algebraic level into the $C^*$-algebra world.
+
+Another motivation to study this notion is the subject of harmonic
+analysis itself: it provides a framework for Fourier
+transformation, algebraic in nature, but nonetheless general
+enough to contain interesting examples like the quantum $E(2)$ group
+(cf.\ chapters \ref{chapter:Fourier_context_for_quantumE2}\ and
+               \ref{chapter:Harmonic_analysis_on_quantumE2}).
+
+Of course one should also consider the possibility of representing $A$ and $B$
+as $^*$-algebras of bounded operators on the respective {\sc gns} Hilbert spaces,
+which is our motivation to include axiom (iv) in the above definition;
+this is however beyond the subject of the present text.
+\hfill $\star$
+\end{remark_sec}
+
+
+\begin{ex_sec} \rm
+Recall example \ref{ex:R:Fourier:Schwartz}\@.
+We claim that (\ref{eq:ex:Plancherel}) is a Plancherel context.
+The usual Fourier transform on \RR, $f \mapsto \hat{f}$ with
+\begin{equation}\label{eq:usual_Fourier_transform}
+  \hat{f}(k) = \frac{1}{\sqrt{2\pi}} \, \int_\RR f(x)\,e^{-ikx}\, dx,
+\end{equation}
+maps $\mathcal E$ bijectively onto itself, and it is easy to prove
+that (\ref{eq:usual_Fourier_transform}) indeed defines Fourier transforms in the
+sense of definition \ref{def:Fourier_transform}\
+(cf.\ remarks \ref{rem:Fourier_transform}.i).
+Observe that $(L^2(\RR), \id)$ is a {\sc gns} pair for
+$\left(\SH, {\textstyle \int_\RR}\right)$. Clearly $\mathcal E$
+is dense in $L^2(\RR)$, which proves (iv) of definition \ref{def:Plancherel_context}.
+\hfill $\star$
+\end{ex_sec}
+
+
+
+\section{Duality revisited}
+
+Let \FourierBABA\ be a Plancherel context.
+Above we introduced a natural duality between $A_0$ and $B_0$,
+which was induced by the Fourier transforms from $A_0$ to $B_0$
+(see lemma \ref{lemma:induced_pairing}).
+But of course, because of the symmetry we could as well use
+Fourier transforms from $B_0$ to $A_0$ to obtain such a pairing.
+So the question arises: do we get the same pairing?
+
+
+
+\begin{lemma_sec} \label{lem:duality_revisited}
+For any\/ $a \in A_0$ and\/ $b \in B_0$ we have
+$$ \psiA\!\left(\GLR(b) \, a\vertM\right)
+           \:=\: \pair{a}{b} \:=\:
+   \phiB\!\left(b \, \FRL(a) \vertM\right). $$
+\end{lemma_sec}
+\begin{proof}
+The conditions of proposition \ref{prop:inverse_Fourier_transform}\ are fulfilled
+(cf.\ definition \ref{def:Plancherel_context}.iii),
+hence (\ref{eq:GLRandFRL}) should hold with $\lambda=\zeta$,
+i.e.\ $\GLR = *\,\FRL^{-1}*$. It follows that
+$$ \psiA\!\left(\GLR(b) \, a\vertM\right)
+  \:=\; \psiA\!\left(\FRL^{-1}(b^*)^* \: \FRL^{-1}(\FRL(a)) \vertM\right)
+  \:=\; \phiB\!\left(b \, \FRL(a) \vertM\right)  $$
+for any $a \in A_0$ and $b \in B_0$. We used the Plancherel formula for $\FRL$.
+\end{proof}

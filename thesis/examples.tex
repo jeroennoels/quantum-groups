@@ -1,0 +1,422 @@
+\section{Examples}
+\label{par:Examples}
+
+
+\begin{abs_chp}
+We show how Hopf algebras \cite{Schmudgen,Fons:DPHA}\
+and multiplier Hopf algebras \cite{Fons:MHA}\ fit into the Hopf system picture.
+Also the duality theory for multiplier Hopf algebras with integrals as developed
+by A.\ Van Daele \cite{Fons:AFGD,Fons:AFGD:proc,Fons:pnas}\ fits into this framework.
+Then we introduce a special subclass of Hopf systems, the so-called {\em algebraic\/} ones,
+having an \lq algebraic\rq\ comultiplication\footnote{i.e.\ taking values in the
+algebraic tensor product, rather than some envelope of it.
+See definition \ref{def:algebraic_context}\@.}\
+on at least one side; these are the kind of Hopf systems that enter e.g.\
+the algebraic description of the quantum $E(2)$ group covered in chapter
+\ref{chapter:Fourier_context_for_quantumE2}\@.
+For the moment we stick to a fairly trivial but very familiar (hence instructive) example
+derived from the group $(\RR,+)$.
+We conclude with an example of a {\em non-regular\/} Hopf system.
+\end{abs_chp}
+
+
+
+
+\subsection{Multiplier Hopf algebras}
+
+\begin{lemma}  \label{lem:mha:Hopf_system}
+Let\/ \pairAB\ be a \dpa\@. Assume\/ $B$ to be unital as an $A$-bimodule.
+Let $A$ be endowed with a comultiplication $\Delta : A \rarr M(A\tens A)$
+making\/ $(A,\Delta)$ into a \mha\@. If for any\/ $a,c \in A$ and\/ $b,d \in B$
+\begin{eqnarray}
+  \pairM{T_1(a \tens c)}{b\tens d}  &=&   \pairM{a}{b(c \lact d)}
+       \label{eq:ex:mha:T1:mB}  \\
+  \pairM{T_2(a \tens c)}{b\tens d}  &=&   \pairM{c}{(b \ract a)d}
+       \label{eq:ex:mha:T2:mB}
+\end{eqnarray}
+then \pairAB\ is a Hopf system.
+If\/ $(A,\Delta)$ is regular as a \mha\ and if\/ $\SB(B)=B$,
+then\/ \pairAB\ is regular in the sense of definition \ref{def:regular:hs}\@.
+\end{lemma}
+
+
+{\small
+\begin{remarks*} \label{rem:mha:Hopf_system}
+\item
+The comultiplication, counit and antipode associated with $A$ in the sense of
+\cite{Fons:MHA}\ are consistent\footnote{i.e.\ if we take into account that
+$M(A) \subseteq \Env(\Aa)$ and $M(A \tens A) \subseteq \Env(\AAAA)$.}\
+with the objects $\DeltaA$, $\epsA$ and $\SA$ derived from the Hopf system \pairAB\@.
+For the comultiplication and the counit, this assertion is easily shown;
+for the antipode it follows from the proof below.
+\item
+Observe that conditions (\ref{eq:ex:mha:T1:mB}) and (\ref{eq:ex:mha:T2:mB})
+are actually equivalent.
+They express that the comultiplication $\Delta$ is dual to the product in $B$.
+Here $T_1$ and $T_2$ are the bijections from $A\tens A$ onto $A\tens A$ as
+defined in \cite{Fons:MHA}\@. Explicitly:
+$$  T_1(a \tens c) \:=\: \Delta(a)(1 \tens c)   \hspace{6em}
+    T_2(a \tens c) \:=\: (a \tens 1)\Delta(c).  $$
+\end{remarks*} } % end small
+
+
+\begin{proof}
+Before we start, recall definition \ref{def:invertible_dpa}\ and
+remark \ref{rem:warning:P_strict_cont}\@.
+Take any $a,c,e \in A$ and $b,d \in B$, and write $T_1(a \tens e) = \sum_i\, p_i \tens r_i$.
+Now (\ref{eq:ex:mha:T1:mB}) yields
+\begin{eqnarray*}
+\pairM{a \ract d}{(e\lact b) \ract c}
+  &=&
+\pairM{a}{d(e\lact b \ract c)}
+\\&=&
+\pairM{T_1(a \tens e)}{d \tens (b \ract c)}
+\\&=&
+\textstyle \sum_i \, \pair{p_i}{d} \pair{r_i}{b \ract c}
+\\&=&
+\textstyle \sum_i \, \pair{p_i}{d} \pair{c}{r_i \lact b}
+\\&=&
+\textstyle \sum_i \, \pairM{d\tens c}{p_i \tens (r_i \lact b)}
+\end{eqnarray*}
+Since $A\lact B = B$, it follows that given any $a \in A$ and $b \in B$,
+there exists an $x\in A\tens B$ such that for all  $c \in A$ and $d \in B$
+$$ \pairM{d \tens c}{x}  \:=\: \pairM{a \ract d}{b \ract c}. $$
+Similarly we show the existence of an $y\in A\tens B$, only depending on $a$ and $b$,
+such that
+$$ \pairM{d \tens c}{y}  \:=\:  \pairM{d \lact a}{c \lact b}. $$
+This means that the pairing $\pr : A \tens B \rarr \kk$ is indeed \stricta\ continuous
+within the \context\ \BBAA, hence identifying with an actor $P \simeq (\lp\,,\rp)$ for
+\mbox{\BBAA\@. Now let}\
+$\muL:A\tens B \rarr B$ denote the left action of $A$ on $B$, and observe
+we have actually shown that (cf.\ equations \ref{eq:def:lamP:rhoP})
+$$  \lp(\id \tens \muL)  \:=\:  (\id \tens \muL)(T_1 \tens \id).  $$
+Because $\muL$ and $T_1$ are surjective, it follows that $\lp(A\tens B) = A \tens B$.
+The next step is to show that $\lp$ is injective.
+Therefore, consider the linear mapping $\eta$ from $A\tens B$ into $(B\tens A)'$ defined by
+\begin{equation}\label{eq:ex:mha:inverse_of_lp}
+ \pairM{d \tens c}{\eta(a \tens b)} \:=\: \pairM{c S(a \ract d)}{b}
+\end{equation}
+where $S:A\rarr M(A)$ is the antipode associated to the {\sc mha} $(A,\Delta)$.
+Again take any $a,c,e \in A$ and $b,d \in B$,
+and write $T_1(a \tens e) = \sum_i\, p_i \tens r_i$ as before.
+An easy computation shows that
+$T_1 \! \left((a\ract d) \tens e \vertM\right) = \sum_i\, (p_i\ract d) \tens r_i$,
+hence
+$$  \textstyle \sum_i  S(p_i \ract d) \, r_i
+           \;\stackrel{(*)}{=}\;
+    \textstyle \sum_i \, (\eps \tens \id)\, T_1^{-1} \!\left((p_i\ract d) \tens r_i \vertM\right)
+    \,=\:
+    \eps(a\ract d) \, e
+    \,=\:
+    \pair{a}{d} \, e  $$
+where $\eps$ is the counit on $A$.
+In $(*)$ we used \cite[definition 4.1]{Fons:MHA}\@. Thus we obtain
+\begin{eqnarray*}
+\pairM{d \tens c}{\eta\lp \! \left(a \tens (e\lact b) \vertM\right)}
+  &=&
+\textstyle \sum_i \, \pairM{d \tens c}{\eta \! \left(p_i \tens (r_i \lact b) \vertM\right)}
+\\&=&
+\textstyle \sum_i \, \pairM{c S(p_i \ract d) r_i}{b}
+\\&=&
+\pair{a}{d} \pair{ce}{b}
+\\&=&
+\pairM{d \tens c}{a \tens (e\lact b)}
+\end{eqnarray*}
+and it follows that $\eta\lp$ is the identity map on $A\tens B$, hence $\lp$ is
+a bijection from $A\tens B$ onto $A\tens B$.
+Similarly also $\rp$ is bijective.
+Now we would like to use lemma \ref{lem:char:actor:wu}\ to prove that
+$(\lp^{-1},\rp^{-1})$ is again an actor for $\BBAA$. To do this, however,
+we first need to establish weak unitality:
+using (\ref{eq:ex:mha:T1:mB}) and (\ref{eq:ex:mha:T2:mB})
+together with the surjectivity of $T_1$ and $T_2$, it is not so hard to see that
+$A$ is unital as a $B$-bimodule.
+From lemma \ref{lem:counit:existence}\ it follows that \BBAA\ is weakly unital,
+hence so are \Aa\ and \BB\ (proposition \ref{prop:tensor:wu}).
+Now $S(A)\subseteq M(A) \subseteq \Env(\Aa)$ can be paired with $B$,
+and (\ref{eq:ex:mha:inverse_of_lp}) can be rewritten as
+$$ \pairM{d \tens c}{\lp^{-1}(a \tens b)} \:=\: \pairM{c}{S(a \ract d) \lact b}. $$
+Fix $b\in B$ for a while; using weak unitality we obtain for any $a\in A$ and $d\in B$
+$$ \pairM{d}{(\id \tens \epsB)\lp^{-1}(a \tens b)}  \:=\: \pairM{f}{a \ract d} $$
+where $f:A\rarr \kk\,$ is defined by $f(x)=\pair{S(x)}{b}$.
+Analogously we obtain
+$$ \pairM{d}{(\id \tens \epsB)\, \rp^{-1}(a \tens b)}  \:=\: \pairM{f}{d \lact a}. $$
+It follows that $f \in A\adl$, hence $\theta(f) = \lamrho{f}$
+is an actor for \BB\ given by
+$$ \lam_f(a) \:=\: (\id \tens \epsB)\lp^{-1}(a \tens b)    \hspace{4em}
+   \rho_f(a) \:=\: (\id \tens \epsB)\,\rp^{-1}(a \tens b).  $$
+(cf.\ proposition \ref{prop:act_by_fuctionals}.iii).
+Applying $\epsA$ and using (\ref{eq:pairing_with_act}) we obtain
+\begin{equation}\label{eq:S_of_MHA_is_S_of_pairAB}
+  (\epsA \tens \epsB) \lp^{-1}(a \tens b)
+       \:=\: \pair{S(a)}{b}
+       \:=\: (\epsA \tens \epsB)\, \rp^{-1}(a \tens b).
+\end{equation}
+Lemma \ref{lem:char:actor:wu}\ yields that $(\lp^{-1},\rp^{-1})$ is an
+actor for $\BBAA$, which proves that \pair{A}{B}\ is an \idpa\@.
+From proposition \ref{prop:multiplicative:comultiplications}\ it follows that
+\pair{A}{B}\ is a Hopf system.
+Comparing (\ref{eq:S_of_MHA_is_S_of_pairAB}) with (\ref{eq:def:antipodes})
+and (\ref{eq:pairing_with_act}),
+we conclude that $S$ coincides with the antipode $\SA$ derived from the
+Hopf system \pairAB\ (as announced in remark \ref{rem:mha:Hopf_system}.i).
+
+Recall from \cite{Fons:MHA}\ that the antipode on a {\em regular\/} \mha\ $A$
+is a bijection from $A$ onto $A$. Assuming $\SB(B)=B$, it follows that
+$\SB$ is a bijection from $B$ onto $B$. Hence \pair{A}{B}\ is regular.
+\end{proof}
+
+
+
+
+\begin{prop}
+Let\/ $(A,\Delta)$ be any \mha\@. Let $A\reduced$ be the reduced dual of $A$
+(defined as $A\reduced = A\lact A' \ract A$).
+Then $\pair{A}{A\reduced}$ is a Hopf system.
+If\/ $(A,\Delta)$ is regular, then $\pair{A}{A\reduced}$ is regular.
+Finally, if\/ $(A,\Delta)$ is a multiplier Hopf $^*$-algebra, then
+$\pair{A}{A\reduced}$ is a Hopf $^*$-system.
+\end{prop}
+\begin{proof}
+Recall example \ref{exD:introduction}\@. Since the product in $A$ is non-degenerate,
+it follows that $\Aa\equiv (A;A\reduced,\pairing)$ is an \context\@.
+Furthermore $A\reduced$ is unital as an $A$-bimodule because $A^2=A$.
+In \cite[\S 6]{Fons:MHA}\ it was shown that $A\reduced$ can be made into an algebra
+in such a way that for all $a,c_i, e_i \in A$ and $\om_i \in A'$ ($i=1,2$)
+\begin{equation}\label{eq:def:product:reduced_dual}
+   \pairM{(c_1 \tens c_2)\Delta(a)(e_1 \tens e_2)}{\om_1 \tens \om_2}
+      \:=\:  \pairM{a}{\nu_1 \nu_2}
+\end{equation}
+where $\nu_i = e_i \lact \om_i \ract c_i$ ($i=1,2$).
+Now it is easy to see that also $(A\reduced;A,\pairing)$ is an \context,
+and hence $\pair{A}{A\reduced}$ is a \dpa\@.
+For this pair, the conditions (\ref{eq:ex:mha:T1:mB}) and (\ref{eq:ex:mha:T2:mB})
+can be derived from (\ref{eq:def:product:reduced_dual}).
+Lemma \ref{lem:mha:Hopf_system}\ then yields that $\pair{A}{A\reduced}$ is a Hopf system.
+If\/ $(A,\Delta)$ is regular, then $S: A\rarr A$ is a bijection,
+hence so is its transpose $S^{\tau}: A'\rarr A'$. Using the anti-multiplicativity of $S$,
+it is not so hard to show that for all $c,e \in A$ and $\om \in A'$
+$$  S^{\tau} \! \left( S(c) \lact \om \ract S(e)  \vertM\right)
+    \:=\:  e \lact S^{\tau}(\om) \ract c. $$
+It follows that $S^{\tau}(A\reduced) = A\reduced$,
+hence $\pair{A}{A\reduced}$ is regular.
+
+Recall from \cite{Fons:MHA}\ that a multiplier Hopf $^*$-algebra is automatically regular,
+and furthermore $A\reduced$ can be made into a $^*$-algebra \cite[proposition 6.6]{Fons:MHA}\
+in such a way that $\pair{A}{A\reduced}$ becomes a Hopf $^*$-system.
+\end{proof}
+
+
+\begin{cor} \label{cor:Hopf_algebra_and_full_dual}
+If $A$ is a Hopf algebra, then $\pair{A}{A'}$ is a Hopf system.
+When $A$ has invertible antipode, then $\pair{A}{A'}$ is regular.
+If $A$ is a $^*$-Hopf algebra, then $\pair{A}{A'}$ is a \Hss\@.
+\end{cor}
+
+
+
+\begin{prop} \label{prop:AhatA:Hopf_system}
+Let\/ $(A,\Delta)$ be a regular \mha\ with non-trivial invariant functionals.
+Let\/ $(\hat{A},\hat{\Delta})$ be the dual object defined in \cite{Fons:AFGD:proc,Fons:AFGD}\@.
+Then $\pair{A}{\hat{A}}$ is a regular Hopf system.
+\end{prop}
+\begin{proof}
+Let $\varphi$ be a non-trivial left invariant functional on $A$, and consider
+the Fourier transform $A \rarr \hat{A}: a \mapsto \hat{a} = \varphi(\cdot\,a)$.
+The duality between $A$ and $\hat{A}$, given by
+$\pair{a}{\hat{c}} = \varphi(ac)$, is non-degenerate because $\varphi$ is faithful.
+Now it is easy to show that
+e.g.\footnote{for the right action we need to use another Fourier transform, of
+course.}\ $a \lact \hat{c} = \widehat{ac\,}\!$.
+Since $A^2=A$ it follows that $\hat{A}$ is unital as an $A$-bimodule.
+On the other hand we have for instance
+$\hat{c} \lact a = (\id \tens \varphi)T_1(a\tens c)$.
+It follows that $A$ is an $\hat{A}$-bimodule, and hence $\pair{A}{\hat{A}}$ is a \dpa\@.
+The remaining conditions of lemma \ref{lem:mha:Hopf_system}\ are easily verified.
+\end{proof}
+
+
+
+
+\subsection{Algebraic Hopf systems}
+
+\begin{defn}  \label{def:algebraic_Hopf_system}
+Let $(A,\Delta,\eps,S)$ be any Hopf algebra, $B$ any algebra and
+\mbox{$\pairing : A \times B \rarr \kk\,$}\ a non-degenerate vector space duality.
+Embed $B$ in $A'$. If
+\begin{enumerate}
+  \item $B$ is invariant under canonical actions of $A$ on $A'$, and
+  \item for all $a \in A$ and $b,d \in B$ we have
+        $\pair{a}{bd} = \pair{\Delta(a)}{b \tens d}$
+\end{enumerate}
+then the pair $\pair{\underline{A}\,}{B}$ is said to be an {\em \ahs}\@. If
+moreover
+\begin{enumerate}
+\item[iii.] $A$ is a Hopf $^*$-algebra and $B$ is a $^*$-algebra,
+\item[iv.]  $B$ is $\conj$-invariant (\S \ref{par:involutive contexts}) within $A'$
+\item[v.]   for any $a \in A$ and $b \in B$ we have $\pair{a}{b^*} = \overline{\pair{S(a)^*}{b}}$
+\end{enumerate}
+then $\pair{\underline{A}\,}{B}$ is called an {\em \ahss}.
+\end{defn}
+
+Here the {\em underlining\/} in $\pair{\underline{A}\,}{B}$ is merely a convenient
+way to indicate which one of the two algebras involved is a genuine Hopf algebra;
+indeed we wouldn't like this to depend on the {\em order\/} in which we write the pairing.
+The terminology is justified by the following:
+
+\begin{prop}
+An \ahs\ $\pair{\underline{A}\,}{B}$ in the sense of the above definition is indeed
+a Hopf system as defined in the beginning of chapter \ref{chapter:Hopf_systems}\@.
+An \ahss\ is a Hopf $^*$-system in the sense of definition \ref{def:Hopf_star_system}.
+\end{prop}
+
+\begin{proof}
+Observe that $A$ is invariant under canonical actions of $B$ on $B'$ because
+$\Delta(A) \subseteq A\tens A$ (cf.\ proposition \ref{prop:induced_actor_context}).
+Hence $\pair{A}{B}$ is a \dpa\@. Recall that $A$ has an identity;
+lemma \ref{lem:mha:Hopf_system}\ yields that \pairAB\ is a Hopf system.
+
+Assume that $\pair{\underline{A}\,}{B}$ moreover enjoys conditions (iii-iv-v)
+of definition \ref{def:algebraic_Hopf_system}\@.
+We claim that $\pair{A}{B}$ is regular as a Hopf system:
+indeed $\SA$ is bijective because $A$ is a Hopf $^*$-algebra,
+whereas (v) can be rewritten as $\SB(b\conj) = b^*$,
+hence $\SB$ is a bijection from $B$ onto $B$. The result follows.
+\end{proof}
+
+
+
+\begin{remark}  \rm
+An \ahs\ $\pair{\underline{A}\,}{B}$ might fail to be regular,
+even when $A$ has invertible antipode; see example \ref{ex:non_regular_Hopf_system}\@.
+\hfill $\star$
+\end{remark}
+
+
+
+\begin{ex} \rm
+Let $G$ be any locally compact group, and let $\CC \vssp G$ denote its group algebra,
+with canonical basis $\{\delta_s\}_{s\in G}$.
+It is well-known that $(\CC \vssp G,\Delta,\eps,S)$ is a Hopf algebra with
+$$ \Delta(\delta_s) \,=\, \delta_s \tens \delta_s   \hspace{3em}
+   \eps(\delta_s)   \,=\, 1                         \hspace{3em}
+   S(\delta_s)      \,=\, \delta_{s^{-1}}           \hspace{3em}
+   (s \in G).   $$
+Also consider the space $K(G)$ of all continuous complex functions on $G$
+with compact support. $K(G)$ becomes an algebra under pointwise multiplication.
+Defining the pairing as in example \ref{exA:introduction}, the pair
+$\pairM{K(G)}{\underline{\CC \vssp G\!}\,}$ is easily seen to be a regular
+(algebraic) Hopf system with non-trivial invariant functionals on both sides:
+indeed integration w.r.t.\ the Haar measures on $G$ yields invariant
+functionals on $K(G)$, whereas on $\CC \vssp G$ we have a Haar functional $\varphi$
+given by $\varphi(\delta_s) = 0$ if $s\neq e$ and $\varphi(\delta_e) = 1$,
+where $e$ denotes the identity in $G$.
+\hfill $\star$
+\end{ex}
+
+
+\begin{ex} \label{ex:DPHA_is_Hopfstarsystem}
+If\/ $\pair{A}{B}$ is a dual pair of Hopf $^*$-algebras \cite{Fons:DPHA}
+with non-degenerate pairing,
+then $\pair{\underline{A}\,}{\underline{B\!}\,}$ is an \ahss\@.
+\hfill $\star$
+\end{ex}
+
+
+
+\subsection{A familiar example}
+
+Let's have a look at probably the most familiar example of a (non-compact, non-discrete)
+locally compact group: $(\RR,+)$.
+
+Let $\HopfR$ be the unital $^*$-algebra generated by a single self-adjoint element $h$.
+Then $\HopfR$ can be made into a Hopf $^*$-algebra by defining
+$$ \Delta(h) = h \tens 1 + 1 \tens h \hspace{3em}
+   \eps(h) = 0  \hspace{4em}  S(h) = -h.  \hspace{5em} $$
+In fact $\HopfR$ is nothing but the algebra of polynomial functions on \RR,
+endowed with the usual comultiplication, counit and antipode:
+\begin{equation}\label{eq:ex:R:comult}
+ (\Delta f)(s,t) = f(s+t)  \hspace{3em} \eps(f)=f(0)
+     \hspace{3em} (Sf)(t) = f(-t) \hspace{1em}
+\end{equation}
+for $s,t \in \RR$ and $f : \RR \rarr \kk$ a polynomial function.
+Clearly $\Delta f$ is a polynomial in two variables, hence
+identifying with an element in $\HopfR \tens \HopfR$.
+Next we define a pairing of $\HopfR$ with $\HopfR$ itself, as follows:
+\begin{equation}\label{eq:ex:R:pairing}
+  \pair{h^n}{h^m} \:=\: \delta_{n,m}\, n!\,(-i)^n   \hspace{5em} (n,m \in\NN).
+\end{equation}
+Then $\pair{\HopfR}{\HopfR}$ is a dual pair of Hopf $^*$-algebras \cite{Fons:DPHA}\@.
+Now we wish to consider all entire\footnote{
+Of course entire functions are defined on all of \CC, but since
+they are determined by their values on \RR, we can still think of them
+as functions on our group \RR.}
+functions rather than just polynomial ones, so recall the conventions concerning
+entire functions (\S \ref{sec:conventions}).
+The main observation in this respect, is that (\ref{eq:ex:R:comult}) no longer
+defines an \lq algebraic\rq\ comultiplication:
+indeed, if $f$ is an entire function, then $\Delta f$ will generally
+not identify with an element in the {\em algebraic\/} tensor product $\HC \tens \HC$.
+In other words, we cannot make \HC\ into a Hopf algebra.
+Nevertheless we can extend the pairing (\ref{eq:ex:R:pairing}) on one side,
+defining a bilinear form $\pairing :  \HopfR \times \HC  \rarr \CC$ by
+\begin{equation}\label{eq:ex:PR:extendedpairing}
+  \pair{h^n}{f} \,=\: \mu_n(f)\, n!\, (-i)^n  \hspace{4em} (f\in \HC,\, n \in \NN).
+\end{equation}
+
+
+\begin{ex} \label{ex:familiar:hopfR}
+$\pairM{\underline{\HopfR}\,}{\HC}$ is an \ahss\@.
+The actions of\/ $\HopfR$ on\/ \HC\ are essentially given by differentiation:
+\begin{equation}\label{eq:actions:PR_on_HC}
+  h \lact f \:=\:  -i f'  \:=\:  f \ract h.
+\end{equation}
+\end{ex}
+
+\begin{proof}
+Non-degeneracy of (\ref{eq:ex:PR:extendedpairing})\ is clear.
+Also (\ref{eq:actions:PR_on_HC}) and conditions (i-iii-v) of
+definition \ref{def:algebraic_Hopf_system}\ are easily verified.
+(ii) involves the binomial theorem and the rules for multiplying Taylor series,
+whereas (iv) follows from $f\conj(z)=\tilde{f}(-z)$.
+\end{proof}
+\vspace{2ex}
+
+Now let $S(\RR)$ denote classical Schwartz space and define
+$$ \SH \:=\: \left\{ f\in \HC \left|\vertM \right.
+                               f_{|\RR}  \in S(\RR) \right\}.$$
+Clearly $\SH$ is a $^*$-subalgebra of \HC, containing e.g.\ the Hermite functions.
+
+
+\begin{ex} \label{ex:familiar:Schwartz}
+$\pairM{\underline{\HopfR}\,}{\SH\!}$ is an \ahss\@.
+Lebesgue integration over\/ \RR\ yields a functional\/ $\int_\RR$ on\/ $\SH$ which is both
+left and right invariant.
+\end{ex}
+
+\begin{proof}
+$\SH$ is invariant under differentiation, hence also under the actions
+(\ref{eq:actions:PR_on_HC}). The pairing is still non-degenerate.
+The fundamental theorem of calculus yields
+$$  \int_\RR f \! \ract h
+         \;=\:  \int_\RR h \lact \! f
+         \;=\:  -i \int_\RR f'
+         \;=\:  0
+         \:=\:  \eps(h) \int_\RR f   \hspace{3em} (f\in\SH). $$
+Hence $\int_\RR$ is both left and right invariant in the sense of
+definition \ref{def:invariant_functional}.
+\end{proof}
+\vspace{2ex}
+
+
+\paragraph{A non-regular Hopf system}
+Let $E$ be the subspace of \HC\ spanned by the functions
+$\CC \rarr \CC : x \mapsto  x^n \exp(\alpha x)$ with $n\in \NN$ and $\alpha > 0$.
+Clearly $E$ is a $^*$-subalgebra of \HC\@.
+Since $E$ is not invariant under the antipode, we obtain
+
+
+\begin{ex} \label{ex:non_regular_Hopf_system}
+$\pairM{\underline{\HopfR}\,}{\!E}$ is an \ahs, but it is not regular
+in the sense of definition \ref{def:regular:hs}\@.
+\end{ex}

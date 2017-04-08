@@ -1,0 +1,522 @@
+
+\section{Weakly unital \contexts}
+\label{par:weakly_unital_contexts}
+
+
+\begin{abs_chp} \rm
+We introduce the notion of a {\em weakly unital\/} \context\@.
+The main observation here is that, in the weakly unital case, the correspondence $\theta$
+between \stricta\ continuous functionals and actors
+(cf.\ \S \ref{subsec:Acts_ind_by_funcs}) becomes {\em bijective}\@.
+As a consequence, the pairing extends to actors in a natural way.
+In chapter \ref{chapter:Hopf_systems}\ we shall almost exclusively be dealing
+with the weakly unital case.
+\end{abs_chp}
+
+
+\subsection{The counit}
+
+\begin{defn} \label{def:counit}
+  Let $\EE \equiv \EOP$ be any \context\@. A functional $\eps \in \Om'$ is said to be a
+  (left, right, two-sided) {\em counit\/} for \EE\ if
+  \begin{equation} \label{eq:def_counit}
+     \pair{\eps}{x\lact\om}    \;
+     \stackrel{\rm (left)}{=}  \;  \pair{x}{\om}  \;  \stackrel{\rm (right)}{=}  \;
+     \pair{\eps}{\om \ract x}
+  \end{equation}
+  for all $\om \in \Om$ and $x\in E$.
+\end{defn}
+
+\begin{rems} \label{rem:def_of_counit} \rm
+  \begin{enumerate}
+  \item
+    A counit $\eps$ is both \strictm\ and \stricta\ continuous as a functional on $\Om$,
+    so $\eps \in \Om\mdl$ and $\eps \in \Om\adl$\@. Furthermore $\theta(\eps)=1_\EE$.
+  \item
+   From remark \ref{rem:theta_and_Delta}\ we obtain that a counit $\eps$ satisfies
+    \begin{equation} \label{eq:axiom_Delta:counit}
+        (\overline{\eps \,\tens}\, \id)\Delta
+          \:=\: \id \:=\:  (\id\, \overline{\tens \,\eps})\Delta.
+    \end{equation}
+   Conversely, any $\eps\in\Om'$ obeying (\ref{eq:axiom_Delta:counit})
+   is a counit for \EE\@. Indeed remark \ref{rem:three_topologies}.ii  yields
+   $\eps \in \Om\adl$, hence remark \ref{rem:theta_and_Delta}\ applies
+   and (\ref{eq:def_counit}) follows.
+  \item
+    If $\Om$ is unital as an \Ebimod, then a counit for \EE\ is obviously {\em unique}\@.
+  \end{enumerate}
+\end{rems}
+
+
+
+\begin{lemma} \label{lem:counit:left_implies_right}
+Let\/ $\EE \equiv \EOP$ be an \context\ such that\/ $\Om$ is unital as an\/ \Ebimod\@.
+Then a left counit for\/ \EE\ is also a right counit.
+\end{lemma}
+\begin{proof}
+Let $\eps$ be a left counit for \EE\@. Then for all $x,y \in E$ and $\om \in \Om$ we have
+$$ \pairM{\eps}{(x \lact \om) \ract y}
+       = \pairM{\eps}{x \lact (\om \ract y)}
+       = \pair{x}{\om \ract y}
+       = \pair{yx}{\om}
+       = \pair{y}{x \lact \om}.  $$
+Since $E\lact\Om = \Om$, the above means that $\eps$ is also a right counit.
+\end{proof}
+
+
+
+\begin{lemma} \label{lem:counit:existence}
+Let\/ $\EE \equiv \EOP$ be an \context\ such that\/ $\Om$ is unital as an\/ \Ebimod\@.
+Assume\/ there exists an\/ $f\in \Om\adl$ such that\/ $\rho_f$ is bijective
+(with\/ $\rho_f$ as defined in proposition \ref{prop:act_by_fuctionals}.iii).
+Then there exists a counit for\/ \EE.
+\end{lemma}
+\begin{proof}
+Since $\rho_f^{-1}$ is a left $E$-module morphism, we get for all $\om \in \Om$ and $x\in E$
+$$ \pair{f}{\rho_f^{-1}(x \lact \om)}
+       \:=\: \pair{f}{x \lact \rho_f^{-1}(\om)}
+       \:=\: \pair{x}{\rho_f(\rho_f^{-1}(\om))}
+       \:=\: \pair{x}{\om},   $$
+hence $\pair{f}{\rho_f^{-1}(\,\cdot\,)}$ is a left counit for \EE\@.
+Lemma \ref{lem:counit:left_implies_right}\ yields the result.
+\end{proof}
+
+
+
+\begin{prop} \label{prop:weakly_unital}
+  Let\/ $\EE \equiv \EOP$ be an \context\ such that\/ $\Om$ is unital as an\/ \Ebimod\@.
+  Then the following are equivalent:
+  \begin{enumerate}
+     \item there exists a counit for\/ \EE
+     \item $\theta: \Om\adl \rarr \ActE$ is a bijection
+           %%%%%% (cf.\ proposition \ref{prop:act_by_fuctionals})
+     \item $\mu: \Om\mdl \rarr M(E)$ is a bijection
+     \item $E$ has a weak approximate identity
+     \item $E$ has a left weak approximate identity
+     \item within $E\tens \Om$, we have\/ $\ker(\cdot \lact \cdot) \subseteq \ker\pairing$
+     \item there exists a left counit for\/ \EE
+     \item there exists an\/ \EEdash invertible functional on\/ $\Om$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+   We show ($i\Rightarrow ii\Rightarrow iii\Rightarrow i$)
+   and \mbox{($i\Rightarrow iv\Rightarrow v\Rightarrow vi\Rightarrow vii\Rightarrow i$)}\@.
+   Finally we will prove ($i\Rightarrow viii\Rightarrow  vii$).
+\vspace{1ex}
+
+   $(i) \Rightarrow (ii)$\@.
+   Let $\eps$ be a counit for \EE.  Only surjectivity of $\theta$ is left to prove,
+   so take any actor $(\lam,\rho)\in \ActE$.
+   Then for all $\om\in \Om$ and $x,y \in E$ we have
+   $$       \pairM{\eps}{\lam(x \lact \om \ract y)}
+      \:\stackrel{\rm  (\ref{eq:def_counit})}{=}\:
+            \pairM{y}{\lam(x \lact \om)}
+      \:\stackrel{\rm  (\ref{eq:bi-actor})}{=}\:
+            \pairM{x}{\rho(\om \ract y)}
+      \:\stackrel{\rm  (\ref{eq:def_counit})}{=}\:
+            \pairM{\eps}{\rho(x \lact \om \ract y)}. $$
+   By assumption we have $E \lact \Om \ract E = \Om$, hence
+   $\lam\algtp(\eps) = \rho\algtp(\eps) \equiv f$ defines one single functional $f\in\Om'$.
+   Using $f = \lam\algtp(\eps)$ we get for all $\om\in \Om$ and $x \in E$ that
+   $$  \pair{f}{\om\ract x}
+               = \pairM{\eps}{\lam(\om \ract x)}
+               = \pairM{\eps}{\lam(\om)\ract x}
+               = \pair{x}{\lam(\om)}, $$
+   and analogously we obtain from $f=\rho\algtp(\eps)$ that
+   $\pair{f}{x \lact \om} = \pair{x}{\rho(\om)}$.
+   It follows that $f\in\Om\adl$, and proposition \ref{prop:act_by_fuctionals}.iii
+   yields $\theta(f) = \lamrho{f} = (\lam,\rho)$.
+\vspace{1ex}
+
+   $(ii) \Rightarrow (iii)$\@.
+   Again only surjectivity is left to prove;
+   take any $z\in M(E)$. Now $\Om$ is unital, so by proposition
+   \ref{prop:ME=MEE}\ we have $\jhat(z)\equiv\lamrho{z}\in \ActE$.
+   Since $\theta$ is assumed to be bijective,
+   there exists an $f\in \Om\adl$ such that $\theta(f) = \jhat(z)$,
+   or in other words, $\lamrho{f} = \lamrho{z}$.
+   Hence we get for all $x\in E$ and $\om \in \Om$
+   $$ \pair{f}{x\lact\om}
+            = \pair{x}{\rho_f(\om)}
+            = \pair{x}{\rho_z(\om)}
+        \,\stackrel{(\ref{eq:def_of_jhat})}{=}\,
+              \pair{zx}{\om}, $$
+   and similarly $\pair{f}{\om\ract x} = \pair{xz}{\om}$.
+   Since $zx$ and $xz$ are in $E$, it follows that $f$ is
+   \strictm\ continuous, i.e.\ $f \in \Om\mdl$,
+   and by proposition \ref{prop:act_by_fuctionals}.ii we have $\mu(f)=z$.
+\vspace{1ex}
+
+  $(iii) \Rightarrow (i)$\@.
+  Since $\mu$ is bijective, there exists an $\eps\in\Om\mdl$ such that $\mu(\eps)=1$.
+  %%%%%% From proposition \ref{prop:act_by_fuctionals}.ii we get
+  %%%%%% that $\eps$ is a counit for \EE.
+\vspace{1ex}
+
+  $(i) \Rightarrow (iv)$\@.
+  Let $\eps$ be a counit for \EE\@. Since $E$ is weakly dense in $\Om'$,
+  we can take a net $(e_\alpha)_{\alpha}$ in $E$ such that
+  $\pair{e_\alpha}{\om} \rarr \pair{\eps}{\om}$
+  for all $\om \in \Om$. Then we have for any $x\in E$ and $\om \in \Om$ that
+  $\pair{e_\alpha x}{\om} = \pair{e_\alpha}{x\lact\om}
+        \: \rarr \: \pair{\eps}{x\lact\om} = \pair{x}{\om}$.
+  It follows that $e_\alpha x \rarr x$ weakly, and similarly $x e_\alpha \rarr x$.
+\vspace{1ex}
+
+  $(iv) \Rightarrow (v)$\@. A fortiori.
+\vspace{1ex}
+
+  $(v) \Rightarrow (vi)$\@.
+  Let $(e_\alpha)_{\alpha}$ be a left w.a.i.\ in $E$ and take any element
+  $\sum_i x_i\tens\om_i$ in $E\tens\Om$ such that $ \sum_i x_i\lact\om_i = 0$. Then
+  $\sum_i \pair{e_\alpha x_i}{\om_i} = \sum_i \pair{e_\alpha}{x_i\lact\om_i} = 0$
+  for all $\alpha$, and since $e_\alpha x_i \rarr x_i$ weakly for every $i$,
+  we conclude that $\sum_i \pair{x_i}{\om_i} = 0$.
+\vspace{1ex}
+
+  $(vi) \Rightarrow (vii)$\@.
+  Property ($vi$) allows us to construct a {\em well-defined\/} functional $\eps$
+  on $E\lact\Om = \Om$ satisfying the left part of (\ref{eq:def_counit}).
+\vspace{1ex}
+
+  $(vii) \Rightarrow (i)$\@.
+  Lemma \ref{lem:counit:left_implies_right}.
+\vspace{1ex}
+
+  $(i) \Rightarrow (viii)$\@.
+  A counit for \EE\ is clearly \EEdash invertible
+  (cf.\ remark \ref{rem:def_of_counit}.i).
+\vspace{1ex}
+
+  $(viii) \Rightarrow (vii)$\@.
+  Lemma \ref{lem:counit:existence}\@.
+\end{proof}
+
+
+\begin{defn*} \label{def:faithful_context} \rm
+An \context\ $\EE \equiv \EOP$ is said to be {\em faithful\/}
+if it enjoys the following (obviously equivalent) conditions:
+  \begin{enumerate}
+    \item $E^2$ is weakly dense in $E$
+    \item the induced comultiplication
+          $\Delta: \Om \rarr \Om \fubtens \Om$ is injective
+    \item $\Om$ is non-degenerate as a left $E$-module, in the sense that
+          $\om \in \Om$ and $x \lact \om = 0$ for all $x\in E$ implies $\om=0$.
+  \end{enumerate}
+\end{defn*}
+
+
+\begin{defn}  \label{def:weakly_unital}
+   An \context\ $\EE \equiv \EOP$ is called {\em weakly unital\/} if
+   $\Om$ is unital as an \Ebimod\ and \EE\ satisfies the eight (equivalent)
+   conditions in proposition \ref{prop:weakly_unital}\@.
+   We will always use $\eps$ to denote the counit.
+   Observe that a weakly unital \context\ is a fortiori faithful.
+\end{defn}
+
+
+\begin{exA} \rm
+  The \contexts\ in example \ref{exA:introduction}\ are weakly unital.
+\end{exA}
+
+
+\begin{exB}  \rm
+  Recall example \ref{exB:introduction}\@. A standard result in \Cstar-algebra theory
+  states that, given $\om \in A^*$, there exist $x,y \in A$ and $\varphi, \psi \in A^*$
+  such that $\varphi(\cdot\, x) = \om = \psi(y\,\cdot)$,
+  so $A^*$ is unital as an $A$-bimodule.
+  Now every \mbox{\Cstar-algebra}\ has an approximate identity, hence
+  $\Aa$ is weakly unital.
+  Another way to see this is to consider $A^{**}$.
+  As a $W^*$-algebra, $A^{**}$ has an identity, being a counit for \Aa\@.
+%%  \hfill $\star$
+\end{exB}
+
+{\small
+Weak unitality is usually a property of an \context\ \EOP\ as a whole.
+In the next example, however, it amounts to an %%%%%% (rather strong)
+assumption on the algebra $E$ itself:}
+
+\begin{ex}  \rm
+  Let $\EOP$ be a non-degenerate \context\@. Assume $E$ to have
+  one-sided (say left) {\em local units\/} \cite{FonsDraZhang:actions,Kust:corep},
+  i.e.\ for every {\em finite\/} subset $F$ of $E$ there exists an $e\in E$ such that
+  $ex=x$ for all $x\in F$. Let $\Om_0$ denote the reduction of $\Om$ (\S \ref{sec:conventions}).
+  Then $(E; \Om_0, \pairing)$ is a weakly unital \context.
+\end{ex}
+\begin{proof}
+  By assumption $(E; \Om_0, \pairing)$ is again an \context\ (lemma \ref{lem:nondeg_context}).
+  Obviously $E^2=E$, hence $\Om_0$ is unital.
+  Let us show (vi) in proposition \ref{prop:weakly_unital}\ by taking any
+  $\sum_{i=1}^n x_i\tens\om_i$ in $E\tens\Om_0$ with $\sum_i  x_i\lact\om_i = 0$.
+  Considering a local unit w.r.t.\ the subset $\{x_1, \ldots, x_n \} \subseteq E$,
+  we easily obtain $\sum_i \pair{x_i}{\om_i} = 0$.
+\end{proof}
+
+
+\subsection{Extending the pairing}
+
+\begin{prop}
+  \label{prop:extended_pairing}
+  Let\/ $\EE \equiv \EOP$ be a weakly unital \context, and recall\/ $E$
+  identifies with a subspace of\/ \ActE\@.
+  Now there exists a non-degenerate pairing $\pair{\ActE}{\Om}$
+  naturally extending the original pairing \pair{E}{\Om}\@.
+  Explicitly, for any $a\equiv(\lam,\rho)\in \ActE$, $\om\in\Om$ and $f\in\Om\adl$ we have
+  \begin{equation} \label{eq:pairing_with_act}
+     \pair{\eps}{\lam(\om)} = \pair{a}{\om} = \pair{\eps}{\rho(\om)}
+           \itandspace{2.5em}
+     \pair{\theta(f)}{\om} = \pair{f}{\om}.
+  \end{equation}
+\end{prop}
+\begin{proof}
+  By assumption, $\theta: \Om\adl \rarr \ActE$ is a bijection,
+  transforming the obvious pairing $\pair{\Om\adl}{\Om}$ into
+  the one we are looking for.
+  The first part of (\ref{eq:pairing_with_act}) has already been observed
+  in the proof of ($i \Rightarrow ii$) in proposition \ref{prop:weakly_unital}\@.
+\end{proof}
+
+
+\begin{summary} \label{summ:weakly_unital_ids} \rm
+  Let $\EE \equiv \EOP$ be a {\em weakly unital\/} \context\@. Then
+  \begin{itemize}
+   \item $\EnvE\equiv {\rm Env} \!\left(\vertM\EE\,;\ActE\right)$ is a unital algebra
+      in which $M(\EE)\equiv {\rm Env}(\EE\,;E)$ is contained as a subalgebra.
+   \item There are {\em bijections\/}
+         \jhat, $\iota$, $\mu$, and $\theta$ such that
+   $$\begin{array}{ccccccccccccc}
+      \Om\wdl &\subseteq& \Om\mdl
+            & & &\subseteq&  &  &
+                                 \Om\adl &\subseteq& \Om'     \\
+      \makebox[1.5pt]{} \downarrow\iota & \rule{0pt}{3ex} &
+      \makebox[2.5pt]{} \downarrow\mu & &  & &
+      \makebox[2pt]{}   & &
+      \makebox[2pt]{} \downarrow\theta & &  \\
+      E &\subseteq& M(E) &\stackrel{\jhat}{\rightarrow}&
+            M(\EE) &\subseteq& \EnvE &\subseteq& \ActE &\subseteq& \PreE.
+     \end{array}  $$
+   \item \jhat\ is an algebra isomorphism, $\theta$ is an \Ebimod\ isomorphism, $\iota \subseteq \mu \subseteq \theta$.
+   \item We have a unique counit $\eps$. It satisfies
+        $\theta(\eps)=1_{\EE}$ and $\mu(\eps)=1$.
+   \item The pairing $\pair{E}{\Om}$ extends naturally to a pairing
+     $\pair{\ActE}{\Om}$. A fortiori we have (non-degenerate)
+     pairings $\pair{\EnvE}{\Om}$ and $\pair{M(E)}{\Om}$.
+  \end{itemize}
+\end{summary}
+
+
+
+\subsection{Some extra properties in the weakly unital case}
+\label{par:wu:extra}
+
+Throughout this paragraph, $\EE \equiv \EOP$ is a weakly unital \context.
+
+
+\begin{lemma}
+Let\/ $a_1 \equiv \lamrho{1}$ and\/ $a_2 \equiv \lamrho{2}$ be any two actors for\/ \EE\@.
+If\/ $a_1 a_2 = (\lam_1\lam_2, \rho_2\rho_1)$ is again an actor for \EE, then
+\begin{equation} \label{eq:canonical_actions:extended}
+     \pair{a_1}{\lam_2(\om)} \:=\: \pair{a_1 a_2}{\om} \:=\: \pair{a_2}{\rho_1(\om)}
+\end{equation}
+for all\/ $\om \in \Om$.
+\rm This follows immediately from (\ref{eq:pairing_with_act}).
+\end{lemma}
+
+
+\begin{lemma} \label{lem:char:actor:wu}
+  Let\/ $(\lam,\rho)$ be a pre-actor for \EE\@.
+  Then $(\lam,\rho)$ is an actor for \EE\
+  if and only if\/ $\pair{\eps}{\lam(\om)} = \pair{\eps}{\rho(\om)}$
+  for all\/ $\om \in \Om$.
+\end{lemma}
+\begin{proof}
+  (\ref{eq:pairing_with_act}) yields the \lq only if\rq\ part.
+  To prove the \lq if\rq\ part, recall that $\lam$ and $\rho$ are respectively
+  a right and a left $E$-module morphism, and observe that
+  $$       \pair{x}{\rho(\om \ract y)}
+     \:\stackrel{\rm (\ref{eq:def_counit})}{=}\:
+           \pair{\eps}{\rho(x \lact \om \ract y)}
+     \:=\: \pair{\eps}{\lam(x \lact \om \ract y)}
+     \: \stackrel{\rm (\ref{eq:def_counit})}{=} \:
+            \pair{y}{\lam(x \lact \om)} $$
+  for all $x,y \in E$ and $\om \in \Om$.
+  Hence $(\lam,\rho)$ enjoys the \biap.
+\end{proof}
+
+
+\begin{lemma} \label{lem:comm_implies_invertible}
+Let $a\equiv(\lam,\rho)$ be an actor for\/ \EE\ which is invertible in\/ \PreE,
+i.e.\ $\lam$ and $\rho$ are bijections.
+If\/ $\lam$ and\/ $\rho$ commute, then\/ $a$ is\/ \EEdash invertible.
+\end{lemma}
+\begin{proof}
+We have to show that $a^{-1}=(\lam^{-1},\rho^{-1})$ belongs to \ActE\ again.
+Since $\rho$ commutes with $\lam$, it also commutes with $\lam^{-1}$ and hence
+  $$  \pair{\eps}{\lam^{-1}\rho(\om)}
+        = \pair{\eps}{\rho\lam^{-1}(\om)}
+        = \pair{\eps}{\lam\lam^{-1}(\om)}
+        = \pair{\eps}{\om}
+        = \pair{\eps}{\rho^{-1}\rho(\om)}  $$
+for all $\om \in \Om$.
+Since $\rho(\Om) = \Om$, lemma \ref{lem:char:actor:wu}\ yields the result.
+\end{proof}
+
+
+\begin{lemma} \label{lem:comm_implies_prod_in_act}
+Let\/ $a_1 \equiv \lamrho{1}$ and\/ $a_2 \equiv \lamrho{2}$ be any two actors for\/ \EE\@.
+If\/ $\lam_2$ commutes with $\rho_1$, then\/ $a_1 a_2$ is again an actor for \EE\@.
+\end{lemma}
+\begin{proof}
+  Applying lemma \ref{lem:char:actor:wu}\ twice, we observe that for any $\om \in \Om$
+  $$  \pair{\eps}{\lam_1\lam_2(\om)}
+        = \pair{\eps}{\rho_1\lam_2(\om)}
+        = \pair{\eps}{\lam_2\rho_1(\om)}
+        = \pair{\eps}{\rho_2\rho_1(\om)}  $$
+ Again by lemma \ref{lem:char:actor:wu}, we conclude
+ $a_1 a_2 = (\lam_1\lam_2, \rho_2\rho_1)$ is an actor for \EE.
+\end{proof}
+\vspace{2ex}
+
+
+It is natural to ask for a {\em converse\/} to lemma \ref{lem:comm_implies_prod_in_act}\@.
+Such a converse does indeed exist, at least in some sense,
+though we have to be careful:
+
+\begin{lemma}  \label{lem:comm:converse}
+Let\/ $a_1 \equiv \lamrho{1}$ and\/ $a_2 \equiv \lamrho{2}$ be any two actors for\/ \EE\@.
+If there exists a subset\/ ${\mathcal D}$ of \ActE\ such that
+  \begin{enumerate}
+     \item ${\mathcal D}$ separates $\Om$ w.r.t.\ the pairing $\pair{\ActE}{\Om}$
+     \item $a_1 {\mathcal D}$ and ${\mathcal D} a_2$ are contained in \ActE
+     \item $a_1 {\mathcal D} a_2$ is contained in \ActE
+  \end{enumerate}
+  then $\lam_2$ commutes with $\rho_1$
+  (and consequently\/ $a_1 a_2$ is again an actor for \EE).
+\end{lemma}
+\begin{proof}
+  Let ${\mathcal D}$ be such a set and
+  take any $d \equiv (\lam,\rho) \in {\mathcal D}$\@. Then
+  $a_1 d = (\lam_1\lam, \rho\rho_1)$,
+  $a_1 d a_2 = (\lam_1\lam\lam_2,\rho_2\rho\rho_1)$
+  and $d a_2 = (\lam\lam_2, \rho_2\rho)$
+  are all actors for \EE\@. Hence
+  $$ \pair{d}{\lam_2\rho_1(\om)}
+        = \pair{\eps}{\lam\lam_2\rho_1(\om)}
+        = \pair{d a_2}{\rho_1(\om)}
+        = \pair{\eps}{\rho_2\rho\rho_1(\om)}
+        = \pair{a_1 d a_2}{\om} $$
+  $$    = \pair{\eps}{\lam_1\lam\lam_2(\om)}
+        = \pair{a_1 d}{\lam_2(\om)}
+        = \pair{\eps}{\rho\rho_1\lam_2(\om)}
+        = \pair{d}{\rho_1\lam_2(\om)}.  $$
+  for any $\om\in \Om$.
+  Since this holds for all $d\in {\mathcal D}$, the result follows from (i).
+\end{proof}
+
+\begin{remark} \label{rem:comm:converse}  \rm
+  Notice ${\mathcal D} = E$ always satisfies (i) and (ii) in the above lemma.
+  The third condition however, might fail even in case ${\mathcal D} = E$.
+  \hfill $\star$
+\end{remark}
+
+
+\begin{cor}   \label{cor:Env_comm}
+  $\:\EnvE\!$ equals the following set of actors: \rm
+  $$ \left\{ (\lam,\rho) \in \ActE  \left| \vertL\right.
+     \lam\beta  = \beta\lam  \: \mbox{ and } \:
+     \rho\alpha = \alpha\rho \:
+     \mbox { for all } \: (\alpha,\beta) \in \ActE \right\}.  $$
+\end{cor}
+\begin{proof}
+  Take any $a\equiv(\lam,\rho)\in\EnvE$ and $b\equiv(\alpha,\beta) \in \ActE$.
+  Observe that $aEb \subseteq \ActE$ and apply lemma \ref{lem:comm:converse}\
+  with ${\mathcal D}=E$. It follows that $\alpha$ commutes with $\rho$, and
+  similarly, $\lam$ with $\beta$.
+  Lemma \ref{lem:comm_implies_prod_in_act}\ yields the other inclusion.
+\end{proof}
+
+
+
+\begin{lemma}  \label{lem:invertibility_in_EnvE}
+  Let\/ $a\equiv(\lam,\rho) \in \EnvE$. Then by the above corollary,
+  $\lam$ and $\rho$ commute. Moreover the following are equivalent:
+  \begin{enumerate}
+    \item $\lam$ and $\rho$ are bijections; in other words,
+          $a$ is invertible within\/ \PreE.
+    \item $a$ is\/ \EEdash invertible.
+    \item $a$ is invertible within the algebra\/ \EnvE.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $\Rightarrow$ (ii).
+  Lemma \ref{lem:comm_implies_invertible}\@.
+(ii) $\Rightarrow$ (iii).
+  Using corollary \ref{cor:Env_comm}\ we obtain:
+  $a \in \EnvE$ and $a^{-1} \in \ActE$ implies $a^{-1} \in \EnvE$.
+(iii) $\Rightarrow$ (i).  A fortiori.
+\end{proof}
+
+
+\begin{lemma}  \label{lem:wu:commutation:invertibility}
+  Let\/ $a\equiv(\lam,\rho)$ be an actor for\/ \EE\ which is invertible in\/ \PreE\@.
+  Let\/ $A$ denote the subalgebra of\/ \PreE\ generated by\/ $\EnvE \cup \{a, a^{-1}\}$.
+  Then the following are equivalent:
+  \begin{enumerate}
+    \item $aEa \subseteq \ActE$
+    \item $\lam$ and $\rho$ commute
+    \item $A \subseteq \ActE$
+    \item $a$ is\/ \EEdash invertible and\/ $\pi_a(E) = aEa^{-1} \subseteq \ActE$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  (i) $\Rightarrow$ (ii). Lemma \ref{lem:comm:converse}\@.
+  (iii) $\Rightarrow$ (i). A fortiori.
+  (ii) $\Rightarrow$ (iii).
+  Assume $\lam\rho=\rho\lam$.
+  Lemma \ref{lem:comm_implies_invertible}\ yields that
+  $a^{-1}$ is again an actor for \EE\@.
+  We show that $a^{n_1} b_1 a^{n_2} b_2  \ldots  a^{n_k} b_k$ belongs to \ActE\
+  for all $k \geq 1$, $b_i\equiv (\alpha_i,\beta_i) \in \EnvE$ and $n_i \in {\mathbb Z}$,
+  $i=1,2,\ldots k$.
+  By corollary \ref{cor:Env_comm}, the $\alpha_i$ commute with the $\beta_j$.
+  Furthermore the $\alpha_i$ also commute with $\rho$ and with $\rho^{-1}\!$.
+  Iterating lemma \ref{lem:comm_implies_prod_in_act}\ yields the result.
+  This establishes (i $\Leftrightarrow$ ii $\Leftrightarrow$ iii).
+
+  (iii) $\Rightarrow$ (iv). A fortiori.
+  (iv)  $\Rightarrow$ (ii). Lemma \ref{lem:invertibility_comm_pi}.
+\end{proof}
+
+
+
+\subsection{Arens regularity}
+\label{Arens regularity}
+
+{\small
+\begin{exB} \rm
+Let $A$ be any Banach algebra with an identity, and consider $\Aa\equiv (A; A^*, \pairing)$
+as in example \ref{exB:normed_algebra_context}\@.
+Since $A$ is assumed to have an identity, $\Aa$ is obviously weakly unital as an \context,
+and hence $A^{*\sharp}$ identifies naturally with $\Act(\Aa)$.
+Now recall that the bidual $A^{**}$ of $A$ as a Banach space is contained in $A^{*\sharp}$
+(cf.\ example \ref{exB:weak_is_compatible}).
+On the other hand, R.\ Arens \cite{Arens}\ showed that $A^{**}$ can be made into a Banach algebra
+in {\em two\/} ways, which by definition only coincide when $A$ is {\em Arens regular}\@.
+Now it is easy to see that the two Arens products \cite{Arens,Bonsall_Duncan,civin_yood}\
+of functionals $f,g \in A^{**}$ are respectively given by $f \lam_g = \eps \lam_f \lam_g$ and
+$g \rho_f = \eps \rho_g \rho_f$.
+It follows that $A$ is Arens regular as a Banach algebra if and only if
+for all $f,g \in A^{**}$ the product $\theta(f)\theta(g) = (\lam_f \lam_g, \rho_g \rho_f)$
+belongs to $\Act(\Aa)$ again (cf.\ lemma \ref{lem:char:actor:wu}).
+In particular, if $\Act(\Aa)$ is closed under multiplication, then $A$ must be Arens regular.
+Now there exist examples of unital Banach algebras which are not Arens
+regular\footnote{e.g.\ $L^1(G)$ where $G$ is any infinite discrete abelian group
+\cite{civin_yood}\@.}, and thus we also have examples of weakly unital \contexts\ \Aa\
+with $\Act(\Aa)$ not being closed under multiplication.
+This proves the assertion in example \ref{exB:Act_not_an_algebra}\@.
+\hfill $\star$
+\end{exB}
+}

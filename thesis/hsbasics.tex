@@ -1,0 +1,383 @@
+\section{Invertible dual pairs}
+
+
+\begin{abs_chp}
+We introduce the notion of an \idpa\ and study its basic properties.
+All the \contexts\ involved turn out to be weakly unital; this will be an
+important technical advantage throughout the development of the theory.
+We also introduce antipodes and comultiplications, and show that they take
+values in the enveloping algebras associated to the appropriate
+\contexts\ (cf.\ \S \ref{par:enveloping_algebras}).
+\end{abs_chp}
+
+
+Recall example \ref{exC:introduction}, where we defined the notion of a \dpa\@.
+Whenever \pairAB\ is such a dual pair, we have \contexts\
+$\Aa \equiv (A; B, \pairing)$ and $\BB \equiv (B; A, \pairing)$.
+According to lemma \ref{lem:tens_contexts_def}\ we also have an \context
+$$ \BBAA  \,\equiv\,  \left(\vertM  B \tens A; \, A \tens B, \pairing \right). $$
+Now observe that the pairing \pairing\ between $A$ and $B$ can be viewed
+as a linear functional $\pr : A \tens B \rarr \kk: a \tens b \mapsto \pair{a}{b}$.
+Thus the following makes sense:
+
+\begin{defn_sec}  \label{def:invertible_dpa}
+A \dpa\ \pairAB\ is called {\em invertible\/} whenever its pairing $\pr$ is
+$(\BBAA)$-invertible in the sense of definition \ref{def:EE-invertibility}.
+\end{defn_sec}
+
+So if \pairAB\ is an \idpa, then $\pr \in (A \tens B)\adl$ induces a
+$(\BBAA)$-invertible actor $\theta(\pr) \equiv (\lp\,,\rp)$.
+Here \lp\ and \rp\ are bijective linear mappings from $A \tens B$ onto $A \tens B$,
+given by (cf.\ proposition \ref{prop:act_by_fuctionals}.iii)
+\begin{equation} \label{eq:def:lamP:rhoP}
+ \begin{array}{rcl}
+     \pairM{d \tens c}{\lp(a \tens b)} &=& \pairM{a \ract d}{b \ract c}
+     \\
+     \pairM{d \tens c}{\rp(a \tens b)} &\vertL=& \pairM{d \lact a}{c \lact b}
+   \end{array}
+\end{equation}
+for any $a,c \in A$ and $b,d \in B$.
+Moreover $(\lp^{-1},\rp^{-1})$ is again an actor for $\BBAA$.
+
+
+\begin{remark_sec} \rm
+It may be instructive to express this in {\em Sweedler\/} \cite{Sweedler}\ notation:
+if $\DeltaA$ denotes for instance the induced
+comultiplication\footnote{See \S \ref{par:comultiplication}\ for details.}\ on $A$,
+then we formally write $\DeltaA(a) = \sweed{a}{1} \tens \sweed{a}{2}$ etc.
+According to remark \ref{rem:theta_and_Delta},
+the mappings \lp\ and \rp\ may then be expressed as follows:
+$$\begin{array}{rcl}
+     \lp(a \tens b)  &=&        \pair{\sweed{a}{2}}{\sweed{b}{2}}
+                             \; \sweed{a}{1} \tens \sweed{b}{1}
+     \\
+     \rp(a \tens b)  &=&  \pair{\sweed{a}{1}}{\sweed{b}{1}}
+                             \; \sweed{a}{2} \tens  \sweed{b}{2}.\vertL
+   \end{array} $$
+Similar formulas exist for the inverses of \lp\ and \rp\
+(cf.\ remark \ref{rem:sweedler:inverses:lp:rp}).
+\hfill $\star$
+\end{remark_sec}
+
+
+
+\begin{remark_sec}\label{rem:warning:P_strict_cont}  \rm
+One should be well aware of the fact that \stricta\ continuity of $\pr : A \tens B \rarr \kk$
+is really part of the {\em assumption\/} here (cf.\ definition \ref{def:EE-invertibility}.i).
+Strict$\adl$ continuity of $P$ amounts to the fact that the mappings \lp\ and \rp\
+given by (\ref{eq:def:lamP:rhoP}) really go into $A \tens B$ rather than just $(B \tens A)'$.
+Invertibility in an \context\ was investigated in
+lemmas \ref{lem:invertibility_comm_pi}, \ref{lem:comm_implies_invertible},
+\ref{lem:invertibility_in_EnvE}\ and \ref{lem:wu:commutation:invertibility},
+though one should be careful with the results from \S\ref{par:wu:extra},
+since they all {\em assume\/} the \context\ to be {\em weakly unital\/}
+(see also: proposition \ref{prop:idpa:wu}\ below).
+\hfill $\star$
+\end{remark_sec}
+
+
+\begin{prop_sec} \label{prop:idpa:wu}
+If\/ \pairAB\ is an \idpa, then \Aa\ and\/ \BB\ are weakly unital in the sense of
+definition \ref{def:weakly_unital}\@.
+\rm The counit for \Aa, being a functional on $B$, will be denoted by $\epsB$.
+    Similarly $\epsA$ denotes the counit for \BB.
+\end{prop_sec}
+\begin{proof}
+First we show that $B$ is unital as an $A$-bimodule (\S\ref{sec:conventions})
+and vice versa; let us for instance prove that $B=B\ract A$.
+So choose any $b\in B$ and also take some $c\in A$ and $d\in B$ such that $\pair{c}{d}=1$.
+Since \rp\ is surjective, we can write $c \tens b = \sum_i \,\rp (p_i \tens q_i)$
+with $p_i \in A$ and $q_i \in B$. Then for all $a\in A$
+\begin{eqnarray*}
+\pair{a}{b} &=& \pairM{d \tens a}{c \tens b}
+      \\  &=&  \textstyle \sum_i \,  \pairM{d \tens a}{\rp (p_i \tens q_i)}
+      \\  &=&  \textstyle \sum_i \,  \pairM{d \lact p_i}{a \lact q_i}
+      \\  &=&  \textstyle \sum_i \,  \pairM{(d \lact p_i)\, a}{q_i}
+      \\  &=&  \textstyle \sum_i \,  \pairM{a}{q_i \ract (d \lact p_i)}
+\end{eqnarray*}
+hence $b=\sum_i \, q_i \ract (d \lact p_i)$ belongs to $B\ract A$.
+It follows that $A \tens B$ is unital as a $(B\tens A)$-bimodule,
+hence according to proposition \ref{prop:weakly_unital}.viii, \BBAA\ is weakly unital.
+Now proposition \ref{prop:tensor:wu}\ yields the result.
+\end{proof}
+
+\begin{cor_sec} \label{cor:hs:everything_is_wu}
+Everything in survey \ref{summ:weakly_unital_ids}\ and \S\ref{par:wu:extra}\
+applies not only to the \contexts\ \Aa\ and\/ \BB, but also to all the
+tensor products constructed from them, e.g.\/ \BBAA, \AAAA, etc.
+\rm We will tacitly adopt all the identifications shown in the diagram in
+    survey \ref{summ:weakly_unital_ids}, e.g.\ we will no longer explicitly
+    distinguish the functional $P$ from the actor $(\lp\,,\rp)$ unless confusion is likely.
+    Similarly we identify e.g.\ the counit $\epsA$ with the actor $1_\BB =(\id_A,\id_A)$, etc.
+    Furthermore we will extensively rely on (\ref{eq:pairing_with_act}) and
+    (\ref{eq:canonical_actions:extended}),
+    and whenever it is allowed, we shall exploit the notational convenience offered by
+    (\ref{eq:natural_actions_implemented}) and remark \ref{rem:module_notation_for_Env}\@.
+\end{cor_sec}
+
+
+\begin{defn_sec}  \label{def:antipode}
+Let \pairAB\ be any \idpa\@. We define linear mappings $\SA: A\rarr B'$
+and $\SB: B\rarr A'$ requiring that
+\begin{equation}\label{eq:def:antipodes}
+ \pair{\SA(a)}{b} \:=\: \pair{P^{-1}}{a \tens b} \:=\: \pair{a}{\SB(b)}
+\end{equation}
+for all $a \in A$ and $b \in B$.
+Observe (\ref{eq:def:antipodes}) makes sense because also $P^{-1}$ is an actor for \BBAA\
+(cf.\ definition \ref{def:invertible_dpa}\ and corollary \ref{cor:hs:everything_is_wu}).
+We say that $\SA$ and $\SB$ are the {\em antipodes\/} on $A$ and $B$.
+\end{defn_sec}
+
+
+
+\begin{remark_sec} \label{rem:sweedler:inverses:lp:rp} \rm
+Now also the inverses of \lp\ and \rp\ may be expressed in Sweedler notation:
+$$\begin{array}{rcl}
+     \lp^{-1}(a \tens b)  &=&        \pair{\SA(\sweed{a}{2})}{\sweed{b}{2}}
+                                  \; \sweed{a}{1} \tens \sweed{b}{1}
+     \\
+     \rp^{-1}(a \tens b)  &=&  \pair{\SA(\sweed{a}{1})}{\sweed{b}{1}}
+                                  \; \sweed{a}{2} \tens \sweed{b}{2}. \vertL
+   \end{array} $$
+\end{remark_sec}
+
+
+
+\begin{lemma_sec} \label{lem:commutation:id_tens_lamP}
+Let\/ \pairAB\ be an\/ \idpa, and consider also any weakly unital actor context\/
+$\EE \equiv \EOP$.
+Now take any \mbox{pre-actor}\ $(\alpha,\beta)$ for\/ $\EE \tens \BB$
+and consider\/ $\id \tens \lp$ and\/ $\beta \tens \id$ as mappings on\/
+$\Om \tens A \tens B$.
+Then\/ $\id \tens \lp$ commutes with\/ $\beta \tens \id$.
+Similarly\/ $\id \tens \rp$ commutes with\/ $\alpha \tens \id$.
+\end{lemma_sec}
+
+\begin{proof}
+Take any\/ $a,c\in A$ and\/ $b,d\in B$ and\/ $x\in E$ and\/ $\om\in \Om$.
+Then we can write $\lp(a \tens b) = \sum_i \,p_i \tens q_i$ with $p_i \in A$ and $q_i \in B$.
+An easy computation (similar to the proof of proposition \ref{prop:idpa:wu})
+shows that $\sum_i \, \pair{c}{q_i}\,p_i = (b \ract c) \lact a$, hence
+\begin{eqnarray*}
+     \pairM{x \tens d \tens c}{(\beta \tens \id)(\id \tens \lp)(\om \tens a \tens b)}
+  &=&
+    \textstyle \sum_i \, \pairM{x \tens d}{\beta(\om \tens p_i)} \pairM{c}{q_i}
+\\&=&
+    \pairM{x \tens d}{\beta\left(\vertM \om \tens (b \ract c) \lact a \right)}
+\\&=&
+    \pairM{x \tens d (b \ract c)}{\beta(\om \tens a)}.
+\end{eqnarray*}
+To obtain the last equality we used an analogue of lemma \ref{lem:action_of_xtens1}\@.
+
+Now write $\beta(\om \tens a)= \sum_j \,\om_j \tens a_j$ with $\om_j\in\Om$ and  $a_j \in A$.
+Then we have
+\begin{eqnarray*}
+ \pairM{x \tens d \tens c}{(\id \tens \lp)(\beta \tens \id)(\om \tens a \tens b)}
+   &=&
+      \textstyle \sum_j \, \pairM{x}{\om_j} \pairM{d \tens c}{\lp(a_j \tens b)}
+ \\&=&
+      \textstyle \sum_j \, \pairM{x}{\om_j} \pairM{a_j \ract d}{b\ract c}
+ \\&=&
+      \textstyle \sum_j \, \pairM{x \tens d(b\ract c)}{\om_j \tens a_j}
+\end{eqnarray*}
+and the result follows.
+\end{proof}
+
+\begin{cor_sec}
+Let\/ \pairAB\ be any\/ \idpa\@.
+If\/ $(\alpha,\beta)$ is a pre-actor for\/ \BB, then\/ $\lp$ commutes with\/ $\beta \tens\id$,
+hence also\/ $\lp^{-1}$ commutes with\/ $\beta \tens \id$.
+Similarly\/ $\rp$ and $\rp^{-1}$ commute with\/ $\alpha \tens \id$.
+\end{cor_sec}
+\begin{proof}
+In the above lemma, let \EE\ be the trivial \context\ $(\kk; \kk, \pairing)$.
+\end{proof}
+
+
+
+\begin{prop_sec}
+Let\/ \pairAB\ be an \idpa\@.
+Then the antipodes on $A$ and\/ $B$ can be viewed as linear mappings
+$$ \SA : A \rarr \Env(\Aa)     \hspace{9em}
+   \SB : B \rarr \Env(\BB). $$
+In fact, in the sense of notation \ref{not:slicing_on_Act}, we have
+for any $a \in A$ and $b \in B$ that
+\begin{equation}\label{eq:antipodes:slice:Pinverse}
+    \SA(a) \,=\,  (f_a \slice \, \id)(P^{-1})
+                     \hspace{5em}
+    \SB(b) \,=\,  (\id\, \slice f_b)(P^{-1}).
+\end{equation}
+\end{prop_sec}
+
+\begin{proof}
+Combine the above corollary with propositions
+\ref{prop:slicing_on_Act}\ and \ref{prop:slices_in_Env}\@.
+\end{proof}
+
+
+\begin{notation_sec} \rm
+We assume the reader to be more or less familiar with the {\em leg-numbering\/} notation
+\cite{BS}\ for tensor products, e.g.\ if we consider $\BB \tens \BB \tens \Aa$,
+then by $P_{23}$ we mean the actor $\Phi(1_\BB \tens P)$
+with $\Phi$ as in lemma \ref{lem:tens_embedding}, etc.
+Further\-more we occasionally appeal to proposition \ref{prop:tensor_embedding_Env},
+although usually we will suppress the map $\Phi$ in our notation.
+\hfill $\bullet$
+\end{notation_sec}
+
+
+
+\begin{lemma_sec} \label{lem:P13P23actor}
+Let\/ \pairAB\ be any \idpa\@.
+Then\/ $P_{12} P_{13}$ is an actor for\/ $\BB \tens \Aa \tens \Aa$.
+Similarly\/ $P_{13} P_{23}$ is an actor for\/ $\BB \tens \BB \tens \Aa$.
+\end{lemma_sec}
+
+\begin{proof}
+Use lemma \ref{lem:commutation:id_tens_lamP}\ with $\EE=\Aa$ and
+$(\alpha,\beta) = \flip(P)$ where $\flip$ is the obvious flip map from
+$\Act(\BBAA)$ into $\Act(\AABB)$.
+Rearranging the \lq legs\rq\ a little bit, we conclude that
+$(\lp)_{13}$ and $(\rp)_{12}$ commute.
+Now invoke lemma \ref{lem:comm_implies_prod_in_act}.
+\end{proof}
+\vspace{2ex}
+
+
+
+\paragraph{Comultiplications}
+Before we enter this subject, we like to emphasize that comultiplications
+are obsolete in our approach. However we shall pay some attention to them,
+thus improving the link with Hopf algebra theory.
+
+Whenever \pairAB\ is an \idpa, we have weakly unital \contexts\ \Aa\ and \BB, and therefore
+also weak comultiplications (\S\ref{par:comultiplication}, \S\ref{app:fubini})
+$$  \DeltaA : A \rarr A \fubtens A
+                 \andspace{4em}
+    \DeltaB : B \rarr B \fubtens B.  $$
+Recall that $A \fubtens A$ and $\Act(\AAAA)$ are both contained in $(B \tens B)'$.
+Therefore the following makes sense:
+
+\begin{prop_sec} \label{prop:comultiplications_in_Env}
+Let\/ \pairAB\ be any \idpa\@.
+Then the comultiplications on $A$ and\/ $B$ can be viewed as linear mappings
+$$ \DeltaA : A \rarr \Env(\AAAA)     \hspace{7em}
+   \DeltaB : B \rarr \Env(\BBBB). $$
+In fact, in the sense of notation \ref{not:slicing_on_Act}, we have
+for any\/ $a \in A$ and\/ $b \in B$ that
+\begin{equation}\label{eq:comultiplications:slice:Pinverse}
+    \DeltaA(a) \,=\,  (f_a \slice \, \id)(P_{12} P_{13})
+                     \hspace{4em}
+    \DeltaB(b) \,=\,  (\id\, \slice f_b)(P_{13} P_{23}).
+\end{equation}
+\rm Observe that these formulas make sense because of lemma \ref{lem:P13P23actor}.
+\end{prop_sec}
+
+\begin{proof}
+Let's prove the second formula. Take any $b\in B$ and $a,c\in A$, and write
+$\lp(c \tens b) = \sum_i \,p_i \tens q_i$ with $p_i \in A$ and $q_i \in B$.
+An easy computation using (\ref{eq:def:lamP:rhoP}) shows that
+$\sum_i \, \pair{a}{q_i}\, p_i = (b \ract a) \lact c$.
+
+Appealing to proposition \ref{prop:slicing_on_Act}\
+(with $\EEone=\BBBB$ and $\EEtwo=\Aa$) we obtain
+\begin{eqnarray*}
+    \pairM{(\id\, \slice f_b)(P_{13} P_{23})}{a \tens c}
+&=&
+    \pairM{P_{13} P_{23}}{a \tens c \tens b} \\
+&=&
+    \pairM{P_{13}}{a \tens \lp(c \tens b)} \\
+&=&
+    \textstyle \sum_i \, \pairM{P_{13}}{a \tens p_i \tens q_i} \\
+&=&
+    \textstyle \sum_i \, \pairM{a}{q_i} \pairM{1_\BB}{p_i} \\
+&=&
+    \pairM{1_\BB}{(b \ract a) \lact c} \\
+&=&
+    \pairM{b}{ac} \\
+&=&
+    \pairM{\DeltaB(b)}{a \tens c}.
+\end{eqnarray*}
+We still have to show that $\DeltaB(b)$ belongs to $\Env(\BBBB)$.
+Therefore, take any actor $(\alpha,\beta)$ for $\BBBB$.
+From lemma \ref{lem:commutation:id_tens_lamP}\ we obtain that
+$\beta \tens \id$ commutes with $(\lp)_{13}$ and $(\lp)_{23}$,
+and hence also with $(\lp)_{13} (\lp)_{23}$.
+Similarly $\alpha \tens \id$ commutes with $(\rp)_{23} (\rp)_{13}$.
+Proposition \ref{prop:slices_in_Env}\ yields the result.
+\end{proof}
+\vspace{2ex}
+
+
+Recalling remarks \ref{rem:weak_fubtens}.i and \ref{rem:fubtens_of_maps}.iv\
+in appendix \ref{app:fubini}, we can construct mappings
+$$ \id\, \fubtens \DeltaA : B \fubtens A  \rarr B \fubtens A \fubtens A
+         \andspace{2em}
+   \DeltaB \fubtens\, \id : B \fubtens A  \rarr B \fubtens B \fubtens A. $$
+Obviously the pairing $P$ belongs to $B \fubtens A$,
+hence the following makes sense:
+
+\begin{prop_sec}
+If\/ \pairAB\ is an \idpa, then
+$$ (\id \,\fubtens \DeltaA)(P) = P_{12} P_{13}
+          \andspace{3em}
+   (\DeltaB \fubtens \, \id)(P) = P_{13} P_{23}.  $$
+\end{prop_sec}
+
+\begin{proof}
+Recalling the proof of the previous proposition, we obtain that
+$$  \pairM{P_{13} P_{23}}{a \tens c \tens b}
+   \:=\:
+    \pair{b}{ac}
+   \:=\:
+    \pairM{P}{ac \tens b}
+   \:=\:
+    \pairM{(\DeltaB \fubtens\, \id)(P)}{a \tens c \tens b}  $$
+for all $b\in B$ and $a,c\in A$.
+\end{proof}
+\vspace{2ex}
+
+
+The following lemma will be useful in constructing a quantum double
+(\S \ref{par:construction_qdouble}).
+
+
+\begin{lemma_sec} \label{lem:from_dpa_to_invertible_dpa}
+Let\/ \pairAB\ be a \dpa\ and assume\/ \Aa\ and\/ \BB\ to be weakly unital.
+If there exist linear bijections\/ $\lam$ and\/ $\rho$ from\/ $A\tens B$ onto\/ $A\tens B$
+such that\/ $(\epsA\tens \epsB)\lam^{-1} = (\epsA\tens \epsB)\, \rho^{-1}$ and,
+for all\/ $a\in A$ and\/ $b,d \in B$,
+$$ \begin{array}{lcl}
+   (\epsA \tens \id)\lam(a \tens b) \,=\, a \lact b
+&\hspace{1.5em}&
+   \lam\!\left((a \ract d) \tens b \vertM\right)
+      \,=\, \left(( \,\cdot \,\ract d) \tens \id \vertM\right) \! \lam(a \tens b)
+\\
+   (\epsA \tens \id)\,\rho(a \tens b) \,=\, b \ract a
+&&
+   \rho\!\left((d \lact a)  \tens b \vertM\right)
+      \,=\, \left((d \lact \,\cdot \,) \tens \id \vertM\right) \! \rho(a \tens b)
+   \vertXL
+\end{array}$$
+then\/ \pairAB\ is an \idpa, with\/ $\lp=\lam$ and\/ $\rp=\rho$.
+\end{lemma_sec}
+\begin{proof}
+Observe that for any $a,c \in A$ and $b,d \in B$ we have
+\begin{eqnarray*}
+\pairM{d \tens c}{\lam(a \tens b)}
+&=&
+\pairM{c}{\left(\epsA( \,\cdot \,\ract d) \tens \id \vertM\right) \! \lam(a \tens b)}
+\\&=&
+\pairM{c}{(\epsA \tens \id) \lam\!\left((a \ract d) \tens b \vertM\right)}
+\\&=&
+\pairM{c}{(a \ract d) \lact b}
+\\&=&
+\pairM{c(a \ract d)}{b}
+\\&=&
+\pairM{a \ract d}{b \ract c}.
+\end{eqnarray*}
+Similarly we show $\pairM{d \tens c}{\rho(a \tens b)} = \pairM{d \lact a}{c \lact b}$.
+It follows that the pairing $P:A \tens B \rarr \CC$ is \stricta\ continuous,
+and $\theta(P) = (\lam,\rho)$ is the corresponding actor for \BBAA\@.
+Eventually lemma \ref{lem:char:actor:wu}\ yields $(\BBAA)$-invertibility.
+\end{proof}

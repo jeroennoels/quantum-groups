@@ -1,0 +1,141 @@
+
+\chapter{Some technical results}
+\label{app:technical}
+
+
+\begin{lemma_chp} \label{lemma:UqTG_separates_Aq}
+ If\/ \Gtau\ satisfies assumptions \ref{assume:Gr}, then\/ \UqTG\ separates\/ \Aq\
+ within the duality.
+\end{lemma_chp}
+\begin{proof}
+  Take any $\xi \in \Aq$, say $\xi = \sum_{l,m,n} w_{l,m,n}\, \alpha^l \beta^m \gamma^n$
+  with
+  $$ w :\, \ZZ \times \NN \times \NN \rarr \kk : \,(l,m,n) \mapsto w_{l,m,n}$$
+  having finite support, such that $\pairM{\UqTG}{\xi} = \{0\}$.
+  We shall prove that $\xi$ must be zero. We know that
+  $\pair{\Upsilon(f \tens g)\, b^k}{\xi} = 0$
+  for all $f\in K^\evenodd(\Zt)$, all $g\in \calG^\evenodd$ and all $k\in \NN$.
+  According to (\ref{eq:pairing:Uqext:Aq}) and lemma
+  \ref{lemma:Upsilon}, this means
+  $$  \sum_{l,m,n} \; w_{l,m,n}\, \delta_{m,n+k} \:\mu_n(g)\,
+         f \!\left(-(l+m-n)\theta\vertM\right) \,
+         q^{\frac{1}{2}l(m+n)} \,\qfac{m}\, \qfac{n} \:=\: 0. $$
+  Eliminating summation over $m$, we get
+  $$  \sum_{l} \: q^{\frac{1}{2}l k}\, f \!\left(-(l+k)\theta\vertM\right) \:
+      \sum_{n} \: w_{l,n+k,n}\: \mu_n(g)\,
+          q^{l n} \,\qfac{n+k}\, \qfac{n}\: =\: 0, $$
+  still for all $f,g$ and $k$ as above. Now fix any $k_0\in\NN$ and
+  $l_0 \in \ZZ$ for a while. Let's assume for instance that $k_0 + l_0$ is even
+  (the odd case is similar). Then we can take $f\in \KZeven$ to be the
+  function which has value $1$ in $-(k_0 + l_0) \theta$ and
+  zero otherwise. It follows that for all $g\in \Geven$
+  $$ \sum_{n \in \NN}\: w_{l_0,n+k_0,n}\, \mu_n(g)\,
+           q^{l_0 n} \,\qfac{n+k_0}\, \qfac{n} \:= \: 0. $$
+  Now we set $N(l_0, k_0) = \max
+                 \{ n \in \NN  \mid  w_{l_0,n+k_0,n} \neq 0 \}.$
+  Merely from the fact \Geven\ is non-trivial and
+  $\{\Psi,D_{q^2}\}$-invariant it follows easily that,
+  given any $n_0 \in \NN$ with $n_0 \leq N(l_0, k_0)$, there exists an
+  element in \Geven, say $g_{n_0}$, such that
+  $$  \mu_n\left(g_{n_0}\right)\:=\: \left\{ \!
+          \begin{array}{ll}
+                0 & \mbox{ if $n\neq n_0$ and $n\leq N(l_0, k_0)$}, \\
+                1 & \mbox{ if $n=n_0$}.
+          \end{array} \right. $$
+  Hence for all  $n_0 \in \NN$ with $n_0 \leq N(l_0, k_0)$ we have
+  $$w_{l_0,n_0+k_0,n_0}\, q^{l_0 n_0} \,\qfac{n_0+k_0}\, \qfac{n_0} \:=\: 0. $$
+  Now this must hold for any $k_0\in\NN$ and $l_0 \in \ZZ$,
+  and after cancelling all non-zero factors we eventually conclude that
+  $w_{l_0,n_0+k_0,n_0} = 0$ for all $n_0,k_0\in\NN$
+  and $l_0 \in \ZZ$. In other words, $w_{l,m,n} = 0$
+  for $m,n\in\NN$ with $m\geq n$ and all $l \in \ZZ$.
+
+  Analogously $\pair{\Upsilon(f \tens g)\, c^k}{\xi} = 0$
+  (for $f,g$ and $k$ as before)
+  implies $w_{l,m,n} = 0$ for $m,n\in\NN$ with $m\leq n$ and all $l \in
+  \ZZ$. Hence $w=0$.
+\end{proof}
+
+
+
+
+\paragraph{Completing the proof of theorem \ref{thm:combine_results}}
+%
+%
+First take any $x \in \Uq \!\left(\calL(\Gtau')\vertM\right)$ and assume
+$\varphi(x\, \Uq) = \{0\}$ (cf.\ remark \ref{rem:Fourier_transform}.iii).
+Expand $x$ as in (\ref{eq:expansion_element_of_UqTG}),
+but now with $X_m, Y_n \in \calL(\Gtau')$.
+Fix any $m_0\in \NN$ and consider, for any $p\in \ZZ$ and $r\in\NN$,
+\begin{eqnarray*}
+x\,a^p b^r c^{m_0+r}
+  &=& \hspace{0.5em}
+\sum_{m=0}^\infty \;
+    q^{-pm}\, \Upsilon\!\left((\Phi^p \tens \id)X_m\vertM\right) b^{m+r} c^{m_0+r}
+\\&& \!\!\! + \;
+\sum_{n=1}^\infty \; q^{pn}\,
+              \Upsilon\!\left((\Phi^p \tens \id)Y_n\vertM\right) b^r c^{n+ m_0 +r}
+\end{eqnarray*}
+Here we have used proposition \ref{prop:Upsilon:commutation_rules}\@.
+Next recall how (\ref{eq:Upsilon:commutation_rules})
+allows us to handle powers of $bc$.
+Since $\varphi$ vanishes on (\ref{eq:haar:Uq:zero}), only one term of
+the above expression will survive applying $\varphi$. We obtain
+\begin{equation}\label{eq:Uq:moment_problem}
+   0 \: = \: \varphi\!\left(x\,a^p b^r c^{m_0+r}\vertM\right)
+     \: = \: q^{-pm_0}\, \varphi\!\left(\Upsilon \!\left((\Phi^p \tens \Psi^{m_0+r})X_{m_0}
+                     \vertM  \right)\!\vertL\right)
+\end{equation}
+for all $p\in \ZZ$ and $r\in\NN$. Since $X_{m_0} \in \calL(\Gtau')$, we can write
+$$ \textstyle X_{m_0} \:=\:
+               \left(\sum_i \: f_i^\scripteven \tens g_i^\scripteven\vertL\right)
+   \: \oplus\: \left(\sum_j \:f_j^\scriptodd  \tens g_j^\scriptodd \vertL\right) $$
+where $i$ and $j$ run through finite index sets,
+the $f_{\scriptscriptstyle i \,{\rm or}\,j}^\evenodd$ belong to $K^\evenodd(\Zt)$ and
+the $g_{\scriptscriptstyle i \,{\rm or}\,j}^\evenodd$ belong to $\Gtau^{\prime \,\evenodd}$
+(recall that $\evenodd$ means: even and odd {\em respectively\/}).
+The $f_i^\scripteven$ and $f_j^\scriptodd   \vertM$ can and {\em will\/} be assumed
+to be linearly independent.
+
+Now (\ref{eq:Uq:moment_problem}) becomes:
+$$  \textstyle
+      \sum_i \, \lameven(\Phi^p f_i^\scripteven) \, \chieven(\Psi^{m_0+r} g_i^\scripteven)
+ \:+\:\sum_j \, \lamodd(\Phi^p f_j^\scriptodd)   \, \chiodd(\Psi^{m_0+r} g_j^\scriptodd)
+ \:=\:0.$$
+Defining
+$$ \textstyle  F_r \;=\;
+        \sum_i \:\chieven\!\left(\Psi^{m_0+r} g_i^\scripteven\vertM \right) f_i^\scripteven
+  \:+\: \sum_j \:\chiodd \!\left(\Psi^{m_0+r} g_j^\scriptodd\vertM \right)  f_j^\scriptodd, $$
+we obtain functions $F_r$ on $\Zt$ with finite support, enjoying
+$\sum_{k \in \ZZ} \, e^{pk\theta} F_r(k\theta) = 0$
+for all $p\in \ZZ$ and $r\in\NN$.
+It follows easily that $F_r=0$, for any $r\in\NN$, and hence
+$\chieven(\Psi^{m_0+r} g_i^\scripteven) = 0$ and
+$\chiodd(\Psi^{m_0+r} g_j^\scriptodd) =0$,
+or equivalently
+$$ \sum_{n\in\ZZ} \, \left(\Psi^r(\Psi^{m_0} g_i^\scripteven)\vertM \right)
+           (\tau q^{2n})\, q^{2n} = 0 $$
+and
+$$ \sum_{n\in\ZZ} \, \left(\Psi^r(\Psi^{m_0} g_j^\scriptodd)\vertM \right)
+           (\tau q^{2n+1})\, q^{2n+1} = 0, $$
+for all $i,j$ and all $r\in\NN$.
+Now from assumption (iii) it follows already that $\Psi^{m_0} g_i^\scripteven=0$
+and hence $g_i^\scripteven=0$ for all $i$.
+Furthermore, since $\Omega\Psi^r = q^r\, \Psi^r \Omega$,
+we have
+$$  q^{r+1} \sum_{n\in\ZZ} \, \left(\Psi^r(\Omega\Psi^{m_0} g_j^\scriptodd)\vertM \right)
+              (\tau q^{2n})\, q^{2n} = 0 $$
+for all $r\in\NN$. Hence also $g_j^\scriptodd=0$ for all $j$.
+This proves $X_{m_0}=0$.
+Analogously, considering $\varphi \!\left(x\,a^p b^{n_0+r}c^r \vertM\right)=0$
+for $n_0\in \NN_0$, it follows that \mbox{$Y_{n_0}=0$}\@.
+Since $m_0$ and $n_0$ were chosen arbitrarily, we conclude that $x=0$.
+
+On the other hand, let $\xi\in \Aq(\calG_\nu')$ be such that $\omega(\Aq \xi)=\{0\}$.
+We can write
+$$ \xi = \sum_{l \in \ZZ} \: \alpha^l \left(
+         \sum_{\:m=0}^\infty \, \gamma^m \, g_{m,l}(\gamma^*\gamma)
+   \:+\: \sum_{n=1}^\infty   \: (\gamma^*)^n \,h_{n,l}(\gamma^*\gamma) \right). $$
+with only finitely many non-zero $g_{m,l}, \,  h_{n,l} \in \calG_\nu'$.
+Using (iii) we get $\xi=0$.
+\hfill \qed

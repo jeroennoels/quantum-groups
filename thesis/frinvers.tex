@@ -1,0 +1,197 @@
+
+
+\begin{defn_sec}
+Let $\delta_0$ be the function $\delta_0: \Zt \rarr \CC$ given by
+$\delta_0(k\theta)=\delta_{k,0}$ for $k\in\ZZ$. Clearly $\delta_0$ belongs to
+\KZeven\@. Next let $T_0$ denote the map from \HC\ into $\FZ \tens \HC$ given
+by tensoring with $\delta_0$ on the left, i.e.\ $T_0(g)=\delta_0 \tens g$.
+Finally, for any $k\in\ZZ$, let $P_k$ denote the map $P_k : \FZ \rarr \FZ$
+given by  $(P_k f)(l\theta)=\delta_{k,l} f(l\theta)$ for $l\in\ZZ$ and
+$f\in\FZ$.
+\end{defn_sec}
+
+
+The following lemma is trivial but important;
+it is similar to lemma \ref{lemma:slice_map:parity}\@.
+
+
+\begin{lemma_sec} \label{lemma:T_0:parity}
+The mapping\/ $T_0$ maps\/ $\Hcore_\tau$ into\/
+$\KZeven \tens \Hcore_\tau^\scripteven \, \subseteq \, \calL(\Hcore_\tau)$.
+\end{lemma_sec}
+
+
+
+\begin{defn_sec}  \label{def:Htil}
+First recall definition \ref{def:YaH}\@.
+For any $m,k\in\ZZ$, we define a linear mapping $\Htil{m}{k}$
+from $\Hcore_\nu$ into $\calL(\Hcore_\tau)$ as follows:
+$$ \Htil{m}{k} \;=\;
+   \kq(m,k)^{-1} \, (\Gamma^{-1} \tens \Omega)^{-k}\,
+                T_0\, \Lambda_\tau \, \holH{m} \, \Lambda_\nu^{-1}. $$
+Observe that because of the previous lemma, $\Htil{m}{k}$ indeed ends up in
+$\calL(\Hcore_\tau)$.
+\end{defn_sec}
+
+
+
+
+\begin{lemma_sec}
+Take\/ $m,k,l\in\ZZ$. Then
+$$ \YaH{m}{k} \,\Htil{m}{l} \;=\; \delta_{k,l} \,\id
+        \itandspace{3em}
+   \Htil{m}{k} \,\YaH{m}{k} \;=\; P_k \tens \id$$
+and hence
+$$ \sum_{k\in\ZZ}\: \Htil{m}{k}\, \YaH{m}{k} X  \:=\: X $$
+for any\/ $X\in \calL(\Hcore_\tau)$.
+\end{lemma_sec}
+Notice that the last formula makes sense because of lemma \ref{lemma:finite_support}\@.
+\vspace{1ex}
+
+{\em Proof.}
+Recall that $\holH{m}^{2} = \id$ and observe that
+\begin{eqnarray*}
+      T_0 (\evzero \tens \id)  &=&  P_0 \tens \id
+\\
+\vertXL\hspace{1em}
+        (\evzero \tens \id) (\Gamma^{-1} \tens \Omega)^{k-l}T_0
+             &=& \delta_{k,l} \: \id.   \hspace{2em} \qed
+\end{eqnarray*}
+
+
+
+
+
+\begin{prop_sec}  \label{prop:Eq2:Fourier:bijections}
+The Fourier transforms\/ $\FRabb$ and\/ $\FLabb$
+(cf.\ definition \ref{def:Eq2:Fourier_transforms}) are bijections from\/
+$\Uq\!\left( \vertM \calL(\Hcore_\tau)\right)$ onto\/ $\Aq(\Hcore_\nu)$.
+Their inverses are given by
+$$\begin{array}{lcr}
+     \FRabb^{-1} \!\left(  \alpha^l \gamma^m \, g(\gamma^*\gamma) \vertL \right)
+&=&
+     \Upsilon \!\left(\Htil{m}{l-m}\,g \right) b^m   \vertXL
+\\
+     \FRabb^{-1} \!\left(  \alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+     \Upsilon \!\left(\Htil{-m}{l+m}\,g \right) c^m  \vertXL
+\\
+     \FLabb^{-1} \!\left(  \alpha^l \gamma^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+     q^{-2l} \: \Upsilon \!\left(\Htil{m}{l-m}\,g \right) b^m  \vertXL
+\\
+     \FLabb^{-1} \!\left(  \alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertL \right)
+&=&
+     q^{-2l} \: \Upsilon \!\left(\Htil{-m}{l+m}\,g \right) c^m  \vertXL
+\end{array} $$
+\end{prop_sec}
+
+
+
+\begin{lemma_sec} \label{lemma:Eq2:lambdaiszeta}
+We have\/ $\pair{1_{\Uq}}{\FLabb(x)} = \varphi(x)$
+for any\/ $x\in \Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$.
+\end{lemma_sec}
+
+\begin{proof}
+Using proposition \ref{prop:moment:link_with_Hankel}\ we get for
+all $X\in \calL(\Hcore_\tau)$ and $m\in \NN$ that
+\begin{eqnarray*}
+    \lefteqn{ \left\langle 1_{\Uq} ,\: \FLabb
+              \!\left(\vertM\Upsilon(X)\, b^m\right)\right\rangle}
+\\&=&
+    \sum_{k\in\ZZ} \;  \left\langle 1_{\Uq} ,\: (q^2 \alpha)^{k+m}\, \gamma^m
+               \left(\YaH{m}{k}\,X\right)(\gamma^*\gamma) \right\rangle
+\\&=&
+     \sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k} \left(\YaH{0}{k}\,X\right)(0)
+\\&=&
+     \sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k} \left(\holH{0} \, \Lambda_\tau^{-1}\,
+         (\evzero \tens \id)\,(\Gamma^{-1} \tens \Omega)^k X \vertL\right)(0)
+\\&=&
+     \sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}  \frac{1}{1-q^2} \int_0^\infty
+     \! \left(\Lambda_\tau^{-1}\, (\evzero \tens \id)\,
+           (\Gamma^{-1} \tens \Omega)^k X \vertL\right)(x) \: d_{q^2}x
+\\&=&
+     \sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}  \frac{1}{1-q^2} \int_0^\infty
+        X(k\theta,\, \tau q^k x) \: d_{q^2}x
+\\&=&
+     \sum_{k\in\ZZ} \; \delta_{m,0} \, q^{2k}
+     \sum_{n\in\ZZ}   X(k\theta,\, \tau q^k q^{2n}) \, q^{2n}
+\\&=&
+     \delta_{m,0} \!\! \sum_{(k,l)\, \in \,\mathfrak{S}}
+          X(k\theta,\, \tau q^l) \, q^{k+l}
+\\&=&
+\varphi \!\left(\vertM\Upsilon(X)\, b^m\right).
+\end{eqnarray*}
+At the last but one equality we rearranged the sums according to the rule $k+2n=l$.
+Similarly we can treat $\Upsilon(X)\, c^m$.
+\end{proof}
+\vspace{2ex}
+
+
+
+The previous lemma provides the condition in
+proposition \ref{prop:inverse_Fourier_transform}, yielding
+
+
+\begin{prop_sec} \label{prop:Eq2:Fourier:inverse}
+$\;\GLR = S \FLabb^{-1}$ is an {\scriptsize LR} Fourier transform from
+$\Aq(\Hcore_\nu)$ to $\Uq\!\left( \vertM \calL(\Hcore_\tau)\right)$.
+\end{prop_sec}
+
+
+From the general observations in chapter \ref{chapter:algebraic_harmonic_analysis}\
+we also obtain all the other Fourier transforms from $\Aq(\Hcore_\nu)$ to
+$\Uq\!\left( \vertM \calL(\Hcore_\tau)\right)$, as well as the appropriate Plancherel
+identities for $\GLR$ and $\GRL$ (observe however that $\GLL$ and
+$\GRR$ do {\em not\/} obey a Plancherel formula).
+
+
+
+\paragraph{Even-odd structure and double covering, continued}
+
+Let's complete the investigation that was taken up in \S \ref{par:double_covering}\@.
+
+\begin{lemma_sec}
+Take\/ $m,k \in \ZZ$. If\/ $k$ is even, then the range of\/ $\Htil{m}{k}$
+is contained in\/ $\KZeven \tens \Hcore_\tau^\scripteven$.
+\end{lemma_sec}
+
+\begin{proof}
+Combining lemma \ref{lemma:T_0:parity}\ and definition \ref{def:Htil}, we obtain
+$$ \Htil{m}{k}(\Hcore_\nu)
+        \hspace{0.7em} = \hspace{0.7em}
+   (\Gamma^{-1} \tens \Omega)^{-k} \,T_0 (\Hcore_\tau)
+        \hspace{0.7em}  \subseteq  \hspace{0.7em}
+   (\Gamma^{-1} \tens \Omega)^{-k}
+       \left(\vertM\KZeven \tens \Hcore_\tau^\scripteven \right). $$
+This yields the result, for $\Gamma^{-1} \tens \Omega$ interchanges
+even and odd parts of (\ref{eq:def:Hcore:parity}).
+\end{proof}
+
+
+\begin{lemma_sec}
+The inverses\/ $\FRabb^{-1}$ and\/ $\FLabb^{-1}$ of the Fourier transforms,
+as given in proposition \ref{prop:Eq2:Fourier:bijections}, map
+$$   \Aqeven(\Hcore_\nu)
+         \hspace{3em} \mbox{into}  \hspace{3em}
+     \Uq \! \left(\KZeven \tens \Hcore_\tau^\scripteven \vertM\right). $$
+\end{lemma_sec}
+\begin{proof}
+When $\FRabb^{-1}$ and $\FLabb^{-1}$ are invoked on elements of $\Aqeven(\Hcore_\nu)$ only,
+then in the formulas of proposition \ref{prop:Eq2:Fourier:bijections},
+we may assume $l \pm m$ to be even.
+Now the previous lemma completes the proof.
+\end{proof}
+\vspace{2ex}
+
+
+Combining the above lemma with lemma \ref{prop:double_covering}, we obtain
+
+\begin{prop_sec}
+The Fourier transforms\/ $\FRabb$ and\/ $\FLabb$ restrict to bijections
+$$      \mbox{from}  \hspace{2em}
+  \Uq \! \left(\KZeven \tens \Hcore_\tau^\scripteven \vertM\right)
+        \hspace{2em} \mbox{onto}  \hspace{2em}
+  \Aqeven(\Hcore_\nu). $$
+\end{prop_sec}

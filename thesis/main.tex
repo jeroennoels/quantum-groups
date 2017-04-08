@@ -1,0 +1,185 @@
+\documentclass{book}
+
+\usepackage{amssymb,amscd,fancyheadings,pstricks,kulfonts}
+
+\evensidemargin=24.5mm
+
+\input{preamble}
+\input{e2preamb}
+
+
+\begin{document}
+\pagestyle{plain}
+\renewcommand{\thepage}{\roman{page}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%% HERHALING KAFT %%%%%%%%%%%%%%%%
+
+\input{kaft2}
+
+%%%%%%%%%%%%%%%%%%%%%%% LEEG BLAD %%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\mbox{}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%% CITAAT %%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+
+\vspace*{\fill} \hfill \hspace{5mm}
+\begin{minipage}[b]{7cm}
+\sf \textsl{Oh my God\ldots\ my middle name is right behind that shrub!
+I'll finally know what \lq\lq J.\rq\rq\ stands for.  From this moment forth,
+\mbox{I will}\ be known as Homer \ldots\ Jay Simpson! It's so beautiful\ldots}
+
+\hfill \rule{5cm}{0.5pt}
+\vspace{4pt}
+
+\hfill Homer J. Simpson
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%% TYPESETTING %%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+
+\vfill\hfill
+\textsf{Typesetting by \LaTeX}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%% DANKWOORD %%%%%%%%%%%%%%%%%%%%%
+
+
+\thispagestyle{empty}
+
+\hfill
+\begin{minipage}[t]{5cm} \flushright
+\sf \textsl{Oh, thank you, thank you\ldots\\ thank you so much!}
+
+\rule{3.5cm}{0.5pt} \vspace{3pt}
+
+Basil Fawlty
+\end{minipage}
+
+
+\vspace{\fill}
+
+\hfill \rule{0.5pt}{12.8cm} \hspace{5mm}
+\begin{minipage}[b]{10.5cm}
+\sf
+\input{dank}
+\end{minipage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\tableofcontents
+
+\chapter{Introduction}
+\renewcommand{\thepage}{\arabic{page}}
+\setcounter{page}{1}
+\input{head}
+
+\input{intro}
+\input{convent}
+
+\chapter{Enveloping algebras}
+\label{chapter:Enveloping_algebras}
+\input{envalg}
+\input{actmult}
+\input{actfunc}
+\input{weakunit}
+\input{envcont}
+\input{tensor}
+\input{opposite}
+\input{starac}
+\input{special}
+
+\chapter{Hopf Systems}
+\label{chapter:Hopf_systems}
+\input{hsbasics}
+\input{multipl}
+\input{antipode}
+\input{regular}
+\input{hopfstar}
+\input{haarint}
+\input{examples}
+\input{mplierhs}
+
+\section{The quantum double of a Hopf system}
+\label{quantum_double}
+\input{balance}
+\input{qdouble}
+\input{qdmulti}
+\input{qdhs}
+
+\chapter{Algebraic harmonic analysis}
+\label{chapter:algebraic_harmonic_analysis}
+\input{fcontext}
+\input{duality}
+\input{pcontext}
+
+\chapter{A Fourier context for quantum $E(2)$}
+\label{chapter:Fourier_context_for_quantumE2}
+\input{e2intro}
+\input{e2extalg}
+\input{e2fcalc}
+\input{e2haar}
+\input{e2koel}
+\input{e2prevw}
+
+
+\chapter{Harmonic analysis on quantum $E(2)$}
+\label{chapter:Harmonic_analysis_on_quantumE2}
+
+
+\section{\Little\ {\protect\qfragile}-Bessel functions}
+\label{sec:qExp_and_qBessel}
+\input{qbessel}
+
+
+\section{Holomorphic {\protect\qfragile}-Hankel transformation}
+\label{sec:qHankel}
+\input{qhankl2}
+\input{qhholom}
+\input{qhcore}
+\input{qheigen}
+\input{morefunc}
+\section{The {\protect\qfragile}-moment problem for the space $\Hintersect$}
+\label{sec:qHankel:qmoment_problem}
+\input{qhmoment}
+\section{Fourier transforms for quantum $E(2)$}
+\input{frconstr}
+\section{Plancherel formulas}
+\label{sect:plancherel}
+\input{frplanch}
+\section{Inversion formulas}
+\label{sect:inversion}
+\input{frinvers}
+\section{Conclusions}
+\input{frconcl}
+
+
+\appendix
+\input{fubini}
+\input{technic}
+\input{qcalc}
+\chapter{Inheritance schemes \&\ Lookup tables}
+\label{app:inheritance}
+\input{inherit}
+
+\newpage
+\thispagestyle{empty}
+\rput[tr]{90}(2,1.3){\scalebox{0.82}{\input{hierarch}}}
+
+\newpage
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+\thispagestyle{empty}
+\rput[tr]{90}(2,1){\scalebox{0.85}{\input{lookup}}}
+
+
+\input{biblio}
+\end{document}

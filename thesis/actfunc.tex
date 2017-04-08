@@ -1,0 +1,375 @@
+\section{Actors \& functionals}
+\label{par:actors_and_functionals}
+
+
+Throughout this paragraph $\EE \equiv \EOP$ is an \context\@.
+
+\begin{abs_chp} 
+For a while we adopt a rather topological point of view, but as we proceed,
+we shall gradually link this to the original algebraic approach.
+We show how certain linear functionals on $\Om$ naturally induce actors.
+Eventually we investigate a notion of {\em invertibility\/} for actors
+and---indirectly---for functionals.
+\end{abs_chp}
+
+
+
+
+\subsection{Three natural compatible topologies}
+
+\begin{defn} \label{def:EEcompatible}
+  A locally convex topology on $\Om$ is said to be \EEdash {\em compatible\/} if
+  it is finer than the $\sigma(\Om,E)$ topology (hence Hausdorff)
+  and making $\Om$ into a {\em topological\/} $E_\sigma$-bimodule,
+  i.e.\ the structure maps are separately continuous.
+\end{defn}
+
+\begin{defn}  \label{def:three_topologies}
+ We introduce the following topologies on $\Om$:
+ \begin{description}
+  \item[\strictw]
+   is synonymous for the {\em weak\/} topology on $\Om$, i.e.\ the $\sigma(\Om,E)$ topology.
+  \item[\strictm]
+   Consider $x \lact (\cdot)$ and $(\cdot) \ract x$, with $x$ running through $E$,
+   as a family of linear maps from $\Om_\sigma$ into $\Om$\@.
+   These maps induce an inductive {\sc lc} topology \mbox{\cite[\S 6.6]{Jarchow}}\
+   on $\Om$, which will be referred to as the {\em \strictm}\ topology on $\Om$.
+   In other words, the \strictm\ topology is the {\em finest\/} locally convex
+   topology ${\mathcal I}$ on $\Om$ such that the above mappings are continuous
+   from $\Om_\sigma$ into $(\Om,{\mathcal I})$.
+  \item[\stricta]
+   Consider $\om \ract (\cdot)$ and $(\cdot) \lact \om$, with $\om$ running through $\Om$,
+   as a family of linear maps from $E_\sigma$ into $\Om$.
+   The inductive {\sc lc} topology on $\Om$ defined by these mappings
+   will be called the {\em\stricta}\ topology on $\Om$.
+ \end{description}
+ Whenever $\Om$ is to be considered with one of these topologies,
+ we shall write $\Om_\flat\equiv\Om_\sigma$, $\Omnl$ and $\Omsp$ respectively;
+ their topological duals will be denoted $\Om\wdl$, $\Om\mdl$ and $\Om\adl$.
+ So a {\em sub\/}script following $\Om$ merely indicates which topology
+ it is endowed with; on the other hand, if $\Om$ is accompanied by a {\em super\/}script,
+ we are always referring to some subspace of the algebraic dual $\Om'$.
+\end{defn}
+
+
+\begin{remarks}  \label{rem:three_topologies}
+\item
+   If $(\lam,\rho)$ is an actor for \EE, it follows that $\lam$ and $\rho$ are
+   {\em continuous\/} mappings from $\Omsp$ into $\Om_\flat$.
+ \item
+   Let $\Delta$ be the weak comultiplication on $\Om$
+   (proposition \ref{prop:induced_comult}). Then
+   \begin{eqnarray*}
+     \Om\adl &=& \left \{ f \in \Om' \left|
+          \begin{array}{c}
+            \mbox{for all $\om\in \Om$, both $\pair{f}{(\cdot) \lact \om}$
+                  and $\pair{f}{\om \ract (\cdot)}$}   \\
+            \mbox{are weakly continuous linear functionals on $E$}
+          \end{array} \right. \!\!\! \right\}  \\
+        &=& \left\{ f \in \Om'  \left|\vertL\right.\;
+          (\overline{f\, \tens}\,\id)\Delta(\Om) \:\subseteq \: \Om \:\supseteq \:
+          (\id\, \overline{\tens f})\Delta(\Om) \right\}.
+   \end{eqnarray*}
+   Slice maps like $\overline{f\, \tens}\, \id: \Om \fubtens \Om \rarr \overline{\Om}$
+   are defined in
+   \mbox{remark \ref{rem:fubtens_of_maps}.iii and (\ref{eq:def:functional_fubtens_id})}\@.
+%%%%%%%%%%%%%%%%%%%%
+%   and obey the following Fubini
+%   type property:  for any $y\in E$ and $\phi \in \Om \fubtens \Om$ we have
+%   $\pair{y}{(\overline{f \tens}\, \id)(\phi)} = \pair{f}{(\id \fubtens f_y)(\phi)}$.
+%%%%%%%%%%%%%%%%%%%%
+   In particular, if \EE\ is algebraic (definition \ref{def:algebraic_context})
+   then $\Om\adl=\Om'$.
+\end{remarks}
+
+
+\begin{prop} \label{prop:three_topologies_are_compatible}
+  The \strictw\ and \stricta\ topologies on $\Om$ are \EEdash compatible.
+  If\/ $\Om$ is unital as an \Ebimod, then also the \strictm\ topology is \EEdash compatible.
+\end{prop}
+\begin{proof}
+We already knew that $\Om_\sigma$ is a {\em topological\/} $E_\sigma$-bimodule
+(remark \ref{rem:topalg}.iii) hence the \strictw\ topology on $\Om$ is \EEdash compatible.
+This also implies the \strictm\ and \stricta\ topologies to be finer than the weak topology.
+Next we show that $\Omsp$ is a topological $E_\sigma$-bimodule:
+appealing to the universal property of \stricta\ as an inductive {\sc lc} topology,
+it only remains to show that for all $x\in E$ and $\om \in \Om$
+$$  x\lact \left(\vertM (\cdot) \lact \om\right)     \hspace{3em}
+    x\lact \left(\vertM \om\ract (\cdot) \right)      \hspace{3em}
+    \left(\vertM (\cdot) \lact \om \right) \ract x    \hspace{3em}
+    \left(\vertM \om \ract (\cdot) \right) \ract x $$
+are continuous mappings from $E_\sigma$ into $\Omsp$, which is easy.
+%
+Finally, assume $\Om$ to be unital and consider the \strictm\ topology.
+For all $x \in E$, the mappings $x\lact (\cdot)$ and $(\cdot) \ract x$
+are weakly-\strictm\ continuous and a fortiori \strictm\ continuous.
+Now it only remains to show that $(\cdot) \lact \om$ and $\om \ract (\cdot)$
+are continuous mappings from $E_\sigma$ into $\Omnl$.
+Using $\Om=\Om \ract E$, any $\om \in\Om$ can be written as $\om = \sum_k \om_k \ract x_k$,
+hence $(\cdot) \lact \om = \sum_k \left(\vertM (\cdot) \lact \om_k \right) \ract x_k$
+enjoys the desired continuity because the $(\cdot) \ract x_k$
+are weakly-\strictm\ continuous. For $\om \ract (\cdot)$ we need $\Om=E \lact \Om$.
+\end{proof}
+
+
+\begin{cor}  \label{cor:finest_EEcompatible}
+  The \stricta\ topology is the finest \EEdash compatible topology on $\Om$,
+  the \strictw\ topology is the coarsest one.
+  When $\Om$ is unital, the above topologies compare as follows:
+  \mbox{\strictw\ $\preceq$ \strictm\ $\preceq$ \stricta}\@.
+  Consequently $\Om\wdl \,\subseteq \,\Om\mdl \,\subseteq \,\Om\adl$.
+\end{cor}
+
+
+\begin{exA}  \rm
+  Recall the \context\ $(F; \kk S, \pairing)$ of example \ref{exA:introduction}\@.
+  Clearly {\em every\/} {\sc lc} topology on $\kk S$ makes
+  $(\cdot) \lact \delta_s  \,=\, \pair{\,\cdot}{\delta_s} \, \delta_s
+                           \,=\, \delta_s \ract (\cdot)$
+  into continuous mappings from $F_\sigma$ into $\kk S$,
+  hence the \stricta\ topology must be the finest {\sc lc} topology on $\kk S$.
+  In particular $\kk S$ is \stricta\ {\em complete\/} (a phenomenon which is likely
+  to become characteristic for {\em algebraic\/} \contexts).
+%%%%%% (definition \ref{def:algebraic_context}\ and example \ref{exA:algebraic}).
+%%%%%%  and  \ref{prop:completeness_crit}).
+  \hfill $\star$
+\end{exA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{exA} \rm
+%  Recall the \context\ $(K(X); \kk X, \pairing)$ as introduced in
+%  example \ref{exA:introduction}\@. Let $\delta$ be the canonical
+%  map $X \rarr \kk X$ where $\kk X$ is endowed with either the
+%  weak or the \strictm\ topology. In {\em both\/} cases the initial
+%  topology on $X$ induced by $\delta$ coincides with the original
+%  topology.
+%\end{exA}
+%\begin{proof}
+%\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exB} \label{exB:weak_is_compatible}   \rm
+  Let $\Aa\equiv (A; A^*, \pairing)$ be as in example \ref{exB:normed_algebra_context}\@.
+  Then the $\sigma(A^*, A^{**})$ topology is $\Aa$-compatible because of
+  (\ref{eq:exB:normed_algebra_context}), hence $A^{**} \subseteq A^{*\sharp}$.
+  The norm topology will usually not be $\Aa$-compatible.
+
+{\small
+  In the special case that $A$ is the algebra of compact operators on a Hilbert space,
+  one can show that $A^{**} = A^{*\sharp}$, hence in this case the norm topology
+  on $A^*$ is finer than the \stricta\ topology (the former being a Mackey topology).
+}
+\end{exB}
+
+
+
+
+\subsection{Actors induced by functionals}
+\label{subsec:Acts_ind_by_funcs}
+
+We already encountered several \Ebimod\ structures associated with an
+\context\ $\EE \equiv \EOP$. Also $\Om'$ can be made into an \Ebimod,
+the actions of $E$ on $\Om'$ (denoted by juxtaposition) being given by
+\begin{equation} \label{eq:Om'isEbimod}
+   \pair{xf}{\om} = \pair{f}{\om \ract x} \andspace{3em}
+   \pair{fx}{\om} = \pair{f}{x\lact\om}
+\end{equation}
+for $f\in \Om'$, $x\in E$ and $\om \in \Om$.
+One could say this \Ebimod\ structure on $\Om'$ is \lq parallel\rq\ to the
+one on \ActE, but in some sense dual to those on $\Om$ or $E'$.
+It is easy to prove that $\Om\wdl$, $\Om\mdl$ and $\Om\adl$ are sub-$E$-bimodules of $\Om'$.
+
+
+\begin{prop} \label{prop:act_by_fuctionals}
+  There are unique linear mappings
+  \begin{enumerate}
+    \item $\iota : \Om\wdl \rarr E$
+    \item $\mu   : \Om\mdl \rarr M(E)$
+                     \hspace{1em}---provided that \EE\ is non-degenerate---
+    \item $\theta: \Om\adl \rarr \ActE:
+                     f \mapsto \theta(f)\equiv\lamrho{f}$
+  \end{enumerate}
+  obeying respectively---for every $x\in E$ and $\om \in \Om$,
+  \begin{enumerate}
+    \item $\pair{\iota(f)}{\om} = \pair{f}{\om}\,$
+          for all $f \in \Om\wdl$
+    \item $\pair{\mu(f)x}{\om}   = \pair{f}{x \lact \om}\,$ and
+          $\,\pair{x\mu(f)}{\om} = \pair{f}{\om \ract x}\,$
+          for all $f \in \Om\mdl$
+    \item $\pair{x}{\rho_f(\om)}\,   = \pair{f}{x \lact \om}\,$ and
+          $\,\pair{x}{\lam_f(\om)}\, = \pair{f}{\om \ract x}\,$
+          for all $f \in \Om\adl$.
+  \end{enumerate}
+\end{prop}
+%
+\begin{proof}
+  (i) $\:\iota$ is nothing but the inverse of the canonical embedding
+  $E\hookrightarrow \Om'$.
+
+  (ii) Take any $f\in \Om\mdl$. From definition \ref{def:three_topologies}\ it follows
+  that the functionals $fx = \pair{f}{x \lact (\cdot)}$ and $xf = \pair{f}{(\cdot) \ract x}$
+  are actually in $\Om\wdl$ for all $x\in E$, which allows us to define a multiplier
+  $\mu(f)$ of $E$ by $\mu(f)x = \iota(fx)$ and $x\mu(f) = \iota(xf)$.
+%%%%%%%%%%%%%%
+%  Since $\Om'$ is an \Ebimod\ and $\iota: \Om\wdl \rarr E$
+%  an \Ebimod\ morphism, $\mu(f)$ is indeed a two-sided
+%  multiplier of $E$, obviously satisfying equation (ii) above.
+%%%%%%%%%%%%%%%
+
+  (iii)  Next consider any $f\in \Om\adl$ and $\om \in \Om$\@. This time it follows that
+  $\pair{f}{(\cdot) \lact \om}$ and $\pair{f}{\om \ract (\cdot)}$
+  are both continuous functionals on $E_\sigma$\@. Hence they identify with elements in $\Om$,
+  respectively denoted by $\rho_f(\om)$ and $\lam_f(\om)$.
+  So given $f\in \Om\adl$ we have defined linear maps $\lam_f$ and $\rho_f$ from $\Om$ into $\Om$,
+  satisfying (iii). It remains to show that $\lamrho{f}$ is an actor for \EE\@.
+  Now for all $x,y \in E$ and $\om \in \Om$ we have
+  $$\pair{x}{\lam_f(\om \ract y)}
+         = \pair{f}{(\om \ract y) \ract x}
+         = \pair{f}{\om \ract yx}
+         = \pair{yx}{\lam_f(\om)}
+         = \pair{x}{\lam_f(\om) \ract y},  $$
+  so $\lam_f$ is a right $E$-module morphism.
+  Similarly $\rho_f$ is a left $E$-module map and
+  $$\pair{x}{\rho_f(\om \ract y)}
+       = \pair{f}{x \lact (\om \ract y)}
+       = \pair{f}{(x \lact \om) \ract y}
+       = \pair{y}{\lam_f(x\lact\om)} $$
+  proves the \biap\ (\ref{eq:bi-actor}). This completes the proof.
+\end{proof}
+
+
+\begin{remark} \label{rem:theta_and_Delta} \rm
+ For any $f\in \Om\adl$, the actor $\theta(f)=\lamrho{f}$ is also given by
+ $$ \lam_f = (\id \,\overline{\tens f})\Delta    \andspace{3em}
+    \rho_f = (\overline{f \tens} \,\id)\Delta   $$
+ (cf.\ remark \ref{rem:three_topologies}.ii).
+ This should be compared with (\ref{eq:actions_in_terms_of_Delta}).
+ \hfill $\star$
+\end{remark}
+
+Below we collect some properties of the maps introduced in proposition
+\ref{prop:act_by_fuctionals}\@.
+First observe that $\Om\wdl$, $\Om\mdl$, $\Om\adl$, $E$, $M(E)$ and \ActE\
+are all $E$-bimodules under \lq multiplication\rq\ in one way or the other.
+Also recall lemma \ref{embedding_of_M(E)}\@.
+
+\begin{cor} \label{cor:act_by_fuctionals}
+  The maps $\iota$, $\mu$ and $\theta$ are \Ebimod\ morphisms;
+  $\mu$ extends $\iota$, whereas $\theta$ extends $j\circ\iota$.
+  If $\Om$ is unital, then $\mu$ and $\theta$ are injective;
+  moreover $\Om\mdl \subseteq \Om\adl$, and $\theta$ extends $\jhat\circ\mu$ accordingly.
+  Up to identification we have $\iota \subseteq \mu \subseteq \theta$.
+\end{cor}
+%
+\begin{proof}
+  Only the last assertion is not completely trivial.
+  So let $\Om$ be unital as an \Ebimod, take any $f\in \Om\mdl$ and denote
+  $\jhat(\mu(f))\equiv (\lam,\rho) \in \ActE$.
+  By (\ref{eq:def_of_jhat}) we get for all $x\in E$ and $\om\in\Om$ that
+  $\pair{x}{\lam(\om)} = \pair{x\mu(f)}{\om} = \pair{f}{\om \ract x},$
+  and similarly $\pair{x}{\rho(\om)} = \pair{f}{x \lact \om}$.
+  It follows that $\pair{f}{\om \ract (\cdot)}$ and
+  $\pair{f}{(\cdot) \lact \om}$ are continuous functionals on $E_\sigma$,
+  for any $\om\in\Om$, hence $f$ itself must be \stricta\ continuous.
+  So $f\in\Om\adl$ and clearly
+  $\theta(f)=\lamrho{f}=(\lam,\rho)=\jhat(\mu(f))$.
+\end{proof}
+\vspace{2ex}
+
+So the maps $\mu$ and $\theta$ are injective, provided that $\Om$ is unital,
+but it would of course be nice if they where actually bijections.
+For this we need an extra assumption: the existence of a counit
+(see \S \ref{par:weakly_unital_contexts}).
+
+
+
+
+\subsection{Invertibility of actors and functionals}
+
+Given a non-degenerate \context\ \EE, we have several notions
+of invertibility. One can for instance consider invertible elements
+in the unital algebras $M(\EE)$, $\EnvE$ or $\PreE$\@.
+Below we shall see that it is also possible to define a concept of invertibility within \ActE,
+although in general \ActE\ is not really an algebra;
+in fact the latter notion is the one we will use in
+chapter \ref{chapter:Hopf_systems}\ to express \lq group-like\rq\
+properties. We start however with a trivial observation:
+
+\begin{lemma} \label{lem:EE-invertibility}
+  Let\/ $\EE \equiv \EOP$ be any \context, and let\/ $a\equiv(\lam,\rho)$
+  be an actor for\/ \EE\@. Then the following are equivalent:
+  \begin{enumerate}
+    \item $a$ is invertible within\/ \PreE\ and $a^{-1}$ belongs to \ActE\ again.
+    \item $\lam$ and $\rho$ are bijections on\/ $\Om$ and\/
+          $(\lam^{-1},\rho^{-1})$ satisfies the \biap.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{defn} \label{def:EE-invertibility}
+  Let\/ $\EE \equiv \EOP$ be any \context\@.
+  An {\em actor\/} for\/ \EE\ is said to be \EEdash {\em invertible\/}
+  when it satisfies the conditions of the previous lemma. On the other hand,
+  a linear {\em functional\/} $f:\Om\rarr \kk$ will be called \EEdash {\em invertible\/} if
+  \begin{enumerate}
+    \item $f$ is \stricta\ continuous,
+          i.e.\ $f$ actually belongs to $\Om\adl$, and
+    \item $\theta(f)$ is \EEdash invertible as an actor,
+  \end{enumerate}
+  with $\theta: \Om\adl \rarr \ActE$ as described in \S \ref{subsec:Acts_ind_by_funcs}.
+\end{defn}
+
+Whenever a pre-actor $a\equiv(\lam,\rho)$ is invertible in the algebra \PreE\
+or, in other words, when $\lam$ and $\rho$ are bijective, we can define an
+inner automorphism
+$$  \pi_a : \PreE \rarr \PreE : x \mapsto axa^{-1}.  $$
+
+%%%%%%%%%%%%
+%Somehow the invariance properties of $\pi_a$ reflect the \lq amount of regularity\rq\
+%\mbox{in $a$}\@. For instance when $a$ happens to be an invertible element in \EnvE,
+%then $\pi_a$ restricts to an automorphism of \EnvE\@.
+%Or one could require $\pi_a$ to leave $E$ invariant, as is the case when $a$ is
+%invertible within the algebra $M(\EE)$ introduced in \S \ref{sec:multipliers}\@.
+%In the following lemma though, we study a much weaker condition:
+%%%%%%%%%%%%%%
+
+\begin{lemma} \label{lem:invertibility_comm_pi}
+  Let\/ $\EE \equiv \EOP$ be any \context\ with\/ $\Om$ unital.
+  Let $a\equiv(\lam,\rho)$ be an actor for\/ \EE\ such that $\lam$ and $\rho$
+  are bijections, and consider
+  \begin{enumerate}
+     \item $\pi_a(E) \subseteq \ActE$
+     \item $a$ is \EEdash invertible
+     \item $\lam$ and $\rho$ commute.
+  \end{enumerate}
+  Whenever two of these statements are satisfied, all three of them will hold.
+\end{lemma}
+\begin{proof}
+  Under the circumstances, (ii) merely states that $(\lam^{-1},\rho^{-1})$
+  satisfies the \biap\ (\ref{eq:bi-actor}).
+  Similarly (i) means that $(\lam\lam_x\lam^{-1}, \, \rho^{-1}\rho_x\rho)$
+  enjoys this property for all $x\in E$.
+  Furthermore $\lam$ is a right \mbox{$E$-module}\ morphism, hence so is $\lam^{-1}$.
+  We thus obtain, for all $x,y,z \in E$ and $\om \in \Om$, the following \lq circle\rq :
+  $$ \begin{array}{lclcl}
+          \pairM{x}{(\rho\lam^{-1})(y\lact \om \ract z)}
+      \!\!\!&=& \!\!\!
+          \pairM{x}{\rho(\lam^{-1}(y\lact \om) \ract z)}
+      \!\!\!&=& \!\!\!
+            \pairM{z}{\lam(x \lact \lam^{-1}(y\lact \om))}  \\
+      \!\!\!&=& \!\!\!
+            \pairM{z}{(\lam\lam_x\lam^{-1})(y\lact \om)}
+      \!\!\!&\stackrel{\rm (i)}{=}&\!\!\!
+            \pairM{y}{(\rho^{-1}\rho_x\rho)(\om \ract z)}   \\
+      \!\!\!&=&\!\!\!
+            \pairM{y}{\rho^{-1}(\rho(\om \ract z) \ract x)}
+      \!\!\!&\stackrel{\rm (ii)}{=}&\!\!\!
+            \pairM{x}{\lam^{-1}(y \lact \rho(\om \ract z))}  \\
+      \!\!\!&=&\!\!\!
+            \pairM{x}{(\lam^{-1}\rho)(y \lact \om \ract z)}
+      \!\!\!&\stackrel{\rm (iii)}{=}&\!\!\!
+            \pairM{x}{(\rho\lam^{-1})(y\lact \om \ract z)}.
+  \end{array} $$
+  Since by assumption $E \lact \Om \ract E = \Om$ and $\rho(\Om \ract E)=\Om$,
+  the result follows.
+\end{proof}

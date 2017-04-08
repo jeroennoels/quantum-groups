@@ -1,0 +1,291 @@
+
+\subsection{Eigenfunctions of $q$-Hankel transformation}
+
+
+Below we shall prove that the function $z \mapsto E_{q^2}(-q^2 z)$
+belongs to the space \Hcore\ constructed in the previous paragraph,
+and moreover, that it constitutes an eigenfunction of all positive order
+holomorphic $q$-Hankel transforms; it follows that \Hcore\ is non-trivial.
+This function of $q^2$-exponential type plays a role similar to the
+Gaussian\footnote{and as a matter of fact, this $q^2$-exponential does amount
+to a $q$-Gaussian if one takes into account the \lq{\em squaring\/} operator\rq\ $K$
+appearing in diagram (\ref{eq:diagram:holomorphic_qHankel}).}
+in ordinary Fourier analysis on the real line.
+
+
+\begin{lemma}
+Let\/ \qE\ denote the entire function given by\/ $\qE(z) = (z;q)_\infty$. Then
+$$   D_q \qE \:=\: -\frac{1}{1-q}\, \Omega \qE. $$
+\end{lemma}
+
+\begin{proof}
+We could easily derive this from the power series (\ref{eq:qExp:powerseries})
+but it is even more convenient to use the product representation:
+indeed (\ref{eq:shifted_factorial:infty}) yields
+$$\qE(z) \:=\: (1-z)\qE(qz) $$
+for all $z\in \CC$, and hence
+$$ (D_q \qE)(z) \;=\;  \frac{\qE(z) - \qE(qz)}{(1-q)z}
+                \;=\; \frac{-z\,\qE(qz)}{(1-q)z}
+                \;=\; -\frac{1}{1-q} \, (\Omega \qE)(z). $$
+for $z\neq 0$. Extending the result to $z=0$ by continuity completes the proof.
+\end{proof}
+
+
+
+\begin{cor} \label{cor:qqderivative:qqE}
+Replacing\/ $q$ by\/ $q^2$ and (consequently!)\/ $\Omega$ by\/ $\Omega^2$, we get
+$$  \Dqsqr \qqE \:=\: -\frac{1}{1-q^2}\, \Omega^2 \qqE. $$
+\end{cor}
+
+
+
+\begin{prop} \label{prop:qdifferential_equation:qexp}
+$\;\Omega^2 \qqE = (\,\cdot\,q^2 ;q^2)_\infty$ satisfies the\/
+$q^2$-differential equation
+\begin{equation}\label{eq:qdifferential_equation:qexp}
+   \Dqsqr f \;=\; -\frac{q^2}{1-q^2}\, \Omega^2 f
+     \hspace{3em} \mbox{($f$ entire).}
+\end{equation}
+Moreover the solution of this\/ $q^2$-differential equation is
+unique in the sense that any entire function\/ $f$
+satisfying (\ref{eq:qdifferential_equation:qexp}) must be a scalar
+multiple of\/ $\Omega^2 \qqE$.
+\end{prop}
+
+\begin{proof}
+Combining corollary \ref{cor:qqderivative:qqE}\ with the obvious
+commutation rule for $\Dqsqr$ and $\Omega^2$ yields
+$$ \Dqsqr \Omega^2 \qqE \:=\: q^2 \Omega^2 \Dqsqr \qqE
+             \:=\: -\frac{q^2}{1-q^2}\, \Omega^2 \Omega^2 \qqE. $$
+To prove the uniqueness statement, let's evaluate (\ref{eq:qdifferential_equation:qexp})
+in $q^{2n}$ for any $n\in\NN$. We get
+$$ \frac{f(q^{2n})-f(q^2 q^{2n})}{(1-q^2) \, q^{2n}}
+            \;=\;  -\frac{q^2}{1-q^2}\, f(q^2 q^{2n}) $$
+Putting $x_n = f(q^{2n})$ for $n\in\NN$, we obtain a sequence $(x_n)_{n=0}^\infty$
+of complex numbers satisfying the following recurrence relation:
+$$ x_n \,=\: (1-q^{2n} q^2)\, x_{n+1}. $$
+Iterating this relation yields
+\begin{equation}\label{eq:uniqueness:recurrence_relation}
+   x_0 \:=\: (1-q^2)(1-q^2 q^2) \ldots (1-q^{2(n-1)} q^2) \, x_n
+       \:=\: (q^2;q^2)_n \, x_n.
+\end{equation}
+It follows that the sequence $(x_n)_n$ is completely determined by
+the value of $x_0$. In other words, (\ref{eq:qdifferential_equation:qexp}) and
+$f(1)$ determine the value of $f$ at the points $q^{2n}$ ($n\in\NN$).
+Since $q^{2n} \rarr 0$ as $n\rarr\infty$, we may invoke the identity theorem
+for holomorphic functions and draw the conclusion (notice that $f(1)=0$ implies $f=0$,
+and observe that (\ref{eq:qdifferential_equation:qexp}) is {\em linear\/} in $f$).
+\end{proof}
+\vspace{2ex}
+
+
+It is also instructive to observe (\ref{eq:shifted_factorial:infty}) implies that
+$$ x_n \:=\: (q^{2n} q^2; q^2)_\infty \:=\: (\Omega^2 \qqE)(q^{2n}) $$
+indeed satisfies the above recurrence relation (\ref{eq:uniqueness:recurrence_relation}).
+
+
+\begin{lemma}
+Let\/ $m$ be any non-negative integer.
+If\/ $f$ is a solution of (\ref{eq:qdifferential_equation:qexp})
+then so is\/ $\holH{m}f$\/
+\rm (notice that $f$ belongs to $\Hintersect$ because of proposition
+\ref{prop:qdifferential_equation:qexp}\ and corollary \ref{cor:qqE_in_holS},
+so the statement makes sense).
+\end{lemma}
+
+\begin{proof}
+With the commutation rule\/ $\Dqsqr \Omega^2 = q^2 \, \Omega^2 \Dqsqr$
+the first formula in proposition \ref{prop:holqHankel:qdiff}\ can be
+rewritten in the form
+\begin{equation}\label{eq:holqHankel:qdiff:rewritten:bis}
+    \Dqsqr \holH{m-1} = -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m}
+    \hspace{4em}  (m\geq 1)  \hspace{1em}
+\end{equation}
+Replacing $m$ with $m+1$ and applying this to a solution $f$ of
+(\ref{eq:qdifferential_equation:qexp}) yields
+$$  \Dqsqr \holH{m} f
+     \:=\: -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m+1} f
+     \:\stackrel{(\ref{eq:qdifferential_equation:qexp})}{=}\:
+             \Omega^2 \holH{m+1} \Omega^{-2} \Dqsqr f
+     \:=\: q^2 \Omega^2 \holH{m+1} \Dqsqr \Omega^{-2} f $$
+for any $m\geq 0$. Once again applying the first formula in
+proposition \ref{prop:holqHankel:qdiff}\ yields
+\begin{equation}\label{eq:HolHmf:solution}
+   \Dqsqr \holH{m} f  \:=\: -\frac{q^2}{1-q^2}\, \Omega^2 \holH{m} f
+\end{equation}
+which means that $\holH{m}f$ is a solution to (\ref{eq:qdifferential_equation:qexp}).
+\end{proof}
+
+
+
+\begin{remark} \rm
+The above lemma does not extend to negative $m$. To see this,
+apply proposition \ref{prop:qHankel:inverseorder}\ to (\ref{eq:HolHmf:solution}).
+The reason for this remarkable lack of symmetry is not so clear at the moment.
+$\hfill \star$
+\end{remark}
+
+\begin{prop} \label{prop:qqE:eigenfunction_qHankel}
+$\;\Omega^2 \qqE$ is an eigenfunction of all\/ $\holH{m}$ with\/ $m\geq 0$.
+\end{prop}
+
+\begin{proof}
+Combine the above lemma with proposition \ref{prop:qdifferential_equation:qexp}\@.
+\end{proof}
+\vspace{2ex}
+
+
+Below we shall compute the corresponding eigenvalues and search for other
+eigenfunctions as well. Before we proceed, however, we wish to emphasize that
+our core \Hcore\ is finally known to be non-trivial---indeed it does already contain
+an important class of functions:
+
+
+\begin{cor} \label{cor:qExp_in_Hcore}
+For any polynomial\/ $P$ and integer\/ $k$, the entire function
+\begin{equation}\label{eq:many_functions_in_Hcore}
+  \CC \rarr \CC : \: z \,\mapsto \, P(z)\, E_{q^2}(-q^{2k} z)
+\end{equation}
+belongs to the space\/ \Hcore\ of definition \ref{def:Hcore}.
+\end{cor}
+
+
+\begin{proof}
+We already established that $\Omega^2 \qqE$ belongs to $\Hintersect$
+(cf.\ corollary \ref{cor:qqE_in_holS}) and from
+proposition \ref{prop:qqE:eigenfunction_qHankel}\
+it is clear that $\holH{m} \Omega^2 \qqE$ is in $\Hintersect$ as well,
+for any $m\in \NN$. Furthermore, the condition of lemma
+\ref{lemma:compactsupp_in_holS}\ is obviously invariant under $q^2$-differentiation,
+hence $\Dqsqr^m \Omega^2 \qqE$ still belongs to $\Hintersect$, for all $m\in \NN$.
+
+We conclude that $\Omega^2 \qqE$ is contained in \Hcore\@.
+Eventually, the invariance properties of \Hcore\
+(cf.\ proposition \ref{prop:Hcore:invariance}) yield the result.
+\end{proof}
+
+
+\begin{notation} \label{not:xi_k} \rm
+Henceforth $\xi_0$ will denote the entire function $\Omega^2 \qqE$ that was investigated above,
+so $\xi_0(z) = (q^2 z; q^2)_\infty$ for any $z \in \CC$.
+Furthermore we denote
+\begin{equation}\label{eq:not:xi_k}
+   \xi_k   \;=\; q^k \, \Om^{2k} \xi_0
+\end{equation}
+for any $k\in \ZZ$.
+Observe that the $\xi_k$ belong to the space \Hcore\ (cf.\ previous corollary).
+\end{notation}
+
+
+
+\begin{lemma} \label{lemma:Psi_xi}
+$\;\Psi \xi_0 = (\id - \Om^{-2})\xi_0$ and consequently, for any\/ $k\in \ZZ$,
+\begin{equation}\label{eq:Psi_xi_k}
+  \Psi \xi_k \:=\: q^{-2k} \,(\xi_k - q \,\xi_{k-1}).
+\end{equation}
+\rm It follows that the functions in (\ref{eq:many_functions_in_Hcore})
+belong to the linear span of\/ $\{ \xi_k \mid k\in \ZZ  \}$.
+\end{lemma}
+
+\begin{proof}
+The first formula follows from a straightforward computation using
+the product representation (\ref{eq:shifted_factorial:infty}).
+Equation (\ref{eq:Psi_xi_k}) is an immediate consequence.
+\end{proof}
+
+
+\begin{lemma} \label{lemma:xizero:eigenfunction:Hol_m}
+$\; \holH{m} \xi_0 = \xi_0$ for all\/ $m \in \NN$.
+\end{lemma}
+
+\begin{proof}
+We already know from proposition \ref{prop:qqE:eigenfunction_qHankel}\ that
+$\xi_0$ is an eigenfunction of $\holH{m}$ for all $m \in \NN$, so it only remains
+to show that the corresponding eigenvalues $\lambda_m$ are all equal to $1$.
+First we compute the value of $\lambda_0$.
+To do so, we shall rely on proposition \ref{prop:moment:link_with_Hankel}\
+from the {\em next\/} section---this may be slightly unpleasant, but it does not really raise
+a problem since the proof of the latter result is obviously independent of the present lemma
+and its consequences. Thus we obtain
+$$ (1-q^2) \, (\holH{0}\xi_0)(0)
+            \;=\, \int_0^\infty \xi_0(x)\, d_{q^2}x. $$
+For details we refer to \S \ref{sec:qHankel:qmoment_problem}\@.
+Now recall corollary \ref{cor:qqderivative:qqE}, where we observed that
+$\xi_0 = -(1-q^2)\, \Dqsqr \qqE$. It follows that
+$$ (\holH{0}\xi_0)(0)
+  \;=\; -\! \int_0^\infty (\Dqsqr \qqE)(x)\, d_{q^2}x
+  \;=\;  \qqE(0)
+  \;=\; (0\vssp ; q^2)_\infty
+  \;=\:  1. $$
+Observe how we used the relation between $q^2$-integration and $q^2$-differentiation,
+combined with the following facts:
+\begin{enumerate}
+\item[(i)]
+$\qqE(q^{2n})$ vanishes for all negative integers $n$.
+\item[(ii)]
+$\displaystyle \lim_{n \, \rarr \, +\infty} \qqE(q^{2n}) \:=\:   \qqE(0)$
+since $\qqE$ is entire and a fortiori continuous.
+\end{enumerate}
+Using $\xi_0(0)=1$ and $\holH{0}\xi_0 = \lambda_0 \xi_0$ we get $\lambda_0 = 1$.
+To show $\lambda_m = 1$ for all $m\in \NN$, we proceed by induction:
+using the $2^{\rm nd}$ formula in proposition \ref{prop:holqHankel:qdiff}, we obtain
+\begin{eqnarray*}
+\Psi \xi_0
+&=&
+\Psi \holH{m+1} \holH{m+1} \xi_0
+\\&=&
+\lambda_{m+1} \, \Psi \holH{m+1} \xi_0
+\\&=&
+\lambda_{m+1} \, (q^{-1}-q) \,q^{m+1} \: \holH{m} \nabq{m+1} \Omega \xi_0
+\\&\stackrel{(\ref{eq:def:nabq})}{=}&
+- \lambda_{m+1} \,q^{m+1} \: \holH{m}
+       (q^{m+1}\, \Omega  - q^{-m-1}\, \Omega^{-1}) \Omega \xi_0
+\\&=\vertXL&
+- \lambda_{m+1} \: \holH{m} (q^{2(m+1)}\, \Omega^2 - \id) \xi_0
+\\&\stackrel{(\ref{eq:holS:Omega_invariant})}{=}&
+- \lambda_{m+1} \: (\Omega^{-2} - \id)  \holH{m} \xi_0
+\\&=&
+\lambda_{m+1} \lambda_m \: (\id - \Omega^{-2}) \xi_0
+\\&=&
+\lambda_{m+1} \lambda_m \: \Psi \xi_0.
+\end{eqnarray*}
+The last equality relies on lemma \ref{lemma:Psi_xi}\@.
+It follows that $\lambda_{m+1} \lambda_m = 1$ for all $m\in \NN$.
+This completes the proof.
+\end{proof}
+
+
+
+\begin{cor}
+An eigenfunction for the\/ $q$-Hankel transformation\/ $H_m$ on\/ $\Ltwoq$ is given by\/
+$f_m = R_q \Psi^m K \xi_0$\/ and the eigenvalue is\/ $1$. Explicitly we have:
+$$  f_m(q^n) \;=\;   q^{nm} \, (q^{2n+2} ; q^2)_\infty $$
+for all\/ $n\in \ZZ$ and\/ $m\in \NN$.
+In terms of little\/ $q^2$-Bessel functions, this means that
+$$   \sum_{n\in \ZZ} \: q^{(2+m)n} \: (q^{2n+2} ; q^2)_\infty \, \J{m}{q^{n+k}}
+     \;=\;   q^{km} \, (q^{2k+2} ; q^2)_\infty.  $$
+\end{cor}
+\begin{proof}
+The first assertion follows immediately from the above lemma, together with
+diagram (\ref{eq:diagram:holomorphic_qHankel}) in abstract \ref{abs:holomorphic_qHankel}\@.
+The last formula follows from (\ref{eq:qHankeltransform:def}).
+\end{proof}
+
+
+
+\begin{prop} \label{prop:Hankel:on:basis}
+$\; \holH{m} \, \xi_k = \, q^{-2mk} \, \xi_{-k}$ for all\/ $m\in \NN$ and\/ $k\in \ZZ$.
+\end{prop}
+\begin{proof}
+Simply combine lemma \ref{lemma:xizero:eigenfunction:Hol_m}\
+with proposition \ref{prop:holS:Omega_invariant}\@.
+\end{proof}
+
+
+\begin{cor}
+For any\/ $m\in \NN$ and\/ $k\in \ZZ$, the functions
+$$   q^{mk} \, \xi_k  \: \pm \: q^{-mk} \, \xi_{-k}  $$
+are eigenfunctions of\/ $\holH{m}$ with respectively eigenvalues $\pm 1$.
+\end{cor}
+
+Notice that $\pm 1$ are the only possible eigenvalues because $\holH{m}^2 = \id$.

@@ -1,0 +1,412 @@
+\section{Fourier contexts}
+
+
+\begin{abs_chp}
+We introduce an axiomatic context in which to do harmonic analysis on an algebraic level,
+the axioms being inspired to a large extend by the quantum $E(2)$ example that is studied
+in the next chapter.
+Minimalizing the set of axioms is not our first concern:
+we mainly want to outline a setting providing all the ingredients needed to do Fourier analysis.
+Within this context, we define the notion of a {\em Fourier transform\/}
+and establish its uniqueness.
+The underlying structure of such a \lq Fourier context\rq\ basically consists of three
+\ahss s---one of which is actually an ordinary dual pair of \mbox{Hopf $^*$-algebras}\@.
+\end{abs_chp}
+
+
+
+\begin{defn_sec} \label{def:Fourier_context}
+Let $\pair{\frakA}{\frakB}$ be a non-degenerate dual pair of Hopf $^*$-algebras and let
+$\left\langle \underline{\frakA}\, , B \right\rangle$ and
+$\left\langle A, \underline{{\frakB}\!}\,\right\rangle$
+be \ahss s (definition \ref{def:algebraic_Hopf_system}).
+Then both $A$ and $\frakA$ can be considered as subalgebras of ${\frakB}'$,
+hence elements of $A$ can be multiplied with elements of $\frakA$ within ${\frakB}'$
+(similarly for $B$ and ${\frakB}$ within ${\frakA}'$).
+Assume there exist invariant functionals on $A$ and $B$, say respectively
+$\phiA, \phiB$ (left invariant) and $\psiA, \psiB$ (right invariant).
+Furthermore, let $A_0$ and $B_0$ be non-trivial subspaces of $A$ and $B$ respectively.
+Now assume the following:
+\begin{enumerate}
+\item
+Under multiplication, $A$ is an $\frakA$-bimodule and $B$ is a $\frakB$-bimodule.
+\item
+$A_0$ is a sub-$\frakB$-bimodule of $A$ (under the actions induced by duality) as
+well as a sub-$\frakA$-bimodule (under multiplication). Similarly for $B_0$.
+\item
+$A_0$ and $B_0$ are invariant under $^*$ and $\conj$, or equivalently,
+under $^*$ and $S^{\pm 1}$.
+\item
+The invariant functionals are all hermitian, positive and faithful.
+\item
+The invariant functionals also enjoy the following faithfulness properties:
+for any $a \in A_0$ and $b\in B_0$ we have
+$$ \begin{array}{lccclcc}
+   \phiA({\frakA}a) = \{0\} &\; \Rightarrow \;& a=0 & \hspace{3em} &
+   \phiB({\frakB}b) = \{0\} &\; \Rightarrow \;& b=0 \\
+   \psiA({\frakA}a) = \{0\} & \; \Rightarrow \;& a=0 & \hspace{3em} &
+   \psiB({\frakB}b) = \{0\} & \;\Rightarrow \;& b=0
+\end{array} $$
+\item
+The invariant functionals are all weakly {\sc kms}.
+The corresponding {\sc kms} automorphisms shall be denoted by $\sigma_{\!\phiA}$ etc.
+\item
+Moreover assume $\phiA$ to be ${\frakA}$-{\sc kms} on $A_0$ in the sense that
+$$ \sigma_{\!\phiA}(A_0) = A_0
+        \andspace{3em}
+   \phiA(a \alpha) = \phiA \!\left (\alpha \,\sigma_{\!\phiA}(a) \vertM\right) $$
+for any $a\in A_0$ and $\alpha\in {\frakA}$. \\
+Similarly $\psiA$ is ${\frakA}$-{\sc kms} on $A_0$,
+whereas $\phiB$ and $\psiB$ are ${\frakB}$-{\sc kms} on $B_0$.
+\item
+There exist complex numbers $\zetaA$ and $\zetaB$ of modulus 1 such that
+$$ \phiA S = \zetaA \psiA      \hspace{3em}
+   \psiA S    = \zetaA \phiA   \hspace{3em}
+   \phiB S = \zetaB \psiB      \hspace{3em}
+   \psiB S    = \zetaB \phiB.  $$
+\item
+There exists a $\deltaA \in {\frakA}$ such that
+$\phiA S = \phiA(\,\cdot \,\deltaA)$.
+Similarly there exists a $\deltaB \in {\frakB}$ such that
+$\phiB S = \phiB(\,\cdot \,\deltaB)$.
+$\:\deltaA$ and $\deltaB$ are called {\em modular\/} elements.
+\end{enumerate}
+Under these circumstances, \FourierBABA\ is said to be a {\em Fourier context}\@.
+\end{defn_sec}
+
+Let's agree to keep the notation as short as possible, e.g.\ if
+$A=A_0$, $B=B_0$, $\phiA=\psiA$ and $\phiB=\psiB$,
+then we abbreviate the above by
+$\left(A, \phiA; \:{\frakA},{\frakB};\: B, \phiB \vertM \right)$.
+\vspace{1ex}
+
+It is also worth noticing that the above definition is {\em self-dual},
+in the sense that it is completely symmetric between ${\frakA}$ and  ${\frakB}$,
+between $A$ and $B$, etc.
+
+
+\begin{defn_sec} \label{def:Fourier_transform}
+Let \FourierBABA\ be any Fourier context.
+A linear map $\FRL:A_0 \rarr B_0$ is said to be an {\em  {\small RL} Fourier transform\/} if
+\begin{enumerate}
+\item
+$\FRL$ is a left $\frakB$-module morphism;
+explicitly, for any $\beta\in {\frakB}$ and $a\in A_0$ we have
+$\FRL(\beta \lact a) = \beta \, \FRL(a)$.
+\item
+$\phiB \! \left(\FRL(a) \vertM \right) = \pair{a}{1_{\frakB}}$ for any $a\in A_0$.
+\end{enumerate}
+Similarly we can define {\sc lr}, {\sc ll} and
+{\sc rr}\footnote{The first {\sc l/r} subscript {\em anti\/}-corresponds to the fact
+   that the Fourier transform under consideration is a
+   left/right $\frakB$-module morphism, the second {\sc l/r} corresponds to the
+   {\sc l}eft/{\sc r}ight invariant functional we are dealing with in (ii).}
+Fourier transforms from $A_0$ to $B_0$ and vice versa, i.e.\ from $B_0$ to $A_0$.
+\end{defn_sec}
+
+
+\begin{remarks_sec} \label{rem:Fourier_transform}
+\item
+Requiring $\FRL$ to be a $\frakB$-module morphism expresses
+a well-known fact from classical Fourier analysis:
+Fourier transformation interchanges differentiation and multiplication.
+\item
+The main reason to allow these Fourier transforms to be only defined
+on subspaces $A_0$ or $B_0$ rather than all of $A$ or $B$, is that
+in general $A_0$ and $B_0$ need not to be {\em algebras},
+e.g.\ in the case of the quantum $E(2)$ group it certainly won't be easy to
+find candidates for $A_0$ and $B_0$ which are moreover algebras
+(cf.\ chapter \ref{chapter:Harmonic_analysis_on_quantumE2}).
+\item
+Observe that the conditions (v) in definition \ref{def:Fourier_context}\
+are only \lq one-sided\rq\@. However, we still have the
+$^*$-operations\footnote{or the antipodes,
+cf.\ condition (viii) of definition \ref{def:Fourier_context}.}\
+to change sides.
+These conditions will ensure that, given a particular Fourier context,
+its Fourier transforms are {\em unique\/}
+(cf.\ lemma \ref{lemma:Fourier_transform}\ below).
+\item
+Obviously the above set of axioms for a Fourier context is far from minimal.
+For instance condition (viii) should normally be a proposition
+rather than an assumption; also the different types of {\sc kms}
+conditions are likely to be related, etc.
+However, our main interest here is just to provide all the ingredients we need for
+doing Fourier analysis, without getting involved in difficult (though important)
+matters like uniqueness and faithfulness of Haar functionals.
+Anyway, in our quantum $E(2)$ example all the features required by
+definition \ref{def:Fourier_context}\ shall be available.
+\item
+Observe that requiring $\zetaA$ and $\zetaB$ to have modulus 1 does not
+really harm generality, because of corollary \ref{cor:scaling}.
+\item
+Recall that $A_0$ and $B_0$ were merely assumed to be non-trivial, whereas
+maybe it would have been more natural to impose some {\em density\/} requirement on them.
+Certainly the latter would not harm, but it turns out that $A_0$ and $B_0$
+{\em automatically\/} contain sufficiently many elements---check out lemma
+\ref{lemma:properties_of_Fourier_contexts}.ii for details.
+\item
+Fourier transforms also emerged in the duality theory for multiplier Hopf algebras
+with an integral \cite{Fons:AFGD,Fons:pnas}\
+and \mhs s (definition \ref{def:mhs:Fourier_transforms}).
+In this respect we mention that e.g.\ the {\scriptsize RL} Fourier transform
+in definition \ref{def:Fourier_transform}\
+is comparable to the {\em inverse\/} of $a \mapsto \hat{a}=\varphi(\,\cdot\, a)$.
+\end{remarks_sec}
+
+
+Let's collect some properties of Fourier contexts in the following
+
+\begin{lemma_sec} \label{lemma:properties_of_Fourier_contexts}
+Let \FourierBABA\ be a \mbox{Fourier context}.
+\begin{enumerate}
+\item
+The Haar functionals enjoy the following notions of strong left invariance:
+(e.g.) for any\/ $\alpha \in {\frakA}$, $\beta\in {\frakB}$ and\/ $b, d \in B$ we have
+\begin{eqnarray*}
+\phiB \!\left(\vertM b\,(d \ract \alpha) \right)
+      &=&  \phiB \!\left(\vertM (b \ract S(\alpha))\,d \right)       \\
+\phiB \!\left(\vertM \beta\,(d \ract \alpha) \right)
+      &=&  \phiB \!\left(\vertM (\beta \ract S(\alpha))\,d \right)   \\
+\phiB \!\left(\vertM b\,(\beta \ract \alpha) \right)
+      &=&  \phiB \!\left(\vertM (b \ract S(\alpha))\,\beta \right)
+\end{eqnarray*}
+\item
+Besides (iv) and (v) in definition \ref{def:Fourier_context},
+the invariant functionals also enjoy the following faithfulness property: (e.g.)
+$$ \beta \in {\frakB} \itandspace{1em} \phiB(B_0 \beta) = \{0\}
+         \hspace{2.5em} \Longrightarrow    \hspace{2em}  \beta=0. $$
+\item
+The modular elements\/ $\deltaA$ and\/ $\deltaB$ in definition \ref{def:Fourier_context}.ix\
+are unique.
+\item
+Also $\psiA$ and $\psiB$ have a modular property: (e.g.)\/
+$\psiA S = \psiA(S(\deltaA) \: \cdot\,)$
+\end{enumerate}
+\end{lemma_sec}
+\begin{proof}
+Let ${\mathcal B}$ be the $^*$-subalgebra of $\frakA'$ generated by $B$ and $\frakB$.
+In fact ${\mathcal B}$ is then also the linear span of $B \cup {\frakB}$ within ${\frakA}'$,
+and $\pair{\underline{\frakA}\,}{\mathcal B}$ is obviously still an \ahss\@.
+Now proposition \ref{prop:strong_left_invariance}\ yields (i).
+
+To show (ii), take any $\beta \in {\frakB}$ and assume that
+$\phiB(B_0 \beta) = \{0\}$. Using strong left invariance we observe that,
+for any $\alpha \in {\frakA}$, $\eta \in {\frakB}$ and $b_0 \in B_0$,
+$$ \phiB \!\left(\vertM \eta b_0 \,(\beta \ract \alpha) \right)
+    \;=\; \phiB \!\left(\vertM(\eta b_0 \ract S(\alpha))\, \beta \right) = 0. $$
+Here we used that $\eta b_0 \ract S(\alpha)$ still belongs to $B_0$.
+So $\phiB \!\left(\vertM {\frakB}\, b_0(\beta \ract \alpha) \right) = \{0\}$
+and hence $b_0(\beta \ract \alpha)=0$. It follows that
+$\pair{1_{\frakA}}{b_0} \pair{\alpha}{\beta}
+   = \pair{1_{\frakA}}{b_0(\beta \ract \alpha)} = 0$
+for all $\alpha \in {\frakA}$ and $b_0 \in B_0$. Now the
+non-degeneracy of the pairings $\pair{\frakA}{\frakB}$
+and $\pair{\frakA}{B}$ yields $\beta=0$.
+Indeed, if $\beta$ were non-zero, then we would have
+$\pair{1_{\frakA}}{B_0}=\{0\}$ and hence
+$\pair{\alpha}{b_0} = \pair{1_{\frakA}}{\alpha \lact b_0} = 0$
+for all $\alpha \in {\frakA}$ and $b_0 \in B_0$, which would mean
+that $B_0$ is trivial. This completes the proof of (ii).
+%
+Now (iii) follows easily from (ii).
+%
+Eventually, using \ref{def:Fourier_context}.vi-vii-viii-ix, we get
+$$ (\psiA S)(a) \:=\: \zetaA \, \phiA(a)
+                \:=\: \zetaA \, \phiA(S^{-1}(a)\,\deltaA)
+                \:=\: (\psiA S)(S^{-1}(a)\,\deltaA)
+                \:=\: \psiA(S(\deltaA) a)    $$
+for all $a\in A$, which proves (iv).
+\end{proof}
+
+
+\begin{lemma_sec} \label{lemma:Fourier_transform}
+Let \FourierBABA\ be a \mbox{Fourier context}\@.
+For any linear mapping\/ $\FRL:A_0 \rarr B_0$ the following are equivalent:
+\begin{enumerate}
+  \item $\FRL$ is an {\scriptsize RL} Fourier transform,
+  \item $\phiB \!\left(\vertM \beta \FRL(a) \right)= \pair{a}{\beta}$ for all\/
+        $\beta\in {\frakB}$ and\/ $a\in A_0$.
+\end{enumerate}
+\rm Similar properties hold for {\scriptsize LR}, {\scriptsize LL} and {\scriptsize RR}
+Fourier transforms. As a corollary we observe that {\em Fourier transforms are unique}.
+\end{lemma_sec}
+\begin{proof}
+(i $\Rightarrow$ ii).
+For all $\beta\in {\frakB}$ and $a\in A_0$, we have
+$$\phiB \!\left(\vertM\beta \FRL(a) \right)
+       \:=\: \phiB \!\left(\vertM\FRL(\beta \lact a) \right)
+       \:=\: \pair{\beta \lact a}{1_{\frakB}}
+       \:=\: \pair{a}{\beta}.$$
+(ii $\Rightarrow$ i).
+For all $\beta, \eta\in {\frakB}$ and $a\in A_0$, we have
+$$\phiB\!\left(\vertM\eta \beta \FRL(a)\right)
+     \:=\: \pair{a}{\eta \beta}
+     \:=\: \pair{\beta \lact a}{\eta}
+     \:=\: \phiB\!\left(\vertM\eta \FRL(\beta \lact a)\right).$$
+Observe that $\beta \FRL(a)$ and $\FRL(\beta \lact a)$ belong to $B_0$,
+hence from definition \ref{def:Fourier_context}.v\ it follows that
+$\FRL(\beta \lact a) = \beta \FRL(a)$.
+Furthermore, $\phiB(\FRL(a)) = \pair{a}{1_{\frakB}}$
+is just the $\beta = 1_{\frakB}$ case of (ii).
+Uniqueness follows from (ii) and definition \ref{def:Fourier_context}.v.
+\end{proof}
+\vspace{2ex}
+
+Recall that Fourier transforms from $A_0$ to $B_0$ are, by definition,
+$\frakB$-module morphisms.
+Now {\em strong\/} invariance (cf.\ lemma \ref{lemma:properties_of_Fourier_contexts}.i)
+of the Haar functionals implies these Fourier transforms to have $\frakA$-module
+properties as well:
+
+
+\begin{lemma_sec} \label{lemma:Fourier:extra_module prop}
+Take a Fourier context as above and let\/ $\FLL:A_0 \rarr B_0$ be an
+{\scriptsize LL} Fourier transform.
+Then\/ $\FLL \, S^{-1}: A_0 \rarr B_0$ is a right\/ $\frakA$-module morphism,
+i.e. for all\/ $a\in A_0$ and\/ $\alpha \in \frakA$ we have:
+$$ (\FLL\, S^{-1})(a\alpha) \:=\: (\FLL\, S^{-1})(a) \ract \alpha. $$
+\end{lemma_sec}
+\begin{proof}
+Using an {\scriptsize LL}-analogue of lemma \ref{lemma:Fourier_transform},
+we obtain for any $a\in A_0$, $\alpha \in \frakA$ and $\beta\in {\frakB}$ that
+\begin{eqnarray*}
+\phiB\!\left((\FLL S^{-1})(a\alpha) \, \beta \vertM\right)
+  &=& \pairM{S^{-1}(\alpha)\, S^{-1}(a)}{\beta}      \\
+  &=& \pairM{S^{-1}(a)}{\beta \ract S^{-1}(\alpha)}  \\
+  &=& \phiB\!\left((\FLL S^{-1})(a) \,
+             \left(\beta \ract S^{-1}(\alpha)\vertM\right) \! \vertL\right) \\
+  &\stackrel{(*)}{=}&
+   \phiB\!\left(\left((\FLL S^{-1})(a) \ract \alpha\vertM\right) \beta \vertL\right).
+\end{eqnarray*}
+Here $(*)$ relies on {\em strong left invariance\/} of $\phiB$
+(cf.\ lemma \ref{lemma:properties_of_Fourier_contexts}.i).
+The result follows from the faithfulness assumptions in definition \ref{def:Fourier_context}.v.
+\end{proof}
+
+
+
+\begin{ex_sec} \label{ex:Schwartz:moment_problem:false} \rm
+Recall examples \ref{ex:familiar:hopfR}\ and \ref{ex:familiar:Schwartz}\@.
+One may ask whether
+$$  \left( \SH, {\textstyle \frac{1}{\sqrt{2\pi}} \int_\RR};\,
+          \HopfR, \HopfR  ;\, \SH, {\textstyle \frac{1}{\sqrt{2\pi}} \int_\RR}
+           \vertL \right)  $$
+is a Fourier context; the answer is no, for the following reason:
+condition (v) in definition \ref{def:Fourier_context}\
+specializes to the {\em moment problem\/}
+\begin{equation}\label{eq:moment_problem}
+   f\in \SH \: \mbox{ and}
+      \int_\RR t^m f(t)\, dt = 0\; \mbox{ for all }\,m\in \NN
+      \hspace{6mm} \stackrel{\textstyle ?}{\Longrightarrow} \hspace{6mm} f=0
+\end{equation}
+which has {\em negative\/} answer for our Schwartz-like space $\SH$.
+Indeed, it is easy to construct a non-zero function $g\in C^\infty(\RR)$ with
+compact support and such that $g$ and all its derivatives vanish at the
+origin. Now if $f=\hat{g}$ denotes the (usual) Fourier transform of $g$,
+then $f\in S(\RR)$ because $g\in C_c^\infty(\RR) \subseteq S(\RR)$.
+Furthermore $f$ is entire, for $g$ has compact support.
+It follows that $f$ is a non-zero function in $\SH$
+with vanishing moments.
+This argument immediately reveals a second reason to reject $\SH$
+as the domain for our Fourier transforms: indeed
+Fourier transformation simply doesn't map $\SH$ into itself.
+\hfill $\star$
+\end{ex_sec}
+
+
+\begin{ex_sec} \label{ex:R:Fourier:Schwartz} \rm
+Let $\mathcal E$ be the subspace of \HC\ spanned by the functions
+$$  \CC \rarr \CC \,: \,x \mapsto\, x^m \exp(-\lambda x^2 + \zeta x)
+        \hspace{3em}
+        (m\in \NN, \, \lambda\in \RR_0^+, \, \zeta \in \CC). $$
+Notice that $\mathcal E$ is actually a $^*$-subalgebra of $\SH$.
+We claim that
+\begin{equation} \label{eq:ex:Plancherel}
+   \left( {\mathcal E} \subseteq \SH,
+                {\textstyle \frac{1}{\sqrt{2\pi}} \int_\RR}\,;
+                  \HopfR, \, \HopfR \,;\,
+          {\mathcal E} \subseteq \SH,
+                {\textstyle \frac{1}{\sqrt{2\pi}} \int_\RR}  \vertL \right)
+\end{equation}
+is a Fourier context.
+\end{ex_sec}
+\begin{proof}
+The observation that $\SH$ is invariant under multiplication with
+polynomials yields (i) of definition \ref{def:Fourier_context}\@.
+Furthermore $\mathcal E$ is invariant under differentiation and therefore under
+the actions (\ref{eq:actions:PR_on_HC}), which means that $\mathcal E$ is a
+$\HopfR$-bimodule w.r.t.\ these actions.
+Moreover $\mathcal E$ is obviously invariant under multiplication with
+polynomials, which proves (ii). To prove (v) we need positive answer
+to the moment problem for $\mathcal E$, analogous to (\ref{eq:moment_problem})
+in the previous example, which is easily established using the fact thatµ
+Hermite functions form an {\sc onb} for the Hilbert space $L^2(\RR)$.
+The remaining items are obvious.
+\end{proof}
+
+
+\begin{prop_sec}  \label{prop:relations_between_Ftransforms}
+Let\/ \FourierBABA\ be any Fourier \mbox{context}\ and
+let there exist an {\scriptsize RL} Fourier transform\/ $\FRL: A_0 \rarr B_0$.
+Then we automatically have the other three Fourier transforms from\/ $A_0$ to\/ $B_0$,
+e.g.\footnote{recall that antipodes and {\sc kms} automorphisms are bijective
+on $A_0$ and $B_0$ because of (iii) and (vii) in definition \ref{def:Fourier_context}.}
+$$  \FLR \:=\: \zetaB\, S^{-1} \FRL S^{-1}       \hspace{3.5em}
+    \FLL \:=\: \sigma_{\! \phiB}^{-1} \FRL       \hspace{3.5em}
+    \FRR \:=\: \sigma_{\psiB} \FLR.     $$
+Another way to construct e.g.\/ $\FRR$ from\/ $\FRL$ is to exploit the $^*$-structure:
+\begin{equation} \label{eq:Fourier:stars}
+  \FRR \: = \: \zetaB *S \FRL*
+\end{equation}
+Eventually the presence of modular elements yields formulas like
+\begin{equation} \label{eq:Fourier:modular}
+ \zetaB\, \FRL(a) \;=\; \deltaB\, \sigma_{\!\phiB} \!\left(\FLR(a)\vertM\right)
+ \hspace{3em} \mbox{for any\/ } a\in A_0.
+\end{equation}
+\end{prop_sec}
+\begin{proof}
+According to lemma \ref{lemma:Fourier_transform}, we have for any
+$\beta\in {\frakB}$ and $a\in A_0$ that
+$$ \phiB \! \left( S(\beta) \, \FRL(S^{-1}(a)) \vertM\right)
+      \:=\: \pairM{S^{-1}(a)}{S(\beta)}  \:=\: \pair{a}{\beta}. $$
+With $\phiB S = \zetaB \psiB$ and the fact that the antipode
+(on ${\frakA}' \supseteq {\frakB},B_0$) is an anti-homomorphism, we obtain
+$$ \zetaB \, \psiB \! \left((S^{-1} \FRL S^{-1})(a)\, \beta \vertM\right)
+         \:=\: \pair{a}{\beta} $$
+which (by an analogue of lemma \ref{lemma:Fourier_transform}) means precisely that
+$\zetaB\, S^{-1} \FRL S^{-1}$ is an {\scriptsize LR} Fourier transform from $A_0$ to $B_0$.
+This shows the first formula.
+The second one is an immediate consequence of the ${\frakB}$-{\sc kms}
+property of $\phiB$ on $B_0$ (\mbox{cf.\ definition}\ \ref{def:Fourier_context}.vii).
+Indeed for any $\beta\in {\frakB}$ and $a\in A_0$ we have
+$$ \phiB \! \left( \sigma_{\phiB}^{-1} (\FRL(a)) \, \beta  \vertM\right)
+        \:=\: \phiB \! \left(\beta \, \FRL(a)  \vertM\right)
+        \:=\: \pair{a}{\beta}. $$
+The third formula is analogous to the second one.
+To prove (\ref{eq:Fourier:stars}) we start again from lemma \ref{lemma:Fourier_transform}\@.
+Using the fact that $\phiB$ is hermitian, we obtain
+$$ \phiB \! \left(\FRL(a^*)^* \: S(\beta) \vertM\right)
+   \:=\: \overline{\phiB \! \left(S(\beta)^* \:\FRL(a^*)  \vertM\right)}
+   \:=\: \overline{\pairM{a^*}{S(\beta)^* }} \:=\: \pair{a}{\beta}  $$
+for all $\beta\in {\frakB}$ and $a\in A_0$.
+Using $\phiB S = \zetaB \psiB$ we obtain
+$$\zetaB \psiB \! \left(\beta \, S^{-1}(\FRL(a^*)^*) \vertM\right) \:=\: \pair{a}{\beta}$$
+and (\ref{eq:Fourier:stars}) follows.
+Once again using the ${\frakB}$-{\sc kms} property of $\phiB$ on $B_0$, we get
+$$ \phiB \! \left(\beta \, \deltaB \, \sigma_{\! \phiB}(\FLR(a)) \vertM\right)
+      \:=\:  \phiB \! \left(\FLR(a) \, \beta \deltaB \vertM\right)
+      \:=\:  \zetaB\, \psiB \! \left(\FLR(a) \, \beta \vertM\right)
+      \:=\:  \zetaB \pair{a}{\beta} $$
+for any $\beta\in {\frakB}$ and $a\in A_0$. This proves (\ref{eq:Fourier:modular}).
+\end{proof}
+
+\begin{remark_sec} \rm
+More generally we have
+$S F_{\!\scriptscriptstyle PQ} S =
+\zetaB F_{\!\bar{\scriptscriptstyle P} \bar{\scriptscriptstyle Q}}$
+for any pair of labels $\scriptstyle P, \, Q$ in the label set $\{{\scriptstyle L,\, R} \}$.
+Here $\,\bar{}\,$ is defined by $\bar{\scriptstyle L} =\, \scriptstyle R$
+and $\bar{\scriptstyle R} =\, \scriptstyle L$.
+\hfill $\star$
+\end{remark_sec}

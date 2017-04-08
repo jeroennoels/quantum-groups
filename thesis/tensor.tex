@@ -1,0 +1,187 @@
+\section{Tensor products}
+
+Throughout this paragraph, $\EEone \equiv (E_1; \Om_1,\pairing)$ and
+$\EEtwo \equiv (E_2; \Om_2,\pairing)$ are \contexts\@.
+Observe we have a non-degenerate pairing between $E_1 \tens E_2$ and $\Om_1 \tens \Om_2$.
+The following obvious lemmas are recorded to fix notations:
+
+\begin{lemma_sec} \label{lem:tens_contexts_def}
+  $\EEone \tens\, \EEtwo \equiv
+        \left(E_1 \tens E_2; \:\Om_1 \tens \Om_2, \pairing\vertM\right)$
+  is again an \context, the left actions being given by\/
+  $(x_1 \tens x_2) \,\lact\, (\om_1 \tens \om_2)
+          = (x_1 \lact \om_1) \tens (x_2 \lact \om_2)  $
+  for\/ $x_i \in E_i$ and $\om_i \in \Om_i$ with\/ $i=1,2$.
+  Similarly for the right actions.
+\end{lemma_sec}
+
+This tensor product construction can be iterated and is obviously associative.
+
+\begin{lemma_sec} \label{lem:tens_embedding}
+  We have well-defined linear maps $\Phi$ and $\Psi$, given by
+  $$ \begin{array}{ccccccc}
+     \Act(\EEone) \tens \Act(\EEtwo) & \stackrel{\textstyle \Phi}{\longrightarrow} &
+     \Act(\EEone \tens\, \EEtwo)
+           & &
+     \Om_1\adl \tens \Om_2\adl & \stackrel{\textstyle \Psi}{\longrightarrow}
+     & (\Om_1 \tens \Om_2)\adl
+     \\
+     \lamrho{1} \tens \lamrho{2}  & \longmapsto & (\lam_1 \tens \lam_2, \rho_1 \tens \rho_2)
+           & &
+     f_1 \tens f_2 & \longmapsto & f_1 \tens f_2.
+     \end{array} $$
+   Furthermore, let\/ $\theta_1$, $\theta_2$ and\/ $\theta$ be the mappings
+   associated to respectively\/ $\EEone$, $\EEtwo$ and\/ $\EEone \tens\, \EEtwo$
+   in the sense of proposition \ref{prop:act_by_fuctionals}.iii.
+   Then\/ $\theta\Psi = \Phi (\theta_1 \tens \theta_2)$.
+   Also observe that\/ $\Psi$ is injective.
+\end{lemma_sec}
+
+
+\begin{prop_sec}  \label{prop:tensor:wu}
+  $\;\EEone \tens\, \EEtwo$ is weakly unital if and only if
+  both\/ $\EEone$ and\/ $\EEtwo$ are weakly unital.
+\rm
+  In this case $\theta_1$, $\theta_2$ and $\theta$ are all
+  bijective, hence $\Phi$ is injective.
+  If $\eps_i$ is the counit for $\EE_{\,i}$ ($i=1,2$)
+  then $\eps_1 \tens \eps_2$ is the counit for $\EEone \tens\, \EEtwo$.
+\end{prop_sec}
+\begin{proof}
+  The \lq if\rq\ part is trivial; let's prove the \lq only if\rq\ part.
+  It is not so hard to see that if $\Om_1 \tens \Om_2$ is unital as an
+  $(E_1 \tens E_2)$-bimodule, then $\Om_i$ is unital as an $E_i$-bimodule ($i=1,2$).
+  Using (vi) in proposition \ref{prop:weakly_unital}\ yields the result.
+\end{proof}
+
+\begin{lemma_sec} \label{lem:action_of_xtens1}
+Assume\/ $\EEone \tens\, \EEtwo$ to be faithful in the sense of
+definition \ref{def:faithful_context}\@.
+Take any pre-actor $(\lam,\rho)$ for $\EEone \tens\, \EEtwo$ and any\/ $x \in E_1$.
+Then\/ $\rho$ commutes with $\vertM (x \lact \cdot\,) \tens\, \id$.
+Similarly\/ $\lam$ commutes with $(\,\cdot \ract x) \tens\, \id$.
+\end{lemma_sec}
+
+\begin{prop_sec}  \label{prop:tensor_embedding_Env}
+Again assume\/ $\EEone \tens\, \EEtwo$ to be faithful
+(definition \ref{def:faithful_context}).
+Then the map\/ $\Phi$ defined in lemma \ref{lem:tens_embedding}\ restricts
+to an algebra homomorphism from\/ $\Env(\EEone) \tens\, \Env(\EEtwo)$
+into\/ $\Env(\EEone \tens\, \EEtwo)$\@.
+\end{prop_sec}
+\begin{proof}
+  We will first show that
+  \begin{equation} \label{eq:env_tens_1_subset_env}
+    \Phi\left(\vertM  \Env(\EEone) \tens 1_{\EEtwo}\right)
+            \;\subseteq\;  \Env(\EEone \tens\, \EEtwo).
+  \end{equation}
+  So taking arbitrary $(\alpha, \beta) \in \Env(\EEone)$
+  and $(\lam,\rho) \in \Act(\EEone \tens \EEtwo)$,
+  we have to show that the pairs
+  $\left(\vertM (\alpha\tens \id)\lam, \, \rho(\beta\tens \id) \right)$ and
+  $\left(\vertM \lam(\alpha\tens \id), \, (\beta\tens \id)\rho \right)$ obey the \biap\@.
+  Let's do this---for instance---for the last one:
+  take any $x_i, y_i \in E_i$ and $\om_i \in \Om_i$ ($i=1,2$) and
+  define mappings $\lam_1, \rho_1: \Om_1 \rarr \Om_1$ by
+  \begin{eqnarray*}
+     \lam_1(\nu)  &=&  \left(\vertM \id \tens \pairdot{y_2} \right)\,
+                          \lam\left(\vertM \nu \tens (x_2 \lact \om_2) \right)  \\
+     \rho_1(\nu)  &=&  \left(\vertM \id \tens \pairdot{x_2} \right)\,
+                          \rho\left(\vertM \nu \tens (\om_2 \ract y_2) \right).
+  \end{eqnarray*}
+  Since $(\lam,\rho)$ is an actor for $\EEone \tens\, \EEtwo\,$,
+  it follows that $(\lam_1,\rho_1)$ is an actor for $\EEone$
+  (here we need lemma \ref{lem:action_of_xtens1}).
+  Consequently also $(\lam_1\alpha,\beta\rho_1) \in \Act(\EEone)$, hence
+  \begin{eqnarray*}
+     \lefteqn{\pairM{x_1 \tens x_2}{(\beta \tens \id)
+           \rho\left(\vertM (\om_1 \tens \om_2) \ract (y_1 \tens y_2)\right)} }   \\
+    &=&
+      \pairM{x_1}{\beta \left(\vertM \id \tens \pairdot{x_2} \right)
+           \rho\left(\vertM (\om_1 \ract y_1) \tens (\om_2 \ract y_2)\right)}          \\
+    &=&
+      \pairM{x_1}{\beta\rho_1(\om_1 \ract y_1)}                   \\
+    &=&
+      \pairM{y_1}{\lam_1\alpha(x_1 \lact \om_1)}                  \\
+    &=&
+      \pairM{y_1}{\left(\vertM \id \tens \pairdot{y_2} \right)
+           \lam\left(\vertM \alpha(x_1 \lact \om_1) \tens (x_2 \lact \om_2) \right)}  \\
+    &=&
+      \pairM{y_1 \tens y_2}{\lam ( \alpha \tens \id)
+           \left(\vertM (x_1 \tens x_2) \lact (\om_1 \tens \om_2)  \right)}.
+  \end{eqnarray*}
+  This proves (\ref{eq:env_tens_1_subset_env}). Of course a similar result
+  holds when the roles of $\EEone$ and $\EEtwo$ are reversed.
+  Now it's easy to complete the proof.
+\end{proof}
+
+
+
+\begin{prop_sec} \label{prop:slicing_on_Act}
+Let\/ $\EEone$ and\/ $\EEtwo$ be weakly unital.
+Given any\/ $\om \in \Om_2$, there exists a unique linear map\/
+$$\Gamma : \Act(\EEone \tens\, \EEtwo)  \rarr  \Act(\EEone)
+       \hspace{2.5em} \mbox{\it such that}  \hspace{2.5em}
+  \pair{\Gamma(a)}{\nu} = \pair{a}{\nu \tens \om} $$
+for all\/ $a\in \Act(\EEone \tens\, \EEtwo)$ and all\/ $\nu \in \Om_1$.
+\end{prop_sec}
+\begin{proof}
+Fix $\om \in \Om_2$ and take any actor $a \equiv (\lam,\rho)$ for $\EEone \tens\, \EEtwo$.
+Now define two linear mappings $\lam_1$ and $\rho_1$ from $\Om_1$ into $\Om_1$ by
+\begin{equation} \label{eq:def:slicing_on_Act}
+\begin{array}{rcl}
+    \lam_1 &=& (\id \tens \eps_2) \,\lam\, (\,\cdot \tens \om) \\
+    \rho_1 &=& (\id \tens \eps_2) \,\rho\, (\,\cdot \tens \om)
+  \end{array}
+\end{equation}
+With lemma \ref{lem:action_of_xtens1}\ we obtain $(\lam_1,\rho_1) \in \Pre(\EEone)$.
+Then lemma \ref{lem:char:actor:wu}\ yields that $(\lam_1,\rho_1) \in \Act(\EEone)$.
+Define $\Gamma(a)=(\lam_1,\rho_1)$. Now (\ref{eq:pairing_with_act}) yields the result.
+\end{proof}
+
+
+\begin{notation_sec} \label{not:slicing_on_Act}  \rm
+Adopt the above situation, but now consider $\om$ as a weakly continuous functional on $E_2$.
+To emphasize this interpretation we shall denote this functional by $f_\om$.
+Since $\Gamma$ naturally extends the {\em slice\/} map
+$$ \id \tens f_\om  \,:\,  E_1 \tens E_2 \rarr E_1
+                   :\,  x_1 \tens x_2 \, \mapsto  \pair{x_2}{\om}\, x_1, $$
+we shall henceforth denote $\Gamma$ as $\,\id \slice f_\om$.
+\hfill $\bullet$
+\end{notation_sec}
+
+
+
+\begin{prop_sec} \label{prop:slices_in_Env}
+Let\/ $\EEone$ and\/ $\EEtwo$ be weakly unital, fix an\/ $\om \in \Om_2$ and
+take an actor\/ $a \equiv (\lam,\rho)$ for\/ $\EEone \tens\, \EEtwo$.
+If\/ $\lam$ commutes with\/ $\beta \tens \id$ and\/ $\rho$ with\/ $\alpha \tens \id$
+for all\/ $(\alpha, \beta) \in \Act(\EEone)$,
+then\/ $(\id\, \slice f_\om)(a)$ belongs to\/ $\Env(\EEone)$.
+\end{prop_sec}
+\begin{proof}
+Corollary \ref{cor:Env_comm}\ and (\ref{eq:def:slicing_on_Act}).
+\end{proof}
+
+
+
+\begin{prop_sec} \label{prop:slicing_multipliers}
+{\rm Recall definition \ref{def:MEE}\ and proposition \ref{prop:ME=MEE}}\@.
+Let\/ $\EEone$ and\/ $\EEtwo$ be weakly unital, fix an\/ $\om \in \Om_2$ and
+take any\/ $a \in M(\EEone \tens\, \EEtwo) \simeq  M(E_1 \tens E_2)$.
+Then\/ $(\id\, \slice f_\om)(a)$ belongs to\/ $M(\EEone) \simeq  M(E_1)$.
+\end{prop_sec}
+\begin{proof}
+Since $\EEtwo$ is weakly unital, we may write $\om = \sum_i \, y_i \lact \xi_i$
+with $y_i \in E_2$ and $\xi_i \in \Om_2$.
+Using (\ref{eq:canonical_actions:extended}) we easily obtain that
+for any $x\in E_1$ and $\nu \in \Om_1$
+$$ \pairM{(\id\, \slice f_\om)(a)\,x}{\nu}
+    \:=\: \pairM{a}{(x\lact \nu) \tens \om}
+    \:=\: \textstyle \sum_i \, \pairM{a(x \tens y_i)}{\nu \tens \xi_i}. $$
+It follows that
+$(\id\, \slice f_\om)(a)\,x  =  \sum_i \, (\id\, \tens f_{\xi_i})
+            \left(\vertM a(x \tens y_i) \right)$ belongs to $E_1$.
+
+Similarly we can deal with $x(\id\, \slice f_\om)(a)$.
+\end{proof}

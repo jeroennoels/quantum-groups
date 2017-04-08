@@ -1,0 +1,293 @@
+
+
+\section{Haar functionals on \protect\Aqext}
+\label{par:Haar_functionals_on_Aqext}
+
+
+\begin{abs_chp}
+The subject of the present section has already been studied by \mbox{H.T.}\ Koelink
+\cite{Koelink:thesis,Koelink:QE2}\@. Some of his results have been included
+below to fix the notations, which have been slightly modified to match the
+language of the previous sections; furthermore the particular choice of function
+space\footnote{in \cite{Koelink:thesis,Koelink:QE2} a Schwartz-like space was chosen.}\
+will be postponed until chapter \ref{chapter:Harmonic_analysis_on_quantumE2}\@.
+In fact the construction of Haar functionals in the previous sections is {\em dual\/}
+to the story of \cite{Koelink:thesis,Koelink:QE2}\ sketched below, and actually both
+constructions proceed in a similar way, except on one point:
+\cite{Koelink:thesis,Koelink:QE2}\ involves a functional
+calculus in one variable, whereas in \S\ref{par:Uqext:interesting_subalgebras}\
+we were forced into taking \lq functions\rq\ in two variables.
+Our main goal, however, is to study the {\em interplay\/}
+between both pictures; at this point, Fourier analysis on the quantum $E(2)$
+group will emerge (see \S \ref{par:Preview_on_Fourier_transforms}\ and
+chapter \ref{chapter:Harmonic_analysis_on_quantumE2}).
+\end{abs_chp}
+
+
+
+\subsection{Functional calculus}
+
+In order to host \lq functions\rq\ of the generators of \Aq, we shall
+first replace \Aq\ by a larger $^*$-algebra \Aqext\@.
+From (\ref{eq:fullpairing}) it is clear that any formal series
+\begin{equation} \label{eq:Aqext:formal_series}
+   \sum_{\stackrel{\scriptstyle l\in\ZZ}{\rm finitely\, many}}
+   \sum_{m=0}^{\infty} \;  \sum_{n=0}^{\infty} \:
+     w_{\, l,m,n}\, \alpha^l \beta^m \gamma^n
+   \hspace{3em}  (w_{\, l,m,n} \in \kk)
+   \hspace{2em}
+\end{equation}
+can be interpreted in a natural way as a well-defined element in $\Uq'$.
+Moreover, the commutation rules between the generators of \Aq\ imply that the
+formal product and $^*$ of such formal series is again of this form;
+the resulting \mbox{$^*$-algebra}\ will be denoted by \Aqext\@.
+Recall that $\Uq'$, being the algebraic dual of a Hopf $^*$-algebra, is a $^*$-algebra as well.
+Now it is not so hard to prove that we indeed have $^*$-algebra embeddings
+$\Aq \,\hookrightarrow \,\Aqext\, \hookrightarrow\, \Uq'$.
+Furthermore, also the antipode on \Aq\ extends to a map $S: \Aqext \rarr \Aqext \,$
+in a straightforward manner.
+\vspace{2ex}
+
+
+
+The space of elements of type (\ref{eq:Aqext:formal_series}) with
+$w_{\, l,m,n}=0$ whenever $l+m+n$ is odd obviously constitutes a subalgebra of \Aqext\@.
+This subalgebra of \lq even\rq\ elements in \Aqext\ shall be denoted by \Aqeven\@.
+In \cite{Koelink:thesis,Koelink:QE2}\ it was explained that \Aqext\ should in fact
+be considered as a quantized algebra of functions on a {\em double cover\/}
+of the $E(2)$ group, whereas \Aqeven\ corresponds to the actual quantum $E(2)$ group.
+
+
+
+\begin{defn*}
+Whenever \calG\ is a subspace of \HC\ we define the following subspaces of $\Aqext\,$:
+\begin{eqnarray*}
+\AqG &=&
+     \mbox{span} \left\{ \!\! \left.\begin{array}{l}
+            \alpha^l \gamma^m \,g(\gamma^*\gamma)   \\ \vertL
+            \alpha^l \,(\gamma^*)^m \,g(\gamma^*\gamma)
+            \end{array}
+            \right|   \begin{array}{l}
+            l\in\ZZ, \; m\in\NN, \\
+            g\in\calG  \end{array} \! \right\}
+\\ \vertXL
+\Aqeven(\calG) &=& \AqG \, \cap \, \Aqeven.
+\end{eqnarray*}
+\end{defn*}
+
+
+
+Here, of course, $g(\gamma^*\gamma)$ is merely a transparent way to write the
+formal series
+\begin{equation} \label{eq:functions_of_gamma*gamma}
+ g(\gamma^*\gamma)
+    \:=\:  \sum_{n=0}^{\infty} \: \mu_n(g) \:(\gamma^*\gamma)^n
+    \:=\:  \sum_{n=0}^{\infty} \: (-q^{-1})^n\: \mu_n(g) \:\beta^n \gamma^n
+\end{equation}
+which is indeed of type (\ref{eq:Aqext:formal_series}) and obviously the
+\lq functional calculus\rq\
+$$\HC \rarr \Aqext \: :\: g \mapsto\, g(\gamma^*\gamma)$$
+is an injective $^*$-algebra morphism. Furthermore it is straightforward to show
+
+
+
+\begin{lemma}  \label{lem:functional_calc:Aq:properties}
+For all\/ $g\in\calG$, $l\in\ZZ$ and\/ $m\in\NN$,
+  $$  \alpha^l \, g(\gamma^*\gamma)
+        \:=\: (\Omega^{2l} g)(\gamma^*\gamma) \:\alpha^l  $$
+  $$   (\gamma^*\gamma)^m \, g(\gamma^*\gamma)
+        \:=\: (\Psi^m g)(\gamma^*\gamma) \:=\:
+        g(\gamma^*\gamma)\, (\gamma^*\gamma)^m. $$
+  $$   g(\gamma^*\gamma) \mbox{ commutes with\/ } \gamma \mbox{ and\/ } \gamma^*. $$
+\end{lemma}
+
+
+
+
+\begin{lemma} \label{lem:AqG:direct_sum}
+$\:\AqG$ can be considered as a direct sum:
+$$ \textstyle \bigoplus_{l\in\ZZ}\:
+  \left\{ \left( \bigoplus_{m=1}^\infty
+     \alpha^l \gamma^m \,\calG(\gamma^*\gamma) \vertL \right)
+            \;\bigoplus\;
+  \alpha^l \,\calG(\gamma^*\gamma)
+           \;\bigoplus\;
+  \left(  \bigoplus_{m=1}^\infty  \alpha^l (\gamma^*)^m \,\calG(\gamma^*\gamma)
+            \vertL \right)\!\!  \vertXL\right\}. $$
+\end{lemma}
+\begin{proof}
+This is clear from (\ref{eq:fullpairing}) and (\ref{eq:functions_of_gamma*gamma}).
+\end{proof}
+
+
+
+\begin{cor} \label{cor:Aqeven:description} \rm
+Using this direct sum structure and (\ref{eq:functions_of_gamma*gamma}) it follows that
+$$\Aqeven(\calG)
+   \;=\; \mbox{\rm span}\left\{ \!\! \left.\begin{array}{l}
+            \alpha^l \gamma^m \,g(\gamma^*\gamma)   \\ \vertL
+            \alpha^l \,(\gamma^*)^m \,g(\gamma^*\gamma)
+            \end{array}
+            \right| \begin{array}{l}
+            l\in\ZZ, \; m\in\NN\: \mbox{ \rm with $l+m$ even,}  \\
+            g\in\calG  \end{array}  \! \right\}.  $$
+\end{cor}
+
+
+
+The following summarizes some results which were already present in
+\cite{Koelink:thesis,Koelink:QE2}:
+
+\begin{prop} \label{prop:AqG}
+If\/ \calG\ is a non-trivial self-adjoint subspace of\/ \HC\
+which is invariant under\/ $\Omega^{\pm 2}$, $\Psi$ and\/ $\Dqsqr$,
+then\/ \AqG\ is
+ \begin{enumerate}
+   \item a sub-\Uq-bimodule of\/ $\Uq'$ under canonical actions (\ref{eq:def:canonical_actions})
+   \item an\/ \Aq-bimodule under multiplication within\/ \Aqext
+   \item invariant under\/ $S^{\pm 1}$ and $^*$
+   \item weakly dense in\/ $\Uq'$ (i.e.\ separates\/ \Uq\ within the duality).
+ \end{enumerate}
+If moreover\/ \calG\ is an algebra, then so is\/ \AqG.
+\end{prop}
+
+\begin{proof}
+(i) is shown through explicit calculation \cite{Koelink:thesis,Koelink:QE2}\ of the
+actions of \Uq\ on \AqG, involving $\{\Omega^{\pm 2}, \Dqsqr\}$-invariance of \calG\@.
+The proof of (ii-iii) relies on lemma \ref{lem:functional_calc:Aq:properties}\@.
+(ii) requires $\{\Omega^{\pm 2},\Psi\}$-invariance, whereas (iii) only involves
+self-adjointness and $\{\Omega^{\pm 2}\}$-invariance.
+(iv) is similar to lemma \ref{lemma:UqTG_separates_Aq}\@.
+The \lq moreover\rq\ part follows from the fact that our functional calculus is a
+$^*$-algebra morphism and involves $\{\Omega^{\pm 2},\Psi\}$-invariance of \calG\@.
+\end{proof}
+
+
+
+\begin{cor} \label{cor:UqAqG:Hopf_system}
+  Under the assumptions of the previous proposition, including the \lq moreover\rq\ part,
+  $\left\langle\vertM\right. \! \underline{\Uq}\, , \, \AqG   \left.\vertM\right\rangle$
+  is an \ahss\footnote{See definition \ref{def:algebraic_Hopf_system}.}\@.
+\end{cor}
+
+
+
+\paragraph{The antipode}
+Under the assumptions of proposition \ref{prop:AqG}, the antipode\/ $S$ on\/ \AqG\
+is actually a bijection. Furthermore it is straightforward to prove that
+\begin{eqnarray*}
+S \!\left(\alpha^l \gamma^m \,g(\gamma^*\gamma) \vertM \right) &=& (-q)^m \,
+q^{ml} \; \alpha^{-l} \gamma^m \,(\Omega^{2l} g)(\gamma^*\gamma)
+\\
+S \!\left(\alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertM \right) &=& (-q)^{-m}
+\, q^{ml} \; \alpha^{-l} (\gamma^*)^m \,(\Omega^{2l} g)(\gamma^*\gamma)
+\\
+S^2 \!\left(\alpha^l \gamma^m \,g(\gamma^*\gamma) \vertM \right) &=& q^{2m} \;
+\alpha^l \gamma^m \,g(\gamma^*\gamma)
+\\
+S^2 \!\left(\alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \vertM \right) &=& q^{-2m}
+\; \alpha^l (\gamma^*)^m \,g(\gamma^*\gamma)
+\end{eqnarray*}
+
+
+\subsection{The Haar functional}
+\label{par:Haar:Aq:construction}
+
+Throughout this paragraph we fix a real number $\nu$ with $\nu >0$. Furthermore,
+let $\calG_\nu$ be any sub{\em algebra\/} of \HC\ satisfying assumptions \ref{assume:Gr}\@.
+
+\begin{defn*}
+In view of lemma \ref{lem:AqG:direct_sum}\ it is possible to
+define a functional $\omega$ on $\Aq(\calG_\nu)$ as follows:
+for any $l\in \ZZ$, $m\in\NN$ and $g\in \calG_\nu$, we set
+\begin{equation}\label{eq:def:Haar:AqG}
+  \begin{array}{ll}
+    \left. \begin{array}{l}
+      \omega \!\left(\alpha^l \gamma^m \,g(\gamma^*\gamma) \right) = 0 \\
+                       \vertXL
+      \omega \!\left(\alpha^l (\gamma^*)^m \,g(\gamma^*\gamma) \right) = 0
+    \end{array} \right\}  & \mbox{if either $l\neq 0$ or $m\neq 0$} \\
+    \;\: \omega \!\left(g(\gamma^*\gamma)\vertM \right) \vertXXL
+           \,=\: \displaystyle \sum_{k\in\ZZ} \, g(\nu q^{2k})\, q^{2k}
+           \hspace{4mm} & \mbox{otherwise.}
+  \end{array}
+\end{equation}
+\end{defn*}
+
+%%%%%%(in \cite{Koelink:thesis,Koelink:QE2}\ $\omega$ was denoted by $h$.)
+
+
+\begin{prop} \label{prop:haar:Aq}
+The functional\/ $\omega$ as defined above is both left and right
+invariant (see definition \ref{def:invariant_functional}\ and
+corollary \ref{cor:UqAqG:Hopf_system}).
+Moreover, $\omega$ is hermitian, positive and faithful.
+\end{prop}
+
+
+\begin{prop} \label{prop:Aq:KMS}
+$\;\omega$ is weakly {\scriptsize KMS}\@.
+The {\scriptsize KMS}-automorphism\/ $\sigma_\omega$ is given by\/
+$\sigma_\omega = a^{-2} \lact (\,\cdot\,) \ract a^{-2}$.
+Explicitly, for\/ $g\in \calG_\nu$, $l\in \ZZ$ and\/ $m \in \NN$ we have:
+$$\sigma_\omega \!\left( \alpha^l \,(\gamma \mbox{ resp.\ } \gamma^*)^m
+                   \,g(\gamma^*\gamma)  \vertL \right)
+ \;=\;   q^{-2l} \: \alpha^l \, (\gamma \mbox{ resp.\ } \gamma^*)^m
+                 \,g(\gamma^*\gamma). $$
+Moreover\/ $\omega$ is\/ $\Aq$-{\scriptsize KMS}\ in the sense that\/
+$\omega(y \eta) \,=\, \omega(\eta \, \sigma_\omega(y))$ for any\/ $\eta \in \Aq$
+and\/ $y \in \Aq(\calG_\nu)$. Furthermore we have\/ $\omega S = \omega$,
+and hence the modular element associated with\/ $\omega$ is trivial.
+\end{prop}
+
+
+\begin{proof}
+The {\sc kms}-automorphism was already computed in \cite{Koelink:thesis,Koelink:QE2}\@.
+Let's have a closer look at the $\Aq$-{\sc kms}\ property.
+We have to consider $\eta = \alpha^p \beta^r \gamma^s$ and
+$y = \alpha^l \, (\gamma \mbox{ or } \gamma^*)^m \, g(\gamma^*\gamma)$
+for any $g\in \calG_\nu$, $l,p \in \ZZ$ and $m,r,s \in \NN$.
+We have e.g.
+\begin{eqnarray*}
+\lefteqn{\omega \!\left( \alpha^l \gamma^m  g(\gamma^*\gamma) \;
+            \alpha^p \beta^r \gamma^s \vertL \right)} \\
+&\hspace{3em}=& \omega \!\left( \alpha^l \gamma^m \alpha^p
+\,(\Omega^{-2p}g)(\gamma^*\gamma)\,
+             \beta^r \gamma^s \vertL \right)  \\
+&\hspace{3em}=& q^{-pm} \: \omega \!\left( \alpha^{l+p} \beta^r \gamma^{m+s}
+           \,(\Omega^{-2p}g)(\gamma^*\gamma) \vertL \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-pm} \: \omega \!\left((-q
+\gamma^* \gamma)^r
+           \,(\Omega^{-2p}g)(\gamma^*\gamma) \vertL \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-pm} \: (-q)^r \:
+\omega \!\left(
+           (\Psi^r \Omega^{-2p}g)(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-pm} \: (-q)^r \:
+q^{2pr}\: \omega \!\left(
+           (\Omega^{-2p}\Psi^r g)(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}\stackrel{(*)}{=}& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-pm} \:
+(-q)^r \: q^{2pr}\:
+        q^{2p}\: \omega \!\left((\Psi^r g)(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-pm} \:  q^{2pr}\:
+        q^{2p}\: \omega \!\left( (-q \gamma^* \gamma)^r\, g(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \: \delta_{r,m+s} \: q^{-(-l)(r-s)} \:
+q^{2(-l)r}\:
+        q^{2(-l)}\: \omega \!\left( \beta^r \gamma^{m+s} \, g(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}=& \delta_{l+p,0} \:  q^{-l(r+s)}\: q^{-2l}\:
+        \omega \!\left( \beta^r \gamma^{m+s} \, g(\gamma^*\gamma) \vertM \right)  \\
+&\hspace{3em}=& q^{-l(r+s)}\: q^{-2l}\: \omega \!\left( \alpha^{l+p} \beta^r
+        \gamma^s \, \gamma^m   \, g(\gamma^*\gamma)   \vertL \right)  \\
+&\hspace{3em}=&
+ q^{-2l}\: \omega \!\left( \alpha^p \beta^r \gamma^s \alpha^l
+             \gamma^m \, g(\gamma^*\gamma)  \vertL \right)  \\
+&\hspace{3em}=&
+  \omega \!\left( \alpha^p \beta^r \gamma^s  \: \sigma_\omega \! \left( \alpha^l
+               \gamma^m \, g(\gamma^*\gamma) \vertM \right) \! \vertL \right).
+\end{eqnarray*}
+In ($*$) we used the following property of the Haar functional:
+$$ \omega \!\left( (\Omega^{2n} g)(\gamma^*\gamma) \vertM \right)
+     \:=\:  q^{-2n} \, \omega \!\left( g(\gamma^*\gamma) \vertM \right) $$
+for $g\in \calG_\nu$ and $n\in\ZZ$.
+The last statement (i.e. $\omega S = \omega$) follows immediately from
+the formulas for the antipode on $\Aq(\calG_\nu)$.
+\end{proof}

@@ -1,0 +1,300 @@
+\section{About quantum groups}
+
+Whenever $G$ is a finite group, the space $K(G)$ of complex valued functions on $G$
+is a commutative algebra under pointwise operations.
+The group structure on $G$ yields a so-called {\em comultiplication\/} on $K(G)$,
+which is an algebra homomorphism $\Delta : K(G) \rarr K(G) \tens K(G)$
+defined by $(\Delta f)(s,t)=f(st)$ for any $f\in K(G)$ and $s,t \in G$.
+This makes sense because $K(G) \tens K(G)$ identifies with the algebra of complex
+functions on $G \times G$.
+Now the properties of $G$ as a group can be reformulated in terms of this comultiplication.
+Thus $K(G)$ becomes a finite dimensional commutative Hopf algebra.
+The axioms of Hopf algebra theory, however, do not depend on the commutativity
+of the algebra; dropping the commutativity requirement yields the notion of
+a finite {\em quantum\/} group.
+Such a quantum group can of course only exist on the algebra level---we shall have
+to abandon the classical idea of a point-set with some operation upon it.
+\vspace{1ex}
+
+Let us return to the group case: there is another way to obtain a
+Hopf algebra from a group $G$, considering the group algebra $\CC G$
+rather than the function algebra $K(G)$.
+Now the Hopf algebras $K(G)$ and $\CC G$ are in a sense {\em dual\/} to each other.
+In fact, when $G$ is abelian and $\hat{G}$ denotes its dual group,
+then $\CC G$ is actually isomorphic to $K(\hat{G})$ as a Hopf algebra.
+Even when $G$ is not abelian, we still have this dual pair of Hopf algebras,
+$K(G)$ and $\CC G$. Thus classical Pontryagin duality for finite abelian groups
+has been extended to the non-abelian case, provided of course that we allow
+quantum groups to enter the picture.
+\vspace{1ex}
+
+Unfortunately the above procedure breaks down in case the group $G$ is infinite.
+If now $K(G)$ denotes the algebra of functions on $G$ with {\em finite support},
+then we still have the identification of $K(G) \tens K(G)$ with $K(G \times G)$.
+However $\Delta f$ will have infinite support unless $f$ is zero.
+In other words, the comultiplication on $K(G)$ goes outside the algebraic tensor product.
+We can get around this problem by allowing $\Delta$ to take values in the
+{\em multiplier\/} algebra of $K(G) \tens K(G)$, the latter being
+nothing but the algebra of {\em all\/} functions on $G \times G$.
+Moreover, the multipliers in the range of $\Delta$ turn out to be \lq covered\rq\
+in the sense that $\Delta(f)(1 \tens g)$ and $(f \tens 1)\Delta(g)$
+are actually in $K(G) \tens K(G)$ for any $f,g \in K(G)$.
+\vspace{1pt}
+
+
+These observations were the starting point for the theory of multiplier Hopf algebras,
+as initiated by A. Van Daele
+\cite{Fons:DQG,Fons:MHA,Fons:AFGD,Fons:AFGD:proc}\ and developed further
+in collaboration with B. Drabant, J. Kustermans and Y. Zhang
+\cite{FonsDra:QD,FonsDraZhang:actions,Kust:Cstar,FonsZhang:DQG,FonsZhang:coactions}\@.
+This theory generalizes the notion of a Hopf algebra to the non-unital case and
+succesfully incorporates its motivating example of an infinite discrete group.
+Moreover it provides a setting for the {\em self-dual\/} category of
+regular multiplier Hopf algebras with integrals \cite{Fons:AFGD,Fons:pnas}\@.
+The latter category contains all compact \&\ discrete quantum groups \cite{AnnFons,Wor:matrix}\
+and admits the construction of a quantum double \cite{FonsDra:QD}\ within the same category.
+In \cite{Kust:Cstar,Kust:thesis,Kust:universal}\ it was shown that the \mbox{so-called}\
+{\em algebraic\/} quantum groups, i.e.\ multiplier Hopf $^*$-algebras with a positive integral,
+can be lifted to the \Cstar-algebra level; in other words, they have a \mbox{\Cstar-envelope}\
+fitting into the framework for locally compact quantum groups recently
+developed by J. Kustermans and S. Vaes \cite{KV,KV:cr,KV:pnas}\@.
+\vspace{1ex}
+
+
+Although the theory of multiplier Hopf algebras constituted a very substantial
+extension of ordinary Hopf algebra theory, there were some indications that even the concept
+of a multiplier Hopf algebra was still susceptible to further generalization.
+Let us consider e.g.\ the quantum $E(2)$ group,
+which is most easily described by a particular dual pair \UqAq\
+of Hopf \mbox{$^*$-algebras}\ \cite{Koelink:QE2}\@.
+This description however, is not quite satisfying in the sense that it does not admit Haar integrals.
+On the \mbox{$C^*$-algebra}\ level, the quantum $E(2)$ group and its dual
+were first obtained by S.L. Woronowicz \cite{Wor:QE2,Wor:Affiliated}\@.
+Then S. Baaj studied the regular representation and constructed the Haar
+weights \cite{Baaj:QE2}\@. Pontryagin duality was investigated by
+\mbox{A. Van Daele}\ and S.L. Woronowicz \cite{FonsWor:QE2}\@.
+Although the operator-algebraic setting is undoubtedly the most natural,
+it is unfortunately also far more complicated than the Hopf algebra picture.
+Therefore it would be nice if we could have something in between,
+having the technical simplicity of an algebraic approach, yet still incorporating important
+features like Haar integrals and Fourier transforms.
+\vspace{1ex}
+
+
+A first step in this direction was taken by \mbox{H.T. Koelink},
+who focused on the interplay between quantum groups and $q$-special functions.
+In particular \mbox{$q$-Bessel}\ functions have emerged naturally in his study of
+the representation theory of quantum $E(2)$.
+Also work of L. Vainerman \cite{leonid:vainerman}\ and Vaksman-Korogodski\u{\i}
+\cite{VaksKor:QE2}\ indicated a strong relationship between \mbox{$q$-Bessel}\
+functions and the quantum $E(2)$ group.
+In \cite{Koelink:QE2}\ H.T. Koelink constructed a particular dense subalgebra
+$\mathcal{H}$ within the algebraic dual of the Hopf algebra $\Uq$.
+What makes this subalgebra so interesting is the fact that,
+unlike the Hopf algebra \Aq, the algebra $\mathcal{H}$ does admit a Haar integral.
+Now $\mathcal{H}$ turns out to be neither a Hopf algebra or a multiplier Hopf algebra,
+the reason being that the comultiplication on $\mathcal{H}$ takes values
+outside the multiplier algebra of $\mathcal{H} \tens \mathcal{H}$.
+It seems that we need a more general framework here.
+
+\newpage
+
+
+\section{About this thesis}
+
+Every algebra $E$ acts canonically on its dual $E'$ as follows:
+$$  \pair{x}{y\lact \om} \:=\: \pair{xy}{\om} \:=\: \pair{y}{\om\ract x} $$
+for $x,y \in E$ and $\om \in E'$.
+These actions will play a {\em key-role\/} throughout the whole thesis.
+In \mbox{chapter \ref{chapter:Enveloping_algebras}}\ canonical actions will be used to
+construct {\em enveloping algebras\/} by a procedure quite similar to the construction
+of a multiplier algebra, the main difference being that we now start from the above
+actions rather than from multiplication.
+This yields the notion of an {\em actor}, or synonymously, a {\em comultiplier}\@.
+\vspace{1ex}
+
+The framework developed in \mbox{chapter \ref{chapter:Enveloping_algebras}}\ will
+turn out to be indispensable for \mbox{chapter \ref{chapter:Hopf_systems}},
+in which we shall introduce the notion of a {\em Hopf System}\@.
+The latter is intended to provide a unifying algebraic framework for quantum group
+{\em duality}, putting into bigger picture many established notions like e.g.\
+locally compact groups,
+Hopf algebras
+\cite{Schmudgen,Majid,Fons:DPHA},
+multiplier Hopf algebras \cite{Fons:MHA}\ with reduced dual,
+the duality theory for multiplier Hopf algebras with integrals
+\cite{Fons:AFGD,Fons:AFGD:proc,Fons:pnas},
+algebraic quantum groups
+\cite{Kust:Cstar,Kust:thesis},
+etc\footnote{ In this respect we want to draw the reader's attention to
+appendix \ref{app:inheritance}, which contains a schematic overview.}\@.
+Also the pair $\pair{\Uq}{\mathcal{H}}$ mentioned above will fit in this setting.
+\vspace{1ex}
+
+Again canonical actions are playing a crucial role in developing the theory,
+because they offer a convenient alternative for the comultiplications
+used in Hopf algebra theory. In fact comultiplications become almost {\em obsolete\/}
+within our setting, although we will of course consider them from time to time
+in order to improve the link with Hopf algebra theory.
+\vspace{1ex}
+
+Maybe the most interesting result in \mbox{chapter \ref{chapter:Hopf_systems}}\
+is theorem \ref{thm:mhs_yields_mha},
+which yields a complete though particularly pleasant {\em characterization\/} of
+regular multiplier Hopf algebras with integrals among arbitrary Hopf systems.
+\vspace{1ex}
+
+One of the most celebrated results in Hopf algebra theory towards applications
+is probably the so-called {\em quantum double\/} construction of Drinfel'd.
+At the end of \mbox{chapter \ref{chapter:Hopf_systems}}\ we shall construct
+a quantum double within our category of Hopf Systems;
+actually the latter category could vaguely be described as the {\em largest\/}
+category admitting a quantum double construction on a purely algebraic level.
+\vspace{1ex}
+
+Chapter \ref{chapter:algebraic_harmonic_analysis}\ introduces an axiomatic
+algebraic framework for harmonic analysis, i.e.\ the study of group duality,
+Fourier transformation, Plancherel formulas, etc.
+Also here canonical actions are at the very heart of the theory;
+in fact the notion of a {\em Fourier transform\/} will be defined in terms of these actions.
+\vspace{1ex}
+
+Eventually chapters
+\ref{chapter:Fourier_context_for_quantumE2}\ and
+\ref{chapter:Harmonic_analysis_on_quantumE2}\
+are dealing with the quantum $E(2)$ group, being a concrete example that fits into
+the framework of \mbox{chapter \ref{chapter:algebraic_harmonic_analysis}}\@.
+The quantum $E(2)$ group is a quantum deformation of the group of Euclidean motions of the plane.
+In particular we shall explicitly compute the canonical actions for this example;
+once again they seem to be the main issue here.
+We believe that it may be interesting to go into a little more detail on this subject:
+
+
+
+\section{Harmonic analysis on quantum $E(2)$}
+
+On the Hopf $^*$-algebra level the quantum $E(2)$ group can be described by a
+dual pair \UqAq\ where \Aq\ should be thought of as a quantized function algebra,
+whereas \Uq\ is a quantized universal enveloping algebra of a Lie algebra.
+Here \Uq\ is generated by a self-adjoint invertible element $a$ and a normal
+element $b$, satisfying the commutation rule $ab = q \,ba$ for some number $q$ with $0<q<1$.
+Similarly \Aq\ is generated by a unitary $\alpha$ and a normal element $\beta$
+with $\alpha\beta = q\,\beta\alpha$.
+The comultiplications on \Uq\ and \Aq\ are given by
+$$ \begin{array}{lcl}
+   \Delta(a) = a \tens a
+&\hspace{5em}&
+   \Delta(\alpha) = \alpha \tens \alpha
+\\
+   \Delta(b) = a \tens b + b \tens a^{-1}
+&&
+   \Delta(\beta) = \alpha \tens \beta + \beta \tens \alpha^{-1}
+   \vertL
+\end{array} $$
+and eventually the duality is given by
+$$  \pairM{a^p b^r c^s}{\alpha^l \beta^m \gamma^n}
+        \;=\;
+    \delta_{r,m}\,  \delta_{s,n} \: q^{\frac{1}{2}p(l+m-n)} \,
+                         q^{\frac{1}{2}l(m+n)} \,\qfac{m}\, \qfac{n} $$
+where $c=b^*$ and $\gamma=-q^{-1}\beta^*$ and $\qfac{\,\cdot\,}$ denotes a $q^2$-factorial
+(cf.\ \mbox{appendix \ref{app:qcalc}}).
+The problem with these two Hopf algebras is that they do not admit Haar functionals:
+indeed on this level we are dealing with {\em polynomial\/} functions in the generators,
+whereas to have Haar integrals we would rather need something
+like functions {\em tending to zero\/} at infinity. The latter however involve a more
+sophisticated functional calculus, which can be obtained in several ways.
+One way is to construct a representation on Hilbert space and use operator theory
+\cite{Fons:spectral_conditions,FonsWor:QE2,Wor:QE2,Wor:Affiliated,Wor:operatoreq}\@.
+Another possibility is to use a holomorphic calculus based on {\em power series}
+\cite{Koelink:thesis,Koelink:QE2}\@.
+We shall follow the second approach to give a precise meaning to expressions like
+$$ \begin{array}{lcr}
+    f(\ln a)\, g(b^* b)\: b^m  &  \hspace{3em} \mbox{Fourier} \hspace{3em}&
+       \alpha^k  \gamma^n \:  h(\gamma^*\gamma) \\
+    f(\ln a)\, g(b^* b)\: c^m  &
+      \stackrel{\displaystyle \leftrightarrows}{\mbox{transforms}} &
+           \alpha^k  (\gamma^*)^n  \: h(\gamma^*\gamma)
+   \end{array}$$
+\begin{equation}\label{eq:diagram:Fourier}
+\diacaption{Functions in the generators and Fourier transforms between them.}
+\end{equation}
+where $f$, $g$ and $h$ run through suitable function spaces.
+On such elements the left Haar integrals are given by
+\begin{eqnarray*}
+  \varphi \!\left(  f(\ln a)\, g(b^* b)\: b^m  \vertM\right)
+     &=& \delta_{m,0} \!\!\! \sum_{\stackrel{\scriptstyle k,l\,\in\, \ZZ}{\scriptstyle k-l\: {\rm even}}}
+            f(k \theta) \, g(\tau q^l) \, q^{k+l}  \\
+  \omega \!\left(\alpha^k \gamma^n \:  h(\gamma^*\gamma)\vertM\right)
+           &=& \delta_{k,0}\:\delta_{n,0} \: \sum_{j\in\ZZ} \, h(\nu q^{2j})\, q^{2j}
+\end{eqnarray*}
+provided of course that $f$, $g$ and $h$ satisfy appropriate summability conditions.
+Here $\tau$ and $\nu$ are arbitrary positive numbers and \mbox{$\theta = -\frac{1}{2} \ln q$}\@.
+These Haar integrals then turn out to be positive, faithful, {\sc kms}, etc.
+\vspace{1ex}
+
+Our main objective now, is to construct the {\em Fourier transforms\/} which
+transform elements in the left column of diagram (\ref{eq:diagram:Fourier})
+into linear combinations of elements in the right column and vice versa.
+Although the following formula is not very
+precise\footnote{The formula is not completely exact only in the sense that it does
+not acknowledge the {\em spectral conditions\/} and their
+implications for the summability conditions on $f$ and $g$.},
+it may give a good idea of how such a Fourier transform looks like:
+$$ \begin{array}{c}
+    f(\ln a)\, g(b^* b)\, b^m
+\\
+\downarrow\vertXL
+\\  \displaystyle
+    \sum_{k\in\ZZ} \:\: (-1)^m q^{-m} q^{\frac{1}{2}m(k-1)} (q^{-1}-q)^m \:
+       f(k \theta) \;  \alpha^{k+m} \, \gamma^m \;  h_{m,k}(\gamma^*\gamma).\vertXL
+\end{array}$$
+Here $h_{m,k}$ is essentially an $m$-th order $q$-Hankel transform of $g$.
+Explicitly we have
+$$ h_{m,k}(\nu q^{2r})
+       \;=\; \sum_{n\in\ZZ} \: q^{2n} \, q^{m(n-r)}\, \J{m}{q^{n+r}} \, g(\tau q^{2n+k}) $$
+with $\J{m}{\,\cdot\;}$ being the \little\ \mbox{$q^2$-Bessel}\ function of order $m$,
+given by
+$$ \J{m}{z} \:=\; \sum_{k=0}^{\infty} \:  \frac{(-1)^k\,q^{k(k-1)}\,
+     q^{2k}\,(q^{2(k+m+1)}; q^2)_\infty}{(q^2;q^2)_\infty  \,(q^2;q^2)_k} \; z^{2k+m} $$
+where $(x;q^2)_k = \prod_{j=0}^{k-1} (1-q^{2j} x)$ is some $q$-shifted factorial.
+It is instructive to observe the analogy with classical Hankel transforms,
+the latter being defined as integral transforms with Bessel function kernels.
+\vspace{1ex}
+
+So basically this quantum $E(2)$ Fourier transform amounts to a $q$-Hankel transformation
+between the functions $g$ and $h$, which is not completely surprising because
+Hankel transformation typically appears when Fourier transformation on the plane
+is expressed in {\em polar\/} coordinates, whereas our functional calculus in
+$(b,c)$ indeed involves some kind of polar decomposition.
+
+Furthermore it turns out that we can only obtain a Fourier transform when the
+\lq dilation\rq\ parameters $\tau$ and $\nu$ are related in a specific way, e.g.
+$$   \tau = q^{-1}   \andspace{4em}   \nu = (q^{-1}-q)^{-2} $$
+which is quite remarkable.
+Once these Fourier transforms are established, we shall prove the {\em Plancherel\/} formula.
+At this point it becomes essential to use that peculiar summation
+range appearing in the formula for the Haar \mbox{functional $\varphi$},
+otherwise the Plancherel formula would simply fail.
+Roughly speaking this means that $f\tens g$ actually lives on the set
+$$ \left\{ \, (k \theta, \tau q^l)   \, \left|\vertM\right. \,
+            k,l\in \ZZ \mbox{ with } k-l \mbox{ even} \, \right\}  $$
+which reminds us of the {\em spectral conditions\/} in the \mbox{C$^*$}-algebraic
+approach \cite{Wor:QE2}\@.
+It also means that it will be convenient to unify $f$ and $g$ into a single object,
+\mbox{i.e.\ to}\ consider $f\tens g$ as one function in two variables rather than two functions
+in one variable.
+\vspace{1ex}
+
+Eventually we shall use our formulas for the Fourier transforms to calculate the
+{\em duality\/} between functions in the generators of \Uq\ and \Aq\ respectively, e.g.
+\begin{eqnarray*}
+      \lefteqn{\pairM{\vertL f(\ln a)\, g(b^* b)\, b^m}{\alpha^l (\gamma^*)^n \,h(\gamma^*\gamma)}}
+\\
+&\vertXL=&
+      \delta_{m,n} \: (-1)^m \, q^{-m}\, q^{-\frac{1}{2}m(m+l+1)}\,
+                      (q^{-1}-q)^m \,  \nu^m \, q^{ml} \ldots
+\\
+&\vertXL&
+      \ldots  \sum_{r,k\in \ZZ}   q^{(m+2)(k+r)} \, \J{m}{q^{k+r}} \:
+              f(-m\theta-l\theta) \: g(\tau\, q^{2k-m-l})  \: h(\nu\, q^{2r+2l}).
+\end{eqnarray*}

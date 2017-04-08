@@ -1,0 +1,100 @@
+\section{\Hss s}
+
+
+\begin{prop_sec} \label{prop:Hopf_star_system}
+Let\/ \pairAB\ be a \dpa\ (cf.\ example \ref{exC:introduction}) and moreover assume
+$A$ and\/ $B$ to be endowed with $^*$-operations making them into $^*$-algebras.
+Then the following are equivalent:
+\begin{enumerate}
+\item
+\Aa\ and\/ \BB\ are involutive {\rm(\S \ref{par:involutive contexts})} \contexts\@.
+The pairing\/ $P: A \tens B \rarr \kk$ is \stricta\ continuous w.r.t.\ \BBAA\
+and the corresponding actor is unitary in the sense of definition \ref{def:unitary_actor},
+and multiplicative as in definition \ref{def:muliplicative_actor}\@.
+\item
+The pair \pairAB\ is a regular Hopf system and $\pair{a}{b^*} = \overline{\pair{\SA(a)^*}{b}}$
+for any\/ $a \in A$ and\/ $b \in B$.
+\end{enumerate}
+\end{prop_sec}
+
+\begin{proof}
+First assume (i).
+Then \pairAB\ is clearly a Hopf system, and $P^{-1}=P^*$.
+Using lemma \ref{lem:weakly_unital_involutive_context}\ it follows that
+for all $a \in A$ and $b \in B$
+\begin{equation}\label{eq:prop:Hopfstar:Pstar}
+\pairM{P^*}{a \tens b\conj}
+     \:=\:  \overline{\pairM{P}{(a \tens b\conj)\conj}}
+     \:=\:  \overline{\pair{a\conj}{b}}
+     \:=\:  \pair{a}{b^*}.
+\end{equation}
+On the other hand, recall that $\SA(A)\subseteq \Env(\Aa)$,
+so again using lemma \ref{lem:weakly_unital_involutive_context}, we obtain
+\begin{equation}\label{eq:prop:Hopfstar:Pinv}
+\pairM{P^{-1}}{a \tens b\conj}
+     \:=\:  \pairM{\SA(a)}{b\conj}
+     \:=\:  \overline{\pairM{\SA(a)^*}{b}}
+\end{equation}
+and hence $\pair{a}{b^*} = \overline{\pair{\SA(a)^*}{b}}$.
+This formula can be rewritten as $\SA(a)=(a\conj)^*$.
+It follows that $\SA$ is a bijection from $A$ onto $A$,
+and analogously $\SB$ is a bijection from $B$ onto $B$.
+Hence \pairAB\ is regular, which proves (ii).
+
+Now assume (ii).
+First observe that, under the circumstances, the formula
+$\pair{a}{b^*} = \overline{\pair{\SA(a)^*}{b}}$
+automatically implies its $\SB$-analogue:
+indeed, replacing $a$ with $\SA^{-1}(a^*)$ and $b$ with $\SB(b)^*$,
+we obtain for all $a \in A$ and $b \in B$
+$$  \pair{a^*}{b}
+      \:=\:  \pairM{\SA^{-1}(a^*)}{\SB(b)}
+      \:=\:  \overline{\pairM{a}{\SB(b)^*}}. $$
+It follows that $a\conj = \SA(a)^*$ and $b\conj = \SB(b)^*$.
+Hence $A$ and $B$ are $\conj$-invariant, or in other words, \Aa\ and \BB\ are
+involutive \contexts\@.
+Equations (\ref{eq:prop:Hopfstar:Pstar}) and (\ref{eq:prop:Hopfstar:Pinv}) still hold
+and imply that $P^{-1} = P^*$, so $P$ is unitary. This proves (i).
+\end{proof}
+
+
+
+\begin{defn_sec} \label{def:Hopf_star_system}
+A pair \pairAB\ satisfying the conditions in proposition \ref{prop:Hopf_star_system}\
+is said to be a {\em \Hss}.
+\end{defn_sec}
+
+
+
+\begin{prop_sec}
+If\/ \pairAB\ is a \Hss, then the comultiplications\/ $\DeltaA$ and\/ $\DeltaB$,
+and the counits\/ $\epsA$ and\/ $\epsB$, are all $^*$-homomorphisms.
+Furthermore $\SA(\SA(a)^*)^* = a^{\circ\circ} = a$ and\/
+$\SB(\SB(b)^*)^* = b^{\circ\circ} = b$ for any\/ $a \in A$ and\/ $b \in B$.
+\end{prop_sec}
+\begin{proof}
+Take any $a \in A$ and $b,d \in B$.
+Recall that $b\conj = \SB(b)^*$ and $d\conj = \SB(d)^*$.
+Using lemma \ref{lem:weakly_unital_involutive_context}\ and the anti-multiplicativity
+of $\SB$, we obtain
+\begin{eqnarray*}
+\pairM{\DeltaA(a)^*}{b \tens d}
+&=&
+\overline{\pairM{\DeltaA(a)}{b\conj \tens d\conj}}
+\\&=&
+\overline{\pairM{\DeltaA(a)}{\SB(b)^* \tens  \SB(d)^*}}
+\\&=&
+\overline{\pairM{a}{\SB(b)^* \SB(d)^*}}
+\\&=&
+\overline{\pairM{a}{\SB(bd)^*}}
+\\&=&
+\pairM{a^*}{bd}
+\\&=&
+\pairM{\DeltaA(a^*)}{b \tens d}
+\end{eqnarray*}
+hence $\DeltaA(a)^* = \DeltaA(a^*)$.
+Combining corollary \ref{cor:antipode_and_counit}\ with
+lemma \ref{lem:weakly_unital_involutive_context}, it follows that
+$\epsA(a^*) = \overline{\epsA(a)}$.
+Similarly for $\DeltaB$ and $\epsB$.
+\end{proof}

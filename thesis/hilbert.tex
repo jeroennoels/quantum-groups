@@ -1,0 +1,40 @@
+
+The next example is a very special case of the previous one:
+%%%%%%and will be studied for it has some remarkable properties as an \context:
+
+\begin{exB} \label{ex:operators_on_Hs} \rm
+  {\bf (operators on Hilbert space)} \hspace{0.6em}
+  Let \Hs\ be a Hilbert space, \KH\ the $C^*$-algebra of all compact
+  linear operators on \Hs, \BH\ the $W^*$-algebra of all bounded operators,
+  \TCH\ the Banach space of all trace class operators (with trace norm) and
+  \FH\ the algebra of finite rank operators.
+  Let's recall \cite{Sakai,Takesaki}\ some facts: the inclusions
+  $\FH \subseteq \TCH \subseteq \KH \subseteq \BH$ hold.
+  \KH, \TCH\ and \FH\ are self-adjoint ideals of \BH\@.
+  The trace induces a natural Banach space duality between \BH\ and \TCH, given by
+  $ \pair{x}{t} = \Tr(xt)$ for $x\in \BH$ and $t \in \TCH$\@.
+  By restriction we also obtain a duality between \KH\ and \TCH,
+  yielding the following Banach space isomorphisms:
+  $$  \BH\: \simeq \:\TCH^* \,\simeq \:\KH^{**}
+               \andspace{3em}
+      \BH_*\, \simeq \:\TCH\: \simeq\: \KH^*.  $$
+  For convenience we explicitly introduce the isometry $T: \KH^* \rarr \TCH$
+  which associates to a functional $\om \in \KH^*$ the corresponding trace class
+  operator $T(\om)$ satisfying $\pair{x}{\om} = \Tr(T(\om)x)$ for all $x \in \KH$\@.
+
+  Now according to example \ref{exB:introduction}\ we have \contexts\
+  $$ \left( \KH \,;\: \KH^*, \,\pairing \vertM \right)
+              \andspace{3em}
+     \left( \BH \,;\: \BH_*, \,\pairing \vertM \right).    $$
+  In fact, whenever $A$ is a subalgebra of \BH\ containing all finite rank operators,
+  then $(A;\, \TCH, \pairing)$ is an \context, and in particular also
+  $$ \left( \TCH  \,;\: \TCH, \,\pairing \vertM \right)
+              \andspace{3em}
+     \left( \FH  \,;\: \TCH, \,\pairing  \vertM \right) $$
+  are \contexts\@.
+  It's easy to see that the canonical actions  (cf.\ \S\ref{sect:def_act_context})
+  of an $x\in \KH$ on $\TCH \simeq \KH^*$ are implemented by {\em multiplication\/}
+  of operators, i.e. $T(x \lact \om) = x T(\om)$ and
+  $T(\om \ract x) = T(\om)x$ for any $\om \in \KH^*$.
+  \hfill $\star$
+\end{exB}

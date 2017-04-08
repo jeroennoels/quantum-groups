@@ -1,0 +1,191 @@
+\section{The enveloping \context}
+\label{par:enveloping_context}
+
+Throughout this paragraph, $\EE \equiv \EOP$ is a {\em weakly unital\/} \context.
+
+
+\begin{abs_chp}
+In paragraph \S \ref{par:enveloping_algebras}\ we introduced the enveloping algebra \EnvE,
+which is contained in \ActE\@. In paragraph \S \ref{par:weakly_unital_contexts}\ we
+obtained an extended pairing between \ActE\ and $\Om$.
+We now prove that $(\EnvE; \Om,\pairing)$ is again a weakly unital \context;
+it turns out that the enveloping algebra associated to the {\em latter\/}
+\context\ is simply \EnvE\ again.
+\end{abs_chp}
+
+
+
+\begin{lemma_sec} \label{lem:context_over_separ_alg}
+  Let\/ $F$ be any separating algebra of actors for\/ \EE, i.e.\
+  \begin{enumerate}
+    \item $F$ is a subalgebra of\/ \PreE
+    \item $F$ is contained in\/ \ActE\
+    \item $F$ separates\/ $\Om$ w.r.t.\ the pairing $\pairM{\ActE}{\Om}$.
+  \end{enumerate}
+  Then\/ $\FF \equiv (F; \Om, \pairing)$ is again an \context,
+  and the counit for\/ \EE\ is still a counit for\/ \FF\@.
+  Hence if\/ $\Om$ is moreover unital as an $F$-bimodule
+  (in particular, if $E \subseteq F$)
+  then \FF\ is weakly unital again.
+\end{lemma_sec}
+
+\begin{proof}
+  From (ii-iii) and proposition \ref{prop:extended_pairing}\ we obtain a
+  pairing $\pair{F}{\Om}$ which allows us to view $\Om$ as a subspace of $F'$\@.
+  Since $F$ is an algebra, its dual $F'$ is canonically endowed with an
+  $F$-bimodule structure (\S\ref{sect:def_act_context}).
+  In particular, the {\em canonical\/} actions (denoted $\lact$ and $\ract$)
+  of an $a\in F$ on an $\om\in\Om \subseteq F'$
+  turn out to be implemented by the maps $\lam, \rho : \Om \rarr \Om$
+  constituting the actor $a\equiv(\lam,\rho)$, i.e.\
+  \begin{equation} \label{eq:natural_actions_implemented}
+     a \lact \om = \lam(\om)  \andspace{10mm}
+     \om \ract a = \rho(\om).
+  \end{equation}
+  Let's prove this; take any
+  $b\equiv (\alpha,\beta) \in F\subseteq\ActE$ and consider
+  $a$ and $\om$ as above. Now $ba \in F$, for $F$ is an algebra,
+  hence $ba=(\alpha\lam,\rho\beta) \in \ActE$ again.
+  Now (\ref{eq:pairing_with_act}) yields
+  $\pair{b}{a \lact \om} = \pair{ba}{\om} = \pair{\eps}{\alpha\lam(\om)}
+         =\pair{b}{\lam(\om)}$.
+  Similarly we show that $\pair{b}{\om \ract a} = \pair{b}{\rho(\om)}$
+  for all $b\in F$ and $\om \in \Om$,
+  which proves (\ref{eq:natural_actions_implemented}).
+  We conclude that $\Om$ is actually a sub-$F$-bimodule of $F'$,
+  so \FF\ is indeed an \context\@. The assertion about the counit follows from
+  (\ref{eq:pairing_with_act}) and (\ref{eq:natural_actions_implemented}).
+\end{proof}
+
+
+\begin{prop_sec}  \label{prop:def:enveloping_context}
+  Recall lemma \ref{lem:Act_is_submodule}\@.
+  Let $A$ be a sub-\Ebimod\ of \ActE\ containing $1_\EE$. Then\/
+  $\tilde{\EE}_A \equiv \left(\vertM {\rm Env}(\EE\,;A);\Om,\pairing \right) $
+  is again a weakly unital \context\@.
+  \rm In particular, when $A=\ActE$ we abbreviate\/
+  $\tilde{\EE} \equiv \left(\vertM \EnvE; \Om,\pairing  \right)$.
+\end{prop_sec}
+
+
+\begin{proof}
+  Recall ${\rm Env}(\EE\vssp;A)$ is an algebra
+  (proposition \ref{prop:Env_is_an_algebra}, remark \ref{rem:Env_in_A})
+  with $E \subseteq {\rm Env}(\EE\,;A) \subseteq A \subseteq \ActE$.
+  Apply lemma \ref{lem:context_over_separ_alg}\ with $F={\rm Env}(\EE\,;A)$.
+\end{proof}
+
+
+\begin{remark_sec} \label{rem:module_notation_for_Env}
+  \rm
+  In particular $\Om$ is an \EnvE-bimodule, and (\ref{eq:natural_actions_implemented})
+  allows us to write for instance $\lam(\om)$
+  as $a\lact\om$, whenever $a\equiv(\lam,\rho)$ belongs to \EnvE.
+  \hfill $\star$
+\end{remark_sec}
+
+
+\begin{prop_sec} \label{prop:EnvEnv_is_Env}
+ With\/ $A$ as above, we have\/ $A \subseteq \Act(\tilde{\EE}_A) \subseteq \ActE$.
+\end{prop_sec}
+
+\begin{remark_sec} \label{rem:compare_sets_of_actors} \rm
+  Although $\tilde{\EE}_A$ and \EE\ are two different \contexts,
+  both actor implementations involved live on the same space $\Om$.
+  Therefore we can indeed compare $\Act(\tilde{\EE}_A)$ and \ActE\
+  as sets of pairs $(\lam,\rho)$ of linear maps on $\Om$.
+\end{remark_sec}
+
+\begin{proof}
+   An actor for $\tilde{\EE}_A$ is a fortiori an actor for \EE,
+   because $E\subseteq {\rm Env}(\EE\,;A)$\@.
+   Take any $a\equiv(\alpha,\beta)\in A$.
+   By remark \ref{rem:def_actor}.iii, it suffices to prove
+   that $(\alpha,\beta)$ enjoys the \biap\ w.r.t.\ $\tilde{\EE}_A$.
+   Taking $x_i\equiv\lamrho{i}\in {\rm Env}(\EE\,;A)$ for $i=1,2$,
+   it follows that $x_2 a x_1 = (\lam_2\alpha\lam_1, \rho_1\beta\rho_2)$
+   still belongs to $A\subseteq \ActE$ and
+   $$         \pairM{x_1}{\beta(\om \ract x_2)}
+     \:\stackrel{\rm (\ref{eq:natural_actions_implemented})}{=}\:
+              \pairM{x_1}{\beta\rho_2(\om)}
+     \:\stackrel{\rm (\ref{eq:pairing_with_act})}{=}\:
+              \pairM{\eps}{\rho_1\beta\rho_2(\om)}
+     \:\stackrel{\rm (\ref{eq:pairing_with_act})}{=}\:
+              \pairM{x_2 a x_1}{\om}  $$
+   $$ \:\stackrel{\rm (\ref{eq:pairing_with_act})}{=}\:
+              \pairM{\eps}{\lam_2\alpha\lam_1(\om)}
+      \:\stackrel{\rm (\ref{eq:pairing_with_act})}{=}\:
+              \pairM{x_2}{\alpha\lam_1(\om)}
+      \:\stackrel{\rm (\ref{eq:natural_actions_implemented})}{=}\:
+              \pairM{x_2}{\alpha(x_1 \lact \om)} $$
+   for all $\om \in \Om$.
+   This proves that $(\alpha,\beta)$ is an actor for $\tilde{\EE}_A$.
+\end{proof}
+
+
+\begin{cor_sec} \label{cor:EnvEnv_is_Env}
+   $\Act(\tilde{\EE}) = \ActE$, and hence\/ $\Env(\tilde{\EE}) = \EnvE$.
+\end{cor_sec}
+
+
+\begin{cor_sec} \label{cor:lamrho_commutation}
+  With $A$ as in proposition \ref{prop:def:enveloping_context},
+  $x\equiv(\lam,\rho) \in {\rm Env}(\EE\,;A)$ and\/ $(\alpha,\beta) \in A$,
+  we have the following commutation rules:
+  \begin{equation} \label{eq:lamrho_commutation}
+     \lam\beta  = \beta \lam   \andspace{10mm}
+     \rho\alpha = \alpha\rho.
+  \end{equation}
+\end{cor_sec}
+
+{\em Remark\@.}
+Notice the overlap between (\ref{eq:lamrho_commutation}) and corollary \ref{cor:Env_comm}\@.
+\vspace{1ex}
+
+\begin{proof}
+  Proposition \ref{prop:EnvEnv_is_Env}\ yields that $(\alpha,\beta)$
+  is an actor for $\tilde{\EE}_A$, hence $\alpha$ is a right
+  ${\rm Env}(\EE\,;A)$-module morphism.
+  Since $x\in {\rm Env}(\EE\,;A)$ it follows for all $\om \in \Om$ that
+  $(\rho\alpha)(\om) = \alpha(\om) \ract x
+             = \alpha(\om \ract x) = (\alpha\rho)(\om)$.
+  The other relation is analogous.
+\end{proof}
+
+
+\begin{prop_sec}
+  Let\/ $\EE \equiv \EOP$ and\/ $\FF \equiv (F; \Om, \pairing)$
+  be two weakly unital \contexts, sharing the same counit.
+  If\/ $F\subseteq \EnvE$ and\/ $E\subseteq \Env(\FF)$, then\/
+  $\ActE = \Act(\FF)$ and consequently\/ $\EnvE = \Env(\FF)$.
+\end{prop_sec}
+
+{\small {\em Remark\@.}
+  Both actor implementations live on $\Om$,
+  hence a comment similar to remark \ref{rem:compare_sets_of_actors}\ applies.
+  However we must be very careful here---for instance there are now
+  {\em two\/} ways to view the pairing between $F$ and $\Om\,$:
+  first we have of course the pairing $\pair{F}{\Om}$ given by \FF\@.
+  But at the same time we also have $\pair{\ActE}{\Om}$,
+  and since $F$ is assumed to be a subset of \ActE\ this may cause ambiguity.
+  Fortunately the assumption that \EE\ and \FF\ share the counit, together
+  with (\ref{eq:pairing_with_act}) and (\ref{eq:natural_actions_implemented})
+  completely resolves this ambiguity.
+  Similar comments apply w.r.t.\ the module and algebra structures involved.}
+\vspace{1ex}
+
+\begin{proof}
+  Corollary \ref{cor:EnvEnv_is_Env}\ yields that every actor for \EE\
+  is also an actor for $\tilde{\EE}$, and then it is {\em a fortiori\/} an actor for \FF\
+  because $F\subseteq \EnvE$.
+\end{proof}
+
+
+\begin{cor_sec}
+  Let\/ $\EE \equiv \EOP$ be a weakly unital \context\ and
+  $F$ a subalgebra of\/ \EnvE\ containing $E$.
+  We already know from lemma \ref{lem:context_over_separ_alg} that\/
+  $\FF \equiv (F; \Om, \pairing)$ is a weakly unital \context\
+  with the same counit as\/ \EE\@.
+  Now the above proposition yields\/ $\Env(\FF)=\EnvE$.
+\end{cor_sec}

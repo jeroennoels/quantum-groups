@@ -1,0 +1,179 @@
+
+\section{Duality}
+
+
+
+\begin{abs_chp}
+Whenever \FourierBABA\ is a Fourier context, we have several \lq Hopf type\rq\ dualities,
+as represented in the diagram below:
+{\normalsize
+$$ \begin{array}{ccccl}
+A_0 & \subseteq & A & \stackrel{\rm dual}{\vertS \longleftrightarrow} & {\frakB} \\
+ {\scriptstyle ?} \updownarrow\hspace{1em} &  &  {\scriptstyle ?}\updownarrow\;\:
+           & & \,\updownarrow {\scriptstyle \rm dual}      \\
+B_0 & \subseteq & B &  \stackrel{\rm dual}{\vertS \longleftrightarrow} & {\frakA}
+\end{array}$$}
+
+Thus the question arises whether this situation induces a natural
+duality between $A$ \mbox{and $B$}, or more likely, between $A_0$ and $B_0$.
+This will be investigated below.
+\end{abs_chp}
+
+
+
+
+\begin{lemma_sec}  \label{lemma:induced_pairing}
+Let \FourierBABA\ be a Fourier context and assume there exist Fourier transforms\/
+$\FLL$, $\FRL \,\ldots$ from\/ $A_0$ to\/ $B_0$. Then
+$$                           \phiB\!\left(\FLL(a)\, b \vertM\right)
+   \:\stackrel{(i)}{=}\:     \phiB\!\left(b \,\FRL(a)\vertM\right)
+   \:\stackrel{(ii)}{=}\:    \psiB\!\left(\FLR(a) \, b\vertM\right)
+   \:\stackrel{(iii)}{=}\:   \psiB\!\left(b \, \FRR(a)\vertM\right)
+   \:\stackrel{\rm (def)}{=}\: \pair{a}{b}
+$$
+for all\/ $a \in A_0$ and\/ $b \in B_0$.
+This defines a vector space duality between\/ $A_0$ and\/ $B_0$,
+which we shall once again denote by \pairing\@.
+If the above Fourier transforms are bijections, then this pairing\/
+$\pair{A_0}{B_0}$ is non-degenerate.
+\end{lemma_sec}
+\begin{proof}
+(i) follows immediately from the {\sc kms} property of $\phiB$
+and the formula $\sigma_{\phiB} \FLL = \FRL$
+shown in proposition \ref{prop:relations_between_Ftransforms}\@.
+(iii) is analogous, whereas (ii) relies on the modular elements:
+indeed, using the {\sc kms} property of $\phiB$ we obtain
+$$ \zetaB \, \phiB\!\left(b \, \FRL(a)\vertM\right)
+           \stackrel{(\ref{eq:Fourier:modular})}{=}
+   \phiB\!\left(b \, \deltaB\, \sigma_{\!\phiB}(\FLR(a))\vertM\right)
+          \:=\:
+   \phiB\!\left(\FLR(a)\, b \, \deltaB \vertM\right)
+          \:=\:
+   \zetaB \, \psiB\!\left(\FLR(a)\, b \vertM\right) $$
+for all $a \in A_0$ and $b \in B_0$.
+Now let's assume $\FRL$ to be bijective and prove the non-degeneracy statement:
+first, let $a \in A_0$ such that $\pair{a}{b}=0$ for all $b \in B_0$.
+Then in particular $\pair{a}{\FRL(a)^*}=0$ and hence
+$\phiB\! \left(\FRL(a)^*\,\FRL(a)\vertM\right) =0$.
+Since $\phiB$ is faithful, it follows that $\FRL(a)=0$ and hence $a=0$.
+Next, let $b \in B_0$  such that $\pair{a}{b}=0$ for all $a \in A_0$.
+This means that $\phiB(b B_0)=\{0\}$ and in particular $\phiB(b b^*)=0$, hence $b=0$.
+\end{proof}
+\vspace{2ex}
+
+Recall that $A_0$ and $B_0$ are bimodules over both the algebras
+$\frakA$ and $\frakB$, either under multiplication or under the actions
+induced by the dualities $\pair{\frakA}{B}$ and $\pair{A}{\frakB}$.
+The following lemma tells us that the \lq induced\rq\ pairing $\pair{A_0}{B_0}$
+is compatible with these bimodule structures. Also antipodes and $^*$-structures
+satisfy the usual relations:
+
+\begin{lemma_sec}
+The pairing\/ $\pair{A_0}{B_0}$ defined in lemma \ref{lemma:induced_pairing}\ enjoys
+\begin{eqnarray}
+   \pair{\alpha a}{b} \,=\, \pair{a}{b \ract \alpha} & \hspace{3em} &
+   \pair{a \alpha}{b} \,=\, \pair{a}{\alpha \lact b}
+\label{eq:induced_pairing:actions:1} \\ \vertL
+   \pair{a}{\beta b}  \,=\, \pair{a \ract \beta}{b}  & &
+   \pair{a}{b \beta}  \,=\, \pair{\beta \lact a}{b}
+\label{eq:induced_pairing:actions:2}
+\end{eqnarray}
+for any\/ $a \in A_0$, $b \in B_0$, $\alpha \in {\frakA}$ and\/ $\beta\in {\frakB}$.
+Furthermore we have
+$$   \pair{S(a)}{b} \:=\: \pair{a}{S(b)}
+           \itandspace{4em}
+     \pair{a}{b^*} \:=\: \overline{\pair{S(a)^*}{b}}.  $$
+\end{lemma_sec}
+\begin{proof}
+Combining lemma \ref{lemma:Fourier:extra_module prop}\
+with lemma \ref{lemma:properties_of_Fourier_contexts}.i we obtain
+\begin{eqnarray*}
+\pair{\alpha a}{b}
+&=&
+\phiB\!\left(\FLL(\alpha a)\, b \vertM\right) \\
+&=&
+\phiB\!\left((\FLL S^{-1})\left(S(a) S(\alpha)\vertM\right) b \right) \\
+&=&
+\phiB\!\left(\left[(\FLL S^{-1})(S(a)) \ract S(\alpha) \vertM\right] b \right)   \\
+&=&
+\phiB\!\left(\left[\FLL(a) \ract S(\alpha) \vertM\right] b\right)  \\
+&=&
+\phiB\!\left(\FLL(a)\, (b \ract \alpha) \vertM\right) \\
+&=&
+\pair{a}{b \ract \alpha}
+\end{eqnarray*}
+The second formula in (\ref{eq:induced_pairing:actions:1}) is similar,
+whereas the ones in (\ref{eq:induced_pairing:actions:2}) are trivial, e.g.
+$$ \pair{a}{\beta b}
+   \;=\; \phiB\!\left(\FLL(a)\, \beta b \vertM\right)
+   \;=\; \phiB\!\left(\FLL(a \ract \beta) \, b \vertM\right)
+   \;=\; \pair{a \ract \beta}{b}.   $$
+Using $S \FRL S = \zetaB \FLR$ we obtain
+$$ \pair{S(a)}{b}
+    \:=\: \phiB\!\left(b \,\FRL S(a) \vertM\right)
+    \:=\: \zetaB \, \phiB\!\left(b \,S^{-1} \FLR(a) \vertM\right)
+    \:=\: \psiB\!\left(\FLR(a) \, S(b) \vertM\right)
+    \:=\: \pair{a}{S(b)} $$
+The last formula follows easily from (\ref{eq:Fourier:stars}).
+\end{proof}
+
+
+
+\section{Inversion formulas}
+
+Until now we only considered Fourier transforms from $A_0$ to $B_0$.
+However our theory is clearly fully symmetric, hence one could as well
+consider Fourier transformation from $B_0$ to $A_0$.
+To avoid any confusion about the left-right nomenclature,
+we give an example below, although it is completely analogous to
+definition \ref{def:Fourier_transform}.
+
+\begin{defn_sec} \label{def:inverse_Fourier_transform}
+Let \FourierBABA\ be any Fourier \mbox{context}\@.
+A linear map $\GLR:B_0 \rarr A_0$ is called an {\scriptsize LR}
+{\em Fourier transform\/} if
+\begin{enumerate}
+\item
+$\GLR$ is a {\em right\/} $\frakA$-module morphism;
+explicitly, for any $\alpha \in {\frakA}$ and $b\in B_0$ we have
+$\GLR(b \ract \alpha) \,=\, \GLR(b)\, \alpha$
+\item
+$\psiA\! \left(\GLR(b)\vertM\right) \,=\, \pair{1_{\frakA}}{b}$ for any $b\in B_0$.
+\end{enumerate}
+So the subscript {\scriptsize L} in $\GLR$ {\em anti\/}-corresponds to the fact
+we are dealing with a {\em right\/} module morphism in (i),
+whereas the {\scriptsize R} in $\GLR$ refers to the {\em right\/}
+invariant functional $\psiA$ in (ii).
+\end{defn_sec}
+
+
+\begin{prop_sec} \label{prop:inverse_Fourier_transform}
+Let \FourierBABA\ be any Fourier context and
+let\/ $\FLL: A_0 \rarr B_0$ be a bijective {\scriptsize LL} Fourier transform.
+Assume there exists a scalar\/ $\lambda\in \CC$ such that\/
+$\pair{1_{\frakA}}{\FLL(a)} = \lambda \,\phiA(a)$ for any\/ $a\in A_0$.
+Then
+$$ \GLR \:=\: \lambda \zetaA^{-1} \, S \FLL^{-1} $$
+is an {\scriptsize LR} Fourier transform from\/ $B_0$ to $A_0$.
+\end{prop_sec}
+\begin{proof}
+Condition (i) of definition \ref{def:inverse_Fourier_transform}\ is
+fulfilled because of lemma \ref{lemma:Fourier:extra_module prop},
+whereas (ii) follows from our assumption.
+\end{proof}
+
+
+\begin{remark_sec} \rm
+The assumption that $\pair{1_{\frakA}}{\FLL(\,\cdot \,)}$
+is a scalar multiple of $\phiA$ (restricted to $A_0$)
+is a very natural one---in fact it would hold automatically if we
+would have shown an appropriate result on uniqueness of Haar functionals
+(an important though difficult matter we didn't elaborate on).
+Indeed the functional $\pair{1_{\frakA}}{\FLL(\,\cdot \,)}$ on $A_0$
+behaves just like a left invariant functional:
+$$  \pairM{1_{\frakA}}{\FLL(a \ract \beta)}
+      \:=\: \pairM{1_{\frakA}}{\FLL(a)\, \beta}
+      \:=\: \eps(\beta) \: \pairM{1_{\frakA}}{\FLL(a)}  $$
+for all $a \in A_0$ and $\beta\in {\frakB}$.
+Here we used that $\FLL$ is a right $\frakB$-module morphism.
+\end{remark_sec}

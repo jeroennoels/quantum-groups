@@ -1,0 +1,117 @@
+
+
+\begin{abs_chp}
+\Little\ $q$-Bessel functions were investigated in \cite{KoornwSwartt,Swarttouw}\
+and first related to the quantum $E(2)$ group in \cite{Koelink:QE2,VaksKor:QE2}\@.
+In \cite{KoornwSwartt}\ they were used as $q$-integral kernels
+in order to construct $q$-Hankel transformation.
+\Little\ $q$-Bessel functions are usually defined in terms of $q$-hypergeometric series.
+For our purposes, we can rely entirely on a few elementary properties summarized below,
+so we shall never have to deal with their definition directly;
+for the sake of completeness however, we give an {\em ad hoc\/} definition below.
+For the definition of the $q$-shifted factorials and $q$-Exponential function
+we refer to appendix \ref{app:qcalc}\@.
+\end{abs_chp}
+
+
+
+\begin{lemma_sec} \label{lemma:def:qBessel}
+Whenever\/ $n \in \ZZ$ and\/ $q\in\RR$ with\/ $0<q<1$, the power series
+\begin{equation}\label{eq:def:qBessel}
+  J_n(z;q) \:=\; \sum_{k=0}^{\infty} \:
+  \frac{(-1)^k\,q^{\frac{1}{2}k(k-1)}\,q^k\,(q^{k+n+1};q)_\infty}{(q;q)_\infty \,(q;q)_k}\:z^{2k+n}
+\end{equation}
+defines an entire function in\/ $z$, having a zero of order\/ $|n|$ at the origin.
+
+{\rm This function is said to be the {\em \little\ $q$-Bessel\/} function of order $n$.}
+\end{lemma_sec}
+
+\begin{proof}
+First notice that (\ref{eq:def:qBessel}) is indeed a {\em power\/}
+series---not a genuine Laurent series---when $n$ is negative,
+because $(q^{k+n+1};q)_\infty=0$ whenever $n < -k \leq 0$.
+So if $n<0$, the $(k=|n|)$-term will be the first non-zero term
+in the series.
+To prove that (\ref{eq:def:qBessel}) converges for all $z\in \CC$,
+we appeal to the ratio test: fix any $z\in \CC$ and let
+$a_k$ denote the $k$-term of the above series, then $a_k$
+is non-zero (provided $k\geq|n|$ when $n$ is negative) and
+$$ \left| \frac{a_{k+1}}{a_k} \right| \:=\:
+    q^{k+1}\: \frac{(q^{k+n+2};q)_\infty}{(q^{k+n+1};q)_\infty} \:
+              \frac{(q;q)_k}{(q;q)_{k+1}}\: |z|^2
+    \:=\: \frac{q^{k+1}\, |z|^2}{(1-q^{k+n+1})\, (1- q^{k+1})},  $$
+which tends to zero as $k\rarr\infty$, since $0<q<1$.
+\end{proof}
+
+
+
+\begin{remark_sec} \rm
+Notice \little\ $q$-Bessel functions take real values on the real line,
+since all the coefficients in (\ref{eq:def:qBessel}) are real.
+It should be noted that it is also possible to consider \little\ $q$-Bessel
+functions of non-integer order. However, those
+of integer order have some interesting properties not shared
+by those of non-integer order.
+Furthermore, given $q$ we shall usually deal with $q^2$-Bessel functions
+henceforth---rather than with $q$-Bessel functions.
+\end{remark_sec}
+
+
+
+\begin{prop_sec} \label{prop:qbessel:properties}
+\Little\/ $q^2$-Bessel functions satisfy the following
+recurrence and symmetry relations, for all\/ $n,m \in \ZZ$ and\/ $z\in\CC$,
+\begin{eqnarray}
+ z\,\J{n-1}{z} &=& \J{n}{z} - q^n\,\J{n}{qz} \vertXL
+     \label{eq:qBessel:recurrence1} \\
+ -q^{-n} z\, \J{n+1}{z} &=& \J{n}{q^{-1}z} - q^{-n} \J{n}{z} \vertXL
+    \label{eq:qBessel:recurrence2} \\
+ \J{n}{q^m} &=& \J{m}{q^n} \vertXL
+    \label{eq:qBessel:symmetry}\\
+ \J{-n}{z} &=& (-q)^n\, \J{n}{q^n z} \vertXL
+    \label{eq:qBessel:inversion}
+\end{eqnarray}
+and respectively Hansen-Lommel and\/ $q$-Hankel orthogonality relations
+\begin{eqnarray}
+ \sum_{k\in \ZZ} \: q^{2k}\, \J{n+k}{z} \,\J{m+k}{z}
+  &=& \delta_{n,m} \,q^{-2n} \hspace{2.5em}  (|qz|<1)
+    \hspace{2em}   \label{eq:qBessel:Hansen_Lommel} \\
+ \sum_{k\in \ZZ} \: q^{2k} \,\J{r}{q^{n+k}} \,\J{r}{q^{m+k}}
+  &=& \delta_{n,m} \,q^{-2n} \hspace{2.5em}  (r\in\ZZ)
+    \hspace{2em}  \label{eq:qBessel:qHankel}
+\end{eqnarray}
+where the sums in (\ref{eq:qBessel:Hansen_Lommel}) and (\ref{eq:qBessel:qHankel})
+are absolutely convergent.
+We also mention the following estimate:
+for every\/ $m\in\ZZ$ there exists a positive number\/ $C_m$ such that
+\begin{eqnarray}
+  \left|\J{m}{q^k} \vertM\right|
+&\leq&
+  C_m   \left\{ \!\! \begin{array}{lcl}
+              q^{km}                 &\hspace{1em}  &  (k \geq 0)  \\ \vertL
+              q^{-km} \, q^{k(k-1)}  &              &  (k \leq 0)
+           \end{array} \right. \label{eq:qBessel:estimate}
+\\&\leq&
+  C_m \: q^{|k|m} \vertXL  \label{eq:qBessel:estimate:bis}
+\end{eqnarray}
+for all\/ $k\in \ZZ$.
+\end{prop_sec}
+
+\begin{proof}
+The recurrence relations (\ref{eq:qBessel:recurrence1}) and (\ref{eq:qBessel:recurrence2})
+are equivalent with formulas (4.8) and (4.6) in
+\cite{KoelinkSwart:qBessel:zeros}, the latter being in turn
+related to $q$-derivatives of \little\ $q$-Bessel functions.
+It is however not too hard to derive (\ref{eq:qBessel:recurrence1})
+directly from the power series expression given in
+\cite[proof of prop.\ 2.1]{KoornwSwartt}\@.
+The other relations can be found in
+\cite{Koelink:thesis,Koelink:QE2,KoornwSwartt,Swarttouw}\@.
+Be aware that (\ref{eq:qBessel:Hansen_Lommel}) is only valid when
+$|qz|<1$, and observe how (\ref{eq:qBessel:qHankel})
+follows from (\ref{eq:qBessel:Hansen_Lommel}) via
+(\ref{eq:qBessel:symmetry}) for $r\geq 0$, whereas proving the $r<0$ case of
+(\ref{eq:qBessel:qHankel}) moreover involves (\ref{eq:qBessel:inversion}).
+Also notice (\ref{eq:qBessel:inversion}) interchanges
+(\ref{eq:qBessel:recurrence1}) and (\ref{eq:qBessel:recurrence2}).
+\end{proof}

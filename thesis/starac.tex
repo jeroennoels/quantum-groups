@@ -1,0 +1,68 @@
+
+\section{Involutive \contexts}
+\label{par:involutive contexts}
+
+Whenever $E$ is a $^*$-algebra, its dual $E'$ is endowed with an involutive
+operation $\varsigma : E' \rarr E' : \om \mapsto \om\conj$ defined by
+$\pair{x}{\om\conj} = \overline{\pair{x^*}{\om}}$.
+
+
+\begin{defn_sec}
+Let $\EE \equiv \EOP$ be an \context\@.
+If $E$ is endowed with a $^*$-operation such that $E$ is a $^*$-algebra and such that
+$\Om$ is $\conj$-invariant, then \EE\ is said to be an {\em involutive\/} \context\@.
+\end{defn_sec}
+
+
+
+\begin{lemma_sec}
+Let\/ $\EE \equiv \EOP$ be an involutive \context\@.
+Then for any\/ $x\in E$ and\/ $\om \in \Om$ we have\/
+$(x \lact \om)\conj = \om\conj \ract x^*$ and\/ $(\om \ract x)\conj = x^* \lact \om\conj$.
+Hence
+\begin{equation}\label{eq:def:star_of_actor}
+   \PreE \rarr \PreE : \, a\equiv (\lam,\rho) \,\mapsto\,
+                a^* \equiv (\varsigma \rho \varsigma, \varsigma \lam \varsigma)
+\end{equation}
+is a well-defined\/ $^*$-operation, making\/ \PreE\ into a\/ $^*$-algebra.
+Thus the map\/ $j:E \rarr \PreE$ defined beneath lemma \ref{lem:embedding_of_E}\
+becomes a\/ $^*$-algebra morphism.
+Furthermore\/ \ActE\ and\/ \EnvE\ are $^*$-invariant.
+\end{lemma_sec}
+\begin{proof}
+Straightforward.
+\end{proof}
+
+
+
+\begin{defn_sec}  \label{def:unitary_actor}
+Let $\EE \equiv \EOP$ be an involutive \context\@.
+An actor $a\in \ActE$ is said to be {\em unitary\/} if $a^* a = 1_\EE = a a^*$.
+\end{defn_sec}
+
+A unitary actor for \EE\ is obviously \EEdash invertible in the sense of
+definition \ref{def:EE-invertibility}\@.
+
+
+\begin{lemma_sec}  \label{lem:weakly_unital_involutive_context}
+Let\/ $\EE \equiv \EOP$ be a weakly unital involutive \context\@.
+Then\/ $\pair{\eps}{\om\conj} = \overline{\pair{\eps}{\om}}$ and\/
+$\pair{a}{\om\conj} = \overline{\pair{a^*}{\om}}$
+for any\/ $\om \in \Om$ and\/ $a\in \ActE$.
+\end{lemma_sec}
+\begin{proof*}
+Observe that for any $x\in E$ and $\om \in \Om$
+$$ \pair{\eps}{(x \lact \om)\conj}
+      \:=\:  \pair{\eps}{\om\conj \ract x^*}
+      \:=\:  \pair{x^*}{\om\conj}
+      \:=\:  \overline{\pair{x}{\om}}
+      \:=\:  \overline{\pair{\eps}{x \lact  \om}}. $$
+This proves the first formula since $E\lact \Om = \Om$.
+Now take any actor $a\equiv (\lam,\rho)$ for \EE\ and recall (\ref{eq:def:star_of_actor}).
+Using (\ref{eq:pairing_with_act}) we obtain:
+$$ \overline{\pair{a^*}{\om}}
+      \:=\:  \overline{\pair{\eps}{\rho(\om\conj)\conj}}
+      \:=\:  \pair{\eps}{\rho(\om\conj)}
+      \:=\:  \pair{a}{\om\conj}.
+      \hspace{1em} \qed $$
+\end{proof*}

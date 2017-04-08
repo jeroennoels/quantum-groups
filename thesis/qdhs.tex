@@ -1,0 +1,97 @@
+
+\subsection{The quantum double as a Hopf system}
+
+\begin{thm}
+Let\/ \pairAB\ be a balanced\footnote{see definition \ref{def:balanced_Hopf_system}}\
+regular Hopf system and define\/
+\mbox{$R=\rp\lp^{-1}$}\ and\/ $T=R\flip$. Then\/
+$\pair{A \ttens{T} B\op}{B \tens A} \,\equiv\, \pair{X}{Y}$
+is a regular Hopf system.
+Counits and antipodes are given by
+\begin{equation}\label{eq:QD:counits_and_antipodes}
+\begin{array}{lcl}
+  \epsX = \epsA \tens \epsB   &\hspace{2em}&  \SX = R(\SA \tens \SB\op)    \\
+  \epsY = \epsB \tens \epsA   &            &  \SY = (\SB \tens \SA\op)\, \piP \vertL
+\end{array}
+\end{equation}
+Furthermore, if\/ $\phiA$ and\/ $\phiB$ are left invariant functionals on\/ $A$ and on\/ $B$,
+then\/ $\phiA \tens \phiB$ is a left invariant functional on\/ $A \ttens{T} B\op$.
+\end{thm}
+
+
+\begin{proof}
+Propositions \ref{prop:qdouble_is_idpa}\ and \ref{prop:qdouble:multiplicative}\
+yield that $\pair{X}{Y}$ is a Hopf system, whereas
+(\ref{eq:QD:counits_and_antipodes}) follows from
+proposition \ref{prop:QD:dpa}\ and \mbox{lemma \ref{lem:QD:antipode}}\@.
+Obviously the antipodes on $X$ and $Y$ are bijective,
+hence $\pair{X}{Y}$ is regular.
+The result on invariant functionals follows since $\YY = \BBAA$.
+\end{proof}
+
+
+\begin{defn}
+The Hopf system $\pair{A \ttens{T} B\op}{B \tens A}$ in the above theorem
+is called the {\em quantum double\/} of $\pair{A}{B\op}$.
+\end{defn}
+
+{\small
+Notice that we have chosen to associate our quantum double to $\pair{A}{B\op}$ rather
+than to \pairAB\@. Thus our definition is compatible with the ones in
+literature \cite{Schmudgen,Majid,FonsSabine}\@.}
+
+
+
+\begin{prop} \label{prop:QD:rmhs}
+If\/ \pairAB\ is a regular \mhs,
+then so is the quantum double\/ $\pair{A \ttens{T} B\op}{B \tens A}$.
+\end{prop}
+\begin{proof}
+First recall that \mhs s are balanced, so we do have a quantum double.
+Now take transposes of (\ref{eq:QD:alpha}) and (\ref{eq:QD:beta})
+and recall that $\piP$ is dual to $R$.
+Lemmas \ref{mhs:Gammas:bijective}\ and \ref{Mregularity_is_automatic}\
+yield the result.
+\end{proof}
+
+
+\begin{cor}
+If we adopt the setting of proposition \ref{prop:mha_is_rmhs}, then
+$$ \left( A \ttens{T} \hat{A}\op, \;
+       \flipsub{23} (\Delta \tens \hat{\Delta}) \right)
+\itandspace{2em}
+   \left( \hat{A} \tens A, \;
+       \flipsub{23} (\piP)_{23} (\hat{\Delta} \tens \flip\Delta) \right)$$
+are again regular \mha s with invariant functionals.
+\end{cor}
+
+
+
+\begin{remarks}
+\item
+By assumption $P$ and $P^{-1}$ belong to $M(\hat{A} \tens A)$.
+Thus $(\piP)_{23}$ can be considered as an automorphism of
+$M(\hat{A} \tens \hat{A} \tens A \tens A)$.
+\item
+We have to be a little bit careful with the comultiplication on $A \ttens{T} \hat{A}\op$.
+A priori $\flipsub{23} (\Delta \tens \hat{\Delta})$ is to be considered
+merely as a map from $A \tens \hat{A}\vertL$ into
+$\vertL (\hat{A} \tens A \tens \hat{A} \tens A)'$.
+It is then part of the assertion that this comultiplication
+really ends up in the multiplier algebra of
+$(A \ttens{T} \hat{A}\op)  \tens  (A \ttens{T} \hat{A}\op)$.
+\item
+The two objects obtained in this corollary are dual to each other and
+can be considered as quantum doubles of $(A, \flip\Delta)$
+within the category of regular \mha s with invariant functionals
+\cite{FonsDra:QD}\@.
+\end{remarks}
+
+
+
+\begin{proof}
+According to proposition \ref{prop:QD:rmhs}, the pair
+$\pair{A \ttens{T} \hat{A}\op}{\hat{A} \tens A}$
+is again a regular \mhs\@.
+Theorem \ref{thm:mhs_yields_mha}\ yields the result.
+\end{proof}

@@ -1,0 +1,457 @@
+\section{Multiplier Hopf systems}
+\label{par:Multiplier_Hopf_systems}
+
+
+\begin{abs_chp}
+In this section, the Hopf systems arising from regular multiplier Hopf algebras
+with integrals (cf.\ proposition \ref{prop:AhatA:Hopf_system}) shall be characterized
+among arbitrary Hopf systems.
+The criterion distinguishing the so-called {\em multiplier\/} Hopf systems from
+the general ones is particularly pleasant: the pairing is required to be an
+invertible {\em multiplier\/} rather than merely an invertible {\em actor}\@.
+The main results in this section are proposition \ref{prop:mha_is_rmhs}\ and
+theorem \ref{thm:mhs_yields_mha}\@. Proving the latter involves the {\em construction\/}
+of invariant functionals.
+It also turns out that the \contexts\ involved are {\em pseudo-discrete\/}
+in the sense of definition \ref{def:pseudo_discrete}, which is quite remarkable.
+\end{abs_chp}
+
+
+
+Recall definition \ref{def:MEE}\ and proposition \ref{prop:ME=MEE}\@.
+Whenever $\EE \equiv \EOP$ is a weakly unital \context, we shall identify $M(\EE)$ with $M(E)$.
+
+\begin{defn_sec} \label{def:mhs}
+A Hopf system \pairAB\ is said to be a {\em multiplier\/} Hopf system whenever
+$P$ and $P^{-1}$ belong to $M(B \tens A)$.
+\end{defn_sec}
+
+
+\begin{prop_sec} \label{prop:mha_is_rmhs}
+Let\/ $(A,\Delta)$ be a regular multiplier\footnote{At this point the terminology
+may be slightly misleading: be aware that the notion of a \mha\ {\em generalizes\/}
+ordinary Hopf algebras, whereas \mhs s are {\em special\/} among ordinary Hopf systems.}\
+Hopf algebra with non-trivial invariant functionals.
+Let\/ $(\hat{A},\hat{\Delta})$ be the dual object defined in \cite{Fons:AFGD:proc,Fons:AFGD}\@.
+Then $\pair{A}{\hat{A}}$ is a regular \mhs.
+\end{prop_sec}
+
+\begin{proof}
+In proposition \ref{prop:AhatA:Hopf_system}\ we showed that $\pair{A}{\hat{A}}$
+is a regular Hopf system.
+Let $\varphi$ be a non-trivial left invariant functional on $A$, and consider
+the Fourier transform\footnote{Be aware that in \cite{Fons:AFGD}\ the
+Fourier transform $\hat{a}$ was defined to be
+$\varphi(\,\cdot\,a)$ rather than $\varphi(a\,\cdot\,)$.}\
+$\FL: A \rarr \hat{A}: a \mapsto \hat{a} = \varphi(a\,\cdot\,)$.
+Now take any $a,c,e \in A$ and $\om \in \hat{A}$.
+Using the \lq strong left invariance\rq\ formula from \cite{Fons:AFGD}, we obtain
+$$ \hat{e} \lact a \:=\:  (\id \tens \varphi)\left( (1 \tens e) \Delta(a) \vertM\right)
+                   \:=\: \SA(\id \tens \varphi)\left( \Delta(e) (1 \tens a) \vertM\right). $$
+Since $(A,\Delta)$ is assumed to be regular, $\SA$ is a bijection from $A$ onto $A$,
+so we may write $(\SA^{-1}(c) \tens 1) \Delta(e) = \sum_i \, p_i \tens r_i$
+with $p_i, r_i \in A$. Now observe that
+\begin{eqnarray*}
+\pairM{P(\hat{e} \tens c)}{a \tens \om}
+  &=&
+\pairM{\hat{e} \lact a}{c \lact \om}
+\\&=&
+\pairM{\SA(\id \tens \varphi)\left( \Delta(e) (1 \tens a) \vertM\right) c}{\om}
+\\&=&
+\pairM{\SA(\id \tens \varphi)\left( (\SA^{-1}(c) \tens 1) \Delta(e) (1 \tens a) \vertM\right)}{\om}
+\\&=&
+\textstyle \sum_i \, \pairM{\SA(\id \tens \varphi)(p_i \tens r_i a)}{\om}
+\\&=&
+\textstyle \sum_i \, \varphi(r_i a) \pairM{\SA(p_i)}{\om}.
+\end{eqnarray*}
+It follows that $P(\hat{e} \tens c) = \sum_i \,\widehat{r_i} \tens \SA(p_i)$
+belongs to $\hat{A} \tens A$ again.
+Observe that we have actually shown that the map
+$\hat{A} \tens A \rarr \hat{A} \tens A : x \mapsto Px$ equals
+$$ (\FL \tens \SA)\, \flip \, T_2 \, \flip (\FL \tens \SA)^{-1}  $$
+where $\flip$ denotes the flip map;
+recall that $\FL$, $\SA$ and $T_2$ are all bijective \cite{Fons:AFGD}.
+It follows that $x \mapsto Px$, and analogously, $x \mapsto xP$,
+are bijections from $\hat{A} \tens A$ onto $\hat{A} \tens A$,
+hence $P$ and $P^{-1}$ belong to $M(\hat{A} \tens A)$.
+\end{proof}
+
+
+\begin{lemma_sec} \label{lem:mhs:comultiplications}
+If\/ \pairAB\ is a \mhs, then the comultiplications and antipodes can be viewed
+as linear mappings
+$$ \begin{array}{lcl}
+     \DeltaA: A \,\rarr\, M(A \tens A)  & \hspace{5em} &
+      \SA:    A \,\rarr\, M(A)  \\
+     \DeltaB: B \rarr\, M(B \tens B)  & &
+      \SB:     B \rarr\, M(B)
+   \end{array} $$
+\rm Here $\DeltaA$ and $\DeltaB$ are homomorphisms, $\SA$ and $\SB$ are anti-homomorphisms.
+\end{lemma_sec}
+\begin{proof}
+Combine proposition \ref{prop:slicing_multipliers}\ with
+(\ref{eq:comultiplications:slice:Pinverse}) and
+(\ref{eq:antipodes:slice:Pinverse}).
+\end{proof}
+\vspace{2ex}
+
+
+So if \pairAB\ is a \mhs, it is natural to ask whether $(A,\DeltaA)$ and $(B,\DeltaB)$
+are \mha s \cite{Fons:MHA}\@. In this respect we announce:
+
+\begin{thm_sec} \label{thm:mhs_yields_mha}
+If\/ \pairAB\ is a regular \mhs,
+then $(A,\DeltaA)$ and\/ $(B,\DeltaB)$ are regular \mha s admitting non-trivial invariant
+functionals. Moreover\/ $B\simeq \hat{A}$ and\/ $A\simeq \hat{B}$ in the sense of
+\cite{Fons:AFGD:proc,Fons:AFGD}\@.
+Furthermore, the \contexts\/ \Aa\ and\/ \BB\ are pseudo-discrete in the sense of
+definition \ref{def:pseudo_discrete}\@.
+\end{thm_sec}
+
+
+Since the proof of this theorem is rather involved, we shall break it up into smaller units.
+The first step is to prove the {\em existence\/} of non-trivial invariant functionals
+(cf.\ proposition \ref{prop:existence:invariant_functionals}).
+This will involve the following:
+
+
+\begin{defn_sec*} \label{def:GammaLGammaR}
+Let \pairAB\ be any Hopf system.
+Let $\GamL$ and $\GamR$ be the unique linear mappings from $A\tens B$ into $(A \tens B)'$
+such that for all $x,y \in A\tens B$
+\begin{equation}\label{eq:def:Gammas}
+  \pairM{\GamL(x)}{y} \:=\:    \pairM{P}{xy}  \:=\:  \pairM{x}{\GamR(y)}.
+\end{equation}
+\end{defn_sec*}
+
+
+Recall the actions $\lact$ and $\ract$ of an algebra $E$ on its dual $E'$
+were defined by (\ref{eq:def:canonical_actions}).
+The same formulas can be used to define canonical actions of $M(E)$ on $E'$
+(provided the product in $E$ is non-degenerate).
+Thus the following makes sense:
+
+\begin{lemma_sec}
+Whenever\/ \pairAB\ is a Hopf system, we have:
+\begin{enumerate}
+\item
+  $\GamL$ and\/ $\GamR$ are respectively\footnote{Be aware that the subscripting
+  of the $\Gamma$'s {\em anti\/}-corresponds to their module properties.}\
+  right and left\/ $M(A\tens B)$-module morphisms:
+  \begin{equation}\label{eq:Gammas:module properties}
+    \GamL(xm) \:=\: \GamL(x) \ract m    \hspace{4em}    \GamR(mx) \:=\: m \lact \GamR(x)
+  \end{equation}
+  for all\/ $x \in A\tens B$ and\/ $m \in M(A\tens B)$.
+\item
+  Let $\lp^\tau\, , \rp^\tau : (A \tens B)' \rarr (A \tens B)'$ denote the algebraic
+  transposes of $\lp$ and $\rp$. Considering $B \tens A$ as a subspace of $(A \tens B)'$,
+  we have
+  \begin{equation}\label{eq:Gammas:construction}
+    \GamL \,=\, \lp^\tau \, \flip \, \rp     \hspace{4em}
+    \GamR \,=\, \rp^\tau \flip \lp.
+  \end{equation}
+\item
+  $\GamL$ and\/ $\GamR$ are injective and have weakly dense range.
+\end{enumerate}
+\end{lemma_sec}
+
+\begin{proof}
+(\ref{eq:Gammas:module properties}) follows immediately from (\ref{eq:def:Gammas}).
+The multiplicativity of $P$ (in the sense of definition \ref{def:muliplicative_actor})
+yields that the mappings in (\ref{eq:Gammas:construction}) indeed satisfy (\ref{eq:def:Gammas}).
+Assertion (iii) follows from (\ref{eq:Gammas:construction}) and the fact that
+$\lp$ and $\rp$ are bijective.
+\end{proof}
+
+
+\begin{lemma_sec}  \label{mhs:Gammas:bijective}
+Let\/ \pairAB\ be any Hopf system. The following are equivalent:
+\begin{enumerate}
+\item The pair\/ \pairAB\ is a \mhs.
+\item The mappings\/ $\GamL$ and\/ $\GamR$ are bijections from\/ $A\tens B$ onto\/ $B \tens A$.
+\item The mappings\/ $\lp^\tau$ and\/ $\rp^\tau$ restrict to bijections
+      from\/ $B\tens A$  onto\/ $B \tens A$.
+\end{enumerate}
+\end{lemma_sec}
+\begin{proof}
+(ii $\Leftrightarrow$ iii) follows easily from (\ref{eq:Gammas:construction}).
+On the other hand, it is not hard to see that for any $x \in B\tens A$ we have
+$$ \begin{array}{lcl}
+   Px  \:=\:  \rp^\tau(x)   & \hspace{5em} &  P^{-1} x  \:=\:  (\rp^{-1})^\tau(x) \\
+   xP  \:=\:  \lp^\tau(x)   & \vertL &  x P^{-1}  \,=\, (\lp^{-1})^\tau(x).
+   \end{array} $$
+These formulas make sense because e.g.\ $Px \in \Act(\BBAA) \subseteq (A \tens B)'$ etc.
+Now (i $\Leftrightarrow$ iii) becomes obvious.
+\end{proof}
+
+
+\begin{lemma_sec} \label{Mregularity_is_automatic}
+If \pairAB\ is a regular \mhs, then so is $\pair{A}{B\op}$.
+\end{lemma_sec}
+\begin{proof}
+Take transposes of (\ref{eq:lamrhoPop:antipodes:bijective})
+and (\ref{eq:lamrhoPop:antipodes:bijective:bis}).
+Then use the previous lemma.
+\end{proof}
+
+
+
+\begin{remark_sec} \rm
+If $\GamL$ and $\GamR$ end up in $B \tens A$
+(as they do in lemma \ref{mhs:Gammas:bijective}.ii)
+then the actions $\lact$ and $\ract$ appearing in (\ref{eq:Gammas:module properties})
+may also be interpreted within the
+\lq enveloping\rq\ \context\ $\left(\Env(\AABB); B\tens A, \pairing \vertM\right)$
+of \AABB, as explained by remark \ref{rem:module_notation_for_Env}\ and proposition \ref{prop:ME=MEE}.
+\hfill $\star$
+\end{remark_sec}
+
+
+
+
+\begin{prop_sec} \label{prop:existence:invariant_functionals}
+Let\/ \pairAB\ be a \mhs\@.
+Then there exist non-trivial invariant functionals on $A$ and\/ $B$
+(in the sense of definition \ref{def:invariant_functional}).
+\end{prop_sec}
+
+\begin{proof}
+Denote $\epsA \tens \epsB$ by $\eps$.
+Since $\GamL$ and $\GamR$ are bijections from $A\tens B$ onto $B \tens A$,
+we may define linear functionals $\varphi$ and $\psi$ on $B \tens A$ by
+$\varphi = \eps \, \GamL^{-1}$ and $\psi = \eps \, \GamR^{-1}$.
+From proposition \ref{prop:counits_homomorphism}\ we obtain that $\eps : A\tens B \rarr \kk$
+is an algebra homomorphism, and hence it extends to a homomorphism
+$\tilde{\eps} : M(A\tens B) \rarr \kk$.
+From (\ref{eq:Gammas:module properties}) it follows that for any $x \in A\tens B$
+and $m \in M(A\tens B)$
+$$  \varphi \left( \GamL(x) \ract m \vertM\right)
+       \:=\:  \varphi \left( \GamL(xm) \vertM\right)
+       \:=\:  \eps(xm)
+       \:=\:  \eps(x)\, \tilde{\eps}(m)
+       \:=\:  \varphi\! \left( \GamL(x) \vertM\right) \tilde{\eps}(m).  $$
+Since $\GamL(A\tens B)= B \tens A$, we have
+$\varphi(z \ract m) = \varphi(z) \, \tilde{\eps}(m)$ for all $z\in B\tens A$.
+In particular we observe that $\varphi$ is a left invariant functional on $B \tens A$
+with respect to the Hopf system $\pair{B \tens A}{A\tens B}$.
+Similarly $\psi$ turns out to be right invariant.
+Notice that $\varphi$ is non-trivial, because $\eps$ is non-trivial.
+Now take $a_0 \in A$ and $b_0\in B$ with $\varphi(b_0 \tens a_0) = 1$,
+and define functionals $\phiA$ on $A$ and $\phiB$ on $B$ by
+$$ \phiA \,=\: \varphi(b_0 \tens \,\cdot\,)   \andspace{3em}
+   \phiB \,=\: \varphi(\,\cdot\, \tens a_0). $$
+Then $\phiA$ and $\phiB$ are non-trivial,
+and for any $a\in A$ and $b\in B$ we have e.g.
+$$ \phiA(a \ract b)
+ %%%%%%%%%%     \:=\: \varphi\left(b_0 \tens (a \ract b) \vertM\right)
+      \:=\: \varphi\left((b_0 \tens a) \ract (1 \tens b) \vertM\right)
+      \:=\: \varphi(b_0 \tens a)\, \tilde{\eps}(1 \tens b)
+      \:=\: \phiA(a) \, \epsB(b),  $$
+so $\phiA$ is left invariant. Right invariant functionals are obtained similarly.
+\end{proof}
+
+
+
+\begin{defn_sec} \label{def:mhs:Fourier_transforms}
+Let \pairAB\ be any Hopf system. Given any left invariant functionals
+$\phiA$ and $\phiB$ on respectively $A$ and $B$, we define linear mappings
+$$  \FL : A \rarr A' :  a \mapsto \phiA(a\, \cdot \,)
+        \hspace{5em}
+    \GL : B \rarr B' :  b \mapsto \phiB(b\, \cdot \,). $$
+Similarly, given any right invariant functionals $\psiA$ and $\psiB$ we define
+$$  \FR : A \rarr A' :  a \mapsto \psiA(\, \cdot \, a)
+        \hspace{5em}
+    \GR : B \rarr B' :  b \mapsto \psiB(\, \cdot \, b). $$
+These mappings are often called {\em Fourier transforms}\@.
+Be aware they depend on the choice of the invariant
+functionals\footnote{uniqueness of invariant functionals not yet being
+established at this moment.}.
+\end{defn_sec}
+
+
+
+\begin{lemma_sec} \label{lemma:mhs:Fourier_transforms}
+Let\/ \pairAB\ be a \mhs\@. Let\/ $\phiA, \psiA$ and\/ $\phiB, \psiB$ be
+any\footnote{So a priori not necessarily the ones constructed in
+the proof of proposition \ref{prop:existence:invariant_functionals}.}\
+non-trivial invariant functionals, respectively left and right, on $A$ and \mbox{on\/ $B$}\@.
+Consider the associated Fourier transforms as in definition
+\ref{def:mhs:Fourier_transforms}\@. Then
+$$\begin{array}{lll}
+    (\id \tens \phiA)\, \GamL \:=\: \FL \tens \epsB   & \hspace{3em} &
+    (\phiB \tens \id)\, \GamL \:=\: \epsA \tens \GL
+  \\
+    (\id \tens \psiA)\, \GamR \:=\: \FR \tens \epsB   & \vertL &
+    (\psiB \tens \id)\, \GamR \:=\: \epsA \tens \GR.
+  \end{array}$$
+\end{lemma_sec}
+
+\begin{proof}
+Take any $a \in A$ and $b\in B$ and write
+$\GamL(a \tens b) = \sum_i \,q_i \tens p_i$ with $p_i \in A$ and $q_i \in B$.
+From (\ref{eq:def:Gammas}) we get for all $c \in A$ and $d\in B$ that
+$$ \pairM{\GamL(a \tens b)}{c \tens d} \:=\: \pairM{ac}{bd} \:=\: \pairM{ac \ract b}{d}   $$
+and hence $\sum_i \,\pair{c}{q_i} \, p_i = ac \ract b$. Now we proceed as follows:
+\begin{eqnarray*}
+\pairM{c}{(\id \tens \phiA)\, \GamL(a \tens b)}
+  &=&
+\textstyle \sum_i \,\pair{c}{q_i} \, \phiA(p_i)
+\\&=&
+\phiA(ac \ract b)
+\\&=&
+\phiA(ac) \,\epsB(b)
+\\&=&
+\pairM{c}{\FL(a)}  \epsB(b)
+\end{eqnarray*}
+and the result follows. The other cases are similar.
+\end{proof}
+
+
+\begin{cor_sec} \label{cor:mhs:Fourier_transforms}
+$\FL(A) = \FR(A) = B$ and\/ $\GL(B) = \GR(B) = A$.
+\end{cor_sec}
+
+
+\begin{cor_sec}  \label{cor:mhs:unique_Haar}
+There exists a complex scalar\/ $\mu$ such that\/ $\phiB \FL = \mu \, \epsA$
+and\/ $\phiA \GL = \mu \, \epsB$.
+Moreover\/ $(\phiB \tens \phiA)\, \GamL \,=\, \mu (\epsA \tens \epsB)$.
+\end{cor_sec}
+
+
+\begin{proof}
+Observe that
+$\phiB \FL \tens \epsB  \,=\,  (\phiB \tens \phiA)\, \GamL  \,=\,   \epsA \tens \phiA \GL$.
+\end{proof}
+
+
+\begin{thm_sec}  \label{prop:mhs:invariant_functionals:exist:unique}
+Let\/ \pairAB\ be any \mhs\@.
+Then there exist non-trivial invariant functionals on $A$ and\/ $B$,
+unique up to a scalar.
+
+\rm
+We will always denote the invariant functionals by $\phiA, \psiA, \phiB, \psiB$ as above.
+\end{thm_sec}
+
+\begin{proof}
+Existence was shown in proposition \ref{prop:existence:invariant_functionals}\@.
+So let's take e.g.\ two left invariant functionals on $A$, say $\phiA$ and $\phiA'$.
+We know there exists a non-trivial left invariant functional on $B$, say $\phiB$.
+According to corollary \ref{cor:mhs:unique_Haar}, both $(\phiB \tens \phiA)\, \GamL$
+and $(\phiB \tens \phiA')\, \GamL$ are scalar multiples of $\epsA \tens \epsB$.
+Since $\GamL$ maps $A \tens B$ onto $B \tens A$, it follows that
+$\phiA$ and $\phiA'$ are scalar multiples.
+\end{proof}
+
+
+
+\paragraph{Regularity}
+Recall lemma \ref{Mregularity_is_automatic}\@.
+In addition to the Fourier transforms in definition \ref{def:mhs:Fourier_transforms},
+we also have those associated to $\pair{A}{B\op}$. Explicitly:
+$$ \begin{array}{lll}
+     \FL\op(a)  \:=\: \psiA(a\, \cdot \,)  & \hspace{4em}&
+     \GL\op(b)  \:=\: \phiB(\, \cdot \,b) \\
+     \FR\op(a)  \:=\: \phiA(\, \cdot \,a)   & \vertL &
+     \GR\op(b)  \:=\: \psiB(b\, \cdot \,)
+   \end{array} $$
+for $a \in A$ and $b\in B$.
+Now corollary \ref{cor:mhs:Fourier_transforms}\ can be improved as follows:
+
+
+\begin{lemma_sec} \label{lem:mhs:Fourier_transforms:bijections}
+If\/ \pairAB\ is a regular \mhs, then all the Fourier transforms
+defined above are bijections between $A$ and\/ $B$.
+\end{lemma_sec}
+
+\begin{proof}
+Applying corollary \ref{cor:mhs:Fourier_transforms}\ both to
+\pairAB\ and $\pair{A}{B\op}$ yields
+$$\begin{array}{ccccccccc}
+  \FL(A) &=& \FR(A) &=& \FL\op(A) &=& \FR\op(A) &=& B  \\
+  \GL(B) &=& \GR(B) &=& \GL\op(B) &=& \GR\op(B) &=& A. \vertL
+  \end{array} $$
+Now observe that $\FL$ and $\FR\op$ are each others transpose
+in the sense that
+$$  \pairM{\FL(a)}{c} \:=\: \phiA(ac) \:=\:  \pairM{a}{\FR\op(c)}  $$
+for all $a,c \in A$, hence $\FL$ and $\FR\op$ are injective.
+The other cases are similar.
+\end{proof}
+\vspace{2ex}
+
+
+Recall lemma \ref{lem:mhs:comultiplications}\@.
+Given any \mhs\ \pairAB\ we can define linear mappings
+$\TA{1}$ and $\TA{2}$ from $A \tens A$ into $M(A \tens A)$ by
+$$ \TA{1}(a \tens c) \:=\: \DeltaA(a)(1 \tens c)
+            \hspace{4em}
+   \TA{2}(a \tens c) \:=\: (a \tens 1) \DeltaA(c).  $$
+Similarly we may define mappings $\TB{1}$ and $\TB{2}$
+from $B \tens B$ into $M(B \tens B)$.
+
+
+\begin{lemma_sec} \label{lem:mhs:TA1}
+Let\/ \pairAB\ be any regular \mhs, and
+recall that\/ $\FR$ is a bijection from $A$ onto\/ $B$.
+We now have
+$$   \TA{1} \:=\: (\id \tens \FR^{-1}) \,\lp\, (\id \tens \FR). $$
+It follows that\/ $\TA{1}$ is actually a bijection from\/ $A \tens A$ onto\/ $A \tens A$.
+\end{lemma_sec}
+
+\begin{proof}
+Take any $a,c \in A$ and $b,d \in B$ and write
+$\lp \! \left(a \tens \FR(c) \vertM\right) = \sum_i \,p_i \tens q_i$
+with $p_i \in A$ and $q_i \in B$.
+Using (\ref{eq:def:lamP:rhoP}) we obtain that for any $e\in A$
+\begin{eqnarray*}
+\textstyle \sum_i \,\pairM{b\tens e}{p_i \tens q_i}
+  &=&
+\pairM{a\ract b}{\FR(c) \ract e}
+\\&=&
+\pairM{e(a\ract b)}{\FR(c)}
+\\&=&
+\psiA \! \left(e(a\ract b)c\vertM\right)
+\\&=&
+\pairM{e}{\FR\! \left((a\ract b)c\vertM\right)}
+\end{eqnarray*}
+and hence $\sum_i \,\pair{p_i}{b}\, q_i \,=\, \FR\! \left((a\ract b)c\vertM\right)$.
+It follows that
+\begin{eqnarray*}
+\pairM{(\id \tens \FR^{-1}) \,\lp\, (\id \tens \FR)(a\tens c)}{b\tens d}
+  &=&
+\textstyle \sum_i \, \pairM{p_i \tens \FR^{-1}(q_i)}{b\tens d}
+\\&=&
+\textstyle \sum_i \, \pairM{\FR^{-1}\!\left(\pair{p_i}{b} \, q_i\vertM\right)}{d}
+\\&=&
+\pairM{(a\ract b)c}{d}
+\\&=&
+\pairM{a}{b(c \lact d)}
+\\&=&
+\pairM{\DeltaA(a)}{b\tens (c \lact d)}
+\\&=&
+\pairM{\TA{1}(a \tens c)}{b\tens d}
+\end{eqnarray*}
+which completes the proof.
+\end{proof}
+
+
+
+\paragraph{Proof of theorem \ref{thm:mhs_yields_mha}}
+From lemma \ref{lem:mhs:TA1}\ and its analogues for $\TA{2}$, $\TB{1}$ and $\TB{2}$,
+it follows easily that $(A,\DeltaA)$ and $(B,\DeltaB)$ are \mha s.
+Since \pairAB\ is assumed to be regular, we may
+replace\footnote{cf.\ lemma \ref{Mregularity_is_automatic}.}\ \pairAB\ by $\pair{A}{B\op}$.
+It follows that $(A,\DeltaA)$ and $(B,\DeltaB)$ are regular as a \mha\@.
+Recalling theorem \ref{prop:mhs:invariant_functionals:exist:unique}\ and
+\ref{lem:mhs:Fourier_transforms:bijections},
+we conclude that $B\simeq \hat{A}$ and $A\simeq \hat{B}$.
+Finally, pseudo-discreteness of e.g.\ $\BB=(\hat{A};A,\pairing)$
+follows from a result in \cite{Kust:corep}, stating that
+$M(\BB) \simeq M(\hat{A})$ identifies naturally with the space
+$$ \left\{ f \in A' \left|\vertL\right.
+     (\id \tens f)\DeltaA(a) \in A  \mbox{ and } (f \tens \id)\DeltaA(a) \in A
+     \mbox{, for any } a\in A \right\}. $$
+According to remark \ref{rem:three_topologies}.ii,
+the latter is nothing but $A\adl \simeq \Act(\BB)$.
+\hfill \qed

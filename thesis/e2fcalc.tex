@@ -1,0 +1,302 @@
+
+
+\section{A functional calculus in 2 variables}
+\label{par:Uqext:interesting_subalgebras}
+
+
+\begin{abs_chp}
+  We construct subspaces of \Uqext\ spanned by elements which are formally of type
+  $f(\ln a)\, g(bc)\, b^m$ and $f(\ln a)\, g(bc)\, c^m$, where
+  $f$ and $g$ run trough suitable spaces of functions and $m\in \NN$.
+  We compute the actions of \Aq\ on these particular elements;
+  idem for the antipode. Eventually we obtain an \ahss\ in the
+  sense of definition \ref{def:algebraic_Hopf_system}\@.
+\end{abs_chp}
+
+
+\subsection{Construction}
+Recall the conventions concerning entire functions (cf.\ \S \ref{sec:conventions}).
+
+\begin{defn*}  \label{def:Upsilon}
+Define a linear mapping $\Upsilon : \FZ \tens \HC \rarr \Uqext$ by
+$$  \hspace{5em}
+    \Upsilon(f \tens g)_{r,s} \:=\: \delta_{r,s}\, \mu_r(g) f
+    \hspace{4em} (r,s \in \NN). $$
+\end{defn*}
+
+
+\begin{remark} \rm
+  In the spirit of remark \ref{rem:formal_power_series},
+  an element in \Uqext\ of the form $\Upsilon(f \tens g)$
+  could be interpreted {\em formally\/} as
+  $$ f(\ln a)\, g(c^* c) \;=\; \sum_{n=0}^\infty \mu_n(g)\,f(\ln a)\, b^n c^n.  $$
+  $\Upsilon$ could be thought of as a \lq functional calculus\rq\
+  in 2 variables:
+\end{remark}
+
+
+\begin{prop} \label{prop:Upsilon:morphism}
+  The map\/ $\Upsilon$ is an injective $^*$-algebra morphism.
+\end{prop}
+\begin{proof}
+  Immediate from definition \ref{def:Upsilon}, formulas (\ref{eq:Uqext:def:product}) and
+  the rule for multiplying Taylor series.
+\end{proof}
+\vspace{2ex}
+
+
+If we identify \Uq\ with its image in \Uqext\ as in lemma \ref{lemma:embedding:Uq},
+then the following makes sense:
+
+\begin{lemma} \label{lemma:Upsilon}
+For all\/ $f\in\FZ$, $g\in \HC$ and\/ $r,s,m \in \NN$ we have
+\begin{eqnarray*}
+  \left( \Upsilon(f \tens g)\,b^m  \vertM\right)_{r,s}
+            &=& \delta_{r,s+m} \,\mu_s(g) f  \\
+  \left( \Upsilon(f \tens g)\,c^m  \vertM\right)_{r,s}
+            &=& \delta_{r+m,s} \, \mu_r(g) f
+\end{eqnarray*}
+\end{lemma}
+
+\begin{proof}
+  Combine (\ref{eq:Uqext:def:product}) with lemma
+  \ref{lemma:embedding:Uq}\ and definition \ref{def:Upsilon}.
+\end{proof}
+\vspace{2ex}
+
+
+With the same techniques one can show the following commutation rules:
+
+\begin{prop} \label{prop:Upsilon:commutation_rules}
+For all\/ $f\in\FZ$, $g\in \HC$, $m \in \NN$ and\/ $p\in \ZZ$ we have
+\begin{eqnarray*}
+   b^m \, \Upsilon(f \tens g) &=& \Upsilon(\Gamma^{-2m} f \tens g)\, b^m \\
+   c^m \, \Upsilon(f \tens g) &=& \Upsilon(\Gamma^{2m} f \tens g) \,c^m
+\end{eqnarray*}
+\begin{equation} \label{eq:Upsilon:commutation_rules}
+ \begin{array}{lclcl}
+   \Upsilon(f \tens g)\,(bc)^m
+         &=&   \Upsilon(f \tens \Psi^m g)
+         &=&   (bc)^m\, \Upsilon(f \tens g)  \\
+   \Upsilon(f \tens g)\,a^p
+         &=&   \Upsilon(\Phi^p f \tens g)
+         &=&    a^p\, \Upsilon(f \tens g)
+\end{array}
+\end{equation}
+\end{prop}
+
+
+
+
+\subsection{Actions \&\ antipode}
+
+Besides the well-known $q$-derivative (see appendix \ref{app:qcalc}) we shall
+also need the following $q$-difference operator:
+
+\begin{defn*}
+For any $m\in\NN$ we define $\nabq{m}: \HC \rarr \HC$ by
+\begin{equation} \label{eq:def:nabq}
+ \nabq{m} \:=\: \frac{1}{q-q^{-1}}
+        \left( q^m\, \Omega  - q^{-m}\, \Omega^{-1} \vertM\right).
+\end{equation}
+\end{defn*}
+
+
+\begin{prop}  \label{prop:actions:Upsilon}
+For all\/ $f\in\FZ$, $g\in \HC$ and\/ $m \in \NN$ we have
+\begin{eqnarray*}
+  \alpha \,\lact \, \Upsilon(f \tens g)\, b^m
+     &=& q^{-\frac{1}{2}m}\: \Upsilon \!\left(\Gamma f \tens \Omega^{-1} g \vertM\right) b^m
+  \\  \vertL
+  \alpha \,\lact \, \Upsilon(f \tens g)\, c^m
+     &=& q^{-\frac{1}{2}m}\: \Upsilon \!\left(\Gamma f \tens \Omega^{-1} g \vertM\right) c^m
+  \\
+  \vertL
+  \beta \,\lact \, \Upsilon(f \tens g)\, b^m
+     &=& q^{-\frac{1}{2}(m-1)}\:
+         \Upsilon \!\left(\Phi\Gamma f \tens \nabq{m} g \vertM\right) b^{m-1}
+     \hspace{16mm} (m\geq 1)
+  \\  \vertL
+  \beta \,\lact \, \Upsilon(f \tens g)\, c^m
+     &=& q^{\frac{1}{2}(m+1)}\:
+         \Upsilon \!\left(\Phi\Gamma f \tens \Omega^{-1} \Dqsqr g \vertM\right) c^{m+1}
+  \\
+  \vertL
+  \gamma \,\lact \, \Upsilon(f \tens g)\, b^m
+     &=& q^{-\frac{1}{2}(m+1)}\:
+         \Upsilon \!\left(\Phi\Gamma^{-1} f \tens \Omega^{-1} \Dqsqr g \vertM\right) b^{m+1}
+  \\ \vertL
+  \gamma \,\lact \, \Upsilon(f \tens g)\, c^m
+     &=& q^{\frac{1}{2}(m-1)}\:
+         \Upsilon \!\left(\Phi\Gamma^{-1} f \tens \nabq{m} g \vertM\right) c^{m-1}
+     \hspace{14mm} (m\geq 1)
+  %
+  \\
+  %
+  \vertXL
+  \Upsilon(f \tens g)\, b^m \, \ract \, \alpha
+     &=& q^{\frac{1}{2}m}\: \Upsilon(\Gamma f \tens \Omega g)\, b^m
+  \\  \vertL
+   \Upsilon(f \tens g)\, c^m \, \ract \,\alpha
+     &=& q^{\frac{1}{2}m}\: \Upsilon \!\left(\Gamma f \tens \Omega g \vertM\right) c^m
+  \\
+  \vertL
+  \Upsilon(f \tens g)\, b^m \, \ract \,\beta
+     &=& q^{\frac{1}{2}(m-1)}\:
+         \Upsilon \!\left(\Phi^{-1}\Gamma f \tens \nabq{m} g \vertM\right) b^{m-1}
+     \hspace{14mm} (m\geq 1)
+  \\  \vertL
+  \Upsilon(f \tens g)\, c^m \, \ract \,\beta
+     &=& q^{-\frac{1}{2}(m+1)}\:
+         \Upsilon \!\left(\Phi^{-1}\Gamma f \tens \Omega^{-1} \Dqsqr g \vertM\right) c^{m+1}
+  \\
+  \vertL
+  \Upsilon(f \tens g)\, b^m \, \ract \, \gamma
+     &=& q^{\frac{1}{2}(m+1)}\:
+         \Upsilon \!\left(\Phi^{-1}\Gamma^{-1} f \tens \Omega^{-1} \Dqsqr g \vertM\right) b^{m+1}
+  \\ \vertL
+  \Upsilon(f \tens g)\, c^m \, \ract \,\gamma
+     &=& q^{-\frac{1}{2}(m-1)}\:
+         \Upsilon \!\left(\Phi^{-1}\Gamma^{-1} f \tens \nabq{m} g \vertM\right) c^{m-1}
+     \hspace{8mm} (m\geq 1)
+\end{eqnarray*}
+\end{prop}
+
+\begin{proof}
+  Combine proposition \ref{prop:actions_on_Uqext}\ with lemma
+  \ref{lemma:Upsilon}\@. The calculations are not too short but
+  straightforward.
+\end{proof}
+
+
+
+\begin{prop} \label{prop:UqFG:antipode}
+Recall proposition \ref{prop:Uqext:antipode}\@.
+For all\/ $f\in\FZ$, $g\in \HC$ and\/ $m \in \NN$ we have
+\begin{eqnarray*}
+   S\! \left(\Upsilon(f \tens g) \vertM\right)
+        &=&     \Upsilon(f^\bullet \tens g) \\
+   S\! \left(\Upsilon(f \tens g)\, b^m \vertM\right)
+        &=&     (-q)^{-m}\: \Upsilon \!\left(\Gamma^{-2m} (f^\bullet) \tens g \vertM\right) b^m \\
+   S\! \left(\Upsilon(f \tens g)\, c^m \vertM\right)
+        &=&     (-q)^m \: \Upsilon \!\left(\Gamma^{2m} (f^\bullet) \tens g \vertM\right) c^m   \\
+   S^2\! \left(\Upsilon(f \tens g)\, b^m \vertM\right)
+        &=&   q^{-2m} \: \Upsilon(f \tens g)\, b^m   \\
+   S^2\! \left(\Upsilon(f \tens g)\, c^m \vertM\right) &=&  q^{2m} \: \Upsilon(f \tens g)\, c^m
+\end{eqnarray*}
+\end{prop}
+
+
+
+\subsection{The space \protect\UqT} \label{subsect:spaceUqT}
+
+Whenever \calL\ is a subspace of $\FZ \tens \HC$, we define \UqT\ to be
+the following subspace of \Uqext
+\begin{equation}\label{eq:def:UqT}
+ \UqT \:=\: \mbox{span} \left(\vertM
+              \Upsilon(\calL)\, b^\NN  \:\cup\:
+              \Upsilon(\calL)\, c^\NN \right).
+\end{equation}
+From definition \ref{def:Upsilon}\ and lemma \ref{lemma:Upsilon}\
+it is clear that \UqT\ is actually a {\em direct sum\/} of linear spaces:
+\begin{equation}\label{eq:UqFG:direct_sum}
+ \textstyle \left( \bigoplus_{m=1}^\infty  \Upsilon(\calL)\,b^m  \vertL\right)
+                  \: \oplus \:    \Upsilon(\calL)   \: \oplus \:
+       \left( \bigoplus_{n=1}^\infty  \Upsilon(\calL)\,c^n \vertL\right)
+\end{equation}
+It follows immediately that any $x\in \UqT$ can be {\em uniquely\/} written as
+$$  x \:=\: \sum_{m=1}^\infty \Upsilon(X_m)\, b^m \:+\:
+           \Upsilon(X_0) \:+\;
+         \sum_{n=1}^\infty \Upsilon(X_{-n})\, c^n    $$
+with only finitely many non-zero $X_m \in \calL\;$ ($m\in \ZZ$).
+Concerning {\em uniqueness}, observe that e.g.\ $\Upsilon(X)\, b^m = 0$
+for some $X \in \calL$ and $m\in\NN$ implies that
+$$  \Upsilon\!\left(\vertM(\id \tens \Psi^m)X \right)
+          \: \stackrel{(\ref{eq:Upsilon:commutation_rules})}{=} \:
+    \Upsilon(X)\,b^m c^m \:=\: 0,  $$
+and recall that $\Upsilon$ is injective. Since also $\Psi$ is injective,
+we conclude that $X=0$.
+
+
+\begin{prop} \label{prop:UqFG}
+If\/ \calL\ is a self-adjoint subspace of\/ $\FZ \tens \HC$ which is
+invariant under\/
+$\Gamma \tens \Omega^{\pm 1}$,
+$\Gamma^{-1} \tens \Omega^{\pm 1}$,
+$\Gamma^{\pm 2} \tens \id$,
+$\Phi^{\pm 1} \tens \id$,
+$\id \tens \Psi$,
+$\id \tens \Dqsqr$
+and\/ $^\bullet \tens \id$, then\/ \UqT\ is
+\begin{enumerate}
+   \item a sub-\Aq-bimodule of\/ \Uqext
+   \item a\/ \Uq-bimodule under multiplication within\/ \Uqext
+   \item invariant under\/ $S^{\pm 1}$ and $^*$
+\end{enumerate}
+If moreover\/ \calL\ is an algebra, then so is\/ \UqT.
+\end{prop}
+
+\begin{proof}
+  Notice $\Omega^{\pm 1}$-invariance in the second factor implies
+  \mbox{$\nabq{m}$-invariance}\@.
+  The results follow easily from propositions
+  \ref{prop:Upsilon:morphism},
+  \ref{prop:Upsilon:commutation_rules},
+  \ref{prop:actions:Upsilon}\ and
+  \ref{prop:UqFG:antipode}\@.
+\end{proof}
+
+
+\begin{cor}  \label{cor:UqFGAq:Hopf_system}
+  Under the assumptions of the previous proposition, including the \lq moreover\rq\ part,
+  $\left\langle\vertM\right. \! \UqT, \, \underline{\Aq\!} \left.\vertM\right\rangle$
+  is an \ahss\footnote{See definition \ref{def:algebraic_Hopf_system}.},
+  provided that\/ \UqT\ separates\/ \Aq\ within the duality.
+\end{cor}
+
+
+{\small
+\begin{remark} \label{rem:calculus:finetuning}  \rm
+It is worth mentioning that the above construction is susceptible
+to some further finetuning: instead of starting from a single space \calL,
+one could as well consider an indexed family $(\calL_m)_{m\in\ZZ}$
+of subspaces of $\FZ \tens \HC$.
+Instead of (\ref{eq:UqFG:direct_sum}) we would then use
+$$ \Uq\!\left(\vertM(\calL_m)_{m\in\ZZ}\right) \;=\;
+   \textstyle \left( \bigoplus_{m=1}^\infty  \Upsilon(\calL_m)\,b^m  \vertL\right)
+                  \: \oplus \:    \Upsilon(\calL_0)   \: \oplus \:
+       \left( \bigoplus_{n=1}^\infty  \Upsilon(\calL_{-n})\,c^n  \vertL\right). $$
+To obtain an analogue of proposition \ref{prop:UqFG}, one should
+require the spaces $\calL_m$ to enjoy the same invariance
+conditions that were imposed on \calL\ in proposition \ref{prop:UqFG},
+except for invariance under $\id \tens \Dqsqr$, which is to be \mbox{replaced by}
+$$  (\id \tens \Dqsqr) \calL_m \,\subseteq\,\calL_{m+1}
+      \andspace{4em}
+    (\id \tens \Dqsqr) \calL_{-m} \,\subseteq\, \calL_{-m-1}   $$
+for all $m \geq 0$.
+Moreover one should add the condition that
+$$  (\id \tens \nabq{m}) \calL_m  \,\subseteq\, \calL_{m-1}
+      \andspace{4em}
+    (\id \tens \nabq{m}) \calL_{-m} \,\subseteq\, \calL_{-m+1} $$
+for all $m \geq 1$.
+Self-adjointness of \calL\ could be replaced by a
+condition like $\calL_{-m}^* = \calL_m$ for any $m \in \ZZ$.
+Furthermore, to reproduce item (ii) of proposition \ref{prop:UqFG},
+we would need some nesting properties like
+$$ (\id \tens \Psi) \calL_{m+1} \: \subseteq\: \calL_m  \:\subseteq \: \calL_{m+1} $$
+for $m \geq 0$, and similarly for negative indices.
+Eventually, if we want $\Uq\!\left(\vertM(\calL_m)_{m\in\ZZ}\right)$
+to be an {\em algebra\/}, then we would need something like
+$\calL_m \calL_n \subseteq \calL_{m+n}$
+for any $m,n\in \ZZ$, rather than requiring all the $\calL_m$ to
+be algebras in themselves; so one could say we are dealing with some
+$\ZZ$-graded structure here.
+It is very likely that all the results in the following sections can be adapted to this
+$\ZZ$-graded approach, yielding a theory which would be richer, but unfortunately
+also more complicated.
+Therefore we shall not elaborate on this point an stick to our original approach.
+Nevertheless it might be worth doing the exercise, especially in view of
+remark \ref{rem:qHankel:finetuning}\ in chapter \ref{chapter:Harmonic_analysis_on_quantumE2}\@.
+\hfill $\star$
+\end{remark}
+}

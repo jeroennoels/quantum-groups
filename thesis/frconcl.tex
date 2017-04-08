@@ -1,0 +1,55 @@
+
+
+\begin{thm_sec}
+Take\/ $0<q<1$ and define\/ $\tau = q^{-1}$ and\/ $\nu = (q^{-1}-q)^{-2}$. Then
+the system
+$$\left( \Uq\!\left(\calL(\Hcore_\tau)\vertM\right)  \subseteq
+         \Uq\!\left(\calL({\mathcal S}_\tau(\RR^+;q^2)) \vertM \right),
+                \varphi, \psi;  \,  \Uq, \Aq; \,
+                \Aq(\Hcore_\nu) \subseteq
+         \Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\vertM \right), \omega \vertL \right) $$
+is a Plancherel context (cf.\ definition \ref{def:Plancherel_context}).
+\end{thm_sec}
+
+\begin{proof}
+Let's show conditions (i-iv) of definition \ref{def:Plancherel_context}\@.
+Condition (i) follows from propositions \ref{prop:Eq2:Fourier_transforms},
+\ref{prop:Eq2:Fourier:bijections}\ and \ref{prop:Eq2:Fourier:inverse}\@.
+(ii) follows from theorem \ref{thm:Eq2:Plancherel}\ together with some results in
+chapter \ref{chapter:algebraic_harmonic_analysis}\@.
+(iii) was shown in lemma \ref{lemma:Eq2:lambdaiszeta}\@.
+Also (iv) is not so hard to prove.
+\end{proof}
+
+
+
+\paragraph{Further investigation}
+From lemmas \ref{lemma:induced_pairing}\ and \ref{lem:duality_revisited}\
+we now know there is a natural duality between
+$\Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$ and $\Aq(\Hcore_\nu)$,
+for instance,
+$\pair{x}{y} = \omega(\FLabb(x)\,y)$
+for
+$x \in \Uq\!\left(\calL(\Hcore_\tau)\vertM\right)$ and $y \in \Aq(\Hcore_\nu)$.
+This formula for the pairing can be made very explicit simply
+by plugging in definitions \ref{def:Eq2:Fourier_transforms},
+\ref{def:YaH}, \ref{def:Hmpair}\ and \ref{def:qHankeltransform:unitary},
+together with proposition \ref{prop:exist:holomorphic_qHankel}\
+and the definition of the Haar functional $\omega$.
+This should yield some very concrete expressions for the pairing, e.g.
+\begin{eqnarray*}
+  \lefteqn{  \left\langle \vertL\Upsilon(X)\, b^m, \;
+     \alpha^l (\gamma^*)^n \,g(\gamma^*\gamma)  \right\rangle
+     \hspace{1em}=\hspace{1em}
+     \delta_{m,n} \: \kq(m,-m-l)\: \nu^m \, q^{ml} \ldots } \\
+  &\ldots & \sum_{r,k\in \ZZ}   q^{(m+2)(k+r)} \: \J{m}{q^{k+r}} \;   g(\nu\, q^{2r+2l}) \;
+       X\!\left(-m\theta-l\theta, \: \tau\, q^{2k-m-l} \vertM
+           \right) \hspace{1em} \label{eq:Eq2:induced_pairing}
+\end{eqnarray*}
+for any and $l\in \ZZ$, $m,n\in \NN$, $g \in \Hcore_\nu$ and $X\in
+\calL(\Hcore_\tau)$. The interesting point about this formula is that it no
+longer depends on the use of {\em entire\/} functions, i.e.\ $X$ and $g$ may be
+any functions living on the appropriate (discrete!) sets, provided they satisfy
+some elementary summability criterion.
+So it may be possible to take the above formula as the {\em point to start\/} the construction
+of the quantum $E(2)$ group, i.e.\ to make it into a {\em definition\/} for the pairing\ldots

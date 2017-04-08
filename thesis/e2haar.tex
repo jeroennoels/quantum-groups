@@ -1,0 +1,534 @@
+
+\section{Haar functionals on \protect\Uqext}
+
+\begin{abs_chp}
+We construct positive and faithful Haar functionals on \UqT\ for a suitable choice of \calL\@.
+In their definition we recognize the {\em spectral conditions\/} of
+\cite{Fons:spectral_conditions,Wor:QE2}\@.
+Furthermore we compute {\scriptsize KMS} automorphisms and modular elements.
+\end{abs_chp}
+
+Throughout this section we fix a real number $\tau$ with $\tau>0$.
+
+
+\subsection{Construction \&\ invariance}
+\label{par:Haar:Uq:construction}
+
+We start by making a specific choice for the space \calL\ appearing
+in \S\ref{subsect:spaceUqT}\@.
+
+
+\begin{assume} \label{assume:Gr} \rm
+Whenever $r$ is a real number with $r>0$, we assume $\calG_r$ to be a
+non-trivial self-adjoint subspace of \HC\ such that
+\begin{enumerate}
+\item $\calG_r$ is invariant under $\Omega^{\pm 2}$, $\Psi$ and $\Dqsqr$
+\item $\sum_{k \in \ZZ} \, g(r q^{2k})\, q^{2k} $
+      is absolutely summable for any $g\in \calG_r$.
+\end{enumerate}
+$\calG_r$ is {\em not\/} assumed to be an algebra unless explicitly stated.
+\hfill $\bullet$
+\end{assume}
+
+
+\begin{ex} \label{ex:Schwartz-like_space}
+\rm A possible choice for $\calG_r$ could be the following: first define
+$$ {\mathcal S}_r(\RR^+;q)
+    \:=\: \left\{ g \in \HC \left|\vertL \right.
+          \mbox{for all $n \in \NN$, the set
+          $\left\{\,g(r q^k)\,q^{nk} \right\}_{_{\scriptstyle k \in \ZZ}}$
+          is bounded} \right\}.$$
+Now it is not hard to
+prove\footnote{To show (ii) and \mbox{$\Dqsqr$-invariance},
+one should take into account the following observation:
+if $g$ is entire, then so is $\Dqsqr g$. Hence $g$ and $\Dqsqr g$
+are bounded on the interval $[0,r]$.}\
+that ${\mathcal S}_r(\RR^+;q^2)$ satisfies our requirements on $\calG_r$.
+Moreover ${\mathcal S}_r(\RR^+;q^2)$ is in fact an {\em algebra\/}, and furthermore
+it is easy to prove that it is actually equal to the \lq Schwartz-like\rq\ space
+that was used in \cite{Koelink:thesis,Koelink:QE2}\ for similar purposes.
+\hfill $\star$
+\end{ex}
+
+
+Given a space \Gtau\ satisfying assumptions \ref{assume:Gr},
+we define subspaces \Geven\ and \Godd\ of \HC\ by
+$\Geven = \Gtau$ and $\Godd = \Omega\Gtau$.
+Now it is easy to see that both \Geven\ and \Godd\ are self-adjoint and invariant
+under $\Omega^{\pm 2}$, $\Psi$ and $\Dqsqr$.
+In this respect, observe that $\Dqsqr \Omega = q\,\Omega \Dqsqr$.
+\vspace{1ex}
+
+Let us agree that $\evenodd$ means: even and odd {\em respectively}\@.
+Henceforth $K^\evenodd(\Zt)$ will denote the space of all
+functions on $\Zt$ with finite support contained in $\ZZ_\evenodd\theta$.
+Here $\ZZ_\evenodd$ denotes the $\evenodd$ integers.
+Clearly $K^\evenodd (\Zt)$ are self-adjoint subalgebras of \FZ\ which are
+moreover invariant under $\Gamma^{\pm 2}$, $\Phi^{\pm 1}$ and $^\bullet$.
+\vspace{2ex}
+
+Notice that \KZeven\ and \KZodd\ are in direct sum within \FZ,
+and consequently, $\KZeven \tens \Geven$ and $\KZodd \tens \Godd$
+are in direct sum within $\FZ \tens \HC$. Therefore we can define
+\begin{equation}\label{eq:def:TG}
+  \calL(\Gtau) \,=\,  \left(\KZeven \tens \Geven \vertM\right) \oplus
+                      \left(\KZodd  \tens \Godd  \vertM\right)
+  \, \subseteq \,  \KZ \tens \HC. \;
+\end{equation}
+Now it is easy to verify that $\calL=\calL(\Gtau)$ satisfies the conditions of
+proposition \ref{prop:UqFG}, except for the \lq moreover\rq\ part,
+the latter being satisfied as well {\em provided\/} we assume \Gtau\ to be an
+algebra; indeed if \Gtau\ is an algebra, then so is $\calL(\Gtau)$,
+because $\KZeven$ and $\KZodd$ annihilate one another under multiplication.
+
+
+\begin{remarks} \label{rem:parity} \rm
+\item
+The fact we actually have a {\em direct\/} sum in (\ref{eq:def:TG}) comes
+merely from the \lq first leg\rq\ of the tensor product. Indeed
+$\Geven$ and $\Godd$ need not to be in a direct sum position within \HC\@.
+To illustrate this, consider the example
+$\Gtau={\mathcal S}_\tau (\RR^+;q^2)$ and observe that
+\begin{equation}\label{eq:qSchwartz:not_direct_sum}
+    {\mathcal S}_\tau^{\rm \scriptscriptstyle even} (\RR^+;q^2) \:\cap\:
+    {\mathcal S}_\tau^{\rm \scriptscriptstyle odd}  (\RR^+;q^2)  \;=\;
+    {\mathcal S}_\tau (\RR^+;q).
+\end{equation}
+\item
+Notice that in (\ref{eq:def:TG}) {\em both\/} the even and odd components
+are necessary: otherwise $\calL(\Gtau)$ would not be invariant under
+$\Gamma \tens \Omega^{\pm 1}$ or $\Gamma^{-1} \tens \Omega^{\pm 1}$
+(which was an essential condition in proposition \ref{prop:UqFG}).
+\item
+Why so complicated? Can't we simply take
+${\calL} = \KZ \tens {\mathcal S}_\tau (\RR^+;q)\,$?
+First observe that the latter space is actually {\em smaller\/} than
+$\calL\!\left(\vertM {\mathcal S}_\tau (\RR^+;q^2) \right)$
+because of (\ref{eq:qSchwartz:not_direct_sum}).
+Furthermore it indeed satisfies all the requirements of \mbox{proposition \ref{prop:UqFG}},
+and as a matter of fact one would get quite far with it.
+However, this is {\em not at all\/} the proper choice if we want
+to do harmonic analysis, as we will explain later
+(cf.\ remarks \ref{rem:haar:Uq:concrete}\ and \ref{rem:Fourier:construction:parity}).
+\end{remarks}
+
+
+We are about to invoke corollary \ref{cor:UqFGAq:Hopf_system}\@.
+In this respect only one condition remains to be shown:
+\UqTG\ should separate \Aq\ within the duality.
+In order not to slow down our construction, we defer this technical matter to
+appendix \ref{app:technical}\@.
+The result of all this is the following:
+
+
+\begin{prop} \label{prop:UqGT:Aq:summary}
+ Whenever\/ \Gtau\ is a subalgebra of\/ \HC\ satisfying assumptions \ref{assume:Gr},
+ the pair
+ $\left\langle\vertM\right.\!   \UqTG, \, \underline{\Aq\!}  \left.\vertM\right\rangle$
+ is an \ahss\footnote{See definition \ref{def:algebraic_Hopf_system}.}\@.
+\end{prop}
+
+
+The next step is to construct Haar functionals on \UqTG\@.
+\begin{defn*} \label{def:lam_rho_chi}
+Let us define functionals $\lambda_{_\evenodd}$ and
+$\rho_{_\evenodd}$ on $K^\evenodd(\Zt)$ by
+$$ \displaystyle
+     \lambda_{_\evenodd}(f)\: = \!\! \sum_{k\,\in\,\ZZ_\evenodd}
+        \hspace{-0.4em}  f(k\theta)\,q^k
+   \andspace{3em}
+     \rho_{_\evenodd}(f)   \: = \!\! \sum_{k\,\in\,\ZZ_\evenodd}
+        \hspace{-0.4em}  f(k\theta)\,q^{-k}  $$
+whereas on $\Gtau^\evenodd$ we define linear functionals $\chi_{_\evenodd}$ by
+$$  \chi_{_\evenodd}(g) \;= \! \sum_{l\,\in\,\ZZ_\evenodd}
+               \hspace{-0.3em} g(\tau q^l)\, q^l. $$
+\end{defn*}
+
+
+\begin{lemma} \label{lemma:lam_rho_chi_nabq}
+We have
+$$ \begin{array}{lcl}
+   \begin{array}{l}
+  \lameven\Gamma = q \lamodd  \\
+  \lamodd\Gamma\,= q \lameven
+\end{array} & \hspace{15mm}&
+\begin{array}{l}
+  \rhoeven\Gamma = q^{-1} \rhoodd  \\
+  \rhoodd\Gamma\,= q^{-1} \rhoeven
+\end{array} \\ \rule{0pt}{5ex}
+\begin{array}{l}
+  \chieven\Omega = q^{-1} \chiodd \\
+  \chiodd\Omega\,= q^{-1} \chieven
+\end{array} & &
+\;\,\chi_{_\evenodd} \nabq{1} = 0.
+\end{array}$$
+\rm This makes sense because $\KZeven = \Gamma \KZodd$ and $\Geven = \Omega\Godd$.
+\end{lemma}
+
+
+\begin{defn}
+In view of (\ref{eq:UqFG:direct_sum}) we can define
+linear functionals $\varphi$ and $\psi$ on \UqTG\ as follows:
+putting $\varphi$ and $\psi$ equal to zero on
+\begin{equation} \label{eq:haar:Uq:zero}
+    \Upsilon\!\left(\TG \vertM\right) b^{\NN_0}
+       \andspace{10mm}
+    \Upsilon\!\left(\TG \vertM\right) c^{\NN_0},
+\end{equation}
+it only remains to define $\varphi$ and $\psi$ on $\Upsilon\!\left(\TG \vertM\right)$.
+In this respect we require
+\begin{eqnarray} \label{eq:def:haar:Uq:phi}
+   \varphi \Upsilon &=& (\lameven \tens \chieven) \oplus  (\lamodd \tens \chiodd) \\
+   \psi \Upsilon    &=& (\rhoeven \tens \chieven) \oplus (\rhoodd \tens \chiodd)
+\end{eqnarray}
+where we considered $\Upsilon$ restricted to \TG\ as defined in (\ref{eq:def:TG}).
+\end{defn}
+
+
+\begin{prop} \label{prop:haar:Uq:invariance}
+ The functionals\/ $\varphi$ and\/ $\psi$ as defined above are respectively
+ left and right invariant (cf.\ definition \ref{def:invariant_functional}) for\/
+ $\left\langle\vertM\right.\!  \UqTG, \, \underline{\Aq\!} \left.\vertM\right\rangle$.
+\end{prop}
+\begin{proof}
+ Let's consider the case of $\varphi$.
+ Since $\eps(\alpha)=1$ and  $\eps(\beta) = \eps(\gamma) = 0$,
+ it suffices to show
+ \begin{eqnarray*}
+ \varphi\left(\Upsilon(X)\, \{b \mbox{ or } c\}^m \,\ract \, \alpha
+     \vertM\right)
+   &=& \varphi\left(\Upsilon(X)\, \{b \mbox{ or } c\}^m  \vertM\right)
+     \\ \vertXL
+  \varphi\left(\Upsilon(X)\,
+          \{b \mbox{ or } c\}^m \,\ract\,\beta  \vertM\right) &=& 0
+    \\  \vertXL
+  \varphi\left(\Upsilon(X)\,
+         \{b \mbox{ or } c\}^m\, \ract \,\gamma  \vertM\right) &=& 0
+\end{eqnarray*}
+for $X\in \TG$ and $m\in \NN$.
+Observe the action of $\alpha$ does not alter the exponent of $b$ or $c$,
+whereas it is lowered or raised by 1 under the actions of $\beta$ and $\gamma$
+(\mbox{cf.\ proposition \ref{prop:actions:Upsilon}}). Since $\varphi$ vanishes
+on (\ref{eq:haar:Uq:zero}) only a few cases remain to be investigated:
+$$\begin{array}{lclcl}
+   \varphi\left(\Upsilon(X)\,\ract \, \alpha  \vertM\right)
+     &=& \varphi\left(\Upsilon \!\left(\Gamma \tens \Omega \vertM \right)X \vertM\right)
+     &=& \varphi\left(\Upsilon(X) \vertM\right)
+     \\ \vertXXL
+   \varphi\left(\Upsilon(X)\,b\, \ract\,\beta  \vertM\right)
+     &=& \varphi\left(\Upsilon \!\left(\Phi^{-1}\Gamma \tens \nabq{1}\right)X
+      \vertM\right) &=& 0 \\  \vertXXL
+   \varphi\left(\Upsilon(X) \, c\, \ract \, \gamma  \vertM\right)
+     &=& \varphi\left(\Upsilon \!\left(\Phi^{-1}\Gamma^{-1} \tens \nabq{1}\right)X
+       \vertM\right)
+     &=& 0.
+\end{array} $$
+Here we used proposition \ref{prop:actions:Upsilon},
+lemma \ref{lemma:lam_rho_chi_nabq}\ and of course
+(\ref{eq:def:haar:Uq:phi}).
+%Right invariance of $\psi$ is shown similarly.
+\end{proof}
+
+
+\begin{remark} \label{rem:haar:Uq:concrete} \rm
+Elements in $\FZ \tens \HC$ can be considered as functions in
+2 variables, i.e.\ from $\Zt \times \CC$ into \CC\@.
+When definition \ref{def:lam_rho_chi}\ is plugged into (\ref{eq:def:haar:Uq:phi})
+we thus obtain the following expression for $\varphi$ on $\Upsilon\!\left(\TG \vertM \right)$:
+\begin{equation}\label{eq:haar:Uq:concrete}
+  \varphi \left(\Upsilon(X) \vertM\right)
+     \:=\: \sum_{(k,l)\, \in \,\mathfrak{S}}  X(k\theta, \tau q^l)\, q^{k+l}.
+\end{equation}
+Here $\mathfrak{S}=(\ZZeven \times \ZZeven) \cup (\ZZodd \times \ZZodd)$
+and $X\in \TG$ was implicitly identified with the corresponding
+function on $\Zt \times \CC$.
+This formula however, isn't always convenient because of
+the peculiar nature of the summation range; one might ask why we don't simply
+take a sum over $\ZZ^2$ anyway, and indeed, as far as the
+construction of invariant functionals is concerned, there's
+absolutely no need to work with $\mathfrak{S}$ instead of $\ZZ^2$
+(cf.\ remark \ref{rem:parity}.iii).
+Nevertheless there are good reasons to use $\mathfrak{S}$:
+in chapter \ref{chapter:Harmonic_analysis_on_quantumE2}\ we shall construct Fourier
+transforms and prove a Plancherel formula which relates the
+Haar functionals $\varphi$ and $\psi$ with the Haar functional
+on the dual as constructed in
+\cite[see also \S\ref{par:Haar_functionals_on_Aqext}\ below]{Koelink:thesis,Koelink:QE2}\@.
+Precisely at this point it becomes essential to use this particular
+\lq parity\rq\ structure, otherwise our proof for this Plancherel formula would fail.
+Moreover only (\ref{eq:def:TG}) will supply sufficiently many elements which
+behave \lq nicely\rq\ under Fourier transformation.
+Another motivation comes from the operator-algebraic versions
+of the quantum $E(2)$ group \cite{FonsWor:QE2,Wor:QE2,Wor:Affiliated}\@.
+The so-called \lq spectral conditions\rq\
+\cite{Fons:spectral_conditions,Wor:QE2} emerging at this
+operator-theoretical level are indeed closely related to our
+choice $\mathfrak{S}$ for the summation range in (\ref{eq:haar:Uq:concrete}).
+\hfill $\star$
+\end{remark}
+
+
+\subsection{Positivity \&\ faithfulness}
+
+Let \Gtau\ be a subalgebra of \HC\ satisfying assumptions \ref{assume:Gr}\@.
+
+\begin{lemma}  \label{lem:Haar_on_UpStarUp}
+  Take any\/ $X,Y\in \TG$ and\/ $r, s \in \NN$. Put\/ $m=\min\{r,s\}$.
+  Then we have
+\begin{eqnarray}
+   \left(\Upsilon(Y)\, b^r \vertM\right)^*\!
+     \left(\Upsilon(X)\, b^s
+           \vertM\right)
+   \!\!&=&\!\!
+    \Upsilon\!\left((\Gamma^{2r} \tens \Psi^m)(Y^* X) \vertM\right)
+     b^{s-m} c^{r-m}
+  \label{eq:UpStarUp:bb} \\
+  \left(\Upsilon(Y)\, b^r  \vertM\right)^* \!
+  \left(\Upsilon(X)\, c^s  \vertM\right)
+   \!\!&=&\!\!
+  \Upsilon\!\left((\Gamma^{2r} \tens \id)(Y^* X) \vertM\right)
+      c^{r + s}
+  \label{eq:UpStarUp:bc} \\
+  \left(\Upsilon(Y)\, c^r \vertM\right)^* \!
+  \left(\Upsilon(X)\, b^s  \vertM\right)
+   \!\!&=&\!\!
+   \Upsilon\!\left((\Gamma^{-2r} \tens \id)(Y^* X) \vertM\right)
+      b^{r + s}
+  \label{eq:UpStarUp:cb} \\
+  \left(\Upsilon(Y)\, c^r  \vertM\right)^* \!
+  \left(\Upsilon(X)\, c^s  \vertM\right)
+  \!\!&=&\!\!
+   \Upsilon\!\left((\Gamma^{-2r} \tens \Psi^m)(Y^* X) \vertM\right)
+      b^{r-m} \, c^{s-m} \hspace{3em}
+  \label{eq:UpStarUp:cc}
+\end{eqnarray}
+\end{lemma}
+\begin{proof}
+  Combine the commutation rules of proposition
+  \ref{prop:Upsilon:commutation_rules}\ with the fact that $\Upsilon$
+  is a $^*$-algebra morphism (proposition \ref{prop:Upsilon:morphism}).
+\end{proof}
+
+
+
+\begin{cor} \label{cor:Haar_on_UpStarUp}
+  By definition the functionals\/ $\varphi$ and\/ $\psi$ vanish on the elements
+  (\ref{eq:UpStarUp:bc}) and (\ref{eq:UpStarUp:cb}) unless both\/ $r$ and
+  $s$ are zero. Moreover\/ $\varphi$ and\/ $\psi$ also vanish on the elements
+  (\ref{eq:UpStarUp:bb}) and (\ref{eq:UpStarUp:cc}) except when\/ $r=s=m$.
+  In the latter case we actually have for instance
+\begin{eqnarray*}
+    \varphi\left(
+       \left(\Upsilon(Y)\, b^m  \vertM\right)^* \!
+       \left(\Upsilon(X)\, b^m  \vertM\right)\right)
+    &=& \;\: q^{2m} \,\varphi \left(
+      \Upsilon\!\left(\id \tens \Psi^m \right)(Y^* X) \vertL\right) \\
+   \varphi\left(
+       \left(\Upsilon(Y)\, c^m  \vertM\right)^* \!
+       \left(\Upsilon(X)\, c^m  \vertM\right)\right)
+    &=& q^{-2m}  \,\varphi \left(
+      \Upsilon\!\left(\id \tens \Psi^m \right)(Y^* X)  \vertL\right)
+\end{eqnarray*}
+\end{cor}
+
+\begin{proof}
+  Observe (\ref{eq:UpStarUp:bb}) and (\ref{eq:UpStarUp:cc}) only
+  involve {\em even\/} (!)\ powers of $\Gamma$.
+  On the other hand, from lemma \ref{lemma:lam_rho_chi_nabq}\ it follows that
+  $\lambda_{_\evenodd} \Gamma^2 =  q^2\,\lambda_{_\evenodd}$.
+\end{proof}
+
+
+\begin{defn*} \label{def:skalprodphi}
+ For any $m\in \NN$ we define a sesquilinear form $\skalphi{\cdot}{\cdot}{m}$
+ on $\TG \times \TG$ by
+ $$ \skalphi{X}{Y}{m}  \: =\: \varphi \left(
+      \Upsilon\!\left(\id \tens \Psi^m \right)(Y^* X)  \vertL\right)$$
+\end{defn*}
+
+
+
+\begin{lemma} \label{lemma:skalprodphi:positive}
+  The sesquilinear forms defined above are scalar products.
+\end{lemma}
+
+\begin{proof}
+First recall (\ref{eq:def:TG}) and observe that the spaces $\KZeven\tens \Geven$
+and $\KZodd \tens \Godd$ are mutually orthogonal w.r.t.\ $\skalphi{\cdot}{\cdot}{m}$.
+Therefore they can be treated separately. Let's for instance take any
+$X=\sum_{i=1}^r  f_i \tens g_i$ with $f_1,\ldots, f_r$ in $\KZeven$
+and $g_1,\ldots, g_r$ in $\Geven$. Then
+\begin{eqnarray*}
+  \skalphi{X}{X}{m} &=& \sum_{i,j=1}^r\;
+           \varphi\left(\Upsilon \!\left(\overline{f_i}f_j
+           \tens \Psi^m(\widetilde{g}_i g_j) \right) \vertL\!\right) \\
+ &=& \sum_{i,j=1}^r \lameven(\overline{f_i}f_j)\:
+             \chieven\!\left(\Psi^m(\widetilde{g}_i g_j)\vertM\right) \\
+ &=& \sum_{i,j=1}^r \;\sum_{k \,\in \,\ZZeven}
+       (\overline{f_i}f_j)(k\theta)\,q^k  \sum_{l \,\in \,\ZZeven}
+       \left(\Psi^m(\widetilde{g}_i g_j)\vertM\right)(\tau q^l)\: q^l\\
+ &=& \sum_{k,l \,\in\, \ZZeven} \; \sum_{i,j=1}^r \;
+       \overline{f_i(k\theta)\,g_i(\tau q^l)}\; f_j(k\theta)\,
+         g_j(\tau q^l)\; \tau^m\, q^{l(m+1)+k} \\
+ &=& \sum_{k,l \,\in\, \ZZeven} \;
+       \left| \sum_{i=1}^r f_i(k\theta)\,g_i(\tau q^l) \right|^2  \tau^m\,
+       q^{l(m+1)+k}
+\end{eqnarray*}
+Notice that the summation over $k$ in the above expressions de
+facto runs over a {\em finite\/} number of terms, so the only
+infinite sum involved here, is the summation over $l$. Clearly
+the sums converge absolutely, because of the assumptions \mbox{on \Gtau}\@.
+The last expression above is obviously non-negative; it is zero
+if and {\em only\/} if
+\begin{equation}\label{eq:skalprod:definite}
+  \left(\textstyle \sum_{i=1}^r \, f_i(k\theta)\,g_i \vertL\right)(\tau q^l)= 0
+  \hspace{3em}\mbox{for all } k,l \in \ZZeven.
+  \hspace{1em}
+\end{equation}
+Since $\sum_{i=1}^r f_i(k\theta)\,g_i$ is entire and
+vanishes on a set having a point of accumulation, it follows that
+$\sum_{i=1}^r f_i(k\theta)\,g_i=0$ for any $k\in\ZZeven$, and hence $X=0$.
+The \lq odd\rq\ case is similar.
+\end{proof}
+
+
+\begin{prop} \label{prop:haar:Uq:positive}
+$\;\varphi$ and\/ $\psi$ are hermitian, positive and faithful.
+\end{prop}
+
+\begin{proof}
+Choose any element $x\in \UqTG$. Recalling (\ref{eq:UqFG:direct_sum}) we can write
+\begin{equation} \label{eq:expansion_element_of_UqTG}
+ x \:=\: \sum_{m=0}^\infty \Upsilon(X_m)\, b^m \:+\:
+         \sum_{n=1}^\infty \Upsilon(Y_n)\, c^n
+\end{equation}
+with only finitely many non-zero $X_m, Y_n \in \TG$.
+Corollary \ref{cor:Haar_on_UpStarUp}\ and definition \ref{def:skalprodphi} yield
+$$  \varphi(x^*x)\; = \;\sum_{m=0}^\infty q^{2m}\,  \skalphi{X_m}{X_m}{m}
+                  \;+\; \sum_{n=1}^\infty q^{-2n}\, \skalphi{Y_n}{Y_n}{m}$$
+Now positivity and faithfulness of $\varphi$ follows since the
+$\skalphi{\cdot}{\cdot}{m}$ are scalar products (cf.\ lemma \ref{lemma:skalprodphi:positive}).
+Furthermore $\varphi$ is hermitian because $\Upsilon$ is a $^*$-morphism.
+\end{proof}
+
+
+
+\subsection{KMS properties \&\ modular element}
+
+Recall definitions \ref{def:KMS}\ and \ref{def:Fourier_context}\@.
+Again (besides assumptions \ref{assume:Gr}) we assume \Gtau\ to be an {\em algebra}\@.
+
+\begin{prop} \label{prop:Uq:KMS}
+The Haar functionals\/ $\varphi$ and\/ $\psi$ are weakly {\scriptsize KMS}\@.
+The {\scriptsize KMS}-automorphisms are given by\/ $\sigma_\varphi = S^2$
+and\/ $\sigma_\psi = S^{-2}$. Moreover\/ $\varphi$ and\/ $\psi$ are\/
+\Uq-{\scriptsize KMS}\ in the sense that for instance\/
+$\varphi(x \xi) = \varphi(\xi \sigma_{\!\varphi}(x))$
+for any\/ $\xi \in \Uq$ and\/ $x\in \UqTG$.
+Furthermore, we have\/ $\varphi S = \psi$ and\/ $\psi S = \varphi$.
+Here\/ $S$ is the antipode on\/ $\UqTG$.
+Eventually we observe that the modular element for\/ $\varphi$ is given by\/ $a^4\in\Uq$.
+\end{prop}
+
+\begin{proof}
+We have to show that $\varphi(xy) = \varphi(y S^2(x))$ for any $x,y \in \UqTG$.
+Now in view of (\ref{eq:UqFG:direct_sum}) it suffices to consider
+\begin{equation}\label{eq:proof:Uq:KMS:xy}
+   x=\Upsilon(X)\, \{ b \mbox{ or } c \}^r  \andspace{3.5em}
+   y=\Upsilon(Y)\, \{ b \mbox{ or } c \}^s
+\end{equation}
+for $r,s\in\NN$ and $X,Y \in \TG$.
+From propositions \ref{prop:Upsilon:morphism},
+\ref{prop:Upsilon:commutation_rules}\ and \ref{prop:UqFG:antipode},
+together with the invariance properties of $\TG$, it follows easily that
+both $\varphi(xy)$ and $\varphi(y S^2(x))$ vanish for most
+combinations of $x$ and $y$ of type (\ref{eq:proof:Uq:KMS:xy}).
+Only the following cases remain to be shown:
+\begin{equation}\label{eq:proof:Uq:KMS:bc}
+       \varphi\left(\Upsilon(X)\,b^m\; \Upsilon(Y)\,c^m      \vertL \right)
+   \;=\; \varphi\left(\Upsilon(Y)\,c^m\;
+                 S^2\!\left(\Upsilon(X)\,b^m \vertM \right) \! \vertL \right)
+\end{equation}
+\begin{equation}\label{eq:proof:Uq:KMS:cb}
+   \varphi\left(\Upsilon(X)\,c^m\; \Upsilon(Y)\,b^m          \vertL \right)
+   \;=\; \varphi\left(\Upsilon(Y)\,b^m\;
+                 S^2\!\left(\Upsilon(X)\,c^m \vertM \right) \! \vertL \right)
+\end{equation}
+for all $m\in\NN$. Now, again with propositions \ref{prop:Upsilon:morphism},
+\ref{prop:Upsilon:commutation_rules}\ and \ref{prop:UqFG:antipode},
+and together with the fact that $\TG$ is a (commutative!) algebra
+which is invariant under $\Gamma^{\pm 2} \tens \id$ and $\id \tens \Psi$, we obtain
+\begin{eqnarray*}
+\varphi\left(\Upsilon(X)\,b^m\: \Upsilon(Y)\,c^m  \vertL \right)
+&=&
+\varphi\left(\Upsilon(X)\,\Upsilon \!\left((\Gamma^{-2m} \tens \id)Y\right) b^m c^m  \vertL \right)
+\\ &=&
+\varphi\left(\Upsilon \!\left\{\left(\Gamma^{-2m} \tens \id \right) \left(
+       \left[(\Gamma^{2m} \tens \id)X\right] Y \vertL \right)\right\}  (bc)^m \right)
+\\ &=&
+\varphi\left(\Upsilon \!\left\{\left(\Gamma^{-2m} \tens \Psi^m \right) \left(
+       \left[(\Gamma^{2m} \tens \id)X\right] Y \vertL \right)\right\} \right)
+\\ &\stackrel{(*)}{=}&
+q^{-2m}\; \varphi\left(\Upsilon \!\left\{\left(\id \tens \Psi^m \right) \left(
+       \left[(\Gamma^{2m} \tens \id)X\right] Y \vertL \right)\right\} \right)
+\\ &=&
+q^{-2m}\; \varphi\left(\Upsilon \!\left(Y (\Gamma^{2m} \tens \id) X \right) (bc)^m \vertL \right)
+\\ &=&
+q^{-2m}\; \varphi\left(\Upsilon(Y) \, \Upsilon
+       \left((\Gamma^{2m} \tens \id) X \right) c^m b^m \vertL\right)
+\\ &=&
+q^{-2m}\; \varphi\left(\Upsilon(Y)\, c^m \: \Upsilon(X)\, b^m \vertL\right)
+\\ &=&
+\varphi\left(\Upsilon(Y)\,c^m\;
+        S^2\!\left(\Upsilon(X)\,b^m \vertM \right) \! \vertL\right)
+\end{eqnarray*}
+In $(*)$ we used that
+$$ \varphi \left(\Upsilon(\Gamma^k \tens \id)Z\vertM\right)
+        \:=\: q^k \,\varphi\left(\Upsilon(Z)\vertM\right) $$
+for any $Z \in \TG$ and any {\em even\/} integer $k$.
+This proves (\ref{eq:proof:Uq:KMS:bc}). Similarly (\ref{eq:proof:Uq:KMS:cb}).
+Also the $\Uq$-{\sc kms}\ statement is quite straight\-forward to prove;
+then again, the computation differs significantly from the one above,
+so let's have a look anyway:
+for any $X \in \TG$, $p \in \ZZ$ and $m,r,s \in \NN$ we have
+\begin{eqnarray*}
+\varphi\left(\Upsilon(X)\, b^m \; a^p b^r c^s \vertL \right)
+\!\!\!&=\!\!&
+q^{-mp} \: \varphi\left(\Upsilon(X)\, a^p b^m b^r c^s \vertL\right) \\
+&=\!\!&
+q^{-mp} \: \varphi\left(\Upsilon \!\left(
+        (\Phi^p \tens \id)X \vertM\right) b^{m+r} c^s \vertL \right) \\
+&=\!\!&
+\delta_{m+r,s} \: q^{-mp} \: \varphi\left(
+     \Upsilon \!\left((\Phi^p \tens \Psi^{m+r})
+     X\right) \! \vertL\right) \\
+&=\!\!&
+\delta_{m+r,s} \: q^{-mp} \, q^{-2m} \: \varphi\left(
+     \Upsilon \!\left((\Gamma^{2m} \tens \id)(\Phi^p \tens \Psi^{m+r})
+     X\right) \! \vertL\right) \\
+&=\!\!&
+\delta_{m+r,s} \: q^{-(s-r)p} \, q^{-2m} \: \varphi\left(
+    (bc)^{m+r} \:\Upsilon \!\left((\Gamma^{2m} \Phi^p \tens \id)
+    X\right)\! \vertL\right)  \\
+&=\!\!&
+    q^{(r-s)p} \, q^{-2m} \: \varphi\left(
+    b^{m+r} c^s \: \Upsilon \!\left((\Gamma^{2m} \Phi^p \tens \id)
+    X\right)\! \vertL\right)  \\
+&=\!\!&
+    q^{(r-s)p} \, q^{-2m} \: \varphi\left(
+    b^r c^s \: \Upsilon \!\left((\Phi^p \tens \id) X \vertM \right)  b^m \vertL\right)  \\
+&=\!\!&
+    q^{(r-s)p} \: q^{-2m} \: \varphi\left( b^r c^s a^p \: \Upsilon(X)\, b^m \vertL\right)  \\
+&=\!\!&
+    q^{-2m} \, \varphi\left(a^p  b^r c^s \: \Upsilon(X) \, b^m \vertL\right) \\
+&=\!\!&
+\varphi\left(a^p  b^r c^s \; S^2\!\left(\Upsilon(X) \, b^m \vertM \right) \! \vertL \right).
+\end{eqnarray*}
+Notice the above computation again involved several invariance requirements on
+$\TG$, which are all satisfied here, of course. The remaining cases are similar.
+The behaviour w.r.t.\ the antipode ($\varphi S = \psi$ etc.)
+is an easy consequence of proposition \ref{prop:UqFG:antipode}\ and the fact that
+$\lambda_{_\evenodd} \bullet = \rho_{_\evenodd}$.
+Eventually the formula for the modular element follows easily from one of the
+commutation rules in proposition \ref{prop:Upsilon:commutation_rules}.
+\end{proof}

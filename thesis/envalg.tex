@@ -1,0 +1,536 @@
+
+\section{Actor implementations of an algebra}
+
+\begin{abs_chp}
+We introduce the concept of an {\em \context\/} together with some basic examples,
+and define the notion of an {\em actor}, which is intended to be an abstract
+generalization of the actions of an algebra on its dual.
+Then we give an alternative description of \contexts\ in terms of weak comultiplications.
+Finally we associate to any \context\ an {\em enveloping algebra\/} of actors.
+\end{abs_chp}
+
+
+
+\subsection{Basic definitions}
+               \label{sect:def_act_context}
+
+\paragraph{Canonical actions}
+Every algebra $E$ acts on its dual $E'$ as follows:
+\begin{equation}\label{eq:def:canonical_actions}
+  \pair{x}{y\lact \om} \:=\: \pair{xy}{\om} \:=\: \pair{y}{\om\ract x}
+\end{equation}
+for $x,y \in E$ and $\om \in E'$.
+With these actions, $E'$ is clearly an \Ebimod\@.
+
+\begin{defn} \label{def:actor_context}
+  Consider an algebra $E$ and an \Ebimod\ $\Om$ together with
+  a non-degenerate pairing $\pairing : E \times \Om \rarr \kk$.
+  Endow $E'$ with its canonical \Ebimod\ structure.
+  The pair $(\Om, \pairing)$ is said to be an {\em actor implementation\/} of $E$
+  if the canonical embedding $\Om \rarr E'$ is an \Ebimod\ morphism.
+  The triplet \EOP\ will be called an {\em\context}.
+\end{defn}
+
+
+\begin{remarks}  \label{rem:topalg}
+  \item
+     We shall always identify $\Om$ with its image in $E'$, so $\Om$ is in fact
+     a sub-\Ebimod\ of $E'$\@. In other words, the above definition
+     requires $\Om$ to be invariant under the actions defined by
+     (\ref{eq:def:canonical_actions}).
+  \item
+     We are about to introduce several spaces which \lq extend\rq\ $E$ in
+     some sense. Nevertheless the pairing will {\em not\/} be extended
+     accordingly until proposition \ref{prop:extended_pairing}\@.
+     So we should be careful in dealing with the pairing: for the moment we can only pair
+     $\Om$ with $E$ and---of course---with $\Om'$.
+  \item
+     Both $E$ and $\Om$ are locally convex spaces, if we endow them
+     with the weak topologies induced by the duality.
+     We will sometimes write $E_\sigma$ or $\Om_\sigma$ to emphasize the
+     presence of these weak topologies.
+     The above definition could be reformulated in a topological language,
+     requiring $E_\sigma$ to be a
+     topological\footnote{multiplication in $E$ is separately continuous
+     w.r.t.\ the $\sigma(E,\Om)$ topology.} algebra. It follows that $\Om_\sigma$ is a
+     topological\footnote{the module structure maps are separately continuous.}
+     $E_\sigma$-bimodule.
+\end{remarks}
+
+
+\begin{defn} \label{def:actor}
+  Let $\EE \equiv \EOP$ be an \context, and consider linear maps $\lam$ and $\rho$
+  from $\Om$ into $\Om$. We say that the pair $(\lam,\rho)$ is a {\em pre-actor\/}
+  for \EE\ when $\lam$ is a right $E$-module morphism and
+  $\rho$ is a left $E$-module morphism. If moreover
+  \begin{equation} \label{eq:bi-actor}
+     \pair{x}{\rho(\om \ract y)}  \:=\:  \pair{y}{\lam(x\lact\om)}
+  \end{equation}
+  for all $x,y \in E$ and $\om \in \Om$, then $(\lam,\rho)$ is said to be
+  an {\em actor\/} for \EE\@. The set of all actors for \EE\ will be denoted by \ActE,
+  the set of pre-actors by \PreE.
+\end{defn}
+
+
+\begin{remarks} \label{rem:def_actor}
+ \item
+   In the above definition, $\lam$ can be thought of as a \lq left actor\rq\ and
+   $\rho$ as a \lq right actor\rq, whereas (\ref{eq:bi-actor}) expresses their interrelation.
+   Equation (\ref{eq:bi-actor}) will be referred to as the {\em bi-actor\/} property.
+ \item
+   Obviously \PreE\ is a linear space under pointwise operations,
+   containing \ActE\ as a subspace.
+   Also notice that $(\id_\Om,\id_\Om) \equiv 1_\EE$ belongs to \ActE.
+ \item
+   If $\Om$ is moreover unital as an \Ebimod, i.e.\ $E \lact \Om = \Om = \Om \ract E$,
+   then for $(\lam,\rho)$ to be an actor it is sufficient to require just the \biap;
+   the module properties of $\lam$ and $\rho$ will hold automatically.
+   Applying the \biap\ twice, we get for instance
+   \begin{eqnarray*}
+     \pair{x}{\rho(z\lact (\om \ract y))}
+          &=&    \pair{x}{\rho((z\lact \om) \ract y)}
+          \hspace{0.6em}=\hspace{0.6em}
+                 \pair{y}{\lam(x\lact (z\lact \om))}       \\
+          &=&    \pair{y}{\lam(xz\lact \om)}
+          \hspace{0.6em}=\hspace{0.6em}
+                 \pair{xz}{\rho(\om \ract y)}              \\
+          &=&    \pair{x}{z \lact \rho(\om \ract y)}
+   \end{eqnarray*}
+   for all $x,y,z \in E$ and $\om\in \Om$. Since we assume $\Om \ract E = \Om$,
+   it follows that $\rho$ is a left $E$-module morphism; similarly we can treat $\lam$.
+\end{remarks}
+
+
+
+\subsection{Introducing some examples}
+
+We shall follow some examples throughout the development of the theory;
+for the moment we focus on the actor {\em contexts\/} rather than the actors themselves.
+Our first example has the benefit of its simplicity, but the disadvantage
+that some features of the general framework will trivialize here:
+
+\begin{exA} \label{exA:introduction} \rm
+  {\bf (function algebras)} \hspace{0.6em}
+  Let $S$ be a non-empty set and denote by $\kk^S$ the algebra of all functions
+  $f:S \rarr \kk$ with pointwise operations.
+  Now let $F$ be any separating algebra of complex functions on $S$,
+  i.e.\ a non-zero subalgebra of $\kk^S$ which separates the points in $S$,
+  in the sense that for every $s,s_0 \in S$ with $s\neq s_0$ there exists
+  a function $f\in F$ such that $f(s_0)=0$ but $f(s)\neq 0$.
+  Since $F$ is an algebra, it follows that for any finite non-empty subset $S_0$
+  of $S$ and any $s\in S\setminus S_0$ there is an $f\in F$ such that
+  $f(S_0)=\{0\}$ but $f(s) \neq 0$\@.
+  Next we consider the free linear space $\kk S$ generated
+  by the set $S$. Its canonical basis will be denoted
+  by $\{\delta_s\}_{s\in S}$\@. Then there is a pairing between
+  $\kk^S$ and $\kk S$, given by $\pair{f}{\delta_s} = f(s)$,
+  and moreover we have $(\kk S)' \simeq \kk^S$\@. By restriction
+  we get a non-degenerate pairing between $F$ and $\kk S$.
+  Now $\kk S$ is a bimodule over $\kk^S$, hence also over $F$,
+  the actions being determined by
+  $ f \lact \delta_s = f(s) \,\delta_s = \delta_s \ract f. $
+  With these ingredients, the triple $(F; \kk S, \pairing)$
+  is obviously an \context\@. Notice that $\kk S$ is unital
+  as an $F$-bimodule.
+
+  Let's look at a more concrete example of this nature: take
+  a locally compact Hausdorff space $X$ and consider the algebra $K(X)$
+  of all continuous functions $f:X\rarr\kk$ with compact support.
+  By Urysohn's lemma, $K(X)$ separates the points in $X$, hence
+  $(K(X); \kk X, \pairing)$ is an \context. \hfill $\star$
+\end{exA}
+
+
+\begin{exB} \label{exB:introduction} \rm
+  {\bf (C$^*$ and W$^*$ algebras)} \hspace{0.6em}
+  Let $A$ be a \Cstar-algebra \cite{Takesaki}\ and denote its
+  norm-dual by $A^*$\@. Then $(A; A^*, \pairing)$ is an \context\@.
+  When $M$ is a $W^*$-algebra with predual $M_*$, then
+  $(M; M_*, \pairing)$ is an \context, since multiplication in a
+  $W^*$-algebra $M$ is separately $\sigma(M,M_*)$ continuous.
+  In particular also $(A^{**}; A^*, \pairing)$ is an \context.
+  \hfill $\star$
+\end{exB}
+
+
+Whenever $A$ is a normed algebra, $A$ is also a normed $A$-bimodule having
+a dual Banach $A$-bimodule $A^*$
+\cite[\S I.9.12 and \S I.9.13.i-iv]{Bonsall_Duncan}\@. Explicitly:
+
+\begin{exB} \label{exB:normed_algebra_context}  \rm
+  {\bf (normed algebras)}  \hspace{0.6em}
+  Whenever $A$ is a normed algebra, $(A; A^*, \pairing)$ is an \context;
+  moreover we have for $x\in A$ and $\om \in A^*$ that
+  \begin{equation} \label{eq:exB:normed_algebra_context}
+     \|x \lact \om\| \:\leq\:  \|x\|  \,  \|\om\|    \andspace{10mm}
+     \|\om \ract x\| \:\leq\:  \|x\|  \,  \|\om\|.
+  \end{equation}
+\end{exB}
+\begin{proof}
+  Observe that
+  $ |\pair{y}{x \lact \om}| \,=\, |\pair{yx}{\om}| \,\leq\,  \|y\|  \,  \|x\|  \, \|\om\|$
+  for all $y\in A$.
+\end{proof}
+\vspace{2ex}
+
+{\small
+Of course example A is rather trivial, whereas examples B may seem a little artificial.
+On the other hand, they do provide a familiar setting to illustrate the notions we shall
+introduce later on, and this indeed will be their main purpose.
+In \S \ref{chapter:Hopf_systems}\ though, the theory of \contexts\ as
+developed here shall be used extensively to study our next example,
+which is intended to offer a framework for generalizing Hopf algebra duality:}
+
+
+\begin{exC}  \label{exC:introduction} \rm
+  {\bf (\dpa)}  \hspace{0.4em}
+  Let \pairing\ be a non-degen\-erate vector space duality between two algebras
+  $A$ and $B$\@. Now if both
+  $$\Aa \equiv (A; B, \pairing)   \andspace{10mm}
+    \BB \equiv (B; A, \pairing)$$
+  are \contexts, then $\pair{A}{B}$ is said to be a {\em \dpa}.
+  \hfill $\star$
+\end{exC}
+
+
+  The above merely states that $A$ is invariant under the canonical actions of $B$,
+  and vice versa. Equivalently one could require $A$ and $B$ to be topological algebras
+  in the weak topologies induced by duality (cf.\ remark \ref{rem:topalg}.iii).
+  In any case, these are very natural conditions to impose on such a dual pair.
+
+
+\begin{exD} \label{exD:introduction} \rm
+  Let $E$ be any algebra with non-degenerate product and let $E\reduced = E\lact E' \ract E$
+  be the reduction of $E'$ as an \Ebimod\ (\S\ref{sec:conventions}).
+  We say $E\reduced$ is the {\em reduced dual\/} of $E$.
+  The pairing $\pair{E}{E\reduced}$ is non-degenerate since $E$ is
+  assumed to have non-degenerate product.
+  Now $(E;E\reduced,\pairing)$ is an \context.
+\end{exD}
+
+
+
+
+\subsection{Weak comultiplications}
+\label{par:comultiplication}
+
+For a while we will take a \lq dual\rq\ approach towards \contexts,
+introducing the notion of a weak comultiplication. Although less convenient
+from a technical point of view, we believe this to be helpful in
+understanding the link with Hopf algebra theory
+\cite{Abe,Sweedler,Fons:DPHA,Fons:MHA}\@.
+In this paragraph we will use the weak Fubini tensor product,
+as defined in appendix \ref{app:fubini}\@. Usually it will be clear from the
+context to which particular vector space dualities a $\fubtens$-tensor product
+is related. Recall $\fubtens$ is associative
+(cf.\ remark \ref{rem:weak_fubtens}.i), so the following makes sense:
+
+\begin{defn}
+  Let $\pair{E}{\Om}$ be a non-degenerate vector space duality. Then by a
+  {\em weak comultiplication\/} on $\Om$ we mean a weakly continuous linear mapping
+  \mbox{$\Delta: \Om \rarr \Om \fubtens \Om$} which is {\em coassociative\/} in the sense that
+  $ (\Delta \fubtens \id)\Delta  = (\id \fubtens \Delta)\Delta $
+  (cf.\ remarks \ref{rem:weak_fubtens}.i and \ref{rem:fubtens_of_maps}.iv).
+  Observe that this definition involves the duality between $E \tens E$
+  and $\Om \fubtens \Om$.
+\end{defn}
+
+
+\begin{prop} \label{prop:induced_actor_context}
+  Let\/ $\pair{E}{\Om}$ be a vector space duality.
+  If\/ $\Delta: \Om \rarr \Om \fubtens \Om$ is a weak comultiplication
+  on\/ $\Om$, then $E$ can be endowed with an algebra structure satisfying
+  \begin{equation} \label{eq:duality_m_Delta}
+    \pair{xy}{\om}=\pairM{x \tens y}{\Delta(\om)}
+  \end{equation}
+  for all $x,y \in E$ and $\om \in \Om$\@.
+  Moreover $\Om$ becomes an \Ebimod, with actions
+  \begin{equation} \label{eq:actions_in_terms_of_Delta}
+     x \lact \om = (\id \fubtens f_x)\Delta(\om)  \andspace{10mm}
+     \om \ract x = (f_x \fubtens \id)\Delta(\om),
+  \end{equation}
+  making\/ $\EE_\Delta \equiv \EOP$ into an \context\@.
+  \rm Here $f_x$ stands for $\pairdot{x}$.
+\end{prop}
+\begin{proof}
+  Since $\Delta$ is by assumption weakly continuous, it has a weak transpose
+  $\Delta^* \equiv m : E \tens E \rarr E$, defining the product on $E$.
+  Associativity of $m$ follows easily from the coassociativity of $\Delta$,
+  hence $(E,m)$ is an algebra. The remaining assertions are immediate from equation
+  (\ref{eq:fub_slice_functional}) in appendix \ref{app:fubini}.
+\end{proof}
+
+
+\begin{exC}  \rm
+  A non-degenerate dual pair \pairAB\ of Hopf algebras in the sense of \cite{Fons:DPHA}\
+  is also a \dpa\ in the sense of example \ref{exC:introduction}.
+  \hfill $\star$
+\end{exC}
+
+
+\begin{prop} \label{prop:induced_comult}
+  Let\/ $\EE \equiv \EOP$ be any \context\@.
+  Then (\ref{eq:duality_m_Delta}) defines a weak comultiplication
+  $\Delta$ on\/ $\Om$. Clearly $\EE_{\Delta} = \EE$,
+  so the relations (\ref{eq:actions_in_terms_of_Delta}) between
+  actions and comultiplication will hold.
+\end{prop}
+\begin{proof}
+  Since multiplication in $E_\sigma$ is separately continuous,
+  (\ref{eq:duality_m_Delta}) defines a map
+  $\Delta : \Om \rarr \Om \fubtens \Om$ which
+  is easily seen to be a weak comultiplication on $\Om$.
+\end{proof}
+\vspace{2ex}
+
+
+{\small
+Comultiplications are used extensively in the theory of Hopf algebras;
+in that theory however, a comultiplication on a linear space $\Om$ is a map
+from $\Om$ into $\Om \tens \Om$, whereas our {\em weak\/} comultiplications
+are of a more topological nature, in the sense that they are allowed
+to \lq go outside\rq\ the {\em algebraic\/} tensor product.}
+
+
+\begin{prop} \label{prop:algebraic_and_cont_prod}
+  Let\/ $\EE \equiv \EOP$ be an \context\ and let $\Delta$ be the
+  induced weak comultiplication on $\Om$. Then the following are equivalent:
+  \begin{enumerate}
+    \item $\Delta(\Om) \subseteq \Om\tens\Om$,
+    \item multiplication in $E_\sigma$ is jointly continuous.
+  \end{enumerate}
+\end{prop}
+\begin{proof}
+  $\Om\tens\Om$ identifies with the space of {\em jointly\/} continuous bilinear
+  forms on $E\times E$.
+  (cf.\ the observations preceding definition \ref{def:weak_fubini_tensor}\
+  in appendix \ref{app:fubini}).
+\end{proof}
+
+
+\begin{defn} \label{def:algebraic_context}
+  If the conditions of the above proposition are fulfilled,
+  then\/ \EE\ is said to be an {\em algebraic\/} \context.
+\end{defn}
+
+
+\begin{exA} \label{exA:algebraic} \rm
+  The \context\ $(F; \kk S, \pairing)$ of example A \ref{exA:introduction}\
+  is algebraic, since $\Delta$ on $\kk S$ is given by
+  $\Delta(\delta_s) = \delta_s \tens \delta_s$ for all $s \in S$.
+  \hfill $\star$
+\end{exA}
+
+
+\begin{prop}
+  Let\/ $\EE \equiv \EOP$ be an \context, $\Delta: \Om \rarr \Om \fubtens \Om$
+  the induced weak comultiplication and $(\lam,\rho) \in \PreE$.
+  Then are equivalent:
+  \begin{enumerate}
+    \item $(\lam,\rho) \in \ActE$, i.e.\ the pair $(\lam,\rho)$ satisfies
+          the \biap\ (\ref{eq:bi-actor})
+    \item $(\overline{\lam\, \tens}\, \id) \Delta
+          =(\id \, \overline{\tens\, \rho}) \Delta$
+          (cf.\ remark \ref{rem:fubtens_of_maps}.iii).
+  \end{enumerate}
+  Moreover, if these conditions are fulfilled, then
+  $$  (\overline{\lam \, \tens}\, \id)   \Delta(\Om)
+       \,=\, (\id \, \overline{\tens\, \rho}) \Delta(\Om)
+       \;\subseteq\: \Om\fubtens\Om. $$
+\end{prop}
+\begin{proof}
+  According to the definition of a slice map like
+  $ \overline{\lam\,\tens}\,\id : \Om\fubtens\Om \rarr \overline{\Om\tens\Om},$
+  we get for all $x,y \in E$ and $\om \in \Om$ that
+  $$ \pair{y \tens x}{(\overline{\lam\,\tens}\,\id)\Delta(\om)}
+     \:\stackrel{(\ref{eq:def_Lam1_fubtens_id})}{=}\:
+              \pair{y}{\lam(\id \fubtens f_x)\Delta(\om)}
+     \:\stackrel{(\ref{eq:actions_in_terms_of_Delta})}{=}\:
+              \pair{y}{\lam(x\lact\om)}.  $$
+  Similarly we get
+  $ \pair{y \tens x}{(\id\, \overline{\tens\, \rho})\Delta(\om)}
+       = \pair{x}{\rho(\om \ract y)}. $
+  The result follows.
+\end{proof}
+\vspace{2ex}
+
+{\small
+Henceforth the emphasis will be on {\em module\/} structures rather than comultiplications;
+as explicit objects the latter are quite redundant, and we will avoid them in
+developing our theory of \contexts\@. Nevertheless it may be instructive to interpret
+things in terms of the comultiplication from time to time,
+especially when one wants to appreciate the relationship with
+Hopf algebra theory \cite{Abe,Sweedler}\ or its generalizations \cite{Fons:MHA}.}
+
+
+
+\subsection{Enveloping algebras}
+\label{par:enveloping_algebras}
+
+In the following, $\EE \equiv \EOP$ will be an \context\@.
+
+\begin{lemma} \label{lem:embedding_of_E}
+  Given $x\in E$ we define maps $\lam_x,\rho_x : \Om \rarr \Om$ by
+  $\lam_x(\om) = x \lact \om$ and $\rho_x(\om) = \om \ract x$.
+  Then $\lamrho{x} \in \ActE$.
+\end{lemma}
+\begin{proof}
+   The pair $\lamrho{x}$ is clearly a pre-actor for \EE, because $\Om$ is an \Ebimod\@.
+   The \biap\ (\ref{eq:bi-actor}) follows from associativity in $E$.
+\end{proof}
+
+\begin{defn} \label{def:product_of_actors}
+  Consider two elements $x_1 \equiv \lamrho{1}$ and $x_2 \equiv \lamrho{2}$ in \PreE\@.
+  Clearly $(\lam_1\lam_2,\rho_2\rho_1)$ is again a pre-actor for \EE,
+  which will be denoted by $x_1 x_2$.
+  This defines a product that makes \PreE\ into a unital algebra.
+\end{defn}
+
+Unfortunately the \biap\ (\ref{eq:bi-actor}) is not stable under this operation.
+In other words, \ActE\ is in general {\em not\/} a subalgebra of \PreE\@.
+
+{\small
+\begin{exB} \label{exB:Act_not_an_algebra} \rm
+Let $G$ be any infinite discrete abelian group, and consider its group algebra $A=L^1(G)$.
+Since $L^1(G)$ is a Banach algebra, we have an \context\
+$\Aa \equiv (L^1(G); L^1(G)^*, \pairing)$ as in example \ref{exB:normed_algebra_context}\@.
+We claim that in this case $\Act(\Aa)$ is not closed under multiplication.
+To show this assertion, however, we first need to develop our theory;
+therefore the actual proof will be deferred until \S \ref{Arens regularity}\@.
+For the moment we only mention that this is related to the fact that
+$L^1(G)$ is not {\em Arens regular\/} when $G$ is infinite, discrete and abelian
+\cite{civin_yood}\@.
+\hfill $\star$
+\end{exB}
+}
+
+
+Lemma \ref{lem:embedding_of_E}\ allows us to define a mapping
+$j:E \rarr \PreE: x \mapsto \lamrho{x}$ which is obviously an algebra morphism;
+moreover $j(E)\subseteq \ActE$. Let's investigate whether $j$ is injective:
+
+\begin{lemma} \label{lem:nondeg_context}
+  Let\/ \EE\ and $j$ be as above. The following are equivalent:
+  \begin{enumerate}
+    \item The spaces $E \lact \Om$ and $\Om \ract E$ are weakly dense in $\Om$.
+    \item The product in $E$ is non-degenerate.
+    \item $(E;\Om_0,\pairing)$ is again an \context, $\Om_0$ being the reduction of $\Om$
+       \mbox{\rm  (\S \ref{sec:conventions})}.
+       In other words, the pairing $\pair{E}{\Om_0}$ is still non-degenerate.
+ \end{enumerate}
+ If these assertions hold, then \EE\ is said to be {\em non-degenerate}, and $j$ is injective.
+\end{lemma}
+
+The proof is easy. Notice that if $\Om$ is unital as an \Ebimod, then a fortiori
+\EE\ is non-degenerate.
+When \EE\ is non-degenerate, we can (and will) identify $E$ with its image in \PreE,
+so that $E$ is in fact a subalgebra of \PreE\@.
+
+Now \PreE\ is an algebra, hence it is a \PreE-bimodule under multiplication;
+since $j:E \rarr \PreE$ is an algebra morphism, \PreE\ is as well an \Ebimod,
+the actions of $z\in E$ on a pre-actor $a\equiv (\lam,\rho) \in \PreE$ being given by
+$$ za = j(z)\,a = (\lam_z\lam,\rho\rho_z) \andspace{10mm}
+   az = a\,j(z) = (\lam\lam_z,\rho_z\rho). $$
+
+\begin{lemma}  \label{lem:Act_is_submodule}
+  \ActE\ is a sub-$E$-bimodule of\/ \PreE.
+\end{lemma}
+\begin{proof}
+  Take $z\in E$ and $a\equiv (\lam,\rho) \in \ActE$.
+  We have to show that $za$ and $az$, as defined above,
+  are again in \ActE\@. Now the pair $(\lam_z\lam,\rho\rho_z) = za$
+  indeed satisfies the \biap:
+  for every $x,y \in E$ and $\om \in \Om$ we have
+  \begin{eqnarray*}
+     \pair{x}{(\rho\rho_z)(\om \ract y)}
+           &=& \pair{x}{\rho((\om\ract y)\ract z)}
+           \hspace{0.6em}=\hspace{0.6em}
+               \pair{x}{\rho(\om\ract yz)}              \\
+           &=& \pair{yz}{\lam(x\lact\om)}
+           \hspace{0.6em}=\hspace{0.6em}
+               \pair{y}{z \lact \lam(x\lact\om)}        \\
+           &=& \pair{y}{(\lam_z\lam)(x\lact\om)}
+  \end{eqnarray*}
+  hence $za \in \ActE$\@. Analogously we prove that $az \in \ActE$.
+\end{proof}
+
+
+\begin{defn*} \label{def:env}
+  Let $\EE$ be any \context\ and $A$ a subspace of \PreE\@. Denote
+  $$  {\rm Env}(\EE\,;A)
+         \:=\:  \left\{x\in\PreE  \,\left|\vertM\right.\,
+                       xA \subseteq A \supseteq Ax \right\}.  $$
+  Given \EE, a natural choice for $A$ would be $A=\ActE$,
+  and since this is by far the most important case, we will abbreviate
+  $$  \EnvE \: \equiv \: {\rm Env}\left(\EE\, ;\ActE \vertM\right).  $$
+\end{defn*}
+
+\begin{remark} \label{rem:Env_in_A}   \rm
+  Notice that if $1_\EE \in A$, then ${\rm Env}(\EE\, ;A) \subseteq A$.
+  In particular we get $\EnvE \subseteq \ActE$.
+  \hfill $\star$
+\end{remark}
+
+
+\begin{lemma}
+  Let\/ $\EE$ be any \context\ and $A$ a linear subspace of\/ \PreE\@.
+  Then ${\rm Env}(\EE\, ;A)$ is a unital subalgebra of\/ \PreE.
+\end{lemma}
+
+\begin{proof}
+  Take arbitrary $x,y \in {\rm Env}(\EE\, ;A)$.
+  Then by assumption $xA$, $Ax$, $yA$ and $Ay$ are all contained in $A$.
+  For all $a\in A$ we have $(xy)a = x(ya) \in xA \subseteq A$,
+  hence $(xy)A \subseteq A$\@. Analogously $A(xy)\subseteq Ay \subseteq A$,
+  and we conclude that also $xy$ belongs to ${\rm Env}(\EE\,;A)$\@.
+  Obviously $1_\EE \in {\rm Env}(\EE\,;A)$.
+\end{proof}
+
+
+\begin{prop}  \label{prop:Env_is_an_algebra}
+  Let\/ $\EE\equiv \EOP$ be a non-degenerate \context\ and
+  $A$ a sub-$E$-bimodule of\/ \PreE\ w.r.t.\ multiplication.
+  Then\/ ${\rm Env}(\EE\,;A)$ is a unital algebra containing $E$ as a subalgebra.
+\end{prop}
+\begin{proof}
+  We already know that both $E$ and  ${\rm Env}(\EE\,;A)$ are subalgebras of \PreE\@.
+  By assumption we have $EA \subseteq A \supseteq AE$,
+  and hence $E \subseteq {\rm Env}(\EE\,;A)$.
+\end{proof}
+
+
+\begin{cor} \label{cor:Env_is_an_algebra}
+   When\/ $\EE\equiv \EOP$ is a non-degenerate \context, then\/ \EnvE\ is a unital
+   algebra of actors, containing $E$ as a subalgebra, and
+   $$ E \,\simeq\, j(E)\,\subseteq\, \EnvE \,\subseteq\, \ActE \,\subseteq\, \PreE. $$
+\end{cor}
+\begin{proof}
+  Because of lemma \ref{lem:Act_is_submodule}\ we can apply the above with $A=\ActE$.
+\end{proof}
+
+
+
+\begin{exA} \label{exA:comm_case}
+  Recall the \context\/ $\FF \equiv (F; \kk S, \pairing)$ of example
+  {\rm A \ref{exA:introduction}}\@.
+  We now have  ${\rm Act}(\FF) = {\rm Env}(\FF) \simeq \kk^S.$
+\end{exA}
+
+For the proof we refer to \S\ref{par:comm_case}, where we shall study the {\em commutative\/}
+case in general. Notice that, starting from any separating algebra of functions on $S$,
+we are able to obtain the algebra of {\em all\/} functions on $S$,
+by a process which only refers to the underlying set $S$ through the \context\ $\FF$\@.
+
+
+
+
+\begin{exB} \label{exB:univ_env_vNa} \rm
+  Take $\Aa \equiv (A; A^*, \pairing)$ as in example \ref{exB:introduction}\@.
+  A theorem in operator algebra \cite[\S III.2]{Takesaki}\ states that $A^{**}$
+  is a $W^*$-algebra containing $A$ as a subalgebra.
+  It is called the universal enveloping von Neumann algebra of $A$\@.
+  Now also $(A^{**}; A^*, \pairing)$ is a non-degenerate \context, hence every $a\in A^{**}$
+  identifies with an actor $\lamrho{a}$ for the latter context, which is {\em a fortiori\/}
+  an actor for \Aa\@. In this way we have embedded $A^{**}$ into $\Act(\Aa)$.
+  \hfill $\star$
+\end{exB}

@@ -1,0 +1,537 @@
+
+
+
+\subsection{Holomorphic $q$-Hankel transformation}
+
+In the previous section we considered functions living on a discrete space $\RR_q^+$.
+Now we shall try to \lq interpolate\rq\ these functions on $\RR_q^+$ by entire functions,
+whenever possible.
+
+But first let us recall the  Schwartz-like spaces ${\mathcal S}_r(\RR^+;q)$
+of entire functions, as defined in example \ref{ex:Schwartz-like_space}\@.
+In case $r=1$, the subscript $r$ will be suppressed in our notation.
+Also recall the operators $\Gamma$, $\Phi$, $\Omega$ and $\Psi$ introduced in
+\S \ref{par:introducing_shift_and_multiplication_operators}\@.
+Let's add one more operator $K: \HC \rarr \HC$, given by $(Kf)(z)=f(z^2)$.
+Then the commutation rules $\Omega K = K\Omega^2$ and $\Psi^2 K = K \Psi$ are easily verified.
+Also notice that $K$ maps \Swqbis\ into \Swq\@.
+
+Furthermore, let $R_q$ denote the restriction map from \HC\ into
+the space of all functions on $\RR_q^+$. Since $\RR_q^+$ admits a
+point of accumulation, the identity theorem for holomorphic functions
+implies $R_q$ to be injective.
+Observe that $R_q$ maps \Swq\ into \Ltwoq\@. The proof of this involves
+the fact that entire functions are bounded on e.g.\ the unit interval;
+also recall that $\RR_q^+ \equiv (\RR_q^+,m_q)$ was endowed with a particular
+measure---{\em not\/} the counting measure.
+
+
+
+\begin{abs} \label{abs:holomorphic_qHankel}\rm
+Our next aim is to find, for any $m\in\ZZ$, a sufficiently large subspace
+$\holS{m}$ of \Swqbis\ together with a linear map $\holH{m}$ from $\holS{m}$
+into $\holS{m}$, such that the following diagram commutes:
+$$\begin{CD}
+  \holS{m} @>\id>>
+  \Swqbis  @>{\textstyle K}>>
+  \Swq     @>{\textstyle \Psi^{|m|}}>>
+  \Swq     @>{\textstyle R_q}>>
+  \Ltwoq \\
+%%%%%%%%%%%%%%%
+  @V{\textstyle\holH{m}}VV @. @. @. @VV{\textstyle H_m}V  \\
+%%%%%%%%%%%%%%%
+  \holS{m} @>>\id>
+  \Swqbis  @>>{\textstyle K}>
+  \Swq     @>>{\textstyle \Psi^{|m|}}>
+  \Swq     @>>{\textstyle R_q}>
+  \Ltwoq
+\end{CD}$$
+\nopagebreak
+\begin{equation}\label{eq:diagram:holomorphic_qHankel}
+\diacaption{Holomorphic $q$-Hankel transform}
+\end{equation}
+The map $\holH{m}$ will then be called the {\em holomorphic\/} $q$-Hankel transform
+of \mbox{order $m$}, because it transforms entire functions into entire functions.
+However the above scheme involves more than merely the passage to entire functions:
+the operators $K$ and $\Psi^{|m|}$ appearing in the diagram will ensure
+the system $(\holH{m})_{m\in\ZZ}$ to have the proper behaviour w.r.t.\
+$q^2$-differentiation (cf.\ proposition \ref{prop:holqHankel:qdiff}).
+Iterating the above diagram immediately reveals that $\holH{m}^2=\id$
+(recall that $H_m^2=\id$, \mbox{cf.\ proposition}\ \ref{prop:qHankelSquare_is_id}).
+\hfill $\star$
+\end{abs}
+
+
+
+\begin{defn*} \label{def:Hmpair}
+For all $m\in\ZZ$ we define $\auxH{m} : \, \Swqbis \rarr \Ltwoq\,$ by
+$$ \auxH{m} \,=\: H_m R_q \Psi^{|m|} K. $$
+A pair $(f,g)$ of entire functions is said to be an \Hmpair\ whenever
+\begin{enumerate}
+\item $f\in \Swqbis$ and $\auxH{m} f = R_q g$
+\item $g$ is an even (resp.\ odd) function whenever $m$ is even (resp.\ odd)
+\item $g$ has a zero at the origin of order at least $|m|$.
+\end{enumerate}
+Finally we define $\holS{m}$ to be the following subspace of \Swqbis:
+$$ \holS{m} \:= \: \left\{ f\in \Swqbis \:\left|\:
+                \begin{array}{l}
+                   \mbox{there exists an entire function $g$ such} \\
+                   \mbox{that $(f,g)$ is an \Hmpair}
+                \end{array}\!\! \right.\right\}$$
+\end{defn*}
+
+
+
+\begin{remark} \label{rem:not_constructive} \rm
+The maps $\auxH{m}$ and the notion of an \Hmpair\ shall have no
+role in the eventual picture; however they will turn out to be
+very convenient in formulating some intermediate results. Roughly
+speaking we want to consider entire functions whose $q$-Hankel
+transforms on $\RR_q^+$ admit interpolation by entire functions.
+The above approach may seem to be rather descriptive and certainly
+not very constructive at this moment, since it does not provide a
+criterion to determine whether a function $f$ belongs to
+$\holS{m}$ or not---at least not without computing $\auxH{m} f$
+first. In this way however, we want to avoid (or at least
+postpone) some technical questions which do not have too high
+priority from our perspective. Just to give a hint of the kind of
+trouble we run into when we actually try to {\em construct\/}
+such an \Hmpair\ $(f,g)$, let's write out in detail the equation
+$\auxH{m} f = R_q g$ appearing in the above definition:
+\begin{equation}\label{eq:remark:trouble:qpower}
+ g(q^k) \:=\: (H_m R_q \Psi^{|m|} K f)(q^k)
+        \:=\:  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\, q^{n|m|} f(q^{2n})
+        \hspace{1em}
+\end{equation}
+for any $k\in\ZZ$. Formally replacing $q^k$ with $z\in\CC$ we obtain
+\begin{equation}\label{eq:remark:trouble:entire}
+   g(z)  \:=\;  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^n z}\, q^{n|m|} f(q^{2n})
+     \hspace{4em} \mbox{for any $z\in\CC$}. \hspace{1em}
+\end{equation}
+Now we want (\ref{eq:remark:trouble:entire}) to define an entire
+function---so we need the sum to converge uniformly on
+compact sets---and that's precisely the point where things become very tricky.
+Indeed there turns out to be a huge difference between
+(\ref{eq:remark:trouble:qpower}) and (\ref{eq:remark:trouble:entire})
+on the technical level. The fact is that our \little\ $q^2$-Bessel
+functions are behaving very well as far as we evaluate them in in $q$-powers only,
+whereas they are not quite so innocent in the rest of the complex plane.
+For instance, the orthogonality relation (\ref{eq:qBessel:qHankel})
+reveals that $\J{m}{q^{n+k}}$ tends to zero as $n \rarr -\infty$, but in general,
+when $z\in \CC$ is not a $q$-power, $\J{m}{q^n z}$ will grow very
+rapidly when $n \rarr -\infty$.
+
+However, the \lq interpolation\rq\ strategy we have chosen for will allow us to
+proceed quite far with only {\em partial\/} answers (like for instance lemma
+\ref{lemma:compactsupp_in_holS}) to the question of convergence mentioned above,
+and therefore avoiding a lot of trouble.
+Indeed precisely those results that we are looking for
+will come almost for free in our approach, but of course we also pay a price:
+some properties one might expect to hold could be hard to prove within our setting
+(cf.\ remark \ref{rem:Q:strict_inclusions}).
+Let's conclude the present remark by stating that we {\em won't\/} give a full
+explicit description of the spaces $\holS{m}$, whereas we {\em will\/}
+show---constructively---that they contain plenty of elements.
+\hfill $\star$
+\end{remark}
+
+
+
+
+\subsection{$q$-Hankel transforms and $q$-differentiation}
+
+Recall the difference operators $\Dqsqr$ and $\nabq{m}$ on \HC\,
+emerging in the formulas of proposition \ref{prop:actions:Upsilon}\@.
+Notice that \Swqbis\ is not \mbox{$\nabq{m}$-invariant},
+though it certainly is \mbox{$\nabq{m} \Omega$-invariant}\@.
+Furthermore \Swqbis\ is $\Dqsqr$-invariant,
+as was already observed in example \ref{ex:Schwartz-like_space}\@.
+Therefore the following makes sense:
+
+
+
+\begin{lemma} \label{lemma:auxH:qdiff}
+For all\/ $f\in \Swqbis$ and\/ $m,k\in \ZZ$ with\/ $m\geq 1$ we have
+\begin{eqnarray}
+(\auxH{m} \Dqsqr f)(q^k)
+      &=& -\frac{q^{-1}}{q^{-1}-q} \; q^k    \:(\auxH{m-1} \Omega^2 f)(q^k)
+       \label{eq:auxH:Dq2:pos}\\
+(\auxH{m-1} \nabq{m} \Omega f)(q^k)
+      &=& \frac{1}{q^{-1}-q} \; q^{-m}\, q^k \: (\auxH{m} f)(q^k)
+       \label{eq:auxH:nabq:pos} \\
+(\auxH{-m} \Dqsqr f)(q^k)
+      &=&  \frac{q^{-1}}{q^{-1}-q} \; q^k    \: (\auxH{-m+1} f)(q^k)
+       \label{eq:auxH:Dq2:neg} \\
+(\auxH{-m+1} \nabq{m} \Omega f)(q^k)
+      &=& -\frac{1}{q^{-1}-q} \; q^m\: q^k   \: (\auxH{-m} \Omega^2 f)(q^k)
+      \hspace{2em}
+      \label{eq:auxH:nabq:neg}
+\end{eqnarray}
+\end{lemma}
+\vspace{2ex}
+
+\begin{proof}
+Take any $f\in \Swqbis$. Assuming $m \geq 1$, we have for all $k\in \ZZ$
+\begin{eqnarray*}
+\lefteqn{(\auxH{m} \Dqsqr f)(q^k)}
+\\&=&
+  (H_m R_q \Psi^{|m|} K \Dqsqr f)(q^k)
+\\&=\vertXL&
+  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\, (R_q \Psi^{|m|} K \Dqsqr f)(q^n)
+\\&=&
+  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\, q^{nm}\,(\Dqsqr f)(q^{2n})
+\\&=&
+   \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\, q^{nm}\,
+         \frac{f(q^{2n}) - f(q^2 q^{2n})}{(1-q^2) q^{2n}}
+\\&\stackrel{(\sharp)}{=}&
+  \frac{1}{1-q^2} \left( \sum_{\: n\in \ZZ} \: \J{m}{q^{n+k}}\, q^{nm} \, f(q^{2n})\right.
+  \hspace{-7em}
+  \raisebox{-5.5ex}{$ \displaystyle
+  \left.  -\;\sum_{n\in \ZZ} \: \J{m}{q^{n+k}}\, q^{nm}\, f\!\left(q^{2n+2}\right) \right)
+  $}
+\\&\stackrel{(*)}{=}&
+  \frac{1}{1-q^2}\, \sum_{n\in \ZZ} \:
+        \left(q^m \J{m}{q^{n+1+k}} - \J{m}{q^{n+k}}\vertL\right)
+        q^{nm} f\!\left(q^{2n+2}\right)
+\\&\stackrel{(\ref{eq:qBessel:recurrence1})}{=}&
+       -\frac{1}{1-q^2}\, \sum_{n\in \ZZ} \:
+         q^{n+k} \J{m-1}{q^{n+k}}\, q^{nm} \, (\Omega^2 f)(q^{2n})
+\\&=&
+    -\frac{1}{1-q^2}\, q^k \sum_{n\in \ZZ} \:
+         q^{2n} \J{m-1}{q^{n+k}} \, q^{n(m-1)}\, (\Omega^2 f)(q^{2n})
+\\&=&
+    -\frac{q^{-1}}{q^{-1}-q}\, q^k \, (\auxH{m-1} \Omega^2 f)(q^k).
+\end{eqnarray*}
+$(*)$ relies on replacing $n$ by $n+1$ in only {\em one\/} of the two summations
+in the {\sc rhs} of $(\sharp)$. In this respect it is
+crucial (!) that both sums in themselves converge
+absolutely\footnote{To appreciate this, do consider for a moment the
+$m=0$ case which we are excluding in the text above. Indeed, if $m$ were zero, the
+sums in the {\sc rhs} of $(\sharp)$ would actually {\em diverge\/}
+as $n \rarr +\infty$, unless $f(0)=0$, since $\J{0}{0}\neq 0$.
+Nevertheless the {\sc lhs} of $(\sharp)$ would still exist.}. To see this,
+consider the following: % observations:
+as far as $n \rarr +\infty$ is concerned,
+absolute summability follows from the fact that $f$ and $\J{m}{\,\cdot\,}$
+are bounded on a neighborhood of the origin, together with the
+assumption that $m\geq 1$. To deal with $n \rarr -\infty$, we have to use
+that $Kf$ is in the Schwartz-like space \Swq, which roughly means that
+$f(q^{2n})= (Kf)(q^n)$ tends to zero very rapidly when $n \rarr -\infty$.
+Furthermore we need some bound for $\J{m}{q^{n+k}}$ when $n \rarr -\infty$,
+which can easily be obtained from the orthogonality relations
+(\ref{eq:qBessel:qHankel}). We conclude that $(\sharp)$ indeed constitutes a
+valid operation. In the above computation we also used recurrence relation
+(\ref{eq:qBessel:recurrence1}) of proposition \ref{prop:qbessel:properties}\@.
+This proves (\ref{eq:auxH:Dq2:pos}).
+
+
+
+The proof of (\ref{eq:auxH:nabq:neg}) proceeds similarly:
+\begin{eqnarray*}
+\lefteqn{\left(\auxH{-m+1} \nabq{m} \Omega f\right)(q^k)}
+\\&=&\vertXL
+  \left(H_{-m+1} R_q \Psi^{|-m+1|} K \nabq{m} \Omega f\right)(q^k)
+\\&=&\vertXL
+  \sum_{n\in \ZZ} \: q^{2n} \J{-m+1}{q^{n+k}}\:
+             q^{n(m-1)} \left(\nabq{m} \Omega f\right)(q^{2n})
+\\&=&
+    \frac{1}{q-q^{-1}}\, \sum_{n\in \ZZ} \: q^{2n} \J{-m+1}{q^{n+k}}\, q^{n(m-1)}
+           \left( q^m f\left(q^2 q^{2n}\right) -  q^{-m} f(q^{2n})\vertL \right)
+\\&=&
+    \frac{1}{q-q^{-1}}\, \sum_{n\in \ZZ} \: q^{2n} \, q^{n(m-1)}
+        \left(\vertL  q^m  \J{-m+1}{q^{n+k}} \right.
+  \hspace{-6em}
+  \raisebox{-5.5ex}{$ \displaystyle
+    \left. -\: q \J{-m+1}{q^{n+1+k}}\vertL\right) f\!\left(q^{2n+2}\right)
+  $}
+\\&=&
+    \frac{1}{q-q^{-1}} \sum_{n\in \ZZ} \: q^{2n} \, q^{n(m-1)}\, q^m
+         \left(\vertL  \J{-m+1}{q^{n+k}}
+\right.
+  \hspace{-7.2em}
+  \raisebox{-5.5ex}{$ \displaystyle
+    \left. -\:  q^{-m+1} \J{-m+1}{q^{n+1+k}}\vertL \right)
+         (\Omega^2 f)(q^{2n})
+  $}
+\\&\stackrel{(\ref{eq:qBessel:recurrence1})}{=}&
+    \frac{1}{q-q^{-1}}  \sum_{n\in \ZZ} \: q^{2n} \, q^{n(m-1)} \,
+          q^m \, q^{n+k}  \J{-m}{q^{n+k}} \, (\Omega^2 f)(q^{2n})
+\\&=&
+    -\frac{1}{q^{-1}-q}\: q^m \, q^k \, (\auxH{-m} \Omega^2 f)(q^k).
+\end{eqnarray*}
+Formulas (\ref{eq:auxH:nabq:pos}) and (\ref{eq:auxH:Dq2:neg}) are shown
+similarly, this time relying on recurrence relation (\ref{eq:qBessel:recurrence2}).
+\end{proof}
+
+
+
+
+\subsection{Construction and basic properties}
+
+We are about to construct the holomorphic $q$-Hankel transform
+announced in abstract \ref{abs:holomorphic_qHankel}\@.
+We also translate the intermediate results of lemma \ref{lemma:auxH:qdiff}\
+into there final form (proposition \ref{prop:holqHankel:qdiff})
+and prove some basic properties.
+
+
+
+\begin{lemma} \label{lemma:transform_in_schwartz_again}
+Take any\/ $m\in\ZZ$. If\/ $(f,g)$ is an \Hmpair, then\/ $g$ belongs to\/ $\Swq$.
+\end{lemma}
+
+\begin{proof}
+First consider the case $m\geq 0$.
+Let $(f,g)$ be an \Hmpair\ and take any $n\in \NN$.
+Iterating equation (\ref{eq:auxH:Dq2:pos}) $\,n$ times yields, for all $k\in \ZZ$,
+$$ \left(\auxH{m+n} \left(\Dqsqr \Omega^{-2}\right)^n \! f\right)(q^k)
+      \:=\:
+   \left(-\frac{q^{-1}}{q^{-1}-q}\right)^{\!\! n}  q^{nk} \left(\auxH{m}f\right)(q^k). $$
+It follows that for all $n\in \NN$ and $k\in \ZZ$
+$$ q^{nk} g(q^k) \:=\: (q^2-1)^n \left(\auxH{m+n} f_n\right)(q^k) $$
+where $f_n=(\Dqsqr \Omega^{-2})^n \! f$.
+These $f_n$ are still in \Swqbis\ because \Swqbis\ is invariant under
+$\Omega^{\pm 2}$ and $\Dqsqr$.
+Since $\auxH{m+n}$ maps \Swqbis\ into \Ltwoq, we have
+$$ \sum_{k\in\ZZ} \: |q^{nk}g(q^k)|^2\, q^{2k} \:<\, \infty $$
+for any $n\in \NN$.
+From this one can easily derive that $g$ belongs to \Swq\@.
+
+In case $m$ is negative we proceed analogously, but now using (\ref{eq:auxH:Dq2:neg}).
+\end{proof}
+
+
+
+\begin{prop} \label{prop:exist:holomorphic_qHankel}
+For any\/ $m\in\ZZ$ there exists a unique linear map\/ $\holH{m}$ from\/
+$\holS{m}$ into\/ $\holS{m}$, such that diagram (\ref{eq:diagram:holomorphic_qHankel})
+in abstract \ref{abs:holomorphic_qHankel}\ commutes.
+In particular, if\/ $(f,g)$ is an \Hmpair, then\/ $f\in\holS{m}$ and\/
+$\Psi^{|m|} K \holH{m}f =g$. Furthermore we have\/ $\holH{m}^2=\id$.
+\end{prop}
+
+\begin{proof}
+Uniqueness is obvious (recall that $R_q$ is injective). To prove existence,
+take any $m\in\ZZ$ and $f \in\holS{m}$. By definition there exists
+an entire function $g$ such that $(f,g)$ is an \Hmpair\@.
+Now the function
+$$ \CC_0 \rarr \CC : z \mapsto \frac{1}{z^{|m|}}\, g(z)$$
+is holomorphic, and has a removable singularity at the origin because
+of (iii) in definition \ref{def:Hmpair}\@.
+Furthermore this function will always be {\em even\/} because of (ii)
+in definition \ref{def:Hmpair}\@.
+Hence there exists an entire function, denoted $\holH{m}f$, such that
+$$ (\holH{m}f)(z^2)
+         \:=\:   \frac{1}{z^{|m|}}\, g(z) \hspace{5em} (z\in \CC_0) $$
+or equivalently, $\Psi^{|m|} K \holH{m}f = g$.
+Lemma \ref{lemma:transform_in_schwartz_again}\ yields that $g \in \Swq$
+and then it follows easily that $\holH{m}f$ belongs to \Swqbis\@.
+But we actually want $\holH{m}f\in \holS{m}$, and
+in this respect we claim that $(\holH{m}f, \Psi^{|m|} K f)$ is again an \Hmpair\@.
+Indeed, items (ii-iii) of definition \ref{def:Hmpair}\ are
+obviously fulfilled; to complete (i), observe that
+\begin{eqnarray*}
+   \auxH{m} \holH{m} f
+&=&
+   H_m R_q \Psi^{|m|} K \holH{m} f
+\\&=&
+   H_m R_q g
+\\&=&
+   H_m \auxH{m} f
+\\&=&
+   H_m^2 R_q \Psi^{|m|} K f
+\\&=&
+   R_q \Psi^{|m|} K f.
+\end{eqnarray*}
+We used that $H_m^2=\id$ (proposition \ref{prop:qHankelSquare_is_id}).
+Thus we have constructed a linear map $\holH{m}$ from $\holS{m}$ into
+$\holS{m}$ satisfying all our requirements.
+\end{proof}
+
+
+
+
+\begin{prop} \label{prop:holS:Omega_invariant}
+For any\/ $m\in \ZZ$, the space\/ $\holS{m}$ is\/ $\Omega^{\pm 2}$-invariant and
+\begin{equation}\label{eq:holS:Omega_invariant}
+  \holH{m} \Omega^2 \;=\; q^{-2(|m|+1)}\, \Omega^{-2} \holH{m}.
+\end{equation}
+\end{prop}
+
+\begin{proof}
+Let $(f,g)$ be any \Hmpair\@; we claim that
+$(\Omega^2 f,\, q^{-|m|-2}\Omega^{-1} g)$ is an \Hmpair\ as well.
+First observe \Swqbis\ is $\Omega^{\pm 2}$-invariant.
+Now from $\Psi^{|m|} K \Omega^2 = q^{-|m|} \Omega \Psi^{|m|} K$
+it follows that, for all $k\in \ZZ$,
+\begin{eqnarray*}
+  (\auxH{m} \Omega^2 f)(q^k)
+&=&
+  (H_m R_q \Psi^{|m|} K \Omega^2 f)(q^k)
+\\&=&
+   q^{-|m|}\,(H_m R_q \Omega \Psi^{|m|} K f)(q^k)
+\\&=& \vertXL
+  q^{-|m|} \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}}\,(R_q \Omega \Psi^{|m|} K f)(q^n)
+\\&\stackrel{(*)}{=}&
+  q^{-|m|} \sum_{n\in \ZZ} \: q^{2(n-1)} \J{m}{q^{n-1+k}}\,(\Psi^{|m|} K f)(q^{n-1} q)
+\\&=&
+  q^{-|m|-2} \, (\auxH{m} f)(q^{k-1})
+\\&=&
+  q^{-|m|-2} \, (\Omega^{-1} g)(q^k).
+\end{eqnarray*}
+In (*) we replaced the summation index $n$ by $n-1$.
+This proves item (i) of definition \ref{def:Hmpair}, whereas items (ii-iii)
+are obvious here. Proposition \ref{prop:exist:holomorphic_qHankel}\ yields that
+$\Omega^2 f$ belongs to $\holS{m}$ and
+\begin{eqnarray*}
+  \Psi^{|m|} K \holH{m} \Omega^2 f
+&=&
+  q^{-|m|-2} \: \Omega^{-1} g
+\\&=&
+  q^{-|m|-2} \: \Omega^{-1} \Psi^{|m|} K \holH{m} f
+\\&=&
+  q^{-|m|-2} \, q^{-|m|} \: \Psi^{|m|} K \Omega^{-2} \holH{m} f.
+\end{eqnarray*}
+We used the commutation rules for $\Psi$, $K$, and $\Omega$.
+Canceling $\Psi^{|m|} K$ yields the result.
+\end{proof}
+\vspace{2ex}
+
+
+
+Recall that \HC\ is endowed with a $^*$-operation $\til\,$ (cf.\ \S\ref{sec:conventions}).
+
+\begin{prop} \label{prop:qHankel:tilde}
+Take any\/ $m\in\ZZ$. The space\/ $\holS{m}$ is\/ $\til$-invariant.
+In fact, $\til$ commutes with\/ $\holH{m}$.
+\end{prop}
+
+\begin{proof}
+Observe that $\til$ commutes with $\Psi$ and $K$.
+Furthermore $H_m$ obviously commutes with complex conjugation,
+since \little\ $q$-Bessel functions take real values on the real line.
+We also have $R_q \tilde{f} = \overline{R_q f}$ for any $f\in\HC$.
+It is clear that if $(f,g)$ is an \Hmpair, then so is $(\tilde{f},\tilde{g})$.
+The result now follows easily from proposition \ref{prop:exist:holomorphic_qHankel}.
+\end{proof}
+
+
+
+\begin{prop} \label{prop:qHankel:inverseorder}
+Take any\/ $m\in\ZZ$. Then\/ $\holS{-m} = \holS{m}$ and
+$$\holH{-m}  \;=\;  (-q)^m q^{m|m|} \:\Omega^{2m} \holH{m}. $$
+In this respect we also have two auxiliary results worth mentioning:
+\begin{eqnarray}
+  (H_{-m} f)(q^k)     &=&  (-q)^m (H_m f)(q^{k+m})
+\label{eq:qHankel:inverseorder:aux:1}
+\\ \vertL
+  (\auxH{-m} g)(q^k)  &=&  (-q)^m (\auxH{m} g)(q^{k+m})
+\label{eq:qHankel:inverseorder:aux:2}
+\end{eqnarray}
+for all\/ $f\in \Ltwoq$, all\/ $g\in \Swqbis$ and any\/ $k\in\ZZ$.
+\end{prop}
+
+\begin{proof}
+Equation (\ref{eq:qHankel:inverseorder:aux:1}) follows easily from
+(\ref{eq:qBessel:inversion}), whereas (\ref{eq:qHankel:inverseorder:aux:2}) is an
+immediate consequence of the former.
+Now let $(f,g)$ be any \Hmpair\@; then it is easy to see that
+$(f, (-q)^m \Omega^m g)$ is a \mbox{$(-m;q)$-Hankel} pair.
+Hence according to proposition \ref{prop:exist:holomorphic_qHankel}\
+we have $f\in \holS{-m}$ and
+\begin{eqnarray*}
+   \Psi^{|-m|} K \holH{-m}f
+  &=&
+   (-q)^m \: \Omega^m g
+\\&=&
+   (-q)^m \:\Omega^m \Psi^{|m|} K \holH{m}f
+\\&=&
+   (-q)^m \, q^{m|m|} \: \Psi^{|m|} K \Omega^{2m} \holH{m} f.
+\end{eqnarray*}
+Canceling $\Psi^{|m|} K$ yields the result.
+\end{proof}
+\vspace{2ex}
+
+The next proposition will play a key-role henceforth:
+
+\begin{prop} \label{prop:holqHankel:qdiff}
+Take any\/ $m\in \NN$ with\/ $m\geq 1$. Then
+$$\begin{array}{rcl}
+   \Dqsqr \holS{m-1}  &\subseteq&   \holS{m}
+\\
+   \nabq{m} \Omega \, \holS{m}     &\vertXL\subseteq&   \holS{m-1}
+\\
+   \Dqsqr \holS{-m+1}             &\vertXL\subseteq&   \holS{-m}
+\\
+  \nabq{m} \Omega^{-1}  \holS{-m}  &\vertXL\subseteq&   \holS{-m+1}
+\end{array}$$
+and accordingly:
+$$\begin{array}{rcrlcr}
+    \holH{m} \Dqsqr f
+    &=&
+    \displaystyle -\frac{q^{-1}}{q^{-1}-q}  & \holH{m-1} \Omega^2 f
+    &\hspace{2em}&
+    (f\in \holS{m-1})
+\\
+    \holH{m-1} \nabq{m} \Omega f
+    &=&
+    \displaystyle \frac{1}{q^{-1}-q} &   q^{-m}\: \Psi \holH{m}f
+    &&
+    (f\in \holS{m})
+\\
+    \holH{-m} \Dqsqr f
+    &=&
+    \displaystyle  \frac{q^{-1}}{q^{-1}-q} &   \holH{-m+1}f
+    &&
+    (f\in \holS{-m+1})
+\\
+    \holH{-m+1} \nabq{m} \Omega^{-1}f
+    &=&
+    \displaystyle -\frac{1}{q^{-1}-q} &   q^m\: \Psi \holH{-m} f
+    &&
+    (f\in \holS{-m})
+\end{array}$$
+\end{prop}
+\vspace{2ex}
+
+\begin{proof}
+Take any $f\in \holS{m-1}$. Then according to proposition \ref{prop:holS:Omega_invariant},
+also $\Omega^2 f$ belongs to $\holS{m-1}$.
+Now let $(\Omega^2 f,g)$ be the corresponding \mbox{$(m-1;q)$-Hankel} pair.
+With formula (\ref{eq:auxH:Dq2:pos}) of lemma \ref{lemma:auxH:qdiff}\ it follows easily that
+$$ \left(\Dqsqr f,  \:  - \frac{q^{-1}}{q^{-1}-q} \,\Psi g \right) $$
+is an \Hmpair, and hence $\Dqsqr f$ belongs to $\holS{m}$.
+Furthermore, since $m$ and $m-1$ are positive, we have
+(cf.\ proposition \ref{prop:exist:holomorphic_qHankel})
+$$ \Psi^m K \holH{m} \Dqsqr f
+    \;=\;  -\frac{q^{-1}}{q^{-1}-q}\, \Psi g
+    \;=\;  -\frac{q^{-1}}{q^{-1}-q}\, \Psi \Psi^{m-1} K \holH{m-1} \Omega^2 f $$
+Canceling $\Psi^m K$ yields the first formula. The other formulas
+are more or less analogous---let's also have a look at the last one:
+take any $f\in \holS{-m}$ and let $(f,g)$ be a \mbox{$(-m;q)$-Hankel} pair.
+From (\ref{eq:auxH:nabq:neg}) we obtain that
+$$ \left(\nabq{m} \Omega^{-1}f, \; -\frac{1}{q^{-1}-q} \, q^m\, \Psi g \right)$$
+is a \mbox{$(-m+1;q)$-Hankel} pair, hence $\nabq{m} \Omega^{-1}f \in \holS{-m+1}$ and
+\begin{eqnarray*}
+    \Psi^{|-m+1|} K \holH{-m+1} \nabq{m} \Omega^{-1} f
+&=&
+    -\frac{1}{q^{-1}-q} \, q^m\: \Psi g
+\\&=&
+    -\frac{1}{q^{-1}-q} \, q^m\:
+     \underbrace{\Psi \Psi^{|-m|} K}_{\textstyle \Psi^{m-1} K \Psi} \holH{-m} f
+\end{eqnarray*}
+Canceling $\Psi^{m-1} K$ yields the last formula.
+\end{proof}
+
+
+
+\begin{remark} \rm
+It is instructive to observe how the combination of
+propositions \ref{prop:qHankel:inverseorder}\ and \ref{prop:holS:Omega_invariant}\
+transforms the first two formulas of proposition \ref{prop:holqHankel:qdiff}\ into the
+remaining two and vice versa. In a similar way
+(\ref{eq:qHankel:inverseorder:aux:2}) interchanges
+(\ref{eq:auxH:Dq2:pos}-\ref{eq:auxH:Dq2:neg}) as well as
+(\ref{eq:auxH:nabq:pos}-\ref{eq:auxH:nabq:neg}).
+$\hfill \star$
+\end{remark}

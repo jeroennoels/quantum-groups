@@ -1,0 +1,72 @@
+
+\section{Towards a Fourier context for quantum $E(2)$}
+\label{par:Preview_on_Fourier_transforms}
+
+
+\begin{abs_chp*}
+We give a short preview on chapter \ref{chapter:Harmonic_analysis_on_quantumE2},
+in which shall we study harmonic analysis on the quantum $E(2)$ group,
+in terms the objects introduced in the present chapter.
+But first we combine the results of the previous sections in the following
+\end{abs_chp*}
+
+
+
+\begin{thm_sec} \label{thm:combine_results}
+Fix real numbers\/ $q,\tau,\nu$ with\/ $0<q<1$ and\/ $\tau,\nu >0$, and let\/
+$\Gtau$, $\Gtau'$, $\calG_\nu$ and\/ $\calG_\nu'$ be subspaces of\/ \HC\ satisfying
+assumptions \ref{assume:Gr}\@. Moreover assume that
+%
+\begin{enumerate}
+\item
+$\Gtau' \subseteq \Gtau$ and\/ $\calG_\nu' \subseteq \calG_\nu$
+\item
+$\Gtau$ and\/ $\calG_\nu$ are subalgebras of\/ \HC
+\item
+$\Gtau'$ and\/ $\calG_\nu'$ have faithful moments w.r.t.\ Jackson
+$q^2$-integration \cite{Koornwinder}, in the following sense: (e.g.)
+for any\/ $g\in \calG_\nu'$ we have
+$$ \sum_{k\in\ZZ} \: (\Psi^m g)(\nu q^{2k})\, q^{2k} = 0
+       \hspace{1.5em}  \mbox{for all\ }  \; m\in \NN
+       \hspace{2.5em}  \Longrightarrow  \hspace{1.5em}  g=0. $$
+\end{enumerate}
+%
+Furthermore, let\/ $\varphi$, $\psi$ and\/ $\omega$ be the invariant functionals on\/
+$\UqTG$ and\/ $\Aq(\calG_\nu)$ as constructed in the previous sections. Then
+$$ \left(\Uq\!\left(\calL(\Gtau')\vertM\right)\, \subseteq \,\UqTG, \varphi, \psi;
+         \, \Uq, \Aq; \,
+      \Aq(\calG_\nu') \subseteq \Aq(\calG_\nu), \omega \vertL \right) $$
+is a Fourier context (cf.\ definition \ref{def:Fourier_context}).
+\end{thm_sec}
+
+
+\begin{proof}
+Most of definition \ref{def:Fourier_context}\ follows from
+propositions \ref{prop:dual_pair}, \ref{prop:UqFG}, \ref{prop:UqGT:Aq:summary},
+\ref{prop:haar:Uq:invariance}, \ref{prop:haar:Uq:positive}, \ref{prop:Uq:KMS},
+\ref{prop:AqG}, \ref{prop:haar:Aq}, \ref{prop:Aq:KMS}, corollary
+\ref{cor:UqAqG:Hopf_system}\ and \mbox{lemma \ref{lemma:UqTG_separates_Aq}}\@.
+Only item (v) of definition \ref{def:Fourier_context}\ still
+requires some explanation. Since this is rather technical and not
+very interesting, we defer its proof to appendix \ref{app:technical}.
+\end{proof}
+\vspace{2ex}
+
+
+
+In chapter \ref{chapter:Harmonic_analysis_on_quantumE2}\ we shall use the
+Schwartz-like spaces we defined in example \ref{ex:Schwartz-like_space}, in particular
+\mbox{$\Gtau = {\mathcal S}_\tau(\RR^+;q^2)$} and $\calG_\nu = {\mathcal S}_\nu(\RR^+;q^2)$.
+We also construct suitable subspaces ${\mathcal E}_\tau$ and ${\mathcal E}_\nu$
+of \lq nice\rq\ functions (e.g.\ functions of \mbox{$q^2$-Exponential}\ type).
+Then we construct Fourier transforms (cf.\ definition \ref{def:Fourier_transform})
+having {\em \little\ \mbox{$q^2$-Bessel}}\ functions as kernel, prove Plancherel formulas,
+inversion formulas etc. Eventually we obtain a Plancherel context
+(cf.\ definition \ref{def:Plancherel_context})
+$$ \left( \Uq\!\left(\calL({\mathcal E}_\tau)\vertM\right)  \subseteq\,
+          \Uq\!\left(\calL({\mathcal S}_\tau(\RR^+;q^2)) \vertM \right),
+          \varphi, \psi; \, \Uq, \Aq; \,
+          \Aq({\mathcal E}_\nu)  \subseteq \,
+          \Aq\!\left({\mathcal S}_\nu(\RR^+;q^2)\vertM \right),
+          \omega \vertL \right)$$
+provided the numbers $q$, $\tau$ and $\nu$ satisfy particular relations.

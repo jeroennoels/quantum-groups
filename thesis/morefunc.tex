@@ -1,0 +1,426 @@
+
+\subsection{More interesting functions in the space $\Hcore$}
+
+
+In the previous section we constructed a system $(\xi_k)_{k\in \ZZ}$ of
+$q^2$-exponential type functions within the space $\Hcore$, having a particularly
+pleasant behaviour with respect to our holomorphic $q$-Hankel transforms:
+\begin{equation}\label{eq:xi_k_under_Hol_hankel}
+\holH{m}\, \xi_k \;=\; q^{-2mk} \,  \xi_{-k}
+\end{equation}
+for all $m\in \NN$ and $k\in \ZZ$.
+Basically these $\xi_k$ are dilations of a $q^2$-exponential
+over the $q^2$-grid. We also observed (cf.\ lemma \ref{lemma:Psi_xi}) that the
+functions in (\ref{eq:many_functions_in_Hcore}) can be written as
+finite linear combinations of the $\xi_k$.
+
+One might object however, that the examples of functions in $\Hcore$ given
+thus far, all vanish in the points $q^{-2n}$ for sufficiently large $n \in \NN$.
+Therefore we are about to consider {\em infinite\/} combinations like
+\begin{equation} \label{eq:def:More_interesting_functions}
+   \hat{a} \:=\; \sum_{k \in \ZZ} \: a_k \,\xi_k
+\end{equation}
+where $a \equiv (a_k)_{k\in\ZZ}$ is an appropriate sequence of complex numbers.
+Since we want the function $\hat{a}$ to be entire, the question arises which
+conditions on the sequence $(a_k)_k$ can ensure the series
+(\ref{eq:def:More_interesting_functions}) to converge uniformly on compact sets.
+Thus one might worry to run into the same kind of trouble as sketched in
+remark \ref{rem:not_constructive}\@.
+This however shall not be the case: gaining control over the convergence of
+(\ref{eq:def:More_interesting_functions}) will turn out to be much more
+realistic than trying to cope with (\ref{eq:remark:trouble:entire}).
+We start with some general definitions concerning sequences of complex numbers:
+
+
+\begin{defn*} \label{def:sequence_operations}
+Let $\CZ$ denote the linear space of all $\ZZ$-indexed sequences
+of complex numbers, and define the following linear operations on this space:
+for $a \equiv (a_k)_{k\in\ZZ} \in \CZ$ we consider
+$$\begin{array}{lcrcl}
+\mbox{Shift}            &\hspace{1em}&   (\seqS a)_k  &=&  a_{k+1}
+\\ \vertXL
+\mbox{Multiplication}   &&    (\seqM a)_k   &=&  q^k \,a_k
+\\ \vertXL
+\mbox{Reflection}       &&    (\seqR a)_k   &=&  a_{-k}
+\end{array}\hspace{8em}$$
+Clearly $\seqS$, $\seqM$ and $\seqR$ are bijections from $\CZ$ onto $\CZ$.
+Furthermore we introduce a linear $q$-difference operator $D$ on $\CZ$ by
+$$ D  \;=\;  M^{-2} (\id - q^{-1} S). $$
+\end{defn*}
+
+
+
+\begin{notation} \rm
+For any $n\in \NN$, let $P_n$ denote the following polynomial:
+$$ P_n(x) \;=\; (q^2 x; q^2)_n
+          \;=\; (1 - q^2 x)(1 - q^4 x) \ldots (1 - q^{2n} x). $$
+\end{notation}
+
+
+\begin{lemma} \label{lemma:estimates:P_n}
+For all\/ $z\in\CC$ and\/ $n\in \NN$ we have:
+$$  |P_n(z)|    \;\leq\;   P_n(-|z|)
+                \;\leq\;   \left(1 + q^2 |z|\vertM\right)^n
+                \;\leq\;   \left(1 + |z|\vertM\right)^n  $$
+\end{lemma}
+\begin{proof}
+Straightforward.
+\end{proof}
+
+
+
+\begin{defn}  \label{def:morefunc:bounds}
+For any $r>0$, $n\in \NN$ and $a\equiv (a_k)_{k\in\ZZ} \in \CZ$, we denote
+$$ B(a; r, n; q)
+    \;=\;  \sup  \left\{  \,
+                    |a_{-k}| \, q^{-nk}\, P_k(-q^{-2k} \vssp r)
+                    \left|\vertL\right.  k\in\NN  \right\} $$
+where the supremum of an {\em unbounded\/} subset of $\RR^+$ is understood to be $\infty$.
+\end{defn}
+
+
+\begin{defn*}
+Define subspaces $\seqX$ and $\seqY$ of the sequence space $\CZ$ by
+\begin{eqnarray*}
+\seqX
+&=&
+\left\{ a \in \CZ    \left|\vertL\right.
+        B(a; r, n; q) < \infty
+        \mbox{ for all $r>0$ and $n\in \NN$} \right\}
+\\
+\seqY &=& \seqX \,\cap\, R \vssp \seqX  \vertL
+\end{eqnarray*}
+\end{defn*}
+
+
+
+\begin{remarks*} \label{rem:sequence_spaces}
+\item
+Take any sequence $a \equiv (a_k)_{k\in\ZZ} \in \CZ$.
+Since $1 \leq P_k(x)$ whenever $x\leq 0$, it follows that
+$$|a_{-k}| \, q^{-nk}     \;\leq\;   B(a; 1, n; q)$$
+for all $k,n\in \NN$.
+So if $a\in \seqX$ then $a_{-k} \, q^{-nk} \rarr 0$ as $k\rarr +\infty$.
+This means that $a_{-k}$ tends to zero {\em very rapidly\/} when $k \rarr +\infty$.
+\item
+Definition \ref{def:morefunc:bounds}\ only involves the entries $a_{-k}$ for $k\in \NN$.
+In other words, it only deals with {\em negative\/} indices, and therefore $\seqX$
+will not be invariant under reflection; that is why we introduced $\seqY$.
+So if $(a_k)_{k\in\ZZ}$ belongs to $\seqY$ then $a_k$ will tend to zero
+\lq very rapidly\rq\ when $k \rarr \pm \infty$.
+\item
+Any sequence with only {\em finitely\/} many non-zero entries is contained in $\seqY$.
+\end{remarks*}
+
+
+\begin{lemma}  \label{lemma:morefunc:sequences:invariance}
+The spaces\/ $\seqX$ and\/ $\seqY$ are invariant under the operations\/ $S$ and\/ $M$,
+as well as under their inverses. $\seqY$ is moreover invariant under\/ $R$.
+As a corollary, observe that\/ $\seqY$ is also invariant under the
+difference operator\/ $D$.
+\end{lemma}
+\begin{proof}
+Take any $r>0$, $n\in \NN$ and $a\in \CZ$. Observe that
+$$   B(a; r, n; q)
+\hspace {0.7em} \leq \hspace {0.7em}
+     B(M a; r, n; q)
+\hspace {0.7em} = \hspace {0.7em}
+     B(a; r, n+1; q). $$
+This yields $M$-invariance. To show $S$-invariance, observe that for all $k\in\NN$
+$$  q^{-n(k+1)}\, P_{k+1}(-q^{-2(k+1)} \vssp r)
+              \hspace {0.7em}=\hspace {0.7em}
+    q^{-nk}\, q^{-n}  \: (1+r)\, P_k \!\left(-q^{-2k} \, q^{-2} \vssp r \vertM\right) $$
+and hence
+$$    B(Sa; r, n; q)
+\hspace {0.7em}=\hspace {0.7em}
+      q^{-n} \, (1+r)  \:  B \!\left(a; q^{-2} \vssp r, n; q\vertM\right).   $$
+Thus we have shown that $\seqX$ is invariant under $S^{\pm 1}$ and $M ^{\pm 1}$.
+The invariance properties of $\seqY$ then follow immediately from obvious
+commutation rules like $SR=RS^{-1}$ and $MR=RM^{-1}$.
+\end{proof}
+
+
+
+\begin{ex} \rm
+Let us give an example showing that $\seqX$ and $\seqY$ also contain sequences with
+an {\em infinite\/} number of non-zero entries.
+Take any sequence $(t_n)_{n\in \NN}$ of complex numbers such that $t_n \rarr 0$
+as $n\rarr \infty$. Then define
+$$ a_k  \;=\; \left(t_{|k|}\vertM\right)^{|k|}\: q^{2 k^2} $$
+for all $k\in \ZZ$.
+Fix any $n\in \NN$ and $r>0$. Now assume $k \geq 0$ and observe that
+\begin{eqnarray*}
+      |a_{-k}| \, q^{-nk}\, P_k(-q^{-2k} \vssp r)
+&\leq\vertXL&
+      |t_k|^k \: q^{2 k^2} \: q^{-nk}  \left(1 + q^{-2k} r \vertM\right)^k
+\\&\leq\vertXXL&
+      \left(|t_k| \:  q^{-n} \: \frac{1 + q^{-2k} r}{q^{-2k}}  \right)^{\!\! k}.
+\end{eqnarray*}
+Since
+$$  \lim_{k \rarr +\infty} \frac{1 + q^{-2k} r}{q^{-2k}} \;=\: r
+                \andspace{3em}
+    \lim_{k \rarr +\infty} t_k \:=\: 0, $$
+it follows easily that $B(a; r, n; q) < \infty$ for any $r>0$ and all $n\in \NN$.
+In other words, the sequence $(a_k)_{k\in\ZZ}$ belongs to $\seqX$.
+This sequence moreover belongs to $\seqY$ because $a_{-k} = a_{k}$ for all $k$.
+\hfill $\star$
+\end{ex}
+
+
+
+
+\begin{lemma} \label{lemma:morefunc:property:Pn}
+For any\/ $n\in\NN$ and\/ $z\in\CC$ we have\/ $\xi_0(z) = P_n(z) \, \xi_0(q^{2n} z)$.
+\end{lemma}
+\begin{proof}
+Straightforward, using the product representation (\ref{eq:shifted_factorial:infty}).
+\end{proof}
+
+
+
+
+\begin{lemma}  \label{lemma:More_interesting_functions:entire}
+If a sequence\/ $a\equiv (a_k)_{k\in \ZZ}$ belongs to\/ $\seqY$ then
+\begin{equation} \label{eq:def:More_interesting_functions:bis}
+   \hat{a} \:=\; \sum_{k \in \ZZ} \: a_k \,\xi_k
+\end{equation}
+converges uniformly on compact sets to an entire function.
+\end{lemma}
+
+\begin{proof}
+Plugging the definition of the $\xi_k$ (notation \ref{not:xi_k})
+into (\ref{eq:def:More_interesting_functions:bis}) we obtain, for any $z\in\CC$,
+\begin{equation} \label{eq:morefunc:series:xi_0}
+   \sum_{k \in \ZZ} \: a_k \: q^k \, \xi_0(q^{2k} z)
+\end{equation}
+Obviously there's no challenge in establishing uniform convergence on compact sets
+as far as the $k \rarr +\infty$ part is concerned---so let's investigate the
+behaviour of the above series for $k \rarr -\infty$.
+Considering only the terms for negative $k\in\ZZ$, we obtain
+$$  \sum_{n=0}^\infty \: a_{-n} \: q^{-n} \: \xi_0(q^{-2n} z) $$
+and using lemma \ref{lemma:morefunc:property:Pn}, we get
+$$  \sum_{n=0}^\infty \: q^n \: a_{-n} \: q^{-2n} \: P_n (q^{-2n} z) \: \xi_0(z) $$
+or shortly
+\begin{equation}\label{eq:morefunc:series:convergence}
+   \xi_0(z) \:   \sum_{n=0}^\infty   \: q^n  f_n (z)
+\end{equation}
+with
+$$  f_n(z) \;=\; a_{-n} \: q^{-2n} \: P_n (q^{-2n} z). $$
+Now fix any $r>0$ and let $D(r) \subseteq \CC$ denote the closed disk with radius $r$
+around the origin.
+Using lemma \ref{lemma:estimates:P_n}\ we obtain for all $n \in \NN$ and $z\in D(r)$ that
+$$  |f_n(z)|
+\hspace {0.7em} \leq \hspace {0.7em}
+    |a_{-n}| \: q^{-2n} \: P_n (- q^{-2n} \vssp r)
+\hspace {0.7em} \leq \hspace {0.7em}
+    B(a; r, 2 \vssp ; q). $$
+So if $a \in \seqY$ then (\ref{eq:morefunc:series:convergence}) converges
+uniformly on $D(r)$ for any $r>0$.
+\end{proof}
+
+
+\begin{defn}
+The above lemma yields a well-defined linear mapping
+$$ \Theta : \, \seqY \rarr \HC : \, a \mapsto \hat{a}, $$
+which shall be referred to as the {\em $\Theta$-transform}\@.
+\end{defn}
+
+Our main goal for the remainder of this section is to prove that the range
+$\hatseqY$ of the $\Theta$-transform is contained in the common domain $\Hcore$
+of all holomorphic $q$-Hankel transforms.
+
+\begin{lemma} \label{lemma:sequence_operations:commutation}
+For any\/ $a\in\seqY$ we have:
+\begin{eqnarray*}
+\Psi  \vssp \hat{a}      &=&    \Theta \vssp D a
+\vertXL\\
+\Dqsqr  \vssp \hat{a}    &=&    \frac{1}{q - q^{-1}} \: \Theta \vssp S^{-1} M^2 a
+\vertXL\\
+\Om^2 \vssp  \hat{a}     &=&    q^{-1} \, \Theta \vssp S^{-1} a
+\end{eqnarray*}
+\end{lemma}
+Notice that the above makes sense because of lemma \ref{lemma:morefunc:sequences:invariance}\@.
+\vspace{1ex}
+
+\begin{proof}
+First observe that it is allowed to push the operators $\Psi$, $\Dqsqr$ and $\Om^2$
+through the summation in (\ref{eq:def:More_interesting_functions:bis}).
+This merely involves {\em pointwise\/} convergence because
+$\Psi$, $\Dqsqr$ and $\Om^2$ are essentially pointwise
+operations\footnote{The situation would be quite different (and more complicated)
+if one would apply e.g.\ the holomorphic $q$-Hankel transform $\holH{m}$ to $\hat{a}$.
+See also lemma \ref{lemma:Theta_transform:Hmpair}.}\@.
+
+Now the actual computations are straightforward:
+the proof of the first formula involves (\ref{eq:Psi_xi_k}),
+the second one follows easily from proposition \ref{prop:qdifferential_equation:qexp},
+and the last one is an immediate consequence of (\ref{eq:not:xi_k}).
+\end{proof}
+
+
+
+\begin{cor} \label{cor:sequence_operations:commutation}
+The range\/ $\hatseqY$ of the\/ $\Theta$-transform is invariant under the
+operators\/ $\Psi$, $\Dqsqr$ and\/ $\Om^{\pm 2}$.
+\end{cor}
+
+
+
+\begin{lemma}
+If\/ $a\equiv (a_k)_{k\in \ZZ}$ belongs to\/ $\seqY$ then\/
+$\hat{a}$ belongs to\/ $\Swqbis$.
+\end{lemma}
+\begin{proof}
+Since $\hatseqY$ is invariant under the multiplication operator $\Psi$,
+it suffices to show that $\hat{a}$ is {\em bounded\/} on the $q^2$-grid whenever $a \in \seqY$.
+Using (\ref{eq:morefunc:series:xi_0}) together with the fact that
+$\xi_0(q^{2j})$ vanishes for negative $j$, we obtain for any $n\in \ZZ$ that
+$$   \hat{a}(q^{2n})   \;=\;
+         \sum_{k=-n}^{+\infty}  a_k \: q^k \, \xi_0  \! \left(q^{2k+2n}\vertM\right).  $$
+Since $\xi_0$ is entire, it follows that
+\begin{equation} \label{eq:supremum:xi_0}
+  N  \;\equiv\;  \sup_{0 \leq x \leq 1} |\xi_0(x)| \;<\; \infty,
+\end{equation}
+and hence
+$$  \left|\vertM \hat{a}(q^{2n}) \right|
+\hspace {0.7em}  \leq  \hspace {0.7em}
+         N  \sum_{k=-n}^{+\infty}  |a_k| \: q^k
+\hspace {0.7em}  \leq  \hspace {0.7em}
+         N \,  \sum_{k\in \ZZ} \: |a_k| \: q^k
+\hspace {0.7em}  <  \hspace {0.5em}
+        \infty.    $$
+The latter series is independent of $n$ and converges because $a$ is assumed to
+be in $\seqY$ (cf.\ remarks \ref{rem:sequence_spaces}.i-ii).
+\end{proof}
+
+
+\begin{lemma} \label{lemma:Theta_transform:Hmpair}
+If\/ $a\equiv (a_k)_{k\in \ZZ}$ belongs to\/ $\seqY$ then for any\/ $m\in\NN$,
+the pair
+$$  \left(\hat{a}, \, \Psi^m K \Theta M^{2m} R a \vertM\right) $$
+is an \Hmpair\ (cf.\ definition \ref{def:Hmpair}).
+\end{lemma}
+
+Observe that for the above to make sense, we really need $\seqY$ to be
+invariant under the reflection operator $R$.
+\vspace{1ex}
+
+\begin{proof}
+Take any $a\in \seqY$ and $m\in\NN$.
+Observe that both $\hat{a}$ and $\Psi^m K \Theta M^{2m} R a$ are entire
+because of lemma \ref{lemma:morefunc:sequences:invariance}\ and lemma
+\ref{lemma:More_interesting_functions:entire}\@.
+We also proved that $\hat{a}$ belongs to $\Swqbis$.
+Now fix any $j\in \ZZ$ and define for any $k,n \in \ZZ$ a number
+$$ \zeta_{n,k}   \;=\;
+     q^{2n} \, \J{m}{q^{n+j}} \: q^{mn} \: a_k \: q^k\: \xi_0 \!\left(q^{2n+2k}\vertM\right). $$
+Using (\ref{eq:qBessel:estimate}) and (\ref{eq:supremum:xi_0}) we obtain
+\begin{eqnarray*}
+|\zeta_{n,k}|
+&\leq&
+      q^{2n} \, C_m \, q^{-m(n+j)} \, q^{(n+j)(n+j-1)} \: q^{mn} \: |a_k| \: q^k  \, N
+\\&=&
+      \underbrace{C_m \, N \, q^{j(j-m-1)}\!}_{
+                  \mbox{\scriptsize independent of $n,k$}}
+       \; q^{n(n+2j+1)} \: |a_k| \: q^k
+\end{eqnarray*}
+for all $k,n \in \ZZ$ with $n+j \leq 0$, and
+$$ |\zeta_{n,k}|  \hspace {0.7em}
+         \leq  \! \underbrace{C_m \, N \, q^{mj}\!}_{
+                  \mbox{\scriptsize independent of $n,k$}}
+                         \!\!  q^{2n(m+1)}  \: |a_k| \: q^k
+                  \hspace{8.5em} $$
+whenever $n+j \geq 0$. It follows that
+$$  \sum_{n,k\in\ZZ}   \zeta_{n,k} $$
+is absolutely summable, which justifies the following computation:
+\begin{eqnarray*}
+(\auxH{m} \hat{a})(q^j)
+&=&
+(H_m R_q \Psi^{m} K \hat{a})(q^j)
+\\ &\stackrel{(\ref{eq:qHankeltransform:def})}{=}&
+\sum_{n\in \ZZ} \: q^{2n} \, \J{m}{q^{n+j}}  \: (\Psi^{m} K \hat{a})(q^n)
+\\&\stackrel{(\ref{eq:def:More_interesting_functions:bis})}{=}&
+\sum_{n\in \ZZ} \:  q^{2n} \, \J{m}{q^{n+j}} \: q^{mn}
+\sum_{k\in\ZZ}  \:  a_k \: \xi_k(q^{2n})
+\\&=&
+\sum_{n,k\in\ZZ}   \zeta_{n,k}
+\\&=&
+\sum_{k\in \ZZ} \:  a_k \: \sum_{n\in \ZZ}
+     \: q^{2n} \, \J{m}{q^{n+j}} \: (\Psi^{m} K \xi_k)(q^n)
+\\ &\stackrel{(\ref{eq:qHankeltransform:def})}{=}&
+\sum_{k\in \ZZ}  \: a_k \: (H_m R_q \Psi^{m} K \xi_k)(q^j)
+\\&\stackrel{(\ref{eq:diagram:holomorphic_qHankel})}{=}&
+\sum_{k\in \ZZ}  \: a_k \: (\Psi^{m} K \holH{m} \xi_k)(q^j)
+\\&\stackrel{(\ref{eq:xi_k_under_Hol_hankel})}{=}&
+\sum_{k\in \ZZ}  \: a_k \: q^{-2mk}\: (\Psi^{m} K \xi_{-k})(q^j)
+\\&=&
+\sum_{k\in \ZZ}  \: a_{-k} \: q^{2mk} \: q^{mj} \: \xi_k (q^{2j})
+\\&=&
+q^{mj} \: \sum_{k\in \ZZ}  \: (M^{2m} R a)_k  \: \xi_k (q^{2j})
+\\&\stackrel{(\ref{eq:def:More_interesting_functions:bis})}{=}&
+q^{mj} \: (\Theta M^{2m} R a) (q^{2j})
+\\ \vertXL &=&
+(\Psi^m K \Theta M^{2m} R a) (q^j).
+\end{eqnarray*}
+
+
+
+This shows item (i) of definition \ref{def:Hmpair}, whereas (ii) and (iii) are obvious.
+\end{proof}
+
+
+
+\begin{cor}
+The range\/ $\hatseqY$ of the\/ $\Theta$-transform is contained in\/ $\Hcore$ and
+\begin{equation}\label{eq:Hankel_and_Theta_transform}
+  \holH{m} \Theta \;=\; \Theta M^{2m} R
+\end{equation}
+for all\/ $m\in\NN$.
+\end{cor}
+
+\begin{proof}
+Take any $a\in \seqY$.
+Combining the above lemma with proposition \ref{prop:exist:holomorphic_qHankel},
+it follows that $\hat{a} \in \holS{m}$ for all $m\in \NN$.
+Furthermore we obtain
+$$  \Psi^m K \holH{m} \hat{a}  \;=\;  \Psi^m K \Theta M^{2m} R a. $$
+Canceling $\Psi^m K$ yields (\ref{eq:Hankel_and_Theta_transform}).
+By now we know already that $\hatseqY \subseteq \Hintersect$.
+Putting together lemma \ref{lemma:morefunc:sequences:invariance},
+corollary \ref{cor:sequence_operations:commutation}\ and (\ref{eq:Hankel_and_Theta_transform})
+we get $\hatseqY \subseteq \Hcore$.
+\end{proof}
+
+
+
+\begin{remark} \rm
+In a purely formal way, (\ref{eq:Hankel_and_Theta_transform}) could have been
+obtained immediately from
+(\ref{eq:xi_k_under_Hol_hankel}) and (\ref{eq:def:More_interesting_functions}).
+In this respect, we emphasize that the proof of
+lemma \ref{lemma:Theta_transform:Hmpair}\ is not at all about the computation
+itself---it is about its {\em justification\/}: indeed the essence of this lemma lies
+within interchanging the two summations.
+The reason why this approach works where (\ref{eq:remark:trouble:entire}) had failed,
+is because the proof of lemma \ref{lemma:Theta_transform:Hmpair}\ requires
+the $q^2$-Bessel functions to be evaluated only in the points $q^k$ with $k$ integer.
+\hfill $\star$
+\end{remark}
+
+
+\begin{questions} \rm
+Several problems are still open:
+\begin{enumerate}
+\item
+We know that $\hatseqY \subseteq \Hcore$.
+The question arises whether the inclusion is {\em strict}.
+\item
+Is $\Hcore$ an algebra?
+Clearly the functions described in (\ref{eq:many_functions_in_Hcore}) do not
+constitute an algebra. Nevertheless $\Hcore$ or $\hatseqY$ may be algebras.
+\item
+Can one obtain---within the appropriate $L^2$-setting---an {\em orthogonal\/} family
+of eigenfunctions for the holomorphic $q$-Hankel transforms?
+\hfill $\star$
+\end{enumerate}
+\end{questions}

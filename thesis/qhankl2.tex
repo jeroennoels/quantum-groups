@@ -1,0 +1,86 @@
+
+
+\begin{abs_chp}
+$q$-analogues of Hankel transformation based on \little\ \mbox{$q^2$-Bessel}\
+functions first appeared explicitly in \cite{KoornwSwartt}, whereas
+in \cite{leonid:vainerman}\ they were mentioned in \mbox{relation}\ to
+the quantum $E(2)$ group. The starting point for our theory will
+be the definition proposed in \cite{KoornwSwartt},
+which we will recall below---reformulated in an \mbox{$L^2$-language}\@.
+Then we study  the possibility of transforming {\em entire\/} functions into entire
+functions, a feature which is
+crucial\footnote{in the sense that we want to stick to our algebraic description
+of the quantum $E(2)$ group, as outlined in chapter \ref{chapter:Fourier_context_for_quantumE2},
+the algebraic nature of which depends heavily on the use of entire functions
+in constructing the functional calculus.}\ for our applications to the
+quantum $E(2)$ group.
+Furthermore we investigate the behaviour of \mbox{$q$-Hankel}\ transformation
+w.r.t.\ \mbox{$q$-differentiation}\ and multiplication.
+Eventually we search for {\em eigenfunctions\/} of \mbox{$q$-Hankel}\ transformation;
+these turn out to be functions of \mbox{$q^2$-Exponential}\ type.
+\end{abs_chp}
+
+
+
+\subsection{The $L^2$-theory}
+
+Let $\RR_q^+ \equiv (\RR_q^+,m_q)$ be the discrete set $\{ q^k \,|\, k\in\ZZ \}$
+endowed with the measure $m_q$ which assigns weight $q^{2k}$ to the
+point $q^k$. Thus integration w.r.t.\ $m_q$ yields
+$$ \int_{\RR_q^+} f\,dm_q
+               \:=\: \sum_{k\in \ZZ} f(q^k)\,q^{2k}
+               \hspace{3em} \mbox{for} \hspace{1em}  f\in L^1(\RR_q^+).  $$
+Now the orthogonality relations (\ref{eq:qBessel:qHankel})
+can be reformulated in an $L^2$-language:
+
+
+\begin{prop}
+Fix any\/ $m\in\ZZ$ and define functions\/ $\basis{m}{k}$ on\/ $\RR_q^+$ by
+$$  \basis{m}{k}(x) \:=\: q^k \,\J{m}{q^k x}
+                       \hspace{5em} (k\in \ZZ,\: x\in\RR_q^+). $$
+Then\/ $(\basis{m}{k})_{k\in \ZZ}$ is an orthonormal basis ({\scriptsize ONB}) in
+the Hilbert space\/ \Ltwoq\@.
+\end{prop}
+
+
+On the other hand, we have a canonical {\sc onb}\ for \Ltwoq,
+say $(d_k)_{k\in \ZZ}$ with $d_k = q^{-k} \delta_{q^k}$.
+Here $\delta_{q^k}$ denotes the characteristic function of the singleton $\{q^k\}$.
+
+
+\begin{defn} \label{def:qHankeltransform:unitary}
+Given $m\in\ZZ$, let $H_m$ be the unitary transformation of \Ltwoq\
+which maps the {\sc onb} $(\basis{m}{k})_{k\in \ZZ}$
+into the {\sc onb} $(d_k)_{k\in \ZZ}$.
+Explicitly:
+$$ H_m f \:=\:\sum_{k\in \ZZ} \:\scal{f}{\basis{m}{k}}\,d_k , $$
+for $f\in \Ltwoq$ and $k\in\ZZ$, or equivalently,
+\begin{equation}\label{eq:qHankeltransform:def}
+  (H_m f)(q^k) \;=\;  q^{-k} \scal{f}{\basis{m}{k}}
+               \;=\;  \sum_{n\in \ZZ} \: q^{2n} \J{m}{q^{n+k}} f(q^n).
+  \hspace{1em}
+\end{equation}
+$H_m$ is said to be the {\em $q$-Hankel transform\/} of order $m$.
+\end{defn}
+
+
+
+\begin{prop} \label{prop:qHankelSquare_is_id}
+$\: H_m^2 = \id$ for all\/ $m\in\ZZ$.
+\end{prop}
+\begin{proof}
+It suffices to show that $H_m d_j = \basis{m}{j}$ for all $j\in \ZZ$.
+Now observe that
+\begin{eqnarray*}
+(H_m d_j)(q^k)
+&=&
+\textstyle \sum_{n\in \ZZ} \: q^{2n} \: \J{m}{q^{n+k}} \: d_j(q^n)
+\\&=&
+q^{2j} \: \J{m}{q^{j+k}} \: q^{-j}
+\\&=&
+q^j \: \J{m}{q^j q^k}
+\\&=&
+\basis{m}{j}(q^k)
+\end{eqnarray*}
+for all $k \in \ZZ$.
+\end{proof}

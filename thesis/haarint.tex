@@ -1,0 +1,160 @@
+\section{Invariant functionals}
+
+
+\begin{abs_chp}
+We define the notion of an invariant functional
+and show that {\em strong\/} invariance follows automatically.
+Furthermore we introduce the {\scriptsize KMS} property, which helps to overcome
+some difficulties caused by the non-commutativity of the algebra.
+We conclude with some trivial observations on normalization.
+\end{abs_chp}
+
+
+
+
+\begin{defn_sec} \label{def:invariant_functional}
+  Let \pairAB\ be any Hopf system. A linear functional $\varphi$ on $A$ is called
+  {\em left invariant\/} if
+  $\varphi(a \ract b) = \varphi(a) \, \epsB(b)$ for all $a\in A$ and $b \in B$.
+  {\em Right\/} invariance is defined analogously---involving
+  {\em left\/} actions of $B$ on $A$. Similarly for functionals on $B$.
+\end{defn_sec}
+
+{\small
+Invariant functionals are often referred to as Haar functionals,
+because they constitute the non-commutative analogue of Haar integrals on
+locally compact groups.
+If \pairAB\ is a Hopf system for which $(A,\Delta_A)$ happens to be a regular \mha,
+then the above notion of invariance is easily seen to be equivalent with
+the one in \cite{Fons:AFGD}.}
+
+
+\begin{prop_sec} \label{prop:strong_left_invariance}
+Let\/ \pairAB\ be any Hopf system, and let\/ $\varphi$ be a left invariant functional on $A$.
+Then\/ for all\/ $a,c\in A$ and\/ $b\in B$ we have
+$$ \varphi\left(a(c \ract b)\vertM\right)
+      \:=\: \varphi \! \left(\left(a \ract \SB(b)\vertM\right)c \right). $$
+\rm This property of $\varphi$ will be referred to as {\em strong\/} left invariance.
+\end{prop_sec}
+\begin{proof*}
+Write $a \tens b = \sum_i \,\rp(p_i \tens q_i)$ with $p_i \in A$, $q_i \in B$.
+For all $d\in B$ we have
+\begin{eqnarray*}
+\textstyle \sum_i  \pairM{\epsB(q_i) \, p_i}{d}
+  &=&
+\textstyle \sum_i  \pairM{d \tens 1_\Aa}{p_i \tens q_i}
+\\&=&
+\pairM{d \tens 1_\Aa}{\rp^{-1}(a \tens b)}
+\\&=&
+\pairM{P^{-1} (d \tens 1_\Aa)}{a \tens b}
+\\&=&
+\pairM{P^{-1}}{(d \lact a) \tens b}
+\\&=&
+\pairM{d \lact a}{\SB(b)}
+\\&=&
+\pairM{a \ract \SB(b)}{d}
+\end{eqnarray*}
+and hence
+\begin{equation}\label{eq:stroninv:id_tens_eps:rhoPinverse}
+  \textstyle \sum_i \, \epsB(q_i) \, p_i \:=\: a \ract \SB(b).
+\end{equation}
+In the proof of proposition \ref{prop:counits_homomorphism}\ we
+obtained---in the same circumstances---the equation
+$a(c \ract b) = \sum_i \,  p_i c \ract q_i$.
+Applying $\varphi$ and invoking left invariance yields
+$$ \varphi \! \left(a(c \ract b)\vertM\right)
+   \:=\:
+          \textstyle \sum_i \, \varphi(p_i c \ract q_i)
+   \:=\:
+          \textstyle \sum_i \, \varphi(p_i c) \, \epsB(q_i)
+   \:\stackrel{(\ref{eq:stroninv:id_tens_eps:rhoPinverse})}{=}\:
+          \varphi \! \left(\left(a \ract \SB(b)\vertM\right)c \right). \hspace{1em} \qed $$
+\end{proof*}
+
+
+
+\begin{defn_sec}  \label{def:faithful:hermitian:positive}
+A linear functional $\varphi$ on an algebra $E$ is said to be {\em faithful\/} if
+$E \times E \rarr \CC: (x,y) \mapsto \varphi(xy)$ is non-degenerate as a bilinear form.
+
+When $E$ is a $^*$-algebra, $\varphi$ is called {\em hermitian\/} if
+$\varphi(x^*) = \overline{\varphi(x)}$ for any $x\in E$.
+Eventually $\varphi$ is said to be {\em positive\/} whenever $\varphi(x^*x)\geq 0$ for any $x\in E$.
+\end{defn_sec}
+
+It follows easily from the Cauchy-Schwarz inequality that a positive linear
+functional $\varphi$ on a $^*$-algebra is faithful if and only if $\varphi(x^*x) = 0$
+implies $x=0$.
+\vspace{2ex}
+
+
+\begin{defn_sec} \label{def:KMS}
+A faithful linear functional $\varphi$ on an algebra $E$ is said to be
+{\em weakly {\scriptsize KMS}\/}
+whenever there exists a linear bijection $\sigma : E \rarr E$ such that
+$\varphi(xy) = \varphi(y \sigma(x))$ for all $x,y \in E$.
+\end{defn_sec}
+
+
+\begin{remark_sec} \rm
+The faithfulness assumption on $\varphi$ implies $\sigma$ to be {\em unique}.
+The assumed bijectivity of $\sigma$ accounts for the \lq two-sidedness\rq\ of
+our {\scriptsize KMS} property, in the sense that also
+$\varphi(xy) = \varphi(\sigma^{-1}(y)\, x)$ for $x,y \in E$.
+\hfill $\star$
+\end{remark_sec}
+
+\begin{prop_sec}  \label{prop:KMS}
+Let\/ $E$ be any algebra and\/ $\varphi$ a faithful linear functional on\/ $E$
+which is weakly {\scriptsize KMS} with respect to\/ $\sigma : E \rarr E$.
+Then
+\begin{enumerate}
+\item $\sigma$ is an automorphism of the algebra\/ $E$,
+\item $\varphi$ is\/ $\sigma$-invariant on\/ $E^2$.
+\end{enumerate}
+{\rm Notice that (ii) makes sense because $E^2$ itself is $\sigma$-invariant by virtue of (i).}
+
+If, moreover, $E$ is a $^*$-algebra and\/ $\varphi$ is hermitian, then we also have
+\begin{enumerate}
+\item[iii.] $\sigma(\sigma(x)^*)^* = x$ for any\/ $x\in E$.
+\end{enumerate}
+\end{prop_sec}
+
+The proofs are similar to the special case treated in \cite{Fons:AFGD}\@.
+Because of (i) and uniqueness, $\sigma$ is said to be {\em the\/} {\scriptsize KMS}
+automorphism of $\varphi$ and denoted by $\sigma_\varphi$.
+\vspace{2ex}
+
+
+The following will be useful when we introduce Fourier contexts
+in chapter \ref{chapter:algebraic_harmonic_analysis}:
+
+
+\begin{lemma_sec}
+Let\/ $\varphi$ and\/ $\psi$ be non-trivial hermitian linear functionals on any
+$^*$-algebra\/ $E$, and let\/ $S: E \rarr E$ be a linear map such that\/ $S(S(x^*)^*)=x$
+for all\/ $x\in E$. If there exist\/ $\lambda, \mu \in \CC$ such that\/
+$\varphi S = \lambda \psi$ and\/ $\psi S = \mu \varphi$, then\/ $\lambda \overline{\mu}=1$.
+\end{lemma_sec}
+{\em Proof}\@.
+Observe that, for any $x\in E$,
+$$ \varphi(x) \,=\, \varphi \!\left(S(S(x^*)^*)\vertM\right)
+              \,=\, \lambda\, \psi\! \left(S(x^*)^*\vertM\right)
+              \,=\, \lambda\, \overline{\psi(S(x^*))}
+              \,=\, \lambda\, \overline{\mu \varphi(x^*)}
+              \,=\, \lambda \overline{\mu}\, \varphi(x). \:\: \qed $$
+%%%%%%%%%%%%%%% end proof
+
+
+\begin{cor_sec} \label{cor:scaling}
+In the previous lemma, $\psi$ can be replaced with a positive multiple of\/ $\psi$
+in such a way that there exists a single complex number\/ $\zeta$ such that,
+with this new normalization, $\varphi S = \zeta \psi$ and\/ $\psi S = \zeta \varphi$.
+It follows that\/ $|\zeta|=1$.
+\end{cor_sec}
+\begin{proof}
+Consider $\psi'=|\lambda|\psi$ and take $\zeta= |\lambda|^{-1} \lambda$.
+From $\overline{\lambda}\mu=1$ we get $\psi' S = \zeta \varphi$
+and $\varphi S = \zeta \psi'$. Now replace $\psi$ with $\psi'$.
+Clearly $|\zeta|=1$. %%%%%%%% by the previous lemma (or by construction).
+\end{proof}

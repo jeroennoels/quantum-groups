@@ -1,0 +1,266 @@
+
+
+\subsection{The spaces $\holS{m}$ do contain many functions}
+
+The above theory would of course collapse in case the spaces $\holS{m}$ would
+turn out to be trivial; fortunately we have the following:
+
+
+\begin{lemma} \label{lemma:compactsupp_in_holS}
+Let\/ $f$ be an entire function having the property that there
+exists an integer\/ $n_0$ such that\/ $f(q^{2n})=0$ for all integers\/ $n<n_0$.
+Then\/ $f \in \holS{m}$ for any\/ $m\in \ZZ$.
+\end{lemma}
+
+\begin{proof}
+Observe that our assumptions imply $f$ to be in \Swqbis\ in the first place.
+Then fix any $m\in \ZZ$. We claim that the series
+\begin{equation}\label{eq:lemma:qqE:series}
+    g(z) \:=\: \frac{1}{z^{|m|}}\: \sum_{n\in\ZZ} \:
+                 q^{2n} \, \J{m}{q^n z} \, q^{|m|n} \, f(q^{2n})
+\end{equation}
+converges\footnote{Notice that convergence in (\ref{eq:lemma:qqE:series})\
+is quite a different matter than for instance in (\ref{eq:qHankeltransform:def}).
+Indeed in (\ref{eq:lemma:qqE:series}) our $q$-Bessel functions are
+to be evaluated in any complex number, whereas (\ref{eq:qHankeltransform:def})
+only deals with powers of $q$.
+See also remark \ref{rem:not_constructive}}\ absolutely for all $z\in \CC_0$ and defines an
+{\em entire\/} function $g$ (the singularity at the origin being removable).
+Once this fact established, it will be easy to see that $(f, \Psi^{|m|} g)$
+is an \Hmpair, and hence $f \in \holS{m}$.
+So let's investigate the above series; according to lemma \ref{lemma:def:qBessel}\
+it is possible to define, for any integer $n$, an entire function $g_n$ such that
+$$ g_n (z) \:=\:  (q^n z)^{-|m|} \, \J{m}{q^n z} \,f(q^{2n}) $$
+for $z\in \CC_0$.
+The series (\ref{eq:lemma:qqE:series}) can now be rewritten as follows:
+\begin{equation}\label{eq:lemma:qqE:series:rewrite}
+  g \:=\: \sum_{n=n_0}^\infty \:  q^{2n(|m|+1)}\,g_n
+\end{equation}
+Since every $g_n$ is entire, it suffices  to show the latter series converges
+uniformly on compact sets. Therefore, pick any number $r>0$ and let $D(r)$
+denote the disk $\{z\in \CC \mid |z| \leq r\}$. Once again appealing to lemma
+\ref{lemma:def:qBessel}, it is clear that there exists a bound, say $M_r>0$,
+such that $|x^{-|m|}\J{m}{x}| \leq M_r$ whenever $0 < |x| \leq q^{n_0}r$. On
+the other hand also $f$ is entire, hence bounded on compact sets; so we can
+find a bound $N>0$ such that $|f(x)| \leq N$ for all $x$ in the interval
+$[0,q^{2n_0}]$. Since $0<q<1$, it follows that $|g_n(z)| \leq M_r N$ for any $n
+\geq n_0$ and any $z\in D(r)$. In other words, the family
+$\{g_n\}_{n=n_0}^\infty$ is uniformly bounded on $D(r)$. Since
+$\sum_{n=n_0}^\infty q^{2(|m|+1)n}$ is a convergent geometric series,
+(\ref{eq:lemma:qqE:series:rewrite}) yields an entire function $g$ which
+satisfies (\ref{eq:lemma:qqE:series}). Now we still have to show that $(f,
+\Psi^{|m|} g)$ is indeed an \Hmpair\@. Only item (ii) of definition
+\ref{def:Hmpair}\ requires some explanation; from the power series
+(\ref{eq:def:qBessel}) of the \little\ $q$-Bessel functions, it is clear that
+$\J{m}{\,\cdot\:}$ is even (resp.\ odd) whenever $m$ is even (resp.\ odd). It
+follows that $g_n$ is always even (for any $n$) and consequently also $g$ is
+even. Eventually, $\Psi^{|m|} g$ satisfies item (ii) of definition
+\ref{def:Hmpair}, whereas (i) is straight\-forward and (iii) is obvious.
+\end{proof}
+
+
+
+\begin{remark} \rm
+With a more thorough study using the proper estimates for the \little\
+$q$-Bessel functions involved here, it may be possible to relax the conditions
+on  the function $f$ a little bit, yet still ensuring the proper convergence in
+(\ref{eq:lemma:qqE:series}). From the theory of entire functions and canonical
+products, it is nevertheless clear that there exist plenty of functions
+satisfying the conditions of the previous lemma. The $q$-analogue of the
+exponential function described in appendix \ref{app:qcalc}\ provides an
+important example: $\hfill \star$
+\end{remark}
+
+
+
+\begin{cor} \label{cor:qqE_in_holS}
+Let\/ \qqE\ denote the entire function given by
+$$  \qqE(z)   \:=\:   E_{q^2}(-z)
+              \:=\:   (z;q^2)_\infty
+              \:=\;   \prod_{k=0}^{\infty} \, (1-q^{2k} z). $$
+Then\/ $\qqE \in \holS{m}$ for any\/ $m\in \ZZ$.
+\end{cor}
+
+
+
+
+\subsection{One single core susceptible to $q$-Hankel transforms of any order}
+
+The problem with the system $(\holS{m},\holH{m})_{m\in \ZZ}$
+is that we have to keep track of the order $m$ at any time.
+It would certainly be convenient to have some kind of order-independent
+domain on which all the $\holH{m}$ can act nicely;
+so let's try to find such a \lq core\rq.
+
+
+
+\begin{prop} \label{prop:qHankel:nesting}
+If\/ $n,m\in \ZZ$ and\/ $|n| \leq |m|$, then\/ $\holS{n} \subseteq \holS{m}$.
+\end{prop}
+
+\begin{proof}
+Recalling proposition \ref{prop:qHankel:inverseorder},
+it suffices to prove that $\holS{m-1} \subseteq \holS{m}$ for all $m\geq 1$.
+So let's take any $m\in \NN$ with $m\geq 1$ and any $g\in \holS{m-1}$.
+Then $\Omega^{-2} \holH{m-1} \,g$ still belongs to $\holS{m-1}$,
+hence we can apply the first formula of proposition \ref{prop:holqHankel:qdiff}\
+with $f=\Omega^{-2} \holH{m-1} \, g$, yielding
+\begin{equation}\label{eq:qHankel:nesting:proof}
+  \holH{m} \Dqsqr \Omega^{-2} \holH{m-1}\, g
+      \;=\; -\frac{q^{-1}}{q^{-1}-q} \,\holH{m-1} \Omega^2 \Omega^{-2} \holH{m-1}\,g
+      \;=\; -\frac{q^{-1}}{q^{-1}-q} \, g.
+      \;\;
+\end{equation}
+We conclude that $g$ belongs to $\holS{m}$.
+\end{proof}
+
+
+
+\begin{remark} \label{rem:Q:strict_inclusions} \rm
+At present we lack an example which shows the inclusions in
+proposition \ref{prop:qHankel:nesting} to be {\em strict\/} inclusions,
+and as a matter of fact the spaces $\holS{m}$ for various $m\in\ZZ$ are not unlikely
+to coincide. For instance from the second formula in proposition
+\ref{prop:holqHankel:qdiff}\ one can derive that
+$\Psi \holS{m} \subseteq \holS{m-1}$ for any $m\geq 1$, which yields an indication
+for the reversed inclusions. In our approach to holomorphic $q$-Hankel transformation
+however, it won't be easy to settle this question; but do we really
+care?\footnote{no, not really; it will become clear very soon that we can perfectly
+well proceed without knowing whether the $\holS{m}$ coincide or not. }
+$\hfill \star$
+\end{remark}
+
+
+
+\begin{defn*} \label{def:Hcore}
+We introduce two more subspaces of \HC\ as follows:
+\begin{eqnarray*}
+  \Hintersect &=& \bigcap_{m\in\ZZ} \holS{m}  \\
+  \Hcore      &=& \left\{ f \in \Hintersect \left| \vertL \right.
+                  \holH{m}f, \, \Dqsqr^m f \in \Hintersect
+                  \mbox{ for all } m\in \NN  \right\} \\
+\end{eqnarray*}
+\end{defn*}
+
+
+
+Observe that $\Hcore  \subseteq \Hintersect \subseteq \Swqbis$.
+Also notice the definition of \Hcore\ only refers to {\em positive\/}
+order $q$-Hankel transforms, which is justifiable in view of
+propositions \ref{prop:qHankel:inverseorder}\ and \ref{prop:holS:Omega_invariant}\@.
+Of course $\Hintersect$ is nothing but $\holS{0}$ (cf.\ proposition \ref{prop:qHankel:nesting}).
+However we prefer to use this new symbol $\Hintersect$ (rather than $\holS{0}$)
+to emphasize that it will be considered in relation to $q$-Hankel transforms
+of {\em any\/} order---not just $\holH{0}$.
+Now the problem with $\Hintersect$ is that it might
+(cf.\ remark \ref{rem:Q:strict_inclusions})
+not be invariant under $\holH{m}$ when $m \neq 0$, and moreover it
+is not clear either whether $\Hintersect$ is invariant under $\Dqsqr$.
+This is of course exactly the reason why we have introduced the space \Hcore\@.
+Indeed we can prove the following:
+
+
+
+\begin{prop} \label{prop:Hcore:invariance}
+\hspace{2pt} \Hcore\ is invariant under\/ $\holH{m}$ for any\/ $m\in \ZZ$.
+Furthermore, \Hcore\ is also invariant under\/ $\til$, $\Omega^{\pm 2}$,
+$\Psi$ and\/ $\Dqsqr$.
+\end{prop}
+
+\begin{proof}
+Obviously $\Hintersect$ is $\Omega^{\pm 2}$-invariant
+(cf.\ proposition \ref{prop:holS:Omega_invariant}).
+From (\ref{eq:holS:Omega_invariant}) and the commutation rule
+$\Dqsqr \Omega^2 = q^2 \Omega^2 \Dqsqr$, it follows that also \Hcore\ is
+invariant \mbox{under $\Omega^{\pm 2}$}\@.
+
+Next we will show $\Dqsqr$-invariance; take any $f\in\Hcore$ and put $g=\Dqsqr f$.
+Choose any $m\in \NN$ and first assume that $m\geq 1$.
+Since $f\in \Hintersect \subseteq \holS{m-1}$, it follows
+from the first formula in proposition \ref{prop:holqHankel:qdiff}\ that
+$\holH{m}g = ({\rm scalar})\, \holH{m-1} \Omega^2 f$.
+Now the latter belongs to $\Hintersect$ because $f\in\Hcore$.
+Now consider the $m=0$ case. Since $f\in\Hcore$, we have
+$g = \Dqsqr f \in \Hintersect = \holS{0}$, and hence
+$\holH{0} g \in \Hintersect$.
+So we have shown that $\holH{m}g \in \Hintersect$ for any $m\in\NN$,
+whereas clearly $\Dqsqr^m \, g = \Dqsqr^{m+1} f \in \Hintersect$
+for any $m\in\NN$. We conclude that $g\in\Hcore$.
+
+Now we will show by induction on $m\in\NN$ that \Hcore\ is invariant under
+$\holH{m}$. Notice it is sufficient to consider positive $m$ only,
+because of proposition \ref{prop:qHankel:inverseorder}\@.
+Let's first consider the $m=0$ case; take any $f\in\Hcore$, put $g=\holH{0}f$
+and observe that $g\in\holS{0}=\Hintersect$.
+We shall prove that $g$ belongs to \Hcore\ again;
+therefore, choose any $n\in \NN$ and consider $\holH{n} g$ and $\Dqsqr^n g$.
+When $n=0$, we obtain $\holH{0} g = \holH{0}^2 f = f \in \Hintersect$.
+To deal with $n\geq 1$, rewrite the first formula in proposition
+\ref{prop:holqHankel:qdiff}\ as
+\begin{equation}\label{eq:holqHankel:qdiff:rewritten}
+   \holH{n}  \:=\: ({\rm scalar})\, \Dqsqr \Omega^{-2} \holH{n-1}
+\end{equation}
+(see also: equation (\ref{eq:qHankel:nesting:proof}) above). Iterating this $n$ times yields
+\begin{equation} \label{eq:holqHankel:qdiff:iterated}
+   \holH{n}  \:=\: ({\rm scalar})\, (\Dqsqr \Omega^{-2})^n \holH{0}
+             \:=\: ({\rm scalar})\, \Omega^{-2n} \Dqsqr^n \holH{0}
+\end{equation}
+We used the commutation rule for $\Dqsqr$ and $\Omega^{-2}$.
+The exact value of the scalars involved here could be computed easily, though
+they are not relevant for our purposes (except for the fact they are all non-zero).
+Since $g$ belongs to $\holS{0}$ we may apply (\ref{eq:holqHankel:qdiff:iterated})
+to it, yielding
+$$ \holH{n} g     \:=\:    ({\rm scalar})\, \Omega^{-2n} \Dqsqr^n f. $$
+Now the latter is in $\Hintersect$ because $f\in\Hcore$.
+We have shown that $\holH{n} g \in \Hintersect$ for all $n\in \NN$.
+On the other hand, (\ref{eq:holqHankel:qdiff:iterated}) is also useful in
+the other direction:
+$$ \Dqsqr^n \,g
+       \:=\:   \Dqsqr^n \holH{0} f
+       \:=\:   ({\rm scalar})\, \Omega^{2n} \holH{n}f. $$
+It follows that $\Dqsqr^n \, g \in \Hintersect$ for all $n\in \NN$,
+which completes the $m=0$ case. Now we proceed by induction on $m$.
+Let's assume \Hcore\ to be invariant under $\holH{m-1}$ for some $m\geq 1$,
+and prove that this implies invariance under $\holH{m}$.
+Applying (\ref{eq:holqHankel:qdiff:rewritten}) to an arbitrarily chosen $f\in\Hcore$ yields
+$$  \holH{m} f \:=\: ({\rm scalar})\, \Dqsqr \Omega^{-2} \holH{m-1} f. $$
+By hypothesis $\holH{m-1} f$ belongs to \Hcore\ again, and since
+we have already shown that \Hcore\ is invariant under $\Omega^{-2}$ and
+$\Dqsqr$, the result follows.
+
+Invariance under $\til$ follows easily from proposition \ref{prop:qHankel:tilde}\
+together with the fact that $\til$ commutes with $\Dqsqr$.
+It only remains to prove that \Hcore\ is $\Psi$-invariant.
+Therefore consider the $m=1$ case of the second formula in
+proposition \ref{prop:holqHankel:qdiff}\@. Plugging in (\ref{eq:def:nabq}) and
+canceling some scalars, the formula can be rewritten as
+$$ \holH{0} (\id - q^2 \Omega^2) \holH{1} g     \:=\:   \Psi g $$
+for $g\in\holS{1}$ and a fortiori for $g\in\Hcore$.
+Since we have already established that \Hcore\ is invariant under
+$\holH{0}$, $\holH{1}$ and $\Omega^2$, the result follows.
+\end{proof}
+
+
+
+{\small
+\begin{remark} \label{rem:qHankel:finetuning} \rm
+Again (cf.\ remark \ref{rem:not_constructive}) our approach
+is far from being explicit: still we lack any criterion which
+describes the spaces \Hintersect\ and \Hcore\ in a direct way; we
+merely {\em define\/} \Hcore\ to be the largest space on which one
+can happily take iterated \mbox{$q$-Hankel}\ transforms of any order.
+It is likely that one could do better than this, unraveling all the
+details of \mbox{$q$-Hankel}\ transformation: for instance we
+can perhaps obtain a richer theory if we stick to the original
+system $(\holS{m},\holH{m})_{m\in \ZZ}$, keeping track of the
+orders at any time\ldots (cf.\ \mbox{remark \ref{rem:calculus:finetuning}}).
+In this respect, observe the striking similarity between the properties of
+$(\holS{m})_{m\in \ZZ}$ given in proposition \ref{prop:holqHankel:qdiff},
+and the conditions on the \lq second leg\rq\ of
+$(\calL_m)_{m\in\ZZ}$ in remark \ref{rem:calculus:finetuning}).
+Our main concern however, is to proceed into harmonic analysis on the quantum $E(2)$ group.
+Nevertheless we will show---constructively---that \Hcore\ contains an
+important class of functions.
+$\hfill \star$
+\end{remark}
+}

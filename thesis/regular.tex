@@ -1,0 +1,354 @@
+\section{Regularity} \label{par:regularity}
+
+
+
+\begin{abs_chp}
+Regularity for a Hopf system is mainly about the behaviour of the antipodes.
+It is well-known that a Hopf algebra $(A,\Delta)$ has an {\em invertible\/}
+antipode if and only if also $(A,\flip\Delta)$ is a Hopf algebra;
+in this case the antipodes for $(A,\Delta)$ and $(A,\flip\Delta)$ are each others inverse.
+Below we shall obtain a similar result within the Hopf system framework.
+\end{abs_chp}
+
+
+
+Recall \S \ref{par:opposite}\@.
+If \pairAB\ is a \dpa\ in the sense of example \ref{exC:introduction},
+then so is \pairABop, obviously. The latter involves the
+\contexts\footnote{The superscript $\op$ accompanying $A$ or $B$ will only be
+written when it really matters, e.g.\ in (\ref{eq:ABop:contexts_involved}) we wrote
+$\Aa \equiv (A; B, \pairing)$ rather than $(A; B\op, \pairing)$
+because the product on $B$ is {\em irrelevant\/} at this point.}
+\begin{equation} \label{eq:ABop:contexts_involved}
+   \Aa \equiv (A; B, \pairing)   \andspace{3em}  \BBop \equiv (B\op; A, \pairing).
+\end{equation}
+It is not so clear however, whether the {\em invertibility\/} of \pairAB\ does imply
+the invertibility of \pairABop\@. On the other hand we do have the following:
+
+
+\begin{lemma_sec} \label{lem:ABsymmetry}
+Let\/ \pairAB\ be a \dpa\@.
+Then\/ $\pairAB$ is invertible if and only if\/ $\pair{A\op}{B\op}$ is invertible.
+Similarly, $\pair{A}{B\op}$ is invertible if and only if\/
+$\pair{A\op}{B}$ is invertible.
+\end{lemma_sec}
+
+
+Let us assume---for a moment---that both \pairAB\ and \pairABop\ are invertible.
+Then the pairing between $A$ and $B$ also identifies with an invertible actor for
+$$ \BBopAA   \,\equiv\,  \left(\vertM  B\op \tens A; \, A \tens B, \pairing \right), $$
+say $P\op = (\lpop,\rpop)$.
+So in addition to \lp\ and \rp, we have linear bijections
+\lpop\ and \rpop\ from $A \tens B$ onto $A \tens B$, given by
+
+\begin{equation}\label{eq:lamrhoPop:def}
+\begin{array}{ccccc}
+     \pairM{d \tens c}{\lpop(a \tens b)}
+         &=& \pairM{\Pop}{(a \ractop d) \tens (b \ract c)}
+         &=& \pairM{d \lact a}{b \ract c}
+     \\
+     \pairM{d \tens c}{\rpop(a \tens b)}
+         &=&        \pairM{\Pop}{(d \lactop a) \tens (c \lact b)}
+         &\vertL=&  \pairM{a \ract d}{c \lact b}
+\end{array}
+\end{equation}
+
+for any $a,c \in A$ and $b,d \in B$. Furthermore, according to lemma \ref{lem:ABsymmetry},
+we now have actually {\em four\/} invertible dual pairs,
+$$ \pairAB           \hspace{4em}
+   \pair{A}{B\op}    \hspace{4em}
+   \pair{A\op}{B}    \hspace{4em}
+   \pair{A\op}{B\op}$$
+{\em each\/} of which induces an antipode either on $A$ or $A\op$, say {\em respectively}
+$$ \SA, \, \SA\op : A \rarr \Env(\Aa)
+         \hspace{5em}
+   ^{\rm op}\!\SA, \, ^{\rm op}\!\SA\op \, : A\op \rarr \Env(\Aa\op) $$
+and something similar for the antipodes on $B$ and $B\op$.
+Now it is not so hard to see that for instance
+$^{\rm op}\!\SA\op = \SA$ and $^{\rm op}\!\SA = \SA\op$,
+provided that we either consider these antipodes simply as linear maps from
+$A$ into $B'$, or otherwise take into account the appropriate $\id\op$
+anti-isomorphisms of \S \ref{par:opposite}\@.
+Therefore only $\SA, \SB$ and $\SA\op, \SB\op$ shall be used henceforth,
+although the above may be instructive if one wants to
+appreciate the {\em symmetry\/} between $A$ and $B$.
+Anyway,
+$$  \SA\op : A \rarr \Env(\Aa)         \andspace{3em}
+    \SB\op : B\op \rarr \Env(\BBop)   $$
+are the antipodes associated with \pairABop.
+
+
+\begin{lemma_sec}
+If\/ \pairAB\ and\/ \pairABop\ are invertible dual pairs of algebras, then
+\begin{equation} \label{eq:lam_lamop:commutation}
+\begin{array}{lcl}
+(\lpop)_{21} \mbox{ commutes with\/ } (\lp)_{23}
+& \hspace{1em} & (\lpop)_{32} \mbox{ commutes with\/ } (\rp)_{12}
+\\
+(\rpop)_{21} \mbox{ commutes with\/ } (\rp)_{23}
+& \vertL & (\rpop)_{32} \mbox{ commutes with\/ } (\lp)_{12}
+  \end{array}
+\end{equation}
+\end{lemma_sec}
+
+\begin{proof}
+Recall that $P\op = (\lpop,\rpop)$ is an actor for $\BBopAA$, hence
+$(\rpop,\lpop)$ is an actor for $(\BBopAA)\op= \BB \tens \Aa\op$
+(cf.\ \S \ref{par:opposite}). So if we define
+$\alpha = \flip \rpop \flip$ and $\beta = \flip \lpop \flip$,
+then $(\alpha,\beta)$ is an actor for $\Aa\op \tens \BB$.
+Now invoke lemma \ref{lem:commutation:id_tens_lamP}\ with $\EE=\Aa\op$.
+This yields the commutation rules in the left column of
+(\ref{eq:lam_lamop:commutation}).
+Those in the right column are obtained similarly from an appropriate
+analogue of lemma \ref{lem:commutation:id_tens_lamP}\
+(involving $\BBAA\tens\EE$ rather than $\EE\tens\BBAA$) with $\EE=\BBop$.
+\end{proof}
+
+
+
+\begin{lemma_sec} \label{lem:ABop_invertible_implies_Hopf_system}
+Let\/ \pairAB\ be any Hopf system.
+If\/ \pairABop\ is invertible, then\/ \pairABop\ is again a Hopf system.
+\end{lemma_sec}
+\begin{proof}
+This is immediately clear from proposition \ref{prop:multiplicative:comultiplications}\@.
+However, we did say that comultiplications are in fact obsolete in our theory,
+so we shall give a proof not relying on comultiplications: using the previous lemma
+(and rearranging the \lq legs\rq\ if necessary) we obtain
+for all $a,c\in A$ and $b,d\in B$ that
+\begin{eqnarray*}
+      \pairflipM{\rp(a \tens b)}{\lp(c\tens d)}
+  &=&
+      \pairM{P\op_{14} \, P\op_{32}}{(\rp)_{12} \, (\lp)_{34} \, (a \tens b \tens c \tens d)}
+\\&=\vertL&
+      \pairM{\eps}{(\rpop)_{14} \, (\lpop)_{32} \,
+                   (\rp)_{12}   \, (\lp)_{34}   \,
+                   (a \tens b \tens c \tens d)}
+\\&\stackrel{(\ref{eq:lam_lamop:commutation})}{=}&
+      \pairM{\eps}{(\rp)_{12}   \, (\lp)_{34}   \,
+                   (\rpop)_{14} \, (\lpop)_{32} \,
+                   (a \tens b \tens c \tens d)}
+\\&\stackrel{(*)}{=}&
+      \pairM{\eps}{(\rp)_{14}   \, (\lp)_{32}   \,
+                   (\rpop)_{12} \, (\lpop)_{34} \,
+                   (a \tens d \tens c \tens b)}
+\\&=\vertL&
+      \pairM{P_{14} \, P_{32}}{(\rpop)_{12} \, (\lpop)_{34} \,
+                   (a \tens d \tens c \tens b)}
+\\&=\vertL&
+      \pairflipM{\rpop(a \tens d)}{\lpop(c\tens b)}
+\end{eqnarray*}
+where $\eps \equiv \epsA \tens \epsB \tens \epsA \tens \epsB$
+(recall that \BB\ and $\BBop$ share the counit $\epsA$).
+In $(*)$ we interchanged legs 2 and 4 (notice that this does not affect $\eps$).
+\end{proof}
+
+
+\begin{lemma_sec}  \label{lem:lamrhoPop:antipode}
+If\/ \pairAB\ is a Hopf system, then for any\/ $a,c \in A$ and\/ $b,d \in B$
+\begin{eqnarray*}
+  \pairM{d \tens c}{(\id \tens \SB)\rp^{-1}(a \tens b)}
+         &=&  \pairM{d \lact a}{\SB(b) \ract c}
+       %   \label{eq:lamPop:antipode1}
+  \\
+  \pairM{d \tens c}{(\id \tens \SB)\lp^{-1}(a \tens b)}
+         &=&  \pairM{a \ract d}{c \lact \SB(b)}.
+       %  \label{eq:rhoPop:antipode2}
+\end{eqnarray*}
+\end{lemma_sec}
+
+\begin{proof}
+We show the second formula. Anti-multiplicativity of\/ $\SA$ yields
+\begin{eqnarray*}
+       \pairM{a \ract d}{c \lact \SB(b)}
+  &=&
+       \pairM{(a \ract d)c}{\SB(b)}
+\\&=&
+       \pairM{\SA(c) \, \SA(a \ract d)}{b}
+\\&=&
+       \pairM{\SA(a \ract d)}{b \ract \SA(c)}
+\\&=&
+       \pairM{P^{-1}}{(a \ract d) \tens \left(b \ract \SA(c) \vertM\right)}
+\\&=&
+       \pairM{\left( d \tens \SA(c) \vertM\right) P^{-1}}{a \tens b}
+\\&=&
+       \pairM{d \tens c}{(\id \tens \SB)\lp^{-1}(a \tens b)}.
+\end{eqnarray*}
+The other formula is similar.
+\end{proof}
+
+
+
+
+\begin{lemma_sec} \label{lem:bijective_S_implies_ABop_invertible}
+Let\/ \pairAB\ be any Hopf system.
+If\/ $\SB$ is a bijection from\/ $B$ onto\/ $B$, then \pairABop\ is invertible.
+By symmetry, the same conclusion applies when\/ $\SA$ is a bijection from\/
+$A$ onto\/ $A$
+(cf.\ lemma \ref{lem:ABsymmetry}).
+\end{lemma_sec}
+\begin{proof}
+Assume $\SB$ to be a bijection from $B$ onto $B$.
+First we have to show that the pairing between $A$ and $B$
+indeed induces an {\em actor\/} for \BBopAA, i.e.\ that the functional
+$A \tens B \rarr \kk : a \tens b \mapsto \pair{a}{b}$
+is \stricta\ continuous within the \context\ \BBopAA\
+(cf.\ remark \ref{rem:warning:P_strict_cont}).
+In particular we have to prove that given any $a \in A$ and $b \in B$
+there exist $x,y \in A \tens B$ such that
+(cf.\ equation \ref{eq:lamrhoPop:def})
+$$  \pairM{d \lact a}{b \ract c}    \:=\:   \pairM{d \tens c}{x}
+           \hspace{5em}
+    \pairM{a \ract d}{c \lact b}    \:=\:   \pairM{d \tens c}{y}.     $$
+for all $c \in A$ and $d \in B$.
+From lemma \ref{lem:lamrhoPop:antipode}\ it is clear that
+$$  x = (\id \tens \SB)\rp^{-1} \! \left(a \tens \SB^{-1}(b) \vertM\right)
+      \hspace{4em}
+    y = (\id \tens \SB)\lp^{-1} \! \left(a \tens \SB^{-1}(b) \vertM\right)  $$
+will do the job.
+So the pairing indeed corresponds to an actor for \BBopAA,
+say $(\lpop,\rpop)$, where
+\begin{equation} \label{eq:lamrhoPop:antipodes:bijective}
+\begin{array}{ccc}
+   \lpop &=& (\id \tens \SB)\rp^{-1} (\id \tens \SB^{-1})
+   \\
+   \rpop &\vertL=& (\id \tens \SB)\lp^{-1} (\id \tens \SB^{-1})
+\end{array}
+\end{equation}
+are bijections from $A \tens B$ onto $A \tens B$.
+Now it only remains to show that the pair $\left((\lpop)^{-1}, (\rpop)^{-1} \vertM\right)$
+is still an actor for \BBopAA\@.
+To prove this, we shall rely on lemma \ref{lem:char:actor:wu}\@.
+By assumption $(\lp,\rp)$ is an actor for $\BBAA$,
+and hence $(\epsA \tens \epsB) \lp = (\epsA \tens \epsB) \rp$.
+Recall that \BB\ and $\BBop$ share the counit $\epsA$,
+and also recall that $\epsB \SB = \epsB$ (corollary \ref{cor:antipode_and_counit}).
+Taking inverses in (\ref{eq:lamrhoPop:antipodes:bijective}) yields
+\begin{equation}\label{eq:lamrhoPop:antipodes:bijective:bis}
+\begin{array}{ccc}
+   (\lpop)^{-1} &=& (\id \tens \SB)\rp (\id \tens \SB^{-1})
+\\
+   (\rpop)^{-1} &\vertL=& (\id \tens \SB)\lp (\id \tens \SB^{-1})
+\end{array}
+\end{equation}
+If we now apply $\epsA \tens \epsB$, we obtain
+$(\epsA \tens \epsB) \circ (\lpop)^{-1}  =  (\epsA \tens \epsB) \circ (\rpop)^{-1}$.
+The result follows from lemma \ref{lem:char:actor:wu}\@.
+\end{proof}
+
+
+
+\begin{lemma_sec} \label{lem:ABop_invertible_implies_SSop_equal_id}
+Let\/ \pairAB\ be any Hopf system, and assume also\/ \pairABop\ to be a Hopf system.
+If\/ $\SB(B) \subseteq B$, then\/ $\SB\op \SB = \id$.
+\end{lemma_sec}
+\begin{proof}
+Combining lemma \ref{lem:lamrhoPop:antipode}\ with (\ref{eq:lamrhoPop:def})
+we obtain
+\begin{equation} \label{eq:lamrhoPop:antipodes:commutation}
+\begin{array}{lll}
+   \lpop (\id \tens \SB) &=& (\id \tens \SB)\rp^{-1}
+   \\
+   \rpop (\id \tens \SB) &=\vertL& (\id \tens \SB)\lp^{-1},
+\end{array}
+\end{equation}
+which is completely similar to (\ref{eq:lamrhoPop:antipodes:bijective}),
+though now obtained in a different setting.
+By assumption $\lpop$ and $\rpop$ are bijective, hence e.g.\ the second formula in
+(\ref{eq:lamrhoPop:antipodes:commutation}) can be rewritten as
+$(\id \tens \SB) \lp = (\rpop)^{-1} (\id \tens \SB)$, and
+thus we get for any $a,c \in A$ and $b,d \in B$ that
+\begin{eqnarray*}
+       \pairM{d \tens c}{(\id \tens \SB)\lp(a \tens b)}
+  &=&
+       \pairM{d \tens c}{(\rpop)^{-1}\!\left(\vertM  a \tens \SB(b)\right)}
+\\&=&
+       \pairM{(\Pop)^{-1}}{(d \lactop a) \tens \left(\vertM c \lact \SB(b)\right)}
+\\&=&
+       \pairM{\SA\op(a \ract d)}{c \lact \SB(b)}
+\\&=&
+       \pairM{\SA\op(a \ract d) \,c}{\SB(b)}
+\\&=&
+       \pairM{c}{\SB(b) \ract \SA\op(a \ract d)}.
+\end{eqnarray*}
+On the other hand we also have
+\begin{eqnarray*}
+       \pairM{d \tens c}{(\id \tens \SB)\lp(a \tens b)}
+  &=&
+       \pairM{\left(\vertM  d \tens \SA(c)\right)P}{a \tens b}
+\\&=&
+       \pairM{P}{(a \tens b) \ract \left(\vertM d \tens \SA(c)\right)}
+\\&=&
+       \pairM{a \ract d}{b \ract \SA(c)}
+\\&=&
+       \pairM{\SA(c)\,(a \ract d)}{b}
+\\&=&
+       \pairM{\SA(c)}{(a \ract d) \lact b}
+\\&=&
+       \pairM{c}{\SB \! \left(\vertM (a \ract d) \lact b \right)}.
+\end{eqnarray*}
+Since $A \ract B = A$, it follows that for all $a \in A$ and $b \in B$
+\begin{equation}\label{eq:lem:SopS:id}
+  \SB(b) \ract \SA\op(a)  \:=\: \SB(a \lact b).
+\end{equation}
+Observe that it was essential to assume $\SB(B) \subseteq B$, in order to be
+able to make the above computations.
+For the same reason we may now apply $\epsB$ to (\ref{eq:lem:SopS:id}).
+Together with the fact that $\epsB \SB = \epsB$
+(corollary \ref{cor:antipode_and_counit}) we get
+$$ \pairM{a}{\SB\op (\SB(b))}  \:=\: \pairM{\SA\op(a)}{\SB(b)}  \:=\: \pairM{a}{b} $$
+and we conclude that $\SB\op(\SB(b)) = b$.
+\end{proof}
+\vspace{2ex}
+
+Of course a similar result applies to the antipodes on $A$, by symmetry.
+On the other hand, interchanging the roles of \pairAB\ and \pairABop\ yields
+
+\begin{cor_sec}
+If\/ $\SB\op(B) \subseteq B$, then\/ $\SB \SB\op = \id$.
+\end{cor_sec}
+
+\begin{cor_sec}  \label{cor:ABop_invertible_implies_S_bijection}
+When both\/ $\SB(B) \subseteq B$ and\/ $\SB\op(B) \subseteq B$,
+then\/ $\SB$ and\/ $\SB\op$ are bijections from\/ $B$ onto\/ $B$.
+Furthermore\/ $\SB^{-1} = \SB\op$.
+\end{cor_sec}
+
+
+
+\begin{prop_sec} \label{prop:regular:hs}
+Let\/ \pairAB\ be a Hopf system. The following are equivalent:
+\begin{enumerate}
+\item
+$\SA$ and\/ $\SB$ are bijections,
+resp.\ from\/ $A$ onto\/ $A$ and from\/ $B$ onto\/ $B$.
+\item
+The pair \pairABop\ is a Hopf system and the antipodes\/
+$\SA$ and\/ $\SA\op$ leave\/ $A$ invariant, whereas\/ $\SB$ and\/ $\SB\op$
+leave\/ $B$ invariant, e.g.\ $\SA(A) \subseteq A$, etc.
+\end{enumerate}
+\end{prop_sec}
+
+\begin{proof}
+(i) $\Rightarrow$ (ii).
+According to lemma \ref{lem:bijective_S_implies_ABop_invertible},
+the pair \pairABop\ is invertible, and therefore a Hopf system
+(cf.\ lemma \ref{lem:ABop_invertible_implies_Hopf_system}).
+Now lemma \ref{lem:ABop_invertible_implies_SSop_equal_id}\
+yields $\SB\op \SB = \id$, and analogously we have $\SA\op \SA = \id$.
+Since by assumption $\SA(A)=A$ and $\SB(B)=B$, it follows that
+$\SA\op(A) = A$ and $\SB\op(B) = B$.
+
+(ii) $\Rightarrow$ (i). Corollary \ref{cor:ABop_invertible_implies_S_bijection}\
+and its analogue for the antipodes on $A$.
+\end{proof}
+
+
+\begin{defn_sec} \label{def:regular:hs}
+A Hopf system \pairAB\ is said to be {\em regular\/} whenever it enjoys
+the equivalent conditions (i-ii) in the previous proposition.
+\end{defn_sec}
+
+An example of a non-regular Hopf system will be given in example
+\ref{ex:non_regular_Hopf_system}\@.

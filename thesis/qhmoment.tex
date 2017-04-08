@@ -1,0 +1,163 @@
+
+\begin{abs_chp}
+The $q$-moment problem will play a key-role in establishing
+{\em uniqueness\/} of Fourier transforms for quantum E(2).
+Moreover, one of the intermediate results in the present paragraph shall
+also be crucial for the {\em construction\/} of these Fourier transforms.
+In classical moment problems the question typically reads as follows:
+suppose a function of some particular class has vanishing moments;
+may we then conclude that the function itself vanishes everywhere?
+In this paragraph however we shall consider \mbox{$q$-moments},
+i.e.\ moments computed w.r.t.\ a well-known $q$-analogue of the integral.
+Restricting to functions in the space $\Hintersect$ of definition \ref{def:Hcore},
+our $q$-moment problem has positive answer.
+\end{abs_chp}
+
+
+\begin{defn_sec} \label{def:Jackson_integral}
+Let $f$ be any complex valued function defined on some subset of
+$\CC$ containing the points $q^{n}$ with $n\in \ZZ$.
+The $q$-integral (or {\em Jackson\/} integral) of $f$ is then defined by
+$$ \int_0^\infty f(x)\, d_q x  \;=\;  (1-q) \sum_{n\in \ZZ} \: f(q^{n}) \, q^{n} $$
+provided the summation in the {\sc rhs} converges absolutely.
+\end{defn_sec}
+
+
+Notice this is different from integration on $\RR_q^+ \equiv (\RR_q^+,m_q)$
+as introduced at the beginning of section \S \ref{sec:qHankel}\@.
+Furthermore we shall actually be dealing with $q^2$-integration rather
+than $q$-integration.
+\vspace{2ex}
+
+First we establish a link between $q^2$-moments and $q$-Hankel transformation:
+
+
+\begin{prop_sec} \label{prop:moment:link_with_Hankel}
+Take any\/ $m\in \NN$ and\/ $f\in\holS{m}$. Then
+$$ (1-q^2)\:(q^2;q^2)_m \, (\holH{m}f)(0)
+            \;=\, \int_0^\infty x^m f(x)\, d_{q^2}x.  $$
+Observe that the\/ $q^2$-integral is well-defined since\/ $f$ belongs to\/ $\Swqbis$.
+\end{prop_sec}
+
+\begin{proof}
+Let $(f,g)$ be an \Hmpair\@.
+In the proof of proposition \ref{prop:exist:holomorphic_qHankel}\
+we observed that $(\holH{m}f)(z^2) = z^{-m} g(z)$ for all $z\in \CC_0$.
+In particular we obtain for any $k \in \ZZ$ that
+\begin{eqnarray*}
+    (\holH{m}f)(q^{2k})
+&=&
+    q^{-mk} \, g(q^k)
+\\&=&
+    q^{-mk} \, (H_m R_q \Psi^m K f)(q^k)
+\\&\stackrel{(\ref{eq:qHankeltransform:def})}{=}&
+    \sum_{n\in \ZZ} \: q^{-m(n+k)} \J{m}{q^{n+k}}\, q^{2(m+1)n}  f(q^{2n})
+\\&=&
+    \sum_{n\in \ZZ} \: \varJ{m}(q^{n+k}) \, q^{2(m+1)n}  f(q^{2n})
+\end{eqnarray*}
+where $\varJ{m}$ is the entire function satisfying
+$$\varJ{m}(z) \:=\: z^{-m} \J{m}{z} $$
+for all $z\in \CC_0$
+(the singularity at the origin being removable, cf.\ lemma \ref{lemma:def:qBessel}).
+For any $k,n \in \ZZ$, let $t_{n,k}$ denote the number
+$$ t_{n,k}  \:=\; \varJ{m}(q^{n+k}) \, q^{2(m+1)n}  f(q^{2n}). $$
+Since $\holH{m}f$ is entire, it is a fortiori continuous at the origin,
+and therefore
+\begin{equation}\label{eq:moment:holHmf_at zero:limit:full_summ}
+   (\holH{m}f)(0) \:=\; \lim_{k \rarr +\infty} (\holH{m}f)(q^{2k})
+        \:=\; \lim_{k \rarr +\infty}
+               \left(\vertL \textstyle \sum_{n\in \ZZ} \, t_{n,k}\right)
+   \hspace{1em}
+\end{equation}
+Now comes the tricky part: we have to compute the above limit, which amounts to
+interchanging the limit and the summation. To do so, we rely on dominated
+convergence and the estimate (\ref{eq:qBessel:estimate:bis}) for the \little\
+$q$-Bessel functions: indeed, whenever $n\in\ZZ$ and $k\in\NN$ with $k+n \geq 0$, we have
+$$   |t_{n,k}|  \;\leq\;   C_m  \, q^{2(m+1)n} \, |f(q^{2n})|.   $$
+On the other hand, if $k+n \leq 0$, then $n \leq -k \leq 0$, hence $q^{-k}\leq q^n$ and
+\begin{eqnarray*}
+     |t_{n,k}|
+&\leq&
+     C_m \: q^{-2m(n+k)} \:  q^{2(m+1)n} \, |f(q^{2n})|
+\\&=&
+     C_m \: q^{-2mk} \:  q^{2n} \, |f(q^{2n})|
+\\&\leq&
+     C_m \: q^{2mn} \:  q^{2n} \, |f(q^{2n})|.
+\end{eqnarray*}
+In both cases it follows that
+$$   |t_{n,k}|  \;\leq\;   C_m  \, B_m  $$
+where
+$$  B_m \;=\; \sup \left\{ \, |f(q^{2n})| \:  q^{2n(m+1)} \left| \vertL\right.
+                            n\in \ZZ \right\} \;<\; \infty  $$
+because $f$ belongs to $\Swqbis$.
+Thus (\ref{eq:moment:holHmf_at zero:limit:full_summ}) becomes
+\begin{eqnarray*}
+(\holH{m}f)(0)
+&=&
+    \sum_{n\in \ZZ} \; \lim_{k \rarr +\infty}  t_{n,k}
+\\&=&
+    \varJ{m}(0) \:
+       \sum_{n\in \ZZ} \, q^{2mn}\, f(q^{2n}) \, q^{2n}
+\\&=&
+    \frac{\varJ{m}(0)}{1-q^2} \: \int_0^\infty x^m f(x)\, d_{q^2}x.
+\end{eqnarray*}
+Now it only remains to compute $\varJ{m}(0)$. It is clear however
+that $\varJ{m}(0)$ is nothing but the $(k=0)$-coefficient in the
+power series (\ref{eq:def:qBessel}) defining the \little\ $q^2$-Bessel functions
+($q$ replaced with $q^2$). Thus we obtain
+$$ \varJ{m}(0) \:=\:  \frac{(q^{2(m+1)};q^2)_\infty}{(q^2;q^2)_\infty}
+               \:=\:  \frac{1}{(q^2;q^2)_m}. $$
+This completes the proof.
+\end{proof}
+
+
+
+\begin{lemma_sec} \label{lemma:moment:all_qderivs_zero}
+If\/ $f$ is an entire function such that\/ $(D_q^m f)(0) = 0$ for all\/ $m\in \NN$,
+then\/ $f=0$.
+\end{lemma_sec}
+
+\begin{proof}
+Let's first introduce the following notion of $q$-factorials: for $n\in \NN$, put
+$$ \varqfac{n}  \:=\: \frac{1-q^n}{1-q}
+         \hspace{4.5em}
+   \varqfac{0}! \:=\, 1
+         \hspace{4.5em}
+   \varqfac{n}! \:=\: \varqfac{1} \varqfac{2} \ldots \varqfac{n}.  $$
+Now let $f(z) = \sum_{k=0}^\infty \, a_k \,z^k$ be the power series of $f$
+around the origin. Then
+$$ (D_q f)(z)
+       \;=\; \frac{1}{(1-q)z} \left(\:
+             \sum_{k=0}^\infty a_k\, z^k   \:-\:   \sum_{k=0}^\infty a_k\, (q z)^k  \right)
+       \;=\; \sum_{k=1}^\infty \: \varqfac{k} \, a_k \, z^{k-1} $$
+for all $z\in \CC_0$ (and hence also for $z=0$).
+Iterating this $m\in \NN$ times and then evaluating at the origin, we obtain
+$(D_q^m f)(0) = \varqfac{m}! \, a_m$. The result follows.
+\end{proof}
+
+
+
+
+\begin{lemma_sec}
+If\/ $f\in\Hintersect$ such that\/ $(\holH{m}f)(0) = 0$ for all\/ $m\in \NN$, then\/ $f=0$.
+\end{lemma_sec}
+
+\begin{proof}
+Recall the formula (\ref{eq:holqHankel:qdiff:iterated}) which was
+derived from proposition \ref{prop:holqHankel:qdiff}, and apply it to $f$:
+$$  \holH{m} f \:=\: ({\rm scalar})\, \Omega^{-2m} \Dqsqr^m \holH{0} f $$
+With our assumptions it follows that $(\Dqsqr^m \holH{0} f)(0) = 0$ for all $m\in \NN$.
+Because $\holH{0} f$ is entire,
+lemma \ref{lemma:moment:all_qderivs_zero}\ ($q$ replaced with $q^2$)
+yields the result.
+\end{proof}
+\vspace{2ex}
+
+
+Combining the above lemma with proposition \ref{prop:moment:link_with_Hankel}, we get
+
+\begin{thm_sec} \label{thm:qmoment}
+If\/ $f\in\Hintersect$ has vanishing\/ $q^2$-moments, i.e.
+$$ \int_0^\infty x^m f(x)\: d_{q^2}x \;=\: 0$$
+for all\/ $m\in\NN$, then\/ $f=0$.
+\end{thm_sec}

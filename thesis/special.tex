@@ -1,0 +1,98 @@
+
+\section{Special cases}
+
+\subsection{The commutative case} \label{par:comm_case}
+
+When $\Om$ is a bimodule over some algebra $E$, we shall use $\mbox{\rm End}_E(\Om)$
+to denote the algebra of all \Ebimod\ morphisms from $\Om$ into $\Om$.
+If $E$ is {\em commutative}, then $ \mbox{\rm End}_E(\Om)$ is again an \Ebimod,
+the actions (denoted by juxtaposition) of an element $x\in E$ on a morphism
+$\gamma \in  \mbox{\rm End}_E(\Om)$ being given by
+$$ (x \gamma)(\om) \,=\,  x \lact \gamma(\om)   \andspace{2em}
+   (\gamma x)(\om) \,=\,  \gamma(\om) \ract x   \hspace{3em}  (\om \in \Om). $$
+
+
+\begin{prop} \label{prop:comm_case}
+  Let\/ $\EE \equiv \EOP$ be an \context, $E$ commutative and\/ $\Om$ unital as an
+  \Ebimod\ \mbox{\rm (\S \ref{sec:conventions})}\@. Then we have natural isomorphisms
+  $$ \ActE  \,\simeq\, \mbox{\rm End}_E(\Om)    \itandspace{3em}
+     \EnvE  \,\simeq\: \mbox{\rm Center}\left(\mbox{\rm End}_E(\Om)\vertM\right) $$
+  of $E$-bimodules and algebras respectively
+  (recall lemma \ref{lem:Act_is_submodule}\ and corollary \ref{cor:Env_is_an_algebra}).
+  In particular we observe that\/ \EnvE\ is again commutative.
+\end{prop}
+
+\begin{proof}
+  Since $(\Om,\pairing)$ is an actor implementation of a commutative algebra $E$,
+  the left and right $E$-module structures on $\Om$ must coincide,
+  i.e.\ $x\lact \om = \om \ract x$ for all $x \in E$ and $\om \in \Om$\@.
+  Let $a\equiv(\lam,\rho)$ be any actor for \EE\@.
+  Since $\lam$ is now both a left and right $E$-module morphism,
+  we get for all $x,y \in E$ and $\om \in \Om$ that
+  $$ \pair{x}{\rho(\om \ract y)}    \:\stackrel{(\ref{eq:bi-actor})}{=}\:
+                \pair{y}{\lam(x\lact\om)}
+          \,=\, \pair{y}{x \lact \lam(\om)}
+          \,=\, \pair{yx}{\lam(\om)}
+          \,=\, \pair{x}{\lam(\om \ract y)}. $$
+  Since by assumption $\Om \ract E = \Om$, it follows that $\lam=\rho$. Hence $a$ is of
+  the form $(\gamma,\gamma)$ with $\gamma \equiv \lam=\rho \in {\rm End}_E(\Om)$\@.
+  Thus we get a well-defined linear bijection
+  $$\Phi : {\rm End}_E(\Om) \rarr \ActE : \gamma \mapsto (\gamma,\gamma)$$
+  which is easily seen to be an isomorphism of $E$-bimodules,
+  and moreover restricts to an algebra isomorphism
+  of ${\rm Center}({\rm End}_E(\Om))$ onto \EnvE\@.
+  Indeed, for any $\gamma_1,\gamma_2 \in {\rm End}_E(\Om)$ we observe that
+  $ \Phi(\gamma_1) \Phi(\gamma_2) = (\gamma_1\gamma_2, \gamma_2\gamma_1) $
+  belongs to \ActE\ again if and only if $\gamma_1$ and $\gamma_2$ commute.
+  The result follows.
+\end{proof}
+
+
+\begin{exA} \label{exA:comm_case:revisited}
+  Recall the \context\/ $\FF \equiv (F; \kk S, \pairing)$ of example
+  {\rm A \ref{exA:introduction}}\@.
+  We now have  ${\rm Act}(\FF) = {\rm Env}(\FF) \simeq \kk^S.$
+\end{exA}
+
+\begin{proof}
+First observe that \FF\ is nothing but a \lq restricted\rq\ version of
+the \context\ $(\kk^S; \kk S, \pairing)$.
+For every function $g\in \kk^S$ we consider a linear map $\gamma_g : \kk S \rarr  \kk S$
+defined by $\gamma_g(\delta_s) = g(s)\,\delta_s$. Thus we get an injective algebra morphism
+$\Gamma : \kk^S \rarr  {\rm End}_F(\kk S) : g \mapsto \gamma_g$.
+To prove that $\Gamma$ is surjective, take any $\gamma \in {\rm End}_F(\kk S)$
+and define $g\in \kk^S$ by $g(s) = \pair{1}{\gamma(\delta_s)}$.
+Here $1$ denotes the identity in $\kk^S$.
+Using the $F$-bimodule property of $\gamma$ and the non-degeneracy of $\pair{F}{\kk S}$
+it follows easily that $\gamma_g=\gamma$.
+Now $\Gamma$ is an algebra isomorphism, hence ${\rm End}_F(\kk S) \simeq \kk^S$ is
+commutative; proposition \ref{prop:comm_case}\ yields the result.
+Also observe that $\Phi\Gamma$ (with $\Phi$ as in the above proof)
+is an algebra isomorphism from $\kk^S$ onto ${\rm Env}(\FF)$ extending
+the natural embedding of $F$ in ${\rm Env}(\FF)$.
+\end{proof}
+
+
+
+
+\subsection{Pseudo-discrete \contexts}
+
+\begin{defn} \label{def:pseudo_discrete}
+A non-degenerate \context\ \EE\ is called {\em pseudo-discrete\/} if $M(\EE) = \ActE$.
+\end{defn}
+
+In chapter \ref{chapter:Hopf_systems}, theorem \ref{thm:mhs_yields_mha}, we
+shall encounter a large class of pseudo-discrete \contexts, arising from \mha s
+with invariant functionals. The terminology is inspired by the following
+
+\begin{exA}
+Let\/ $X$ be a locally compact Hausdorff space and consider the \context\/
+$\KK_X \! \equiv (K(X); \, \kk X, \pairing)$ as introduced in example \ref{exA:introduction}\@.
+Then\/ $\KK_X \!$ is pseudo-discrete if and only if\/ $X$ is discrete.
+\end{exA}
+\begin{proof}
+According to example \ref{exA:comm_case:revisited}\ we have $\Act(\KK_X \!) \simeq \kk^X \!$.
+On the other hand $M(\KK_X \!) \simeq M(K(X)) \simeq C(X)$.
+Hence $M(\KK_X \!) = \Act(\KK_X \!)$ if and only if
+every complex function on $X$ is continuous.
+\end{proof}

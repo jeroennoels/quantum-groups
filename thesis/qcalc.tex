@@ -1,0 +1,68 @@
+
+
+\chapter{$q$-calculus} \label{app:qcalc}
+
+
+Fix any non-zero complex number $q$. For any $m \in \NN$, the {\em $q$-number\/}
+$[m]_q$ is defined by
+$$  [m]_q  \:=\:  \frac{q^m - q^{-m}}{q - q^{-1}}.  $$
+We also consider the {\em $q$-factorial\/} $\qfac{m}$ given by
+$$  \qfac{m}  \:=\:  [1]_q [2]_q \ldots [m]_q     \hspace{5em} \qfac{0} = 1, $$
+and the {\em $q$-shifted factorial\/} $(a;q)_m$ defined by
+$$ (a;q)_m    \:=\:  \prod_{k=0}^{m-1} (1-a q^k)  \hspace{5em} (a;q)_0 =1  $$
+for any $a\in \CC$. These two are closely related by the formula \cite{Schmudgen}
+$$ \qfac{m}   \:=\: \frac{q^{-\frac{1}{2}m(m-1)}}{(1-q^2)^m} \, (q^2;q^2)_m. $$
+
+
+
+\paragraph{The $q$-Exponential function}
+Let $q$ be any real number with $0<q<1$.
+
+\begin{defn_chp} \label{def:shifted_factorial:qExp}
+Take any $z\in \CC$ and recall the $q$-shifted factorials $(z;q)_m$ as introduced above.
+Since $0<q<1$, the limit $m\rarr \infty$ is well defined and yields
+\begin{equation}\label{eq:shifted_factorial:infty}
+(z;q)_\infty  \:=\: \lim_{m\rarr \infty} (z;q)_m
+              \:=\: \prod_{k=0}^{\infty} (1-q^k z).
+\end{equation}
+Now the $q$-Exponential $E_q : \CC \rarr \CC$ is defined by $E_q(z)=(-z;q)_\infty$.
+\end{defn_chp}
+
+
+\begin{remark_chp} \rm
+According to Weierstra\ss\ theory of entire functions and canonical products,
+(\ref{eq:shifted_factorial:infty}) defines an entire function in $z$,
+having simple zeros at the points $q^{-k}$ for $k\in \NN$, and no zeros
+elsewhere. Notice that it is essential that $0<q<1$ to ensure the convergence
+of (\ref{eq:shifted_factorial:infty}).
+It should be noted that there exist other $q$-analogues of the
+exponential function as well, but the above one is the most suitable for our purposes.
+\hfill $\star$
+\end{remark_chp}
+
+
+\begin{prop_chp} \label{prop:def:qExp}
+The\/ $q$-Exponential\/ $E_q$ is entire and has the following power series at the origin:
+\begin{equation}\label{eq:qExp:powerseries}
+  E_q(z)\:=\; \sum_{n=0}^\infty \:\frac{q^{\frac{1}{2}n(n-1)}}{(q;q)_n} \, z^n
+\end{equation}
+for any\/ $z\in \CC$. Furthermore\/ $E_q(-q^{-k})=(q^{-k};q)_\infty=0$ for all\/ $k\in \NN$.
+\end{prop_chp}
+
+\begin{proof}
+See above remark; also (\ref{eq:qExp:powerseries}) is a standard result in $q$-calculus.
+\end{proof}
+
+
+
+
+
+\paragraph{The $q$-derivative}
+Whenever $f \in H(\CC)$ we consider the function
+\begin{equation}\label{eq:def:qderivative}
+  \CC_0 \rarr \CC : z \mapsto \frac{f(z)-f(qz)}{(1-q)z}
+\end{equation}
+which is holomorphic on $\CC_0$ and obviously has a removable
+singularity at the origin. Hence (\ref{eq:def:qderivative})
+actually defines an {\em entire\/} function again, which we denote
+by $D_q f$. This yields a linear operator $D_q: \HC \rarr \HC$.

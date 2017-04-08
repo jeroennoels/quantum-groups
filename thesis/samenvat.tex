@@ -1,0 +1,579 @@
+\documentclass{book}
+\usepackage{amssymb,amscd,fancyheadings}
+\includeonly{}
+
+\evensidemargin=24.5mm
+
+\input{headdutch}
+\input{preambledutch}
+\input{e2preamb}
+
+
+
+\renewcommand{\thesection}{\arabic{section}}
+\parskip=1ex
+
+\begin{document}
+\chapter*{Nederlandse samenvatting}
+\section{Inleiding}
+
+Gegeven een algebra $E$ beschouwen we de {\em canonieke acties\/} van $E$ op de
+duale vectorruimte $E'$. Deze zijn gedefinieerd door
+$$  \pair{x}{y\lact \om} \:=\: \pair{xy}{\om} \:=\: \pair{y}{\om\ract x} $$
+voor alle $x,y \in E$ en $\om \in E'$.
+Hierdoor wordt $E'$ een bimodule over $E$.
+Deze canonieke acties vormen de rode draad doorheen de thesis.
+Zo zullen we deze acties bijvoorbeeld benutten om een {\em omhullende algebra\/} te construeren,
+via een procedure analoog aan de constructie van de {\em multiplier\/}
+algebra---met dit verschil dat we nu abstractie zullen maken van de bovenstaande acties,
+daar waar men bij de constructie van de multiplier algebra uitgaat van de
+vermenigvuldiging.
+
+Hoewel de theorie van omhullende algebra's op zichzelf niet veel verrassends te bieden heeft,
+is hij onmisbaar voor een goed begrip van de zogenaamde {\em Hopf systemen\/} die in deze
+thesis worden ge\"{\i}ntroduceerd en bestudeerd.
+De notie van een Hopf systeem levert een algemeen algebra\"{\i}sch kader voor dualiteit,
+waarbinnen de reeds bekende theorie van {\em multiplier Hopf algebra's met integralen\/}
+\cite{Fons:AFGD,Fons:AFGD:proc,Fons:pnas}\ een heel natuurlijke plaats inneemt.
+Ook hier weer spelen canonieke acties een essenti\"ele rol in de opbouw van de theorie. \\
+Een van de in de toepassingen meest gewaardeerde resultaten uit de klassieke theorie van
+Hopf algebra's is de befaamde {\em quantum double\/} constructie van \mbox{Drinfel'd}\@.
+Ook voor een ruime klasse van Hopf systemen blijkt het mogelijk een dergelijke
+quantum double te construeren.
+
+
+Tenslotte bestuderen we het voorbeeld van de kwantum $E(2)$ groep, die
+verkregen wordt als een kwantum deformatie van de groep van ori\"entatie-bewarende
+isometrie\"en van het Euclidisch vlak.
+We laten zien hoe deze kwantum groep zich laat beschrijven in termen van een
+duaal paar Hopf algebra's en twee Hopf systemen.
+Opnieuw is een cruciale rol weggelegd voor de bovenvermelde canonieke acties,
+die we hier dan ook concreet zullen uitrekenen.
+Bovendien geven we expliciete formules voor de {\em Fourier transformaties\/} tussen
+kwantum $E(2)$ en zijn duale, bewijzen de Plancherel formules, etc.
+Daarnaast ontwikkelen we ook een axiomatisch algebra\"{\i}sch kader voor harmonische
+analyse, gemodelleerd naar dit kwantum $E(2)$ voorbeeld.
+
+
+\section{De omhullende algebra}
+
+\begin{defn} \rm
+Zij gegeven een algebra $E$ en een \Ebimod\ $\Om$, samen met een niet-ontaarde
+vectorruimte dualiteit $\pairing : E \times \Om \rarr \kk$.
+Zij verder $E'$ uitgerust met zijn canonieke \Ebimod\ structuur.
+Als de canonieke inbedding $\Om \rarr E'$ een \Ebimod\ morfisme is,
+dan noemen we \EOP\ een {\em\context}\@.
+\end{defn}
+
+
+\begin{defn} \rm
+Zij $\EE \equiv \EOP$ een \context, en beschouw twee lineaire afbeeldingen $\lam$ en $\rho$
+van $\Om$ naar $\Om$. We zeggen dan dat het paar $(\lam,\rho)$ een {\em pre-actor\/}
+is voor \EE\ wanneer $\lam$ een rechts $E$-module morfisme is en $\rho$ een
+links $E$-module morfisme. Als bovendien
+\begin{equation} \label{biap}
+   \pair{x}{\rho(\om \ract y)}  \:=\:  \pair{y}{\lam(x\lact\om)}
+\end{equation}
+voor alle $x,y \in E$ en $\om \in \Om$, dan noemen we $(\lam,\rho)$
+een {\em actor\/} voor \EE\@.
+De actoren voor \EE\ vormen duidelijk een vectorruimte, die we zullen noteren met \ActE\@.
+De vectorruimte van alle pre-actoren duiden we aan met \PreE\@.
+\end{defn}
+
+
+In wat volgt is $\EE \equiv \EOP$ een willekeurige \context\@.
+
+\begin{lemma} \label{lem:embedding_of_E}
+Gegeven een\/ $x\in E$ defini\"eren we afbeeldingen\/ $\lam_x, \rho_x : \Om \rarr \Om$
+door\/ $\lam_x(\om) = x \lact \om$ en\/ $\rho_x(\om) = \om \ract x$.
+Dan zal\/ $\lamrho{x} \in \ActE$.
+\end{lemma}
+
+
+\begin{defn} \rm \label{def:product_of_actors}
+Beschouw twee pre-actoren voor \EE, laat ons zeggen
+$x_1 \equiv \lamrho{1}$ en $x_2 \equiv \lamrho{2}$.
+Duidelijk is $(\lam_1\lam_2,\rho_2\rho_1)$ opnieuw een pre-actor voor \EE,
+die we zullen noteren met $x_1 x_2$.
+Dit definieert een vermenigvuldiging die van \PreE\ een algebra maakt
+met eenheid $1_\EE \equiv (\id_\Om,\id_\Om)$.
+\end{defn}
+
+
+Helaas is \ActE\ als deelruimte van \PreE\ niet gesloten onder deze bewerking.
+Met andere woorden, \ActE\ is geen algebra. Wel hebben we het volgende:
+
+\begin{lemma}
+Als de vermenigvuldiging in\/ $E$ niet gedegenereerd is, dan is de afbeelding\/
+$E \rarr \PreE: x \mapsto \lamrho{x}$, zoals gedefinieerd door
+lemma \ref{lem:embedding_of_E}, een injectief algebra morfisme.
+\end{lemma}
+
+In dit geval identificeren we $E$ met de corresponderende deelalgebra van \PreE\@.
+
+\begin{defn} \rm
+We defini\"eren de volgende deelruimte van \PreE:
+$$ \EnvE  \:=\:  \left\{x\in\PreE  \,\left|\vertM\right.\,
+                       x \ActE \subseteq \ActE \supseteq \ActE x \right\}. $$
+Als de vermenigvuldiging in $E$ niet-ontaard is, dan defini\"eren we analoog
+$$ M(\EE) \:=\:  \left\{x\in\PreE  \,\left|\vertM\right.\,
+                       x E  \subseteq E  \supseteq E x \right\}. \hspace{6em} $$
+\end{defn}
+
+
+\begin{lemma} \label{lem:algebras_van_actoren}
+Veronderstel dat\footnote{We zeggen dat $\Om$ {\em unitaal\/} is als \Ebimod;
+het product in $E$ is dan a fortiori niet-ontaard.}
+$E \lact \Om = \Om = \Om \ract E$.
+Dan zijn\/ \EnvE\ en\/ $M(\EE)$ unitale algebra's van actoren.
+Bovendien is\/ $M(\EE)$ bevat in\/ \EnvE\ en isomorf met de multiplier algebra van $E$.
+Samengevat:
+$$ E \,\subseteq\, M(E)  \,\simeq\,    M(\EE) \,\subseteq\, \EnvE
+     \,\subseteq\, \ActE \,\subseteq\, \PreE. $$
+\end{lemma}
+
+
+\begin{ex} \rm
+Zij $S$ een niet-lege verzameling en $\CC S$ de vrije vectorruimte
+voortgebracht door $S$. Zij $F$ een separerende algebra van complexe functies
+\mbox{op $S$}\@.
+De natuurlijke dualiteit tussen $F$ en $\CC S$
+is gegeven door $\pair{f}{\delta_s} = f(s)$ waarbij $\{\delta_s\}_{s\in S}$
+de canonieke basis is van $\CC S$.
+Het triplet $\FF\equiv(F; \kk S, \pairing)$ is dan een \context,
+en ${\rm Act}(\FF) = {\rm Env}(\FF)$ is isomorf met de algebra van {\em alle\/}
+complexwaardige functies op $S$.
+\end{ex}
+
+
+\begin{defn} \rm
+Zij $E$ uitgerust met de zwakke topologie ge\"{\i}nduceerd door de
+dualiteit $\pair{E}{\Om}$ en definieer een deelruimte $\Om\adl$ van de
+duale van $\Om$ als volgt:
+$$ \Om\adl \;=\;
+     \left \{ f \in \Om' \left|
+          \begin{array}{c}
+            \mbox{zowel $\pair{f}{(\cdot) \lact \om}$
+                  als $\pair{f}{\om \ract (\cdot)}$ zijn zwak continue}   \\
+            \mbox{lineaire functionalen op $E$, en dit voor alle $\om\in \Om$}
+          \end{array} \right. \!\!\! \right\}.     $$
+\end{defn}
+
+
+\begin{prop} \label{prop:induced_actor}
+Er bestaat een unieke lineaire afbeelding
+$$\theta: \Om\adl \rarr \ActE: f \mapsto \theta(f)\equiv\lamrho{f} $$
+zodat voor alle\/ $x\in E$, $f \in \Om\adl$ en\/ $\om \in \Om$ geldt dat\/
+$$\pair{x}{\rho_f(\om)} = \pair{f}{x \lact \om}
+  \andspace{4em}
+  \pair{x}{\lam_f(\om)} = \pair{f}{\om \ract x}.$$
+\end{prop}
+
+
+\begin{defn}\label{def:EEinvertible} \rm
+Een lineaire functionaal $f:\Om\rarr \kk$ noemen we \EEdash {\em inverteerbaar\/} als
+hij voldoet aan de volgende eisen:
+\begin{enumerate}
+\item
+De functionaal $f$ behoort tot $\Om\adl$.
+\item
+De actor $\theta(f)\equiv\lamrho{f}$ is inverteerbaar binnen de algebra \PreE\@.
+De afbeeldingen $\lam_f$ en $\rho_f$ zijn m.a.w.\ bijecties van $\Om$ naar $\Om$.
+\item
+De pre-actor $\theta(f)^{-1}$ is weer een actor voor \EE, of nog,
+het paar $(\lam_f^{-1},\rho_f^{-1})$ voldoet opnieuw aan vergelijking (\ref{biap}).
+\end{enumerate}
+\end{defn}
+
+
+\begin{defn} \rm
+We noemen $\eps \in \Om'$ een {\em co-eenheid\/} voor \EE\ indien
+$$ \pair{\eps}{x\lact\om}    \;=\;  \pair{x}{\om}  \;=\;   \pair{\eps}{\om \ract x} $$
+voor alle $\om \in \Om$ en $x\in E$.
+Als er voor \EE\ zo een co-eenheid bestaat, en als bovendien
+$E \lact \Om = \Om = \Om \ract E$, dan noemen we de \context\ \EE\ {\em zwak unitaal}\@.
+In dat geval is de co-eenheid uniek.
+\end{defn}
+
+
+\begin{prop} \label{prop:theta:bijectie}
+Als\/ \EE\ zwak unitaal is, dan is de afbeelding\/ $\theta: \Om\adl \rarr \ActE$ een bijectie.
+\end{prop}
+
+\begin{cor}
+Als\/ \EE\ zwak unitaal is, dan kan de paring $\pair{E}{\Om}$ op natuurlijke
+wijze uitgebreid worden tot een paring tussen\/ \ActE\ en\/ $\Om$, als volgt:
+$$ \pair{\eps}{\lam(\om)} = \pair{a}{\om} = \pair{\eps}{\rho(\om)},
+           \hspace{2em} \mbox{of nog,} \hspace{2em}
+     \pair{\theta(f)}{\om} = \pair{f}{\om}  $$
+voor alle\/ $a\equiv(\lam,\rho)\in \ActE$, alle\/ $\om\in\Om$ en $f\in\Om\adl$.
+\end{cor}
+
+\begin{defn} \rm
+Beschouw twee actor contexten
+$$ \EEone \equiv (E_1; \Om_1,\pairing)
+         \andspace{3em}
+   \EEtwo \equiv (E_2; \Om_2,\pairing). $$
+Beschouw ook de voor de hand liggende paring tussen $E_1 \tens E_2$ en $\Om_1 \tens \Om_2$.
+Het is dan duidelijk dat
+$$\EEone \tens\, \EEtwo    \;\equiv\;
+          \left(E_1 \tens E_2; \:\Om_1 \tens \Om_2, \pairing\vertM\right)$$
+opnieuw een actor context definieert.
+\end{defn}
+
+
+\begin{lemma}
+$\;\EEone \tens\, \EEtwo$ is zwak unitaal als en slechts als\/ $\EEone$ en\/ $\EEtwo$
+beide zwak unitaal zijn.
+\end{lemma}
+
+
+
+
+\section{Hopf systemen}
+
+\begin{defn} \rm
+Zij \pairing\ een niet-ontaarde paring tussen twee algebra's $A$ en $B$\@.
+Als nu
+$$ \Aa \equiv (A; B, \pairing)   \andspace{3em}
+   \BB \equiv (B; A, \pairing) $$
+beide actor contexten zijn, of met andere woorden, als $A$ en $B$ invariant zijn onder
+elkaars canonieke acties, dan noemen we \pairAB\ een {\em duaal paar algebra's}\@.
+Interpreteer vervolgens de paring tussen $A$ en $B$ als een lineaire functionaal
+$$ P : A \tens B \rarr \kk: a \tens b \mapsto \pair{a}{b}. $$
+We zeggen nu dat zo een duaal paar algebra's \pairAB\ {\em inverteerbaar\/} is, wanneer $P$ als
+functionaal $(\BBAA)$-inverteerbaar is, in de zin van definitie \ref{def:EEinvertible},
+waarbij
+$$ \BBAA  \,\equiv\,  \left(\vertM  B \tens A; \, A \tens B, \pairing \right). $$
+\end{defn}
+
+
+In wat volgt zullen we steeds veronderstellen dat \pairAB\ een
+inverteerbaar duaal paar algebra's is.
+
+\begin{lemma}
+De actor contexten\/ $\Aa$ en\/ $\BB$ zijn zwak unitaal.
+\rm De co-eenheden op $A$ en $B$ noteren we met $\epsA$ en $\epsB$.
+\end{lemma}
+
+
+\begin{cor}
+Ook tensorproducten van $\Aa$ en\/ $\BB$, bijvoorbeeld\/ $\BBAA$, zijn zwak unitaal.
+Overeenkomstig propositie \ref{prop:theta:bijectie}\ kunnen we de paring\/ $P$ identificeren
+met de corresponderende actor:
+$$ P \,\simeq\, \theta(\pr) \,=\, (\lp\,,\rp).  $$
+\end{cor}
+
+
+Verder weten we dat de afbeeldingen\/ \lp\ en\/ \rp\ bijecties zijn van\/
+$A \tens B$ op\/ $A \tens B$, gegeven door
+$$ \begin{array}{rcl}
+   \pairM{d \tens c}{\lp(a \tens b)} &=& \pairM{a \ract d}{b \ract c}
+     \\
+     \pairM{d \tens c}{\rp(a \tens b)} &\vertL=& \pairM{d \lact a}{c \lact b}
+   \end{array} $$
+voor $a,c \in A$ en $b,d \in B$.
+
+Bovendien zal $P^{-1} = (\lp^{-1},\rp^{-1})$ opnieuw een actor zijn voor $\BBAA$.
+
+
+
+\begin{prop}
+Er bestaan unieke lineaire afbeeldingen
+$$ \begin{array}{lcl}
+   \DeltaA : A \rarr \Env(\AAAA)  & &  \pairM{\DeltaA(a)}{b \tens d} = \pair{a}{bd}
+   \\
+   &\hspace{2em} \mbox{\it  zodat} \hspace{2em}& \\
+   \DeltaB : B \rarr \Env(\BBBB)  & &  \pairM{a \tens c}{\DeltaB(b)} = \pair{ac}{b}
+   \end{array} $$
+voor alle\/ $a,c \in A$ en\/ $b,d \in B$.
+{\rm We noemen $\DeltaA$ en $\DeltaB$}\ co-vermenigvuldigingen.
+\end{prop}
+
+
+
+\begin{prop}
+Er bestaan unieke lineaire afbeeldingen
+$$ \SA : A \rarr \Env(\Aa)     \itandspace{4em}
+   \SB : B \rarr \Env(\BB). $$
+zodat
+$$ \pair{\SA(a)}{b} \:=\: \pair{P^{-1}}{a \tens b} \:=\: \pair{a}{\SB(b)}$$
+voor alle\/ $a \in A$ en\/ $b \in B$.
+{\rm We noemen $\SA$ en $\SB$} antipoden.
+\end{prop}
+
+Het is soms handig om de paring $\pair{B \tens A}{A \tens B}$ te schrijven als
+een paring van $A \tens B$ met zichzelf.
+Om verwarring te vermijden, zullen we deze laatste noteren met $\pairflip{\,\cdot}{\cdot\,}$,
+dit wil zeggen, voor $x,y \in A \tens B$ defini\"eren we $\pairflip{x}{y} = \pair{\flip(x)}{y}$.
+Hierbij is $\flip$ de flip $A \tens B \rarr B \tens A$.
+
+
+\begin{defn} \rm
+We noemen de paring $P$ {\em multiplicatief\/} indien
+$$ \pairM{ac}{bd} \:=\: \pairflipM{\rp(a \tens b)}{\lp(c\tens d)}$$
+voor alle $a,c \in A$ en $b,d \in B$.
+\end{defn}
+
+
+\begin{defn} \rm
+Een {\em Hopf systeem\/} is een inverteerbaar duaal paar algebra's met
+multiplicatieve paring, in de zin van bovenstaande definitie.
+\end{defn}
+
+
+\begin{prop}
+Als\/ \pairAB\ een Hopf systeem is, dan zijn zowel de co-eenheden als
+co-vermenigvuldigingen op\/ $A$ en\/ $B$ algebra homomorfismen.
+De antipoden zijn anti-homomorfismen.
+\end{prop}
+
+
+De volgende twee proposities tonen hoe multiplier Hopf algebra's passen binnen het
+kader van Hopf systemen:
+
+
+\begin{prop}
+Zij\/ $(A,\Delta)$ een willekeurige \mha\ en zij $A\reduced$ zijn
+gereduceerde duale---gedefinieerd als $A\reduced = A\lact A' \ract A$.
+Dan is $\pair{A}{A\reduced}$ een Hopf systeem.
+\end{prop}
+
+
+\begin{prop} \label{prop:AhatA:Hopf_system}
+Zij\/ $(A,\Delta)$ een reguliere \mha\ met niet-triviale invariante functionalen,
+en zij\/ $(\hat{A},\hat{\Delta})$ de duale \mha\ zoals gedefinieerd in \cite{Fons:AFGD}\@.
+Dan is $\pair{A}{\hat{A}}$ een Hopf systeem.
+\end{prop}
+
+Net zoals bij multiplier Hopf algebra's kan men ook voor Hopf systemen een notie
+van {\em regulariteit\/} defini\"eren en $^*$-{\em structuur\/} toevoegen.
+We gaan hieromtrent niet in detail.
+Wel vermelden we dat in het reguliere geval de antipoden $\SA$ en $\SB$
+{\em bijecties\/} zijn op $A$ en $B$ respectievelijk, en dat het duaal paar
+$\pair{A}{B\op}$ dan eveneens een Hopf systeem is.
+Zo is bijvoorbeeld het Hopf systeem uit de vorige propositie automatisch regulier.
+
+Hopf systemen afkomstig van reguliere multiplier Hopf algebra's met integralen,
+zoals in propositie \ref{prop:AhatA:Hopf_system}, nemen een zeer natuurlijke
+plaats in binnen het bredere kader van de Hopf systemen:
+
+
+\begin{defn} \rm
+We zeggen dat een Hopf systeem \pairAB\ een {\em multiplier\/} Hopf systeem is
+wanneer $P$ en $P^{-1}$ behoren\footnote{Zie lemma \ref{lem:algebras_van_actoren}\@.}\
+tot $M(B \tens A)$.
+\end{defn}
+
+
+\begin{thm} \label{thm:mhs}
+Hopf systemen zoals\/ $\pair{A}{\hat{A}}$ in propositie \ref{prop:AhatA:Hopf_system}\
+zijn reguliere multiplier Hopf systemen.
+Omgekeerd, als\/ \pairAB\ een regulier multiplier Hopf systeem is,
+dan zijn $(A,\DeltaA)$ en\/ $(B,\DeltaB)$ reguliere \mha's met invariante functionalen.
+Bovendien zal\/ $B\simeq \hat{A}$ en\/ $A\simeq \hat{B}$ in de zin van \cite{Fons:AFGD}\@.
+\end{thm}
+
+
+Als \pairAB\ een Hopf systeem is, dan beschikken we over een algebra morfisme
+$$ \piP : B \tens A \rarr \Pre(\BBAA): y \mapsto P y P^{-1}. $$
+
+\begin{defn} \rm
+We zeggen dat een Hopf systeem \pairAB\ {\em gebalanceerd\/} is indien
+$(B\tens A)P = P(B\tens A)$.
+In dat geval wordt $\piP$ dus een automorfisme van $B \tens A$.
+\end{defn}
+
+Zo is bijvoorbeeld elk multiplier Hopf systeem a fortiori gebalanceerd.
+
+Zij \pairAB\ een willekeurig gebalanceerd regulier Hopf systeem.
+We gaan nu voor zo een duaal paar een {\em quantum double\/} construeren:
+
+De afbeelding \mbox{$T=\rp\lp^{-1}\flip$}
+is een lineaire bijectie van $B \tens A$ op $A \tens B$.
+\mbox{Deze $T$}\ is bovendien een twist-afbeelding met betrekking tot de algebra's $A$ en $B\op$.
+Zij nu $X=A \ttens{T} B\op$ de corresponderende getwiste tensorproduct algebra,
+d.w.z.\ met vermenigvuldiging
+$\mult{X} = (\mult{A} \! \tens  \mult{B}\op)(\id \tens T \tens \id)$,
+en beschouw anderzijds ook de gewone tensorproduct algebra $Y=B\tens A$.
+Zij tenslotte de paring $\pair{X}{Y}$ gegeven door de gewone vectorruimte
+dualiteit tussen $A \tens B$ en $B \tens A$.
+
+\begin{thm}
+Zij\/ \pairAB\ een gebalanceerd regulier Hopf systeem.
+Dan is\/ $\pair{A \ttens{T} B\op}{B \tens A} \,\equiv\, \pair{X}{Y}$
+opnieuw een regulier Hopf systeem.\\
+Zij nu\/ $Q\equiv(\lQ\, ,\rQ)$ de actor voor\/ $\YY \tens \XX$, afgeleid van
+het duaal paar\/ $\pair{X}{Y}$. Dan zijn\/ $\lQ$ en\/ $\rQ$ gegeven door
+\begin{eqnarray*}
+\lQ &=& (\idX \tens \piP^{-1}) \, (\lp)_{13} \, (\idX \tens \piP) \, (\lpop)_{42}
+\\
+\rQ  &=& (\idX \tens \piP^{-1}) \, (\rpop)_{42} \, (\idX \tens \piP) \,  (\rp)_{13}
+\vertXL
+\end{eqnarray*}
+waarbij\/ $(\lpop,\rpop)$ de actor is voor\/ $\BB\op \tens\, \Aa$,
+afgeleid van het duaal paar\/ $\pair{A}{B\op}$.
+De \lq leg-numbering\rq\ notatie heeft betrekking op het tensorproduct\/
+$A \tens B \tens B \tens A$. \\
+Co-eenheden en antipoden zijn gegeven door
+$$\begin{array}{lcl}
+  \epsX = \epsA \tens \epsB   &\hspace{2em}&  \SX = T\flip(\SA \tens \SB^{-1})    \\
+  \epsY = \epsB \tens \epsA   &            &  \SY = (\SB \tens \SA^{-1})\, \piP. \vertL
+\end{array} $$
+\end{thm}
+
+\begin{prop} \label{prop:QD:rmhs}
+Als\/ \pairAB\ een regulier multiplier Hopf systeem is, dan is de quantum double\/
+$\pair{A \ttens{T} B\op}{B \tens A}$ weer een regulier multiplier Hopf systeem.
+\end{prop}
+
+Gecombineerd met theorema \ref{thm:mhs}\ levert de bovenstaande propositie ons een
+alternatief voor de quantum double constructie voor multiplier Hopf algebra's met
+integralen in \cite{FonsDra:QD}\@.
+
+
+
+\section{Harmonische analyse op kwantum $E(2)$}
+
+Op het Hopf $^*$-algebra niveau kan men de kwantum $E(2)$ groep beschrijven als
+een duaal paar Hopf $^*$-algebra's \UqAq\@. Hierbij dient men \Aq\ te
+beschouwen als een gekwantiseerde functie algebra, terwijl \Uq\ gezien moet
+worden als een gekwantiseerde universeel omhullende algebra van een Lie
+algebra. Als $^*$-algebra wordt \Uq\ gegenereerd door een zelftoegevoegd
+inverteerbaar element $a$ en een normaal element $b$, met de commutatieregel
+$ab = q \,ba$ voor een re\"eel getal $q$ met $0<q<1$. Analoog wordt \Aq\
+gegenereerd door een unitair element $\alpha$ en een normaal element $\beta$
+met $\alpha\beta = q\,\beta\alpha$.
+De co-vermenigvuldigingen op \Uq\ en \Aq\ zijn gegeven door
+$$ \begin{array}{lcl}
+   \Delta(a) = a \tens a
+&\hspace{5em}&
+   \Delta(\alpha) = \alpha \tens \alpha
+\\
+   \Delta(b) = a \tens b + b \tens a^{-1}
+&&
+   \Delta(\beta) = \alpha \tens \beta + \beta \tens \alpha^{-1}
+   \vertL
+\end{array} $$
+en de dualiteit tenslotte is gegeven door
+$$  \pairM{a^p b^r c^s}{\alpha^l \beta^m \gamma^n}
+        \;=\;
+    \delta_{r,m}\,  \delta_{s,n} \: q^{\frac{1}{2}p(l+m-n)} \,
+                         q^{\frac{1}{2}l(m+n)} \,\qfac{m}\, \qfac{n} $$
+waarbij $c=b^*$ en $\gamma=-q^{-1}\beta^*$. De $q$-faculteitsfunctie is hier gedefinieerd door
+$$  \qfac{m}  \:=\:  [1]_q [2]_q \ldots [m]_q
+                \hspace{5em} \qfac{0} = 1, $$
+waarbij
+$$  [m]_q  \:=\:  \frac{q^m - q^{-m}}{q - q^{-1}}.  $$
+Het probleem met deze twee Hopf algebra's \Aq\ en \Uq\ is echter dat ze geen
+Haar functionalen toelaten:
+op het Hopf algebra niveau werken we immers met {\em polynomiale\/} functies in de
+generatoren, daar waar we---om over Haar integralen te kunnen beschikken---eerder zoiets
+nodig hebben als functies die {\em naar nul gaan\/} op oneindig.
+De constructie van dit soort \lq integreerbare\rq\ functies in de generatoren
+vereist echter een meer geavanceerde calculus, die men op
+verscheidene manieren kan verkrijgen. E\'en methode bestaat erin eerst een representatie
+op een Hilbertruimte te construeren, om dan vervolgens operatorentheorie in te schakelen
+\cite{Fons:spectral_conditions,FonsWor:QE2,Wor:QE2,Wor:Affiliated,Wor:operatoreq}\@.
+Een andere mogelijkheid is een holomorfe calculus te ontwikkelen, gebaseerd op
+formele {\em machtreeksen}\@.
+Het is de tweede strategie die we zullen volgen om een precieze betekenis te
+geven aan uitdrukkingen zoals
+$$ \begin{array}{lcr}
+    f(\ln a)\, g(b^* b)\: b^m  &  \hspace{3em} \mbox{Fourier} \hspace{3em}&
+       \alpha^k  \gamma^n \:  h(\gamma^*\gamma) \\
+    f(\ln a)\, g(b^* b)\: c^m  &
+      \stackrel{\displaystyle \leftrightarrows}{\mbox{transformatie}} &
+           \alpha^k  (\gamma^*)^n  \: h(\gamma^*\gamma)
+   \end{array}$$
+\begin{equation}\label{eq:diagram:Fourier}
+\diacaption{Functies in de generatoren}
+\end{equation}
+waarbij $f$, $g$ en $h$ de gepaste functieruimten doorlopen.
+Op dergelijke elementen zijn de linkse Haar integralen dan gegeven door
+\begin{eqnarray*}
+  \varphi \!\left(  f(\ln a)\, g(b^* b)\: b^m  \vertM\right)
+     &=& \delta_{m,0} \!\!\! \sum_{\stackrel{\scriptstyle k,l\,\in\, \ZZ}{\scriptstyle k-l\: {\rm even}}}
+            f(k \theta) \, g(\tau q^l) \, q^{k+l}  \\
+  \omega \!\left(\alpha^k \gamma^n \:  h(\gamma^*\gamma)\vertM\right)
+           &=& \delta_{k,0}\:\delta_{n,0} \: \sum_{j\in\ZZ} \, h(\nu q^{2j})\, q^{2j},
+\end{eqnarray*}
+uiteraard op voorwaarde dat $f$, $g$ en $h$ aan bepaalde sommeerbaarheidscriteria voldoen.
+Hierbij zijn $\tau$ en $\nu$ willekeurige positieve getallen en
+\mbox{$\theta = -\frac{1}{2} \ln q$}\@.
+Deze Haar integralen zijn positief, trouw, {\sc kms}, etc.
+
+
+Onze hoofddoelstelling is nu de constructie van de {\em Fourier transformaties\/}
+die de elementen in de linkerkolom van diagram (\ref{eq:diagram:Fourier}) transformeren
+in lineaire combinaties van elementen in de rechterkolom en vice versa. Hoewel de volgende formule niet helemaal
+precies\footnote{Deze formule is niet volledig exact in die zin dat ze onvoldoende
+rekening houdt met de zogenaamde spectrale condities en de daarmee
+verbonden sommeerbaarheids\-voor\-waarden op $f$ en $g$.
+Het zou ons echter te ver voeren om hieromtrent in detail te gaan.}\
+is, geeft ze toch een goed idee van hoe zo'n Fourier transformatie er ongeveer uitziet:
+$$ \begin{array}{c}
+    f(\ln a)\, g(b^* b)\, b^m
+\\
+\downarrow\vertXL
+\\  \displaystyle
+    \sum_{k\in\ZZ} \:\: (-1)^m q^{-m} q^{\frac{1}{2}m(k-1)} (q^{-1}-q)^m \:
+       f(k \theta) \;  \alpha^{k+m} \, \gamma^m \;  h_{m,k}(\gamma^*\gamma).\vertXL
+\end{array}$$
+Hierbij is $h_{m,k}$ in essentie een $m$-de orde $q$-Hankel getransformeerde van $g$.
+Meer expliciet hebben we
+$$ h_{m,k}(\nu q^{2r})
+       \;=\; \sum_{n\in\ZZ} \: q^{2n} \, q^{m(n-r)}\, \J{m}{q^{n+r}} \, g(\tau q^{2n+k}) $$
+waarbij $\J{m}{\,\cdot\;}$ de Hahn-Exton \mbox{$q^2$-Bessel}\ functie is van orde $m$,
+gegeven door
+$$ \J{m}{z} \:=\; \sum_{k=0}^{\infty} \:  \frac{(-1)^k\,q^{k(k-1)}\,
+     q^{2k}\,(q^{2(k+m+1)}; q^2)_\infty}{(q^2;q^2)_\infty  \,(q^2;q^2)_k} \; z^{2k+m} $$
+met $(x;q^2)_k = \prod_{j=0}^{k-1} (1-q^{2j} x)$.
+
+Ruw gesproken komt deze kwantum $E(2)$ Fourier transformatie dus neer op
+een $q$-Hankel transformatie tussen de functies $g$ en $h$.
+Dit is al bij al niet z\'o verrassend, aangezien Hankel transformatie typisch verschijnt
+daar waar Fourier transformatie van het vlak wordt uitgedrukt in {\em pool\/}-co\"ordinaten;
+onze calculus in de generatoren $(b,c)$ vertoont inderdaad een soort {\em polaire\/}
+decompositie---idem voor de generatoren $(\beta,\gamma)$.
+
+
+Verder blijkt dat we alleen maar een echte Fourier transformatie verkrijgen
+als de parameters $q$, $\tau$ en $\nu$ op een welbepaalde manier
+aan elkaar gerelateerd zijn, namelijk
+$$   \tau = q^{-1}   \andspace{4em}   \nu = (q^{-1}-q)^{-2}. $$
+Vervolgens bewijzen we de {\em Plancherel\/} formules.
+Hierbij is het essentieel om het op het eerste zicht wat merkwaardige
+sommatie-bereik in de formule voor de Haar \mbox{functionaal $\varphi$} te
+gebruiken---anders zouden de Plancherel formules eenvoudigweg niet opgaan.
+Dit betekent dat $f\tens g$ in feite \lq leeft\rq\ op de verzameling
+$$ \left\{ \, (k \theta, \tau q^l)   \, \left|\vertM\right. \,
+            k,l\in \ZZ \mbox{ met } k-l \mbox{ even} \, \right\}  $$
+wat doet denken aan de {\em spectrale condities\/} in de \mbox{C$^*$}-algebra\"{\i}sche
+aanpak \cite{Wor:QE2}\@. Daarnaast suggereert dit ook dat het handiger en
+natuurlijker is om de functies $f$ en $g$ in een enkel object te verenigen,
+met andere woorden, om $f\tens g$ echt te beschouwen als \'e\'en functie in twee veranderlijken,
+veeleer dan twee functies in \'e\'en veranderlijke.
+
+Uiteindelijk kunnen we onze formules voor de Fourier transformatie gebruiken om
+expliciet de {\em dualiteit\/} uit te rekenen tussen \lq integreerbare\rq\ functies
+in de generatoren van {\em zowel\/} \Uq\ als \Aq\@.
+Zo hebben we bijvoorbeeld:
+\begin{eqnarray*}
+      \lefteqn{\pairM{\vertL f(\ln a)\, g(b^* b)\, b^m}{\alpha^l (\gamma^*)^n \,h(\gamma^*\gamma)}}
+\\
+&\vertXL=&
+      \delta_{m,n} \: (-1)^m \, q^{-m}\, q^{-\frac{1}{2}m(m+l+1)}\,
+                      (q^{-1}-q)^m \,  \nu^m \, q^{ml} \ldots
+\\
+&\vertXL&
+      \ldots  \sum_{r,k\in \ZZ}   q^{(m+2)(k+r)} \, \J{m}{q^{k+r}} \:
+              f(-m\theta-l\theta) \: g(\tau\, q^{2k-m-l})  \: h(\nu\, q^{2r+2l}).
+\end{eqnarray*}
+
+
+
+
+\newpage
+\include{biblio}
+\end{document}

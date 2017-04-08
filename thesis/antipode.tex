@@ -1,0 +1,140 @@
+\section{Antipodes}
+
+
+\begin{prop_sec}  \label{prop:antipodes:anti_homomorphisms}
+If\/ \pairAB\ is a Hopf system, then its antipodes
+$$ \SA : A \rarr \Env(\Aa)     \hspace{8em}    \SB : B \rarr \Env(\BB). $$
+are anti-homomorphisms.
+\end{prop_sec}
+
+\begin{proof}
+Take any $a,c\in A$ and $b\in B$ and write
+$\rp^{-1}(a \tens b) = \sum_i \, p_i \tens q_i$ with $p_i \in A$ and $q_i \in B$.
+Now observe that
+\begin{eqnarray*}
+      \pairM{\SA(a)\, \SA(c)}{b}
+&=&
+      \pairM{\SA(a)}{\SA(c) \lact b}
+\\&=&
+      \pairM{P^{-1}}{a \tens \left(\SA(c) \lact b\vertM\right)}
+\\&=&
+      \pairM{P^{-1} \left(1_\BB \tens \SA(c) \vertM\right)}{a \tens b}
+\\&=&
+      \pairM{1_\BB \tens \SA(c)}{\rp^{-1}(a \tens b)}
+\\&=&
+      \textstyle \sum_i \, \pairM{1_\BB}{p_i} \pairM{\SA(c)}{q_i}
+\\&=&
+      \textstyle \sum_i \, \pairM{1_\BB}{p_i} \pairM{P^{-1}}{c \tens q_i}
+\\&=&
+      \textstyle \sum_i \,
+      \pairM{1_\BB \tens 1_\BB \tens 1_\Aa}{
+             (\rp^{-1})_{13} (c \tens p_i \tens  q_i)}
+\\&=&
+      \pairM{1_\BB \tens 1_\BB \tens 1_\Aa}{
+             (\rp^{-1})_{13} (\rp^{-1})_{23} (c \tens a \tens b)}
+\\&\stackrel{(*)}{=}&
+      \pairM{1_\BB \tens 1_\Aa}{
+             (\mult{A} \tens \id) (\rp^{-1})_{13} (\rp^{-1})_{23} (c \tens a \tens b)}
+\\&\stackrel{(\sharp)}{=}&
+      \pairM{1_\BB \tens 1_\Aa}{ \rp^{-1} (\mult{A} \tens \id) (c \tens a \tens b)}
+\\&=&
+      \pairM{P^{-1}}{ca \tens b}
+\\&=&
+      \pairM{\SA(ca)}{b}.
+\end{eqnarray*}
+Observe how $(*)$ relies on $\epsA \simeq 1_\BB$ being a homomorphism
+(proposition \ref{prop:counits_homomorphism}).
+Proposition \ref{prop:twistings:lprp}.ii implies (\ref{eq:lemmma:twisting2}) with $R=\rp$.
+This yields $(\sharp)$.
+\end{proof}
+
+
+
+
+
+\begin{lemma_sec} \label{lem:unital_over_range_S}
+If\/ \pairAB\ is a Hopf system,
+then\/ $\SB(B) \lact A = A = A \ract \SB(B)$.
+In other words, $A$ is unital as an\/ $\SB(B)$-bimodule
+\rm (recall that $\SB(B)$ is a subalgebra of $\Env(\BB)$ because of
+     proposition \ref{prop:antipodes:anti_homomorphisms}).
+\end{lemma_sec}
+\begin{proof}
+Choose any $a \in A$ and $d \in B$.
+Also take $c \in A$ and $b \in B$ with $\pair{c}{b}=1$, and write
+$\lp(a \tens b) = \sum_i \, p_i \tens q_i$ with $p_i \in A$ and $q_i \in B$.
+Then we have
+\begin{eqnarray*}
+      \pair{a}{d}
+&=&
+      \pairM{d \tens c}{a \tens b}
+\\&=&
+      \textstyle \sum_i \,  \pairM{d \tens c}{\lp^{-1}(p_i \tens q_i)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{P^{-1}}{(p_i \tens q_i) \ract (d \tens c)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i \ract d}{\SB(q_i \ract c)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{p_i}{d\, \SB(q_i \ract c)}
+\\&=&
+      \textstyle \sum_i \,  \pairM{\SB(q_i \ract c) \lact p_i}{d}
+\end{eqnarray*}
+and hence $a = \sum_i \, \SB(q_i \ract c) \lact p_i$. The other case is similar.
+\end{proof}
+\vspace{2ex}
+
+
+Recall that $\SA(A)$ is a subspace of $B'$ (cf.\ definition \ref{def:antipode}).
+On the other hand $B'$ is a $B$-bimodule under canonical actions
+(\S \ref{sect:def_act_context}) so the following makes sense:
+
+\begin{lemma_sec}
+Let\/ \pairAB\ be a Hopf system. Then\/ $\SA(A)$ is a sub-$B$-bimodule of\/ $B'$.
+In fact we have for any\/ $a \in A$ and\/ $b \in B$ that
+\begin{equation} \label{eq:lemma:antipode_and_actions}
+  \SA(a) \ract b  \:=\:  \SA\left(\vertM  \SB(b) \lact a\right).
+\end{equation}
+\end{lemma_sec}
+
+\begin{proof}
+Anti-multiplicativity of\/ $\SB$ yields that for any $a \in A$ and $b,d \in B$
+\begin{eqnarray*}
+      \pairM{\SA(a) \ract b}{d}
+  &=&
+      \pairM{\SA(a)}{bd}
+\\&=&
+      \pairM{a}{\SB(bd)}
+\\&=&
+      \pairM{a}{\SB(d)\,\SB(b)}
+\\&=&
+      \pairM{\SB(b) \lact a}{\SB(d)}
+\\&=&
+      \pairM{\SA\left(\vertM  \SB(b) \lact a\right)}{d}
+\end{eqnarray*}
+and (\ref{eq:lemma:antipode_and_actions}) follows.
+Similarly for the {\em left\/} actions of $B$ on $\SA(A)$.
+%%%%%%%%%%%%
+% It's instructive to notice that
+% most of the above actually takes place within the the enveloping \context\
+% $\tilde{\BB} \equiv \left(\vertM \Env(\BB); A,\pairing  \right)$
+% as introduced in proposition \ref{prop:def:enveloping_context}\@.
+%%%%%%%%%%%%%%
+\end{proof}
+
+
+\begin{cor_sec}  \label{cor:antipode_and_counit}
+Let\/ \pairAB\ be a Hopf system.
+If we assume that\/ $\SA(A) \subseteq A$, then\/ $\epsA \SA = \epsA$.
+Similarly, $\SB(B) \subseteq B$ implies\/ $\epsB \SB = \epsB$.
+\end{cor_sec}
+
+\begin{proof}
+Assume $\SA(A) \subseteq A$.
+Then we may apply $\epsA$ to (\ref{eq:lemma:antipode_and_actions}), yielding
+$$ \epsA \SA \left(\vertM  \SB(b) \lact a\right)
+     \:=\:  \pairM{\SA(a)}{b}
+     \:=\:  \pairM{a}{\SB(b)}
+     \:=\:  \epsA \left(\vertM \SB(b) \lact a \right).   $$
+According to lemma \ref{lem:unital_over_range_S}\ we have $\SB(B) \lact A = A$,
+so the result follows.
+\end{proof}

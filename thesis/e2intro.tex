@@ -1,0 +1,167 @@
+
+\paragraph{Conventions}
+Throughout this chapter and the next one, $q$ denotes a fixed real number
+with \mbox{$0<q<1$}.
+Furthermore, let us agree that comultiplications, counits and antipodes
+will always be denoted by $\Delta$, $\eps$ and $S$, respectively.
+
+
+\section{Introduction}
+\label{par:E2:introduction}
+
+
+\begin{abs_chp}
+We recall the description of the quantum $E(2)$ group and its Pontryagin dual
+on the Hopf $^*$-algebra level. In particular we introduce a dual pair \UqAq\
+of Hopf $^*$-algebras \cite{Koelink:thesis,Koelink:QE2,FonsWor:QE2,Wor:Affiliated}\@.
+Furthermore we introduce the operators $\Gamma,\Phi,\Omega,\Psi$ which will
+be used throughout chapters
+\ref{chapter:Fourier_context_for_quantumE2}\ and
+\ref{chapter:Harmonic_analysis_on_quantumE2}\@.
+\end{abs_chp}
+
+
+\subsection{Introducing two Hopf $^*$-algebras}
+
+Let \Aq\ be the algebra with unit $1$, generators $\alpha,\beta,\gamma,\delta$
+and relations $$ \alpha\beta = q\,\beta\alpha     \hspace{3em}
+   \alpha\gamma = q\,\gamma\alpha   \hspace{3em}
+   \beta\delta = q\,\delta\beta     \hspace{3em}
+   \gamma\delta = q\,\delta\gamma   \hspace{3em}
+   \beta\gamma = \gamma\beta $$
+$$   \alpha\delta = 1 = \delta\alpha.  $$
+We make \Aq\ into a $^*$-algebra as follows:
+$$ \begin{array}{lcl}
+     \alpha^* = \delta   &\hspace{1em} & \beta^* = -q\,\gamma \\
+     \gamma^* = -q^{-1} \beta  & & \delta^* = \alpha
+   \end{array}$$
+In other words, $\alpha$ is unitary whereas $\beta$ is normal.
+Eventually \Aq\ is made into a Hopf $^*$-algebra by defining $\Delta, \eps$ and $S$
+on the generators:
+$$ \begin{array}{lcl}
+   \Delta(\alpha) = \alpha \tens \alpha & \hspace{5em} &
+                       \Delta(\beta) = \alpha \tens \beta + \beta \tens \delta  \\
+   \Delta(\gamma) = \gamma \tens \alpha + \delta \tens \gamma & &
+                       \Delta(\delta) = \delta \tens \delta
+\end{array} $$
+$$ \begin{array}{lclclcl}
+  \eps(\alpha) = 1 & & \eps(\beta) = 0  &\hspace{6em} &
+                S(\alpha) = \delta  & &  S(\beta) = -q^{-1} \beta \\
+  \eps(\gamma) = 0 & & \eps(\delta) = 1 & &
+                S(\gamma) = -q\,\gamma & & S(\delta) = \alpha
+\end{array}$$
+
+Next, let \Uq\ be the algebra with unit $1$, generators $a,b,c,d$
+and relations
+\begin{equation}\label{eq:relations:Uq}
+   ab = q \,ba   \hspace{3em}
+   ac = q^{-1}ca \hspace{3em}
+   bc = cb       \hspace{3em}
+   ad = 1 = da   \hspace{1em}
+\end{equation}
+Notice $bc$ is central in \Uq\@. The $^*$-structure on \Uq\ is
+given by
+$$ \begin{array}{lcl}
+     a^* = a  & \; & b^* = c \\
+     c^* = b  &    & d^* = d
+   \end{array} $$
+Now also \Uq\ becomes a Hopf $^*$-algebra by defining
+$$ \begin{array}{lcl}
+  \Delta(a) = a \tens a  &\hspace{5em} & \Delta(b) = a \tens b + b \tens d \\
+  \Delta(c) = a \tens c + c \tens d   &  & \Delta(d) = d \tens d
+  \end{array}  $$
+$$ \begin{array}{lclclcl}
+  \eps(a) = 1 & &  \eps(b) = 0 & \hspace{6em} & S(a) = d & & S(b) = -q^{-1}b \\
+  \eps(c) = 0 & &  \eps(d) = 1 &  & S(c) = -q\,c & & S(d) = a
+\end{array} $$
+
+It is not difficult to show that \Aq\ and \Uq\ are indeed
+Hopf $^*$-algebras. In \cite{Koelink:thesis,Koelink:QE2}\ \Aq\ was
+denoted by $\Aq(\widetilde{M}(2))$ and $\Uq$ by $\Uq(\mathfrak{m}(2))$. Since
+we are dealing with these two Hopf $^*$-algebras
+exclusively, we prefer the shorthand form.
+
+
+\subsection{The pairing}
+We want the pairing \UqAq\ to take the following values on the generators:
+\begin{equation}\label{eq:pairing:generators}
+  \begin{array}{c}
+   \begin{array}{lclcl}
+     \pair{a}{\alpha} = q^\frac{1}{2} & \hspace{1em} & \pair{a}{\delta}= q^{-\frac{1}{2}} &
+                           \hspace{1em}  & \pair{b}{\beta} = 1 \\
+     \pair{c}{\gamma} = 1  &  & \pair{d}{\alpha} =q^{-\frac{1}{2}}&
+                                   & \pair{d}{\delta} = q^\frac{1}{2}
+   \end{array} \\
+   \pair{x}{\xi} =0 \vertXL\; \mbox{ for other choices $x, \xi$ of generators.}
+ \end{array}
+\end{equation}
+Observe that
+$\{\alpha^l \beta^m \gamma^n \mid l \in \ZZ;\, m,n \in \NN \}$ is
+a basis for the linear space \Aq\ whereas
+$\{ a^p b^r c^s \mid p \in \ZZ;\, r,s \in \NN \}$
+is a basis for \Uq\@. Of course we assume $\alpha^{-n} = \delta^n$
+and $a^{-n} = d^n$ for $n \in \NN$. In \cite{Koelink:thesis,Koelink:QE2}\
+H. T. Koelink calculated the full pairing on these basis elements;
+we turn his result into a definition:
+
+
+\begin{defn}
+Let $\pairing : \Uq \times \Aq \rarr \kk$ be the bilinear form such that
+\begin{equation} \label{eq:fullpairing}
+ \pair{a^p b^r c^s}{\alpha^l \beta^m \gamma^n}
+      \:=\: \delta_{r,m}\,  \delta_{s,n} \, q^{\frac{1}{2}p(l+m-n)} \,
+                         q^{\frac{1}{2}l(m+n)} \,\qfac{m}\, \qfac{n}
+\end{equation}
+for all $p,l \in \ZZ$ and $m,n,r,s \in \NN$.
+For the $q$-factorials, see appendix \ref{app:qcalc}\@.
+\end{defn}
+
+
+\begin{prop} \label{prop:dual_pair}
+The pairing defined in (\ref{eq:fullpairing}) is non-degenerate,
+it makes \UqAq\ into a duality of Hopf $^*$-algebras and
+specializes to (\ref{eq:pairing:generators}) on generators.
+\end{prop}
+\begin{proof}
+See \cite{Koelink:thesis,Koelink:QE2,Fons:DPHA}\@.
+\end{proof}
+
+
+\subsection{Introducing shift \& multiplication operators}
+\label{par:introducing_shift_and_multiplication_operators}
+
+
+Throughout the remainder of this text we set \mbox{$\theta = -\frac{1}{2} \ln q$}\@.
+Since $0<q<1$ we have $\theta>0$, and $e^{-\theta} = q^\frac{1}{2}$.
+Let \FZ\ be the $^*$-algebra of all complex functions on
+$\Zt = \{ k \theta \mid k\in \ZZ \} \subseteq \RR$,
+with pointwise operations.
+
+\begin{defn}
+We define two linear mappings
+$\Gamma, \Phi : \FZ \rarr \FZ$ by
+$$  (\Gamma f)(x) = f(x-\theta)     \andspace{4em}     (\Phi f)(x) = e^x f(x) $$
+for $f\in \FZ$ and $x\in \Zt$.
+\end{defn}
+
+Obviously $\Gamma$ and $\Phi$ are bijective, which will allow us occasionally
+to write powers $\Gamma^k$ or $\Phi^k$ for any $k\in\ZZ$.
+Actually $\Gamma$ is a $^*$-isomorphism, and the commutation rule
+$\Gamma \Phi = q^\frac{1}{2} \, \Phi \Gamma$ is easily verified.
+\vspace{2ex}
+
+Now recall the $^*$-algebra \HC\ of entire functions (\S \ref{sec:conventions}).
+Again we introduce two linear operators, $\Omega$ and $\Psi$,
+which play a role similar to $\Gamma$ and $\Phi$ above:
+
+\begin{defn}
+Let $\Omega,\Psi : \HC \rarr \HC$ be defined by
+$$(\Omega g)(z) = g(qz)       \andspace{4em}      (\Psi g)(z) = z\, g(z) $$
+For $g\in\HC$ and $z\in\CC$.
+\end{defn}
+
+Here $\Omega$ is a bijection, but $\Psi$ is not, so one should be aware not
+to take {\em negative powers\/} of $\Psi$.
+Since $q$ is real, $\Omega$ is a $^*$-isomorphism.
+Notice that $\Omega\Psi = q\, \Psi\Omega$ involves a factor $q$,
+whereas the $\Gamma,\Phi$ commutation rule involved $q^\frac{1}{2}$.

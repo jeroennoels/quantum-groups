@@ -1,0 +1,274 @@
+
+\subsection{Construction of a quantum double}
+\label{par:construction_qdouble}
+
+Throughout this section we shall adopt the following
+
+\begin{setting}\label{setting:qdouble} \rm
+Let \pairAB\ be a balanced regular Hopf system.
+Let $R$ be the bijective linear map from $A \tens B$ onto $A \tens B$
+given by \mbox{$R=\rp\lp^{-1}\!$}\@.
+Recall that $T=R\flip$ is an $(A,B\op)$-twisting (corollary \ref{cor:twist_map_QD})
+and let $X=A \ttens{T} B\op$ be the corresponding twisted tensor product algebra
+as defined in \mbox{proposition \ref{prop:twisted_tensorproduct}}\@.
+\mbox{Let $\star$ denote}\ the product in $X$.
+Explicitly, for $a,c \in A$ and $b,d \in B$ we have
+$$ (a \tens b) \star (c \tens d)
+     \:=\: (\mult{A} \! \tens  \mult{B}\op)(\id \tens T \tens \id) (a \tens b \tens c \tens d)
+     \:=\: (a\tens d)R(c \tens b).  $$
+On the other hand, let $Y=B\tens A$ be the ordinary tensor product algebra,
+and consider the pairing $\pair{X}{Y}$ given by the obvious vector space
+duality between $A \tens B$ and $B \tens A$.
+Since \pairAB\ is assumed to be {\em balanced}, we have an auto\-morphism
+$\piP: Y  \rarr Y : y \mapsto P y P^{-1}$ which is dual to $R$ in the sense that
+$$\pairM{x}{\piP(y)}
+    \:=\:  \pairM{x}{P y P^{-1}}
+    \:=\:  \pairM{\rp\lp^{-1}(x)}{y}
+    \:=\:  \pairM{R(x)}{y}$$
+for all $x \in X$ and $y \in Y$. It follows that
+\begin{eqnarray}
+\alpha &=& (\idX \tens \piP^{-1}) \, (\lp)_{13} \, (\idX \tens \piP) \, (\lpop)_{42}
+\label{eq:QD:alpha} \\
+\beta  &=& (\idX \tens \piP^{-1}) \, (\rpop)_{42} \, (\idX \tens \piP) \,  (\rp)_{13}
+\vertXL
+\label{eq:QD:beta}
+\end{eqnarray}
+are linear bijections from $X\tens Y$ onto $X\tens Y$.
+Here the leg-numbering notation is to be considered w.r.t.\ $A \tens B \tens B \tens A$.
+\hfill $\bullet$
+\end{setting}
+
+
+Our strategy will be the following: we want to use lemma \ref{lem:from_dpa_to_invertible_dpa}\
+to show that $\pair{X}{Y}$ is indeed an \idpa\@. So first we shall verify the
+conditions of this lemma. Then we shall prove multiplicativity and regularity.
+\vspace{2ex}
+
+Since $X=A \ttens{T} B\op$ is an algebra, it acts canonically on its dual $X'$.
+To avoid confusion with the actions $\lact$ and $\ract$ of the ordinary tensor product algebra
+$A\tens B$, we shall denote the former ones by $\ltact$ and $\rtact$.
+The question arises whether
+\begin{equation}\label{eq:QD:def:XXYY}
+   \XX  \,\equiv\,  \left(X; Y, \pairing \vertM\right)  \andspace{3em}
+   \YY  \,\equiv\,  \left(Y; X, \pairing \vertM\right)
+\end{equation}
+are \contexts\@. For the second one, the answer is obvious since $\YY = \BBAA$.
+Moreover $\Aa$ and $\BB$ are known to be weakly unital, hence so is $\YY$.
+The counit for $\YY$ is given by $\epsX = \epsA \tens \epsB$.
+Now let us investigate the actions of $X$ on $Y$:
+
+\begin{lemma} \label{lem:QD:formulas:twisted_actions}
+Adopt setting \ref{setting:qdouble}\@.
+For all\/ $x \in X$ and\/ $y \in Y$ we have
+\begin{eqnarray}
+x \ltact y  &=&  (\epsX \tens \idY)\, \alpha(x \tens y)
+\label{eq:QD:left_twisted_action}  \\
+y \rtact x  &=&  (\epsX \tens \idY)\,  \beta(x \tens y).
+\label{eq:QD:right_twisted_action}
+\end{eqnarray}
+\end{lemma}
+
+\begin{proof}
+Take any $a,c,p \in A$ and $b,d,q \in B$. Straightforward computations show that
+$(\id \tens \epsB) \lpop(c \tens b) = c \ract b$ and $(\epsA \tens \id) \lp = \muL$,
+where $\muL: A \tens B \rarr B $ denotes the left action $\lact$ of $A$ on $B$.
+Now write $R^{-1}(p\tens q) = \sum_i v_i\tens w_i$ with $v_i \in A$ and $w_i \in B$,
+and observe that
+\begin{eqnarray*}
+\lefteqn{\pairM{p\tens q}{(\epsX \tens \idY)\, \alpha(a \tens b  \tens d \tens c)}}
+\\&\stackrel{(\ref{eq:QD:alpha})}{=}&
+\pairM{R^{-1}(p\tens q)}{(\epsA \tens \epsB \tens \idY)\,
+         (\lp)_{13} \, (\idX \tens \piP) \, (\lpop)_{42}\, (a \tens b \tens d \tens c)}
+\\&=&
+\textstyle \sum_i \:
+\pairM{v_i \tens w_i}{(\muL \tens \idA)(\idA \tens \piP)
+                  \left(a \tens d \tens (c \ract b) \vertM\right)}
+\\&=&
+\textstyle \sum_i \:
+\pairM{v_i a \tens w_i}{\piP \! \left(d \tens (c \ract b) \vertM\right)}
+\\&=&
+\textstyle \sum_i \:
+\pairM{R(\mult{A} \tens \id) (v_i \tens  a \tens w_i)}{d \tens (c \ract b)}
+\\&\stackrel{(\ref{eq:lemmma:twisting2})}{=}&
+\textstyle \sum_i \:
+\pairM{(\mult{A} \tens \id) R_{23} R_{13} (v_i \tens  a \tens w_i)}{d \tens (c \ract b)}
+\\&=&
+\pairM{(\mult{A} \tens \id) R_{23} (p \tens a \tens q)}{d \tens (c \ract b)}
+\\&=&
+\pairM{(p\tens b)R(a \tens q)}{d \tens c}
+\\&=&
+\pairM{(p\tens q) \star (a \tens b)}{d \tens c}
+\\&=&
+\pairM{p\tens q}{(a \tens b) \ltact (d \tens c)}.
+\end{eqnarray*}
+This proves (\ref{eq:QD:left_twisted_action}).
+The second formula is shown analogously.
+\end{proof}
+
+
+\begin{cor} \label{cor:QD:X_acts_on_Y:unital}
+$X \ltact Y = Y = Y \rtact X$.
+\end{cor}
+
+
+
+\begin{lemma}
+Let\/ \pairAB\ be a regular Hopf system. For any\/ $y \in B \tens A$, the elements\/
+$P^{-1}y, \, yP^{-1} \in \Act(\BBAA)$
+can also be viewed as elements in\/ $B \fubtens A$. Applying the slice map\/
+$\,\id \, \overline{\tens \, \epsA\!}\, : B \fubtens A \rarr \overline{B}\equiv A'$
+(cf.\ remark \ref{rem:fubtens_of_maps}.iii) we get
+\begin{equation}\label{eq:QD:lemma:id_tens_eps:yPinv}
+ (\id \, \overline{\tens \, \epsA\!}\,)(yP^{-1})
+     \:=\:  (\id \tens \epsA)(y)
+     \:=\:  (\id \, \overline{\tens \, \epsA\!}\,)(P^{-1}y),
+\end{equation}
+which means that
+$$ \epsA (f_a \fubtens \id) (yP^{-1})
+      \:=\: \epsA (f_a \tens \id)(y)
+      \:=\: \epsA (f_a \fubtens \id) (P^{-1}y) $$
+for all\/ $a\in A$.
+\rm Here $f_a$ denotes the functional $\pairdot{a}$ on $B$.
+See also (\ref{eq:def:functional_fubtens_id}).
+\end{lemma}
+
+\begin{proof}
+Take any $a,c \in A$ and $b,d \in B$ and observe that
+$$ \pairM{(d \tens c)P^{-1}}{a \tens b}
+      \:=\:
+   \pairM{P^{-1}}{(a \ract d) \tens (b \ract c)}
+      \:=\,
+   \left\{ \begin{array}{l}
+   \!\!  \pair{c\, \SA(a \ract d)}{b} \\
+   \!\!  \pair{a}{d\, \SB(b \ract c)}. \vertXL
+   \end{array}\right.  $$
+It follows that $(d \tens c)P^{-1}$ belongs to $B \fubtens A$ and
+$$ (f_a \fubtens \id) \left( (d \tens c) P^{-1} \vertM\right) \:=\: c\, \SA(a \ract d).$$
+Now apply $\epsA$ and invoke proposition \ref{prop:counits_homomorphism}\
+and corollary \ref{cor:antipode_and_counit}\@. This yields
+$$ \epsA (f_a \fubtens \id) \left( (d \tens c) P^{-1} \vertM\right)
+    \:=\: \epsA(c) \, \epsA\! \left(\SA(a \ract d)\vertM\right)
+    \:=\: \epsA(c) \, \pair{a}{d}. $$
+The other case is similar.
+\end{proof}
+
+
+
+\begin{lemma} \label{lemma:QD:id_tens_eps:piP}
+Adopt setting \ref{setting:qdouble}\ and recall\/ $\piP(B\tens A) = B\tens A$. We have
+$$(\id \tens \epsA)\, \piP  \:=\:  \id \tens \epsA
+         \itandspace{3em}
+  (\epsB \tens \id)\, \piP  \:=\:  \epsB \tens \id $$
+and hence\/ $(\epsB \tens \epsA)\, \piP  \:=\: \epsB \tens \epsA$.
+\end{lemma}
+
+\begin{proof}
+Take $y \in B \tens A$. Using (\ref{eq:QD:lemma:id_tens_eps:yPinv}) twice, we obtain
+$$    (\id \tens \epsA) \, \piP(y)
+\:=\:
+      (\id \, \overline{\tens \, \epsA\!}\,) \left(P^{-1} (P y P^{-1}) \vertM\right)
+\:=\:
+      (\id \, \overline{\tens \, \epsA\!}\,) (y P^{-1})
+\:=\:
+      (\id \tens \epsA)(y). $$
+The other case is similar.
+\end{proof}
+
+
+
+\begin{cor} \label{cor:QD:epsX_tens_epsY:alpha}
+Defining\/ $\epsY = \epsB \tens \epsA$, we have for all\/ $x \in X$ and\/ $y \in Y$:
+\begin{equation}\label{eq:QD:epsX_tens_epsY:alpha}
+ (\epsX \tens \epsY) \, \alpha (x \tens y) \:=\: \pair{x}{y}
+      \:=\: (\epsX \tens \epsY) \, \beta (x \tens y).
+\end{equation}
+\end{cor}
+
+\begin{proof}
+Consider (\ref{eq:QD:alpha}) and (\ref{eq:QD:beta}),
+apply $\epsA \tens \epsB \tens \epsB \tens \epsA$ and recall that e.g.\
+$(\epsA \tens \epsB)\lp(a\tens b) = \pair{a}{b}$ etc.\
+(cf.\ equation (\ref{eq:pairing_with_act}) in \S \ref{par:weakly_unital_contexts}).
+Lemma \ref{lemma:QD:id_tens_eps:piP}\ helps us to get rid of the $\piP$ maps,
+and the result follows.
+\end{proof}
+
+
+
+\begin{prop} \label{prop:QD:dpa}
+Adopt setting \ref{setting:qdouble}\@.
+Then the triplets\/ $\XX$ and\/ $\YY$ defined in (\ref{eq:QD:def:XXYY})
+are both weakly unital \contexts, with counits\/ $\epsY = \epsB \tens \epsA$
+and\/ $\epsX = \epsA \tens \epsB$.
+In particular\/ $\pair{X}{Y}$ is a \dpa\ (example \ref{exC:introduction}).
+\end{prop}
+\begin{proof}
+For $\YY$ the result has already been obtained
+(cf.\ before lemma \ref{lem:QD:formulas:twisted_actions}).
+Corollary \ref{cor:QD:X_acts_on_Y:unital}\ yields that also $\XX$ is an \context,
+and moreover that $Y$ is unital as an $X$-bimodule.
+Combining (\ref{eq:QD:epsX_tens_epsY:alpha}) with (\ref{eq:QD:left_twisted_action})
+and (\ref{eq:QD:right_twisted_action}), we may conclude that
+$\epsY = \epsB \tens \epsA$ is indeed a counit for $\XX$.
+\end{proof}
+
+
+\begin{lemma}  \label{lem:QD:module_prop_alphabeta}
+For any\/ $y\in Y$, the mapping\/ $\alpha$ defined in (\ref{eq:QD:alpha}) commutes with
+$( \,\cdot \,\ract y) \tens \idY$.
+Similarly\/ $\beta$ will commute with $(y \lact \,\cdot \,) \tens \idY$.
+\end{lemma}
+
+\begin{proof}
+Straightforward; use the module properties of $\lp\,$, $\rp$, $\lpop$ and $\rpop$
+in the sense of lemma \ref{lem:action_of_xtens1}\@.
+\end{proof}
+
+
+
+\begin{lemma}  \label{lem:QD:antipode}
+Adopt setting \ref{setting:qdouble}\@. For any\/ $x \in X$ and\/ $y \in Y$ we have
+\begin{equation}\label{eq:QD:epsX_tens_epsY:alpha_inverse}
+ (\epsX \tens \epsY) \, \alpha^{-1} (x \tens y)
+      \:=\: \pairM{R(\SA \tens \SB\op)(x)}{y}
+      \:=\: (\epsX \tens \epsY) \, \beta^{-1} (x \tens y).
+\hspace{0.5em}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+This is very much like the proof of corollary \ref{cor:QD:epsX_tens_epsY:alpha}\@.
+First take inverses of (\ref{eq:QD:alpha}) and (\ref{eq:QD:beta}).
+Then apply $\epsA \tens \epsB \tens \epsB \tens \epsA$ and recall that e.g.\
+$$ (\epsA \tens \epsB)(\lpop)^{-1}(a \tens b)
+       \:=\:  \pairM{(P\op)^{-1}}{a \tens b}
+       \:=\:  \pairM{a}{\SB\op(b)} $$
+etc. Using lemma \ref{lemma:QD:id_tens_eps:piP}, the result follows easily.
+\end{proof}
+
+
+\begin{prop} \label{prop:qdouble_is_idpa}
+Adopt setting \ref{setting:qdouble}\@. Then\/ $\pair{X}{Y}$ is an \idpa\@.
+If\/ $Q\equiv(\lQ\, ,\rQ)$ denotes the actor for\/ $\YY \tens \XX$
+corresponding to the functional\/ $X \tens Y \rarr \CC : x \tens y \mapsto \pair{x}{y}$,
+then\/ $\lQ=\alpha$ and\/ $\rQ=\beta$.
+\end{prop}
+
+\begin{proof}
+Recall proposition \ref{prop:QD:dpa},
+equations (\ref{eq:QD:left_twisted_action}) and (\ref{eq:QD:right_twisted_action}),
+lemma \ref{lem:QD:module_prop_alphabeta}\ and equation
+(\ref{eq:QD:epsX_tens_epsY:alpha_inverse}).
+Now invoke lemma  \ref{lem:from_dpa_to_invertible_dpa}\@.
+\end{proof}
+
+
+\begin{notation}\label{not:QD:pairing:Q} \rm
+There are now {\em two\/} invertible dual pairs involved: \pairAB\ and $\pair{X}{Y}$.
+Therefore we must be careful with the notation. As before, $P$ will denote the
+actor for $\BBAA$ induced by the pairing in \pairAB\@.
+To avoid conflicts, the actor for $\YY \tens \XX$ derived from the pairing in $\pair{X}{Y}$
+will be denoted by $Q$ as in the previous proposition.
+Furthermore the mappings $\alpha$ and $\beta$ defined in (\ref{eq:QD:alpha})
+and (\ref{eq:QD:beta}) shall henceforth be denoted by $\lQ$ and $\rQ$ respectively.
+\end{notation}
